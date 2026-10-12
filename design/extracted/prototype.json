@@ -1,0 +1,2589 @@
+{
+  "schema": "homi-prototype/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\", page \"02 · Screens & Prototype\"",
+  "flows": [
+    {
+      "name": "1 · Homi Hauptflow (Home)",
+      "startingBoard": "01 Home",
+      "startingBoardSlug": "01-home",
+      "startingBoardId": "89a7272c-a1ac-80ae-8008-c7970a052a7a"
+    },
+    {
+      "name": "2 · Artikel erfassen",
+      "startingBoard": "06 Neuer Artikel – leer",
+      "startingBoardSlug": "06-neuer-artikel-leer",
+      "startingBoardId": "89a7272c-a1ac-80ae-8008-c797157abe1c"
+    },
+    {
+      "name": "3 · Chat",
+      "startingBoard": "04 Chats",
+      "startingBoardSlug": "04-chats",
+      "startingBoardId": "89a7272c-a1ac-80ae-8008-c79712cecce3"
+    },
+    {
+      "name": "4 · Leerzustände",
+      "startingBoard": "10 Inventar – leer",
+      "startingBoardSlug": "10-inventar-leer",
+      "startingBoardId": "89a7272c-a1ac-80ae-8008-c7975ea41c44"
+    }
+  ],
+  "interactions": [
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970aa0eb52",
+      "sourceLayerPath": "Profile Button",
+      "sourceLayerBox": {
+        "x": 329,
+        "y": 62,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797265bf259",
+          "name": "09 Haushalt & Profil"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "09-haushalt-profil"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970b4591e2",
+      "sourceLayerPath": "See All",
+      "sourceLayerBox": {
+        "x": 253,
+        "y": 355,
+        "w": 120,
+        "h": 20
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970b59a45e",
+      "sourceLayerPath": "Inventory Tile / Milch",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 386,
+        "w": 108,
+        "h": 150
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970b9cec37",
+      "sourceLayerPath": "Inventory Tile / Kaffee",
+      "sourceLayerBox": {
+        "x": 142.5,
+        "y": 386,
+        "w": 108,
+        "h": 150
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970bcb8901",
+      "sourceLayerPath": "Inventory Tile / Olivenöl",
+      "sourceLayerBox": {
+        "x": 265,
+        "y": 386,
+        "w": 108,
+        "h": 150
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970c0da0d2",
+      "sourceLayerPath": "Open List",
+      "sourceLayerBox": {
+        "x": 283,
+        "y": 563,
+        "w": 90,
+        "h": 20
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970c227296",
+      "sourceLayerPath": "Shopping Preview",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 596,
+        "w": 353,
+        "h": 156
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970c76bb75",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970c76bb7c",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "01 Home",
+      "sourceScreenSlug": "01-home",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970c76bb83",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970ca2a4fa",
+      "sourceLayerPath": "Toolbar (Glass) > Toolbar Item / plus",
+      "sourceLayerBox": {
+        "x": 281,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797157abe1c",
+          "name": "06 Neuer Artikel – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "06-neuer-artikel-leer"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970cd013df",
+      "sourceLayerPath": "Search Field",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 186,
+        "w": 353,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7976ba43201",
+          "name": "17 Suche aktiv"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "17-suche-aktiv"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970e49555e",
+      "sourceLayerPath": "Inventory List > Inventory Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 298,
+        "w": 353,
+        "h": 76
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970f75345e",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970f75442a",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "02 Inventar",
+      "sourceScreenSlug": "02-inventar",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7970f754431",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "16 Kontextmenü",
+      "sourceScreenSlug": "16-kontextmenue",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976adcc7f7",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "16 Kontextmenü",
+      "sourceScreenSlug": "16-kontextmenue",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976adcc7f8",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "16 Kontextmenü",
+      "sourceScreenSlug": "16-kontextmenue",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976adcc7f9",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "16 Kontextmenü",
+      "sourceScreenSlug": "16-kontextmenue",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976adcc7fa",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "16 Kontextmenü",
+      "sourceScreenSlug": "16-kontextmenue",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976b0e2b8f",
+      "sourceLayerPath": "Dim",
+      "sourceLayerBox": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "03 Einkaufsliste",
+      "sourceScreenSlug": "03-einkaufsliste",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79711186e34",
+      "sourceLayerPath": "Add Item Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 240,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7977388e572",
+          "name": "18 Einkauf – Artikel hinzufügen"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "18-einkauf-artikel-hinzufuegen"
+    },
+    {
+      "sourceScreen": "03 Einkaufsliste",
+      "sourceScreenSlug": "03-einkaufsliste",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79712665156",
+      "sourceLayerPath": "Completed Disclosure",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 736,
+        "w": 353,
+        "h": 24
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797701bb924",
+          "name": "03b Einkaufsliste – Erledigt"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "03b-einkaufsliste-erledigt"
+    },
+    {
+      "sourceScreen": "03 Einkaufsliste",
+      "sourceScreenSlug": "03-einkaufsliste",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79712b23b10",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "03 Einkaufsliste",
+      "sourceScreenSlug": "03-einkaufsliste",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79712b23b16",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "03 Einkaufsliste",
+      "sourceScreenSlug": "03-einkaufsliste",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79712b23b24",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79712ec517e",
+      "sourceLayerPath": "Toolbar",
+      "sourceLayerBox": {
+        "x": 321,
+        "y": 58,
+        "w": 52,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7979d4ff655",
+          "name": "08d Chat – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "08d-chat-leer"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797134fb0df",
+      "sourceLayerPath": "Conversation List > Message Preview Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 212,
+        "w": 353,
+        "h": 84
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7977ba3dbd6",
+          "name": "08b Chat – ungelesen"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "08b-chat-ungelesen"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79713622bbc",
+      "sourceLayerPath": "Conversation List > Message Preview Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 296,
+        "w": 353,
+        "h": 84
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79721487f68",
+          "name": "08 Chat – Lisa"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "08-chat-lisa"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971372a3a2",
+      "sourceLayerPath": "Conversation List > Message Preview Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 380,
+        "w": 353,
+        "h": 84
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7979d4ff655",
+          "name": "08d Chat – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "08d-chat-leer"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79713a0ccd1",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79713a0ccd7",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "04 Chats",
+      "sourceScreenSlug": "04-chats",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79713a0ccde",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "05 Artikel-Details",
+      "sourceScreenSlug": "05-artikel-details",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79713d551ac",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "05 Artikel-Details",
+      "sourceScreenSlug": "05-artikel-details",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971528c1db",
+      "sourceLayerPath": "Button",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 680,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7971ca91c05",
+          "name": "07 Artikel bearbeiten"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "07-artikel-bearbeiten"
+    },
+    {
+      "sourceScreen": "05 Artikel-Details",
+      "sourceScreenSlug": "05-artikel-details",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79715352b23",
+      "sourceLayerPath": "Add to Shopping List",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 742,
+        "w": 353,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "06 Neuer Artikel – leer",
+      "sourceScreenSlug": "06-neuer-artikel-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79715ce0cf6",
+      "sourceLayerPath": "Sheet > Close Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 72,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "06 Neuer Artikel – leer",
+      "sourceScreenSlug": "06-neuer-artikel-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971616173a",
+      "sourceLayerPath": "Sheet > Image Upload Area",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 134,
+        "w": 353,
+        "h": 200
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79763a61b5c",
+          "name": "13 Foto auswählen"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "13-foto-auswaehlen"
+    },
+    {
+      "sourceScreen": "06 Neuer Artikel – leer",
+      "sourceScreenSlug": "06-neuer-artikel-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79716237a95",
+      "sourceLayerPath": "Sheet > Text Input",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 354,
+        "w": 353,
+        "h": 76
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7971882235d",
+          "name": "06 Neuer Artikel – ausgefüllt"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "06-neuer-artikel-ausgefuellt"
+    },
+    {
+      "sourceScreen": "13 Foto auswählen",
+      "sourceScreenSlug": "13-foto-auswaehlen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79763f02b39",
+      "sourceLayerPath": "Bottom Sheet",
+      "sourceLayerBox": {
+        "x": 0,
+        "y": 552,
+        "w": 393,
+        "h": 300
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7971882235d",
+          "name": "06 Neuer Artikel – ausgefüllt"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "06-neuer-artikel-ausgefuellt"
+    },
+    {
+      "sourceScreen": "06 Neuer Artikel – ausgefüllt",
+      "sourceScreenSlug": "06-neuer-artikel-ausgefuellt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79718f3214e",
+      "sourceLayerPath": "Sheet > Close Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 72,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "06 Neuer Artikel – ausgefüllt",
+      "sourceScreenSlug": "06-neuer-artikel-ausgefuellt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971c7c63c7",
+      "sourceLayerPath": "Sheet > Button",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 758,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797640f9c9e",
+          "name": "14 Artikel hinzugefügt"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "14-artikel-hinzugefuegt"
+    },
+    {
+      "sourceScreen": "07 Artikel bearbeiten",
+      "sourceScreenSlug": "07-artikel-bearbeiten",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971d171b78",
+      "sourceLayerPath": "Sheet > Close Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 72,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "07 Artikel bearbeiten",
+      "sourceScreenSlug": "07-artikel-bearbeiten",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7971da2b6a7",
+      "sourceLayerPath": "Sheet > Delete Button",
+      "sourceLayerBox": {
+        "x": 333,
+        "y": 72,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7976a54a093",
+          "name": "15 Löschen bestätigen"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "15-loeschen-bestaetigen"
+    },
+    {
+      "sourceScreen": "07 Artikel bearbeiten",
+      "sourceScreenSlug": "07-artikel-bearbeiten",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79721124abf",
+      "sourceLayerPath": "Sheet > Button",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 758,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "15 Löschen bestätigen",
+      "sourceScreenSlug": "15-loeschen-bestaetigen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976a97cb78",
+      "sourceLayerPath": "Confirmation Dialog > Cancel",
+      "sourceLayerBox": {
+        "x": 64.5,
+        "y": 454,
+        "w": 128,
+        "h": 50
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7971ca91c05",
+          "name": "07 Artikel bearbeiten"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "07-artikel-bearbeiten"
+    },
+    {
+      "sourceScreen": "15 Löschen bestätigen",
+      "sourceScreenSlug": "15-loeschen-bestaetigen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976a97cb7a",
+      "sourceLayerPath": "Confirmation Dialog > Delete",
+      "sourceLayerBox": {
+        "x": 200.5,
+        "y": 454,
+        "w": 128,
+        "h": 50
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "out",
+          "direction": "down",
+          "duration": 300,
+          "offsetEffect": false,
+          "easing": "ease-in"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "08 Chat – Lisa",
+      "sourceScreenSlug": "08-chat-lisa",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797240c9882",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "08 Chat – Lisa",
+      "sourceScreenSlug": "08-chat-lisa",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7972554fe04",
+      "sourceLayerPath": "Message Composer",
+      "sourceLayerBox": {
+        "x": 0,
+        "y": 762,
+        "w": 393,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79781d20ff1",
+          "name": "08c Chat – Eingabe aktiv"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "08c-chat-eingabe-aktiv"
+    },
+    {
+      "sourceScreen": "09 Haushalt & Profil",
+      "sourceScreenSlug": "09-haushalt-profil",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79726abd18e",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "10 Inventar – leer",
+      "sourceScreenSlug": "10-inventar-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7975f9e7a6c",
+      "sourceLayerPath": "Button / Artikel hinzufügen",
+      "sourceLayerBox": {
+        "x": 96.5,
+        "y": 468,
+        "w": 200,
+        "h": 48
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797157abe1c",
+          "name": "06 Neuer Artikel – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "06-neuer-artikel-leer"
+    },
+    {
+      "sourceScreen": "10 Inventar – leer",
+      "sourceScreenSlug": "10-inventar-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7975ff6754a",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "10 Inventar – leer",
+      "sourceScreenSlug": "10-inventar-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7975ff69a68",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "10 Inventar – leer",
+      "sourceScreenSlug": "10-inventar-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7975ff69a6f",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "10 Inventar – leer",
+      "sourceScreenSlug": "10-inventar-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7975ff69a76",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "11 Einkaufsliste – leer",
+      "sourceScreenSlug": "11-einkaufsliste-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79760817b08",
+      "sourceLayerPath": "Add Item Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 192,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7977388e572",
+          "name": "18 Einkauf – Artikel hinzufügen"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "18-einkauf-artikel-hinzufuegen"
+    },
+    {
+      "sourceScreen": "11 Einkaufsliste – leer",
+      "sourceScreenSlug": "11-einkaufsliste-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797616c419a",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "11 Einkaufsliste – leer",
+      "sourceScreenSlug": "11-einkaufsliste-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797616c41a0",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "11 Einkaufsliste – leer",
+      "sourceScreenSlug": "11-einkaufsliste-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797616c97e0",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "11 Einkaufsliste – leer",
+      "sourceScreenSlug": "11-einkaufsliste-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797616c97e7",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "12 Chats – leer",
+      "sourceScreenSlug": "12-chats-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79762c17903",
+      "sourceLayerPath": "Button / Neuer Chat",
+      "sourceLayerBox": {
+        "x": 96.5,
+        "y": 468,
+        "w": 200,
+        "h": 48
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7979d4ff655",
+          "name": "08d Chat – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "08d-chat-leer"
+    },
+    {
+      "sourceScreen": "12 Chats – leer",
+      "sourceScreenSlug": "12-chats-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79763261da7",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "12 Chats – leer",
+      "sourceScreenSlug": "12-chats-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79763261dad",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "12 Chats – leer",
+      "sourceScreenSlug": "12-chats-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79763261db4",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "12 Chats – leer",
+      "sourceScreenSlug": "12-chats-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79763261dbb",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "14 Artikel hinzugefügt",
+      "sourceScreenSlug": "14-artikel-hinzugefuegt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976985a8b8",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "14 Artikel hinzugefügt",
+      "sourceScreenSlug": "14-artikel-hinzugefuegt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976985a8be",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "14 Artikel hinzugefügt",
+      "sourceScreenSlug": "14-artikel-hinzugefuegt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976985a8c5",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "14 Artikel hinzugefügt",
+      "sourceScreenSlug": "14-artikel-hinzugefuegt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976985a8cc",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "14 Artikel hinzugefügt",
+      "sourceScreenSlug": "14-artikel-hinzugefuegt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c79769d25512",
+      "sourceLayerPath": "Toast",
+      "sourceLayerBox": {
+        "x": 46.5,
+        "y": 58,
+        "w": 300,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976bec91d8",
+      "sourceLayerPath": "Toolbar (Glass) > Toolbar Item / plus",
+      "sourceLayerBox": {
+        "x": 281,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c797157abe1c",
+          "name": "06 Neuer Artikel – leer"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "slide",
+          "way": "in",
+          "direction": "up",
+          "duration": 400,
+          "offsetEffect": false,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "06-neuer-artikel-leer"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976f62ac41",
+      "sourceLayerPath": "Inventory List",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 298,
+        "w": 353,
+        "h": 76
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79713b9cdb1",
+          "name": "05 Artikel-Details"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "left",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "05-artikel-details"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976fee60d7",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976fee60dd",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976fee60e4",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "17 Suche aktiv",
+      "sourceScreenSlug": "17-suche-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7976fee60eb",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "03b Einkaufsliste – Erledigt",
+      "sourceScreenSlug": "03b-einkaufsliste-erledigt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977363ac18",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "03b Einkaufsliste – Erledigt",
+      "sourceScreenSlug": "03b-einkaufsliste-erledigt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977363ac1e",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "03b Einkaufsliste – Erledigt",
+      "sourceScreenSlug": "03b-einkaufsliste-erledigt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977363ac25",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "03b Einkaufsliste – Erledigt",
+      "sourceScreenSlug": "03b-einkaufsliste-erledigt",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977363ac2c",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "18 Einkauf – Artikel hinzufügen",
+      "sourceScreenSlug": "18-einkauf-artikel-hinzufuegen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c797764c9642",
+      "sourceLayerPath": "Add Item Row",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 240,
+        "w": 353,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "18 Einkauf – Artikel hinzufügen",
+      "sourceScreenSlug": "18-einkauf-artikel-hinzufuegen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977b6fa4ce",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Home",
+      "sourceLayerBox": {
+        "x": 20,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+          "name": "01 Home"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "01-home"
+    },
+    {
+      "sourceScreen": "18 Einkauf – Artikel hinzufügen",
+      "sourceScreenSlug": "18-einkauf-artikel-hinzufuegen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977b6fa4d4",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Inventar",
+      "sourceLayerBox": {
+        "x": 108.25,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+          "name": "02 Inventar"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "02-inventar"
+    },
+    {
+      "sourceScreen": "18 Einkauf – Artikel hinzufügen",
+      "sourceScreenSlug": "18-einkauf-artikel-hinzufuegen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977b6fa4db",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Einkauf",
+      "sourceLayerBox": {
+        "x": 196.5,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+          "name": "03 Einkaufsliste"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "03-einkaufsliste"
+    },
+    {
+      "sourceScreen": "18 Einkauf – Artikel hinzufügen",
+      "sourceScreenSlug": "18-einkauf-artikel-hinzufuegen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977b6fa4e2",
+      "sourceLayerPath": "Tab Bar (Liquid Glass) > Tab / Chats",
+      "sourceLayerBox": {
+        "x": 284.75,
+        "y": 773,
+        "w": 88.25,
+        "h": 54
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "08b Chat – ungelesen",
+      "sourceScreenSlug": "08b-chat-ungelesen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7977f2bc503",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "08b Chat – ungelesen",
+      "sourceScreenSlug": "08b-chat-ungelesen",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7978081e3eb",
+      "sourceLayerPath": "Message Composer",
+      "sourceLayerBox": {
+        "x": 0,
+        "y": 762,
+        "w": 393,
+        "h": 52
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79781d20ff1",
+          "name": "08c Chat – Eingabe aktiv"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "dissolve",
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "destinationSlug": "08c-chat-eingabe-aktiv"
+    },
+    {
+      "sourceScreen": "08c Chat – Eingabe aktiv",
+      "sourceScreenSlug": "08c-chat-eingabe-aktiv",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7979b9c82fa",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    },
+    {
+      "sourceScreen": "08d Chat – leer",
+      "sourceScreenSlug": "08d-chat-leer",
+      "sourceLayerId": "89a7272c-a1ac-80ae-8008-c7979de7483b",
+      "sourceLayerPath": "Back Button",
+      "sourceLayerBox": {
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44
+      },
+      "trigger": "click",
+      "delay": null,
+      "action": {
+        "type": "navigate-to",
+        "destination": {
+          "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+          "name": "04 Chats"
+        },
+        "preserveScrollPosition": false,
+        "animation": {
+          "type": "push",
+          "direction": "right",
+          "duration": 350,
+          "easing": "ease-in-out"
+        }
+      },
+      "destinationSlug": "04-chats"
+    }
+  ],
+  "darkModePage": {
+    "interactiveShapes": 0,
+    "flows": []
+  }
+}

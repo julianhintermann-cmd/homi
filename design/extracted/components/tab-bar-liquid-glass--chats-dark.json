@@ -1,0 +1,638 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Tab Bar (Liquid Glass)",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795bd3cc49c",
+  "variantProperties": [
+    "Active",
+    "Mode"
+  ],
+  "variantProps": {
+    "Active": "Chats",
+    "Mode": "Dark"
+  },
+  "slug": "tab-bar-liquid-glass--chats-dark",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795bc890528",
+  "width": 361,
+  "height": 62,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795bc890528",
+    "name": "Tab Bar (Liquid Glass)",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 361,
+    "h": 62,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#2A2A2E",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.1,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.12,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.45,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.3,
+        "hidden": false
+      }
+    ],
+    "radius": 31,
+    "clipContent": true,
+    "component": {
+      "name": "Tab Bar (Liquid Glass)",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795bd3cc49c",
+      "main": true,
+      "variantProps": {
+        "Active": "Chats",
+        "Mode": "Dark"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bc923627",
+        "name": "Tab / Home",
+        "type": "board",
+        "x": 4,
+        "y": 4,
+        "w": 88.25,
+        "h": 54,
+        "visible": true,
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bc9a5ed7",
+            "name": "icon / house",
+            "type": "group",
+            "x": 36.13,
+            "y": 11,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bc9a9e92",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 36.13,
+                "y": 11,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bc9a9e93",
+                "name": "svg-path",
+                "type": "path",
+                "x": 39.63,
+                "y": 14.8,
+                "w": 17,
+                "h": 7,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M39.63,21.8 L48.13,14.8 L56.63,21.8"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bc9a9e94",
+                "name": "svg-path",
+                "type": "path",
+                "x": 41.93,
+                "y": 20.2,
+                "w": 12.4,
+                "h": 11.2,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M41.92,20.2 L41.92,30.2 C41.92,30.86 42.46,31.4 43.13,31.4 L46.42,31.4 L46.42,25.8 L49.83,25.8 L49.83,31.4 L53.13,31.4 C53.79,31.4 54.33,30.86 54.33,30.2 L54.33,20.2"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bca25bc9",
+            "name": "Label",
+            "type": "text",
+            "x": 4,
+            "y": 38,
+            "w": 88.25,
+            "h": 12,
+            "visible": true,
+            "text": {
+              "characters": "Home",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 10,
+              "lineHeight": 1.2,
+              "letterSpacing": 0.1,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#F5F5F7",
+              "colorOpacity": 1,
+              "typography": "tab",
+              "textBounds": {
+                "w": 28.85,
+                "h": 12
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bcb18b3c",
+        "name": "Tab / Inventar",
+        "type": "board",
+        "x": 92.25,
+        "y": 4,
+        "w": 88.25,
+        "h": 54,
+        "visible": true,
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bcbac596",
+            "name": "icon / stack",
+            "type": "group",
+            "x": 124.38,
+            "y": 11,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bcbb142e",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 124.38,
+                "y": 11,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bcbb72cf",
+                "name": "svg-path",
+                "type": "path",
+                "x": 127.88,
+                "y": 14.2,
+                "w": 17,
+                "h": 8.8,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M136.38,14.2 L127.88,18.6 L136.38,23 L144.88,18.6 L136.38,14.2 L136.38,14.2"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bcbb72d0",
+                "name": "svg-path",
+                "type": "path",
+                "x": 127.88,
+                "y": 23,
+                "w": 17,
+                "h": 4.4,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M127.88,23 L136.38,27.4 L144.88,23"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bcbb72d1",
+                "name": "svg-path",
+                "type": "path",
+                "x": 127.88,
+                "y": 27.4,
+                "w": 17,
+                "h": 4.4,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M127.88,27.4 L136.38,31.8 L144.88,27.4"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bcc4195e",
+            "name": "Label",
+            "type": "text",
+            "x": 92.25,
+            "y": 38,
+            "w": 88.25,
+            "h": 12,
+            "visible": true,
+            "text": {
+              "characters": "Inventar",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 10,
+              "lineHeight": 1.2,
+              "letterSpacing": 0.1,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#F5F5F7",
+              "colorOpacity": 1,
+              "typography": "tab",
+              "textBounds": {
+                "w": 40.53,
+                "h": 12
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bcdbf6a5",
+        "name": "Tab / Einkauf",
+        "type": "board",
+        "x": 180.5,
+        "y": 4,
+        "w": 88.25,
+        "h": 54,
+        "visible": true,
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bce8c8da",
+            "name": "icon / cart",
+            "type": "group",
+            "x": 212.63,
+            "y": 11,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bce92ac0",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 212.63,
+                "y": 11,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bce97ba2",
+                "name": "svg-path",
+                "type": "path",
+                "x": 215.42,
+                "y": 14.8,
+                "w": 17.7,
+                "h": 12.1,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M215.42,14.8 L217.53,14.8 L219.83,25.7 C219.97,26.41 220.6,26.91 221.33,26.9 L229.92,26.9 C230.6,26.9 231.19,26.45 231.38,25.8 L233.13,18.9 L218.33,18.9"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bce97ba3",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 220.98,
+                "y": 29.35,
+                "w": 2.5,
+                "h": 2.5,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bce97ba4",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 228.38,
+                "y": 29.35,
+                "w": 2.5,
+                "h": 2.5,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 1.7,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bcf2cf67",
+            "name": "Label",
+            "type": "text",
+            "x": 180.5,
+            "y": 38,
+            "w": 88.25,
+            "h": 12,
+            "visible": true,
+            "text": {
+              "characters": "Einkauf",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 10,
+              "lineHeight": 1.2,
+              "letterSpacing": 0.1,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#F5F5F7",
+              "colorOpacity": 1,
+              "typography": "tab",
+              "textBounds": {
+                "w": 36.93,
+                "h": 12
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bd05a17c",
+        "name": "Tab / Chats",
+        "type": "board",
+        "x": 268.75,
+        "y": 4,
+        "w": 88.25,
+        "h": 54,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.1
+          }
+        ],
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bd0f878c",
+            "name": "icon / bubbles",
+            "type": "group",
+            "x": 300.88,
+            "y": 11,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bd0ff986",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 300.88,
+                "y": 11,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#8FB094",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bd0ff987",
+                "name": "svg-path",
+                "type": "path",
+                "x": 303.38,
+                "y": 15.2,
+                "w": 14,
+                "h": 13.4,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#8FB094",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M314.47,15.2 L306.28,15.2 C304.67,15.2 303.38,16.5 303.38,18.1 L303.38,22.7 C303.38,23.47 303.68,24.21 304.22,24.75 C304.77,25.29 305.51,25.6 306.28,25.6 L306.67,25.6 L306.67,28.6 L310.08,25.6 L314.47,25.6 C316.08,25.6 317.38,24.3 317.38,22.7 L317.38,18.1 C317.38,17.33 317.07,16.59 316.53,16.05 C315.98,15.51 315.24,15.2 314.47,15.2 L314.47,15.2"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bd0ff988",
+                "name": "svg-path",
+                "type": "path",
+                "x": 310.18,
+                "y": 19.6,
+                "w": 12.2,
+                "h": 12.6,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#8FB094",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M320.28,19.6 C321.52,19.96 322.38,21.1 322.38,22.4 L322.38,26.7 C322.38,28.3 321.08,29.6 319.47,29.6 L319.17,29.6 L319.17,32.2 L316.17,29.6 L312.58,29.6 C311.61,29.59 310.71,29.11 310.17,28.3"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bd17454c",
+            "name": "Label",
+            "type": "text",
+            "x": 268.75,
+            "y": 38,
+            "w": 88.25,
+            "h": 12,
+            "visible": true,
+            "text": {
+              "characters": "Chats",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 10,
+              "lineHeight": 1.2,
+              "letterSpacing": 0.1,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#8FB094",
+              "colorOpacity": 1,
+              "typography": "tab",
+              "textBounds": {
+                "w": 28.68,
+                "h": 12
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

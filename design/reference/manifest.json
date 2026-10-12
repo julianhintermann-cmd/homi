@@ -1,0 +1,302 @@
+{
+  "01-home": {
+    "boardName": "01 Home",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/01-home.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "shadow-removed-export"
+  },
+  "02-inventar": {
+    "boardName": "02 Inventar",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/02-inventar.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "03-einkaufsliste": {
+    "boardName": "03 Einkaufsliste",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/03-einkaufsliste.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "03b-einkaufsliste-erledigt": {
+    "boardName": "03b Einkaufsliste – Erledigt",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/03b-einkaufsliste-erledigt.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "04-chats": {
+    "boardName": "04 Chats",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/04-chats.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "05-artikel-details": {
+    "boardName": "05 Artikel-Details",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/05-artikel-details.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "06-neuer-artikel-ausgefuellt": {
+    "boardName": "06 Neuer Artikel – ausgefüllt",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/06-neuer-artikel-ausgefuellt.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "06-neuer-artikel-leer": {
+    "boardName": "06 Neuer Artikel – leer",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/06-neuer-artikel-leer.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "07-artikel-bearbeiten": {
+    "boardName": "07 Artikel bearbeiten",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/07-artikel-bearbeiten.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "08-chat-lisa": {
+    "boardName": "08 Chat – Lisa",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/08-chat-lisa.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "08b-chat-ungelesen": {
+    "boardName": "08b Chat – ungelesen",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/08b-chat-ungelesen.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "08c-chat-eingabe-aktiv": {
+    "boardName": "08c Chat – Eingabe aktiv",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/08c-chat-eingabe-aktiv.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "08d-chat-leer": {
+    "boardName": "08d Chat – leer",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/08d-chat-leer.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "09-haushalt-profil": {
+    "boardName": "09 Haushalt & Profil",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/09-haushalt-profil.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "10-inventar-leer": {
+    "boardName": "10 Inventar – leer",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/10-inventar-leer.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "11-einkaufsliste-leer": {
+    "boardName": "11 Einkaufsliste – leer",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/11-einkaufsliste-leer.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "12-chats-leer": {
+    "boardName": "12 Chats – leer",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/12-chats-leer.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "13-foto-auswaehlen": {
+    "boardName": "13 Foto auswählen",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/13-foto-auswaehlen.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "14-artikel-hinzugefuegt": {
+    "boardName": "14 Artikel hinzugefügt",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/14-artikel-hinzugefuegt.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "15-loeschen-bestaetigen": {
+    "boardName": "15 Löschen bestätigen",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/15-loeschen-bestaetigen.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "16-kontextmenue": {
+    "boardName": "16 Kontextmenü",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/16-kontextmenue.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "17-suche-aktiv": {
+    "boardName": "17 Suche aktiv",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/17-suche-aktiv.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "18-einkauf-artikel-hinzufuegen": {
+    "boardName": "18 Einkauf – Artikel hinzufügen",
+    "page": "02 · Screens & Prototype",
+    "mode": "light",
+    "file": "light/18-einkauf-artikel-hinzufuegen.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "01-home-dark": {
+    "boardName": "01 Home – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/01-home-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "02-inventar-dark": {
+    "boardName": "02 Inventar – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/02-inventar-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "03-einkaufsliste-dark": {
+    "boardName": "03 Einkaufsliste – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/03-einkaufsliste-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "04-chats-dark": {
+    "boardName": "04 Chats – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/04-chats-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "05-artikel-details-dark": {
+    "boardName": "05 Artikel-Details – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/05-artikel-details-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "06-neuer-artikel-dark": {
+    "boardName": "06 Neuer Artikel – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/06-neuer-artikel-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  },
+  "08-chat-dark": {
+    "boardName": "08 Chat – Dark",
+    "page": "03 · Dark Mode",
+    "mode": "dark",
+    "file": "dark/08-chat-dark.png",
+    "width": 393,
+    "height": 852,
+    "scale": 1,
+    "method": "export-cropped-to-board"
+  }
+}

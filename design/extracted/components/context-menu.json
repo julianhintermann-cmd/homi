@@ -1,0 +1,555 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Context Menu",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795f18a9f78",
+  "variantProperties": [],
+  "variantProps": null,
+  "slug": "context-menu",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795f083f88e",
+  "width": 250,
+  "height": 201,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795f083f88e",
+    "name": "Context Menu",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 250,
+    "h": 201,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.97
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 24,
+    "clipContent": true,
+    "component": {
+      "name": "Context Menu",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795f18a9f78",
+      "main": true
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f095d7f9",
+        "name": "Menu Item / Bearbeiten",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 250,
+        "h": 48,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f0a38d9a",
+            "name": "Label",
+            "type": "text",
+            "x": 18,
+            "y": 14,
+            "w": 85,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Bearbeiten",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 84.23,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f0b8f455",
+            "name": "icon / pencil",
+            "type": "group",
+            "x": 214,
+            "y": 13,
+            "w": 21,
+            "h": 21,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0b93962",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 214,
+                "y": 13,
+                "w": 21,
+                "h": 21,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0b95610",
+                "name": "svg-path",
+                "type": "path",
+                "x": 218.02,
+                "y": 17.02,
+                "w": 12.95,
+                "h": 12.95,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M227.65,17.02 L230.98,20.35 L222.05,29.27 L218.02,29.98 L218.73,25.95 L227.65,17.02 L227.65,17.02"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f0c71eef",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 18,
+            "y": 47.5,
+            "w": 232,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f0d4d970",
+        "name": "Menu Item / Zur Einkaufsliste",
+        "type": "board",
+        "x": 0,
+        "y": 48,
+        "w": 250,
+        "h": 48,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f0e32b29",
+            "name": "Label",
+            "type": "text",
+            "x": 18,
+            "y": 62,
+            "w": 128,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Zur Einkaufsliste",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 127.53,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f0f7e31c",
+            "name": "icon / cart",
+            "type": "group",
+            "x": 214,
+            "y": 61,
+            "w": 21,
+            "h": 21,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0f87f24",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 214,
+                "y": 61,
+                "w": 21,
+                "h": 21,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0f8aeea",
+                "name": "svg-path",
+                "type": "path",
+                "x": 216.45,
+                "y": 64.32,
+                "w": 15.49,
+                "h": 10.59,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M216.45,64.32 L218.29,64.32 L220.3,73.86 C220.43,74.48 220.98,74.93 221.61,74.91 L229.14,74.91 C229.73,74.91 230.25,74.52 230.41,73.95 L231.94,67.91 L218.99,67.91"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0f8aeeb",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 221.31,
+                "y": 77.06,
+                "w": 2.19,
+                "h": 2.19,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f0f8aeec",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 227.78,
+                "y": 77.06,
+                "w": 2.19,
+                "h": 2.19,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f107b1a6",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 18,
+            "y": 95.5,
+            "w": 232,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f1161172",
+        "name": "Menu Item / Teilen",
+        "type": "board",
+        "x": 0,
+        "y": 96,
+        "w": 250,
+        "h": 48,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f123347a",
+            "name": "Label",
+            "type": "text",
+            "x": 18,
+            "y": 110,
+            "w": 46,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Teilen",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 45.97,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f1384a6a",
+            "name": "icon / arrowUp",
+            "type": "group",
+            "x": 214,
+            "y": 109,
+            "w": 21,
+            "h": 21,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f138fd11",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 214,
+                "y": 109,
+                "w": 21,
+                "h": 21,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f138fd12",
+                "name": "svg-path",
+                "type": "path",
+                "x": 219.69,
+                "y": 113.81,
+                "w": 9.63,
+                "h": 11.81,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M224.5,125.63 L224.5,113.81 M219.69,118.63 L224.5,113.81 L229.31,118.63"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f1478442",
+        "name": "Group Separator",
+        "type": "rectangle",
+        "x": 0,
+        "y": 144,
+        "w": 250,
+        "h": 9,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#000000",
+            "opacity": 0.04
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f1558e6b",
+        "name": "Menu Item / Löschen",
+        "type": "board",
+        "x": 0,
+        "y": 153,
+        "w": 250,
+        "h": 48,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f1636a3c",
+            "name": "Label",
+            "type": "text",
+            "x": 18,
+            "y": 167,
+            "w": 67,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Löschen",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#C2412D",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 66.42,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f178f400",
+            "name": "icon / trash",
+            "type": "group",
+            "x": 214,
+            "y": 166,
+            "w": 21,
+            "h": 21,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f1795b68",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 214,
+                "y": 166,
+                "w": 21,
+                "h": 21,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#C2412D",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f179ba62",
+                "name": "svg-path",
+                "type": "path",
+                "x": 217.94,
+                "y": 170.02,
+                "w": 13.13,
+                "h": 13.65,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#C2412D",
+                    "opacity": 1,
+                    "width": 2.06,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M217.94,171.77 L231.06,171.77 M222.31,171.77 L222.31,170.02 L226.69,170.02 L226.69,171.77 M219.77,171.77 L220.48,182.45 C220.52,183.14 221.1,183.68 221.79,183.68 L227.21,183.68 C227.9,183.68 228.48,183.14 228.52,182.45 L229.23,171.77 M222.75,175.19 L222.75,180.44 M226.25,175.19 L226.25,180.44"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

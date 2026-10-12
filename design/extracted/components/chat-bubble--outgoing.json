@@ -1,0 +1,118 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Chat Bubble",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d15a6070",
+  "variantProperties": [
+    "Direction"
+  ],
+  "variantProps": {
+    "Direction": "Outgoing"
+  },
+  "slug": "chat-bubble--outgoing",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d12d7891",
+  "width": 322,
+  "height": 42,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d12d7891",
+    "name": "Chat Bubble",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 322,
+    "h": 42,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#5E7D63",
+        "opacity": 1
+      }
+    ],
+    "radius": [
+      20,
+      20,
+      6,
+      20
+    ],
+    "clipContent": true,
+    "layout": {
+      "type": "flex",
+      "dir": "row",
+      "wrap": "nowrap",
+      "rowGap": 8,
+      "columnGap": 8,
+      "padding": [
+        10,
+        15,
+        10,
+        15
+      ],
+      "alignItems": "center",
+      "alignContent": "stretch",
+      "justifyContent": "center",
+      "justifyItems": null,
+      "horizontalSizing": "auto",
+      "verticalSizing": "auto"
+    },
+    "component": {
+      "name": "Chat Bubble",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d15a6070",
+      "main": true,
+      "variantProps": {
+        "Direction": "Outgoing"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d14a7fe4",
+        "name": "Message",
+        "type": "text",
+        "x": 15,
+        "y": 10,
+        "w": 292,
+        "h": 22,
+        "visible": true,
+        "layoutChild": {
+          "absolute": false,
+          "horizontalSizing": "fix",
+          "verticalSizing": "fix",
+          "margin": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "alignSelf": "auto",
+          "zIndex": 0
+        },
+        "text": {
+          "characters": "Ja, wir haben noch zwei Packungen ☕",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 16,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.2,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#FFFFFF",
+          "colorOpacity": 1,
+          "textBounds": {
+            "w": 291.87,
+            "h": 21
+          }
+        }
+      }
+    ]
+  }
+}

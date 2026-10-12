@@ -1,0 +1,25 @@
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+apps/server/src/generated/
+apps/server/uploads/
+uploads/
+playwright-report/
+test-results/
+e2e/.artifacts/
+e2e/.auth/
+.vite/
+*.tsbuildinfo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+dev-dist/
+# Output of apps/web/scripts/visual-compare.ts (regenerated on every run)
+design/compare/

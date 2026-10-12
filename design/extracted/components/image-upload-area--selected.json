@@ -1,0 +1,238 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Image Upload Area",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795eea47ef5",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Selected"
+  },
+  "slug": "image-upload-area--selected",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795ee64b81d",
+  "width": 353,
+  "height": 200,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795ee64b81d",
+    "name": "Image Upload Area",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 200,
+    "visible": true,
+    "fills": [
+      {
+        "type": "image",
+        "image": {
+          "name": "oil",
+          "id": "3e257f50-8251-8066-8008-c7907af366bd",
+          "width": 400,
+          "height": 400,
+          "mtype": "image/jpeg",
+          "keepAspectRatio": null
+        },
+        "opacity": 1
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Image Upload Area",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795eea47ef5",
+      "main": true,
+      "variantProps": {
+        "State": "Selected"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ee6f57d4",
+        "name": "Change Photo",
+        "type": "board",
+        "x": 229,
+        "y": 152,
+        "w": 112,
+        "h": 36,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 18,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ee7fa83d",
+            "name": "icon / camera",
+            "type": "group",
+            "x": 243,
+            "y": 161,
+            "w": 18,
+            "h": 18,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ee805597",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 243,
+                "y": 161,
+                "w": 18,
+                "h": 18,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.53,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ee805598",
+                "name": "svg-path",
+                "type": "path",
+                "x": 245.85,
+                "y": 164.38,
+                "w": 12.3,
+                "h": 11.63,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.53,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M245.85,167.45 C245.85,166.62 246.52,165.95 247.35,165.95 L248.93,165.95 L250.13,164.38 L253.88,164.38 L255.07,165.95 L256.65,165.95 C257.48,165.95 258.15,166.62 258.15,167.45 L258.15,174.5 C258.15,175.33 257.48,176 256.65,176 L247.35,176 C246.52,176 245.85,175.33 245.85,174.5 L245.85,167.45"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ee80becd",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 249.38,
+                "y": 168.2,
+                "w": 5.25,
+                "h": 5.25,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.53,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ee8d1da1",
+            "name": "Label",
+            "type": "text",
+            "x": 269,
+            "y": 160,
+            "w": 52,
+            "h": 20,
+            "visible": true,
+            "text": {
+              "characters": "Ändern",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 15,
+              "lineHeight": 1.33,
+              "letterSpacing": -0.15,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "subheadM",
+              "textBounds": {
+                "w": 51.85,
+                "h": 19
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Avatar",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d21a313e",
+  "variantProperties": [
+    "Person"
+  ],
+  "variantProps": {
+    "Person": "Haushalt"
+  },
+  "slug": "avatar--haushalt",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d1f3f765",
+  "width": 44,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d1f3f765",
+    "name": "Avatar",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 44,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#111111",
+        "opacity": 1
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Avatar",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d21a313e",
+      "main": true,
+      "variantProps": {
+        "Person": "Haushalt"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d202ad35",
+        "name": "icon / house",
+        "type": "group",
+        "x": 11,
+        "y": 10.56,
+        "w": 22,
+        "h": 22,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d2035b35",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 11,
+            "y": 10.56,
+            "w": 22,
+            "h": 22,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "width": 2.07,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d2035b36",
+            "name": "svg-path",
+            "type": "path",
+            "x": 14.21,
+            "y": 14.04,
+            "w": 15.58,
+            "h": 6.42,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "width": 2.07,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M14.21,20.46 L22,14.04 L29.79,20.46"
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d2035b37",
+            "name": "svg-path",
+            "type": "path",
+            "x": 16.32,
+            "y": 18.99,
+            "w": 11.37,
+            "h": 10.27,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "width": 2.07,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M16.32,18.99 L16.32,28.16 C16.32,28.77 16.81,29.26 17.42,29.26 L20.44,29.26 L20.44,24.13 L23.56,24.13 L23.56,29.26 L26.58,29.26 C27.19,29.26 27.68,28.77 27.68,28.16 L27.68,18.99"
+          }
+        ]
+      }
+    ]
+  }
+}

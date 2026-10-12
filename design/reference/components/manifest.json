@@ -1,0 +1,1000 @@
+{
+  "avatar--du": {
+    "component": "Avatar",
+    "variantProps": {
+      "Person": "Du"
+    },
+    "page": "01 · Components",
+    "file": "avatar--du.png",
+    "width": 88,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "avatar--haushalt": {
+    "component": "Avatar",
+    "variantProps": {
+      "Person": "Haushalt"
+    },
+    "page": "01 · Components",
+    "file": "avatar--haushalt.png",
+    "width": 88,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "avatar--lisa": {
+    "component": "Avatar",
+    "variantProps": {
+      "Person": "Lisa"
+    },
+    "page": "01 · Components",
+    "file": "avatar--lisa.png",
+    "width": 88,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "avatar--max": {
+    "component": "Avatar",
+    "variantProps": {
+      "Person": "Max"
+    },
+    "page": "01 · Components",
+    "file": "avatar--max.png",
+    "width": 88,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "back-button--dark": {
+    "component": "Back Button",
+    "variantProps": {
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "back-button--dark.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "back-button--light": {
+    "component": "Back Button",
+    "variantProps": {
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "back-button--light.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "bottom-sheet": {
+    "component": "Bottom Sheet",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "bottom-sheet.png",
+    "width": 1346,
+    "height": 1208,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 300,
+    "includesOwnShadowBounds": true
+  },
+  "button--destructive-default": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Destructive",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "button--destructive-default.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "button--primary-dark": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Primary",
+      "State": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "button--primary-dark.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "button--primary-default": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Primary",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "button--primary-default.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "button--primary-disabled": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Primary",
+      "State": "Disabled"
+    },
+    "page": "01 · Components",
+    "file": "button--primary-disabled.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "button--primary-pressed": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Primary",
+      "State": "Pressed"
+    },
+    "page": "01 · Components",
+    "file": "button--primary-pressed.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "button--secondary-default": {
+    "component": "Button",
+    "variantProps": {
+      "Style": "Secondary",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "button--secondary-default.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "category-chip--default": {
+    "component": "Category Chip",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "category-chip--default.png",
+    "width": 154,
+    "height": 72,
+    "scale": 2,
+    "shapeWidth": 77,
+    "shapeHeight": 36,
+    "includesOwnShadowBounds": false
+  },
+  "category-chip--selected": {
+    "component": "Category Chip",
+    "variantProps": {
+      "State": "Selected"
+    },
+    "page": "01 · Components",
+    "file": "category-chip--selected.png",
+    "width": 156,
+    "height": 72,
+    "scale": 2,
+    "shapeWidth": 78,
+    "shapeHeight": 36,
+    "includesOwnShadowBounds": false
+  },
+  "category-selector--default": {
+    "component": "Category Selector",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "category-selector--default.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "category-selector--open": {
+    "component": "Category Selector",
+    "variantProps": {
+      "State": "Open"
+    },
+    "page": "01 · Components",
+    "file": "category-selector--open.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "chat-bubble--incoming": {
+    "component": "Chat Bubble",
+    "variantProps": {
+      "Direction": "Incoming"
+    },
+    "page": "01 · Components",
+    "file": "chat-bubble--incoming.png",
+    "width": 618,
+    "height": 84,
+    "scale": 2,
+    "shapeWidth": 309,
+    "shapeHeight": 42,
+    "includesOwnShadowBounds": false
+  },
+  "chat-bubble--outgoing": {
+    "component": "Chat Bubble",
+    "variantProps": {
+      "Direction": "Outgoing"
+    },
+    "page": "01 · Components",
+    "file": "chat-bubble--outgoing.png",
+    "width": 644,
+    "height": 84,
+    "scale": 2,
+    "shapeWidth": 322,
+    "shapeHeight": 42,
+    "includesOwnShadowBounds": false
+  },
+  "checkbox--completed": {
+    "component": "Checkbox",
+    "variantProps": {
+      "State": "Completed"
+    },
+    "page": "01 · Components",
+    "file": "checkbox--completed.png",
+    "width": 52,
+    "height": 52,
+    "scale": 2,
+    "shapeWidth": 26,
+    "shapeHeight": 26,
+    "includesOwnShadowBounds": false
+  },
+  "checkbox--default": {
+    "component": "Checkbox",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "checkbox--default.png",
+    "width": 52,
+    "height": 52,
+    "scale": 2,
+    "shapeWidth": 26,
+    "shapeHeight": 26,
+    "includesOwnShadowBounds": false
+  },
+  "confirmation-dialog": {
+    "component": "Confirmation Dialog",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "confirmation-dialog.png",
+    "width": 1640,
+    "height": 1592,
+    "scale": 2,
+    "shapeWidth": 300,
+    "shapeHeight": 196,
+    "includesOwnShadowBounds": true
+  },
+  "context-menu": {
+    "component": "Context Menu",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "context-menu.png",
+    "width": 1028,
+    "height": 994,
+    "scale": 2,
+    "shapeWidth": 250,
+    "shapeHeight": 201,
+    "includesOwnShadowBounds": true
+  },
+  "dashboard-statistic": {
+    "component": "Dashboard Statistic",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "dashboard-statistic.png",
+    "width": 300,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 150,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "floating-add-button--default": {
+    "component": "Floating Add Button",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "floating-add-button--default.png",
+    "width": 640,
+    "height": 704,
+    "scale": 2,
+    "shapeWidth": 56,
+    "shapeHeight": 56,
+    "includesOwnShadowBounds": true
+  },
+  "floating-add-button--pressed": {
+    "component": "Floating Add Button",
+    "variantProps": {
+      "State": "Pressed"
+    },
+    "page": "01 · Components",
+    "file": "floating-add-button--pressed.png",
+    "width": 640,
+    "height": 704,
+    "scale": 2,
+    "shapeWidth": 56,
+    "shapeHeight": 56,
+    "includesOwnShadowBounds": true
+  },
+  "home-indicator--dark": {
+    "component": "Home Indicator",
+    "variantProps": {
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "home-indicator--dark.png",
+    "width": 786,
+    "height": 68,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 34,
+    "includesOwnShadowBounds": false
+  },
+  "home-indicator--light": {
+    "component": "Home Indicator",
+    "variantProps": {
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "home-indicator--light.png",
+    "width": 786,
+    "height": 68,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 34,
+    "includesOwnShadowBounds": false
+  },
+  "household-member-row": {
+    "component": "Household Member Row",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "household-member-row.png",
+    "width": 706,
+    "height": 120,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 60,
+    "includesOwnShadowBounds": false
+  },
+  "icon-button--compose-default": {
+    "component": "Icon Button",
+    "variantProps": {
+      "Icon": "Compose",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "icon-button--compose-default.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "icon-button--compose-pressed": {
+    "component": "Icon Button",
+    "variantProps": {
+      "Icon": "Compose",
+      "State": "Pressed"
+    },
+    "page": "01 · Components",
+    "file": "icon-button--compose-pressed.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "icon-button--more-default": {
+    "component": "Icon Button",
+    "variantProps": {
+      "Icon": "More",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "icon-button--more-default.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "image-upload-area--empty": {
+    "component": "Image Upload Area",
+    "variantProps": {
+      "State": "Empty"
+    },
+    "page": "01 · Components",
+    "file": "image-upload-area--empty.png",
+    "width": 706,
+    "height": 400,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 200,
+    "includesOwnShadowBounds": false
+  },
+  "image-upload-area--selected": {
+    "component": "Image Upload Area",
+    "variantProps": {
+      "State": "Selected"
+    },
+    "page": "01 · Components",
+    "file": "image-upload-area--selected.png",
+    "width": 706,
+    "height": 400,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 200,
+    "includesOwnShadowBounds": false
+  },
+  "inventory-row--default": {
+    "component": "Inventory Row",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "inventory-row--default.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "inventory-row--pressed": {
+    "component": "Inventory Row",
+    "variantProps": {
+      "State": "Pressed"
+    },
+    "page": "01 · Components",
+    "file": "inventory-row--pressed.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "message-preview-row--read": {
+    "component": "Message Preview Row",
+    "variantProps": {
+      "State": "Read"
+    },
+    "page": "01 · Components",
+    "file": "message-preview-row--read.png",
+    "width": 706,
+    "height": 168,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 84,
+    "includesOwnShadowBounds": false
+  },
+  "message-preview-row--unread": {
+    "component": "Message Preview Row",
+    "variantProps": {
+      "State": "Unread"
+    },
+    "page": "01 · Components",
+    "file": "message-preview-row--unread.png",
+    "width": 706,
+    "height": 168,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 84,
+    "includesOwnShadowBounds": false
+  },
+  "navigation-header": {
+    "component": "Navigation Header",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "navigation-header.png",
+    "width": 786,
+    "height": 120,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 60,
+    "includesOwnShadowBounds": false
+  },
+  "price-input--empty": {
+    "component": "Price Input",
+    "variantProps": {
+      "State": "Empty"
+    },
+    "page": "01 · Components",
+    "file": "price-input--empty.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "price-input--filled": {
+    "component": "Price Input",
+    "variantProps": {
+      "State": "Filled"
+    },
+    "page": "01 · Components",
+    "file": "price-input--filled.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "product-image--l-168": {
+    "component": "Product Image",
+    "variantProps": {
+      "Size": "L 168"
+    },
+    "page": "01 · Components",
+    "file": "product-image--l-168.png",
+    "width": 336,
+    "height": 336,
+    "scale": 2,
+    "shapeWidth": 168,
+    "shapeHeight": 168,
+    "includesOwnShadowBounds": false
+  },
+  "product-image--m-108": {
+    "component": "Product Image",
+    "variantProps": {
+      "Size": "M 108"
+    },
+    "page": "01 · Components",
+    "file": "product-image--m-108.png",
+    "width": 216,
+    "height": 216,
+    "scale": 2,
+    "shapeWidth": 108,
+    "shapeHeight": 108,
+    "includesOwnShadowBounds": false
+  },
+  "product-image--s-52": {
+    "component": "Product Image",
+    "variantProps": {
+      "Size": "S 52"
+    },
+    "page": "01 · Components",
+    "file": "product-image--s-52.png",
+    "width": 104,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 52,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "profile-button--dark": {
+    "component": "Profile Button",
+    "variantProps": {
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "profile-button--dark.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "profile-button--light": {
+    "component": "Profile Button",
+    "variantProps": {
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "profile-button--light.png",
+    "width": 616,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 44,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "quantity-stepper--compact-default": {
+    "component": "Quantity Stepper",
+    "variantProps": {
+      "Size": "Compact",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "quantity-stepper--compact-default.png",
+    "width": 248,
+    "height": 80,
+    "scale": 2,
+    "shapeWidth": 124,
+    "shapeHeight": 40,
+    "includesOwnShadowBounds": false
+  },
+  "quantity-stepper--compact-minimum": {
+    "component": "Quantity Stepper",
+    "variantProps": {
+      "Size": "Compact",
+      "State": "Minimum"
+    },
+    "page": "01 · Components",
+    "file": "quantity-stepper--compact-minimum.png",
+    "width": 248,
+    "height": 80,
+    "scale": 2,
+    "shapeWidth": 124,
+    "shapeHeight": 40,
+    "includesOwnShadowBounds": false
+  },
+  "quantity-stepper--large-default": {
+    "component": "Quantity Stepper",
+    "variantProps": {
+      "Size": "Large",
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "quantity-stepper--large-default.png",
+    "width": 392,
+    "height": 112,
+    "scale": 2,
+    "shapeWidth": 196,
+    "shapeHeight": 56,
+    "includesOwnShadowBounds": false
+  },
+  "search-field--default": {
+    "component": "Search Field",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "search-field--default.png",
+    "width": 706,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "search-field--focused": {
+    "component": "Search Field",
+    "variantProps": {
+      "State": "Focused"
+    },
+    "page": "01 · Components",
+    "file": "search-field--focused.png",
+    "width": 706,
+    "height": 88,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": false
+  },
+  "settings-row": {
+    "component": "Settings Row",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "settings-row.png",
+    "width": 706,
+    "height": 104,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 52,
+    "includesOwnShadowBounds": false
+  },
+  "shopping-list-row--completed": {
+    "component": "Shopping List Row",
+    "variantProps": {
+      "State": "Completed"
+    },
+    "page": "01 · Components",
+    "file": "shopping-list-row--completed.png",
+    "width": 706,
+    "height": 112,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 56,
+    "includesOwnShadowBounds": false
+  },
+  "shopping-list-row--default": {
+    "component": "Shopping List Row",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "shopping-list-row--default.png",
+    "width": 706,
+    "height": 112,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 56,
+    "includesOwnShadowBounds": false
+  },
+  "status-bar--dark": {
+    "component": "Status Bar",
+    "variantProps": {
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "status-bar--dark.png",
+    "width": 786,
+    "height": 108,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 54,
+    "includesOwnShadowBounds": false
+  },
+  "status-bar--light": {
+    "component": "Status Bar",
+    "variantProps": {
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "status-bar--light.png",
+    "width": 786,
+    "height": 108,
+    "scale": 2,
+    "shapeWidth": 393,
+    "shapeHeight": 54,
+    "includesOwnShadowBounds": false
+  },
+  "tab-bar-liquid-glass--chats-dark": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Chats",
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--chats-dark.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--chats-light": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Chats",
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--chats-light.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--einkauf-dark": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Einkauf",
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--einkauf-dark.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--einkauf-light": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Einkauf",
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--einkauf-light.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--home-dark": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Home",
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--home-dark.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--home-light": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Home",
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--home-light.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--inventar-dark": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Inventar",
+      "Mode": "Dark"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--inventar-dark.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "tab-bar-liquid-glass--inventar-light": {
+    "component": "Tab Bar (Liquid Glass)",
+    "variantProps": {
+      "Active": "Inventar",
+      "Mode": "Light"
+    },
+    "page": "01 · Components",
+    "file": "tab-bar-liquid-glass--inventar-light.png",
+    "width": 1250,
+    "height": 716,
+    "scale": 2,
+    "shapeWidth": 361,
+    "shapeHeight": 62,
+    "includesOwnShadowBounds": true
+  },
+  "text-input--default": {
+    "component": "Text Input",
+    "variantProps": {
+      "State": "Default"
+    },
+    "page": "01 · Components",
+    "file": "text-input--default.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "text-input--error": {
+    "component": "Text Input",
+    "variantProps": {
+      "State": "Error"
+    },
+    "page": "01 · Components",
+    "file": "text-input--error.png",
+    "width": 706,
+    "height": 200,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 100,
+    "includesOwnShadowBounds": false
+  },
+  "text-input--filled": {
+    "component": "Text Input",
+    "variantProps": {
+      "State": "Filled"
+    },
+    "page": "01 · Components",
+    "file": "text-input--filled.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "text-input--focused": {
+    "component": "Text Input",
+    "variantProps": {
+      "State": "Focused"
+    },
+    "page": "01 · Components",
+    "file": "text-input--focused.png",
+    "width": 706,
+    "height": 152,
+    "scale": 2,
+    "shapeWidth": 353,
+    "shapeHeight": 76,
+    "includesOwnShadowBounds": false
+  },
+  "toast": {
+    "component": "Toast",
+    "variantProps": null,
+    "page": "01 · Components",
+    "file": "toast.png",
+    "width": 1128,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 300,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "toolbar-glass--1": {
+    "component": "Toolbar (Glass)",
+    "variantProps": {
+      "Items": "1"
+    },
+    "page": "01 · Components",
+    "file": "toolbar-glass--1.png",
+    "width": 632,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 52,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  },
+  "toolbar-glass--2": {
+    "component": "Toolbar (Glass)",
+    "variantProps": {
+      "Items": "2"
+    },
+    "page": "01 · Components",
+    "file": "toolbar-glass--2.png",
+    "width": 720,
+    "height": 680,
+    "scale": 2,
+    "shapeWidth": 96,
+    "shapeHeight": 44,
+    "includesOwnShadowBounds": true
+  }
+}

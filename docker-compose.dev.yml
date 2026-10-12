@@ -1,0 +1,44 @@
+# Local development database for Homi.
+#
+#   docker compose -f docker-compose.dev.yml up -d
+#
+# Starts PostgreSQL 18 on 127.0.0.1:5432 (not reachable from the LAN) with two databases:
+#   homi       – development   (DATABASE_URL=postgresql://homi:homi@localhost:5432/homi)
+#   homi_test  – integration tests, truncated between test files
+#              (DATABASE_URL_TEST=postgresql://homi:homi@localhost:5432/homi_test)
+# The dev-only credentials below are NOT for production.
+
+name: homi-dev
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: homi
+      POSTGRES_PASSWORD: homi
+      POSTGRES_DB: homi
+      TZ: Europe/Zurich
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      # PostgreSQL 18 images keep PGDATA in a version-specific sub-directory of /var/lib/postgresql.
+      - homi-db-data:/var/lib/postgresql
+    configs:
+      - source: create-test-db
+        target: /docker-entrypoint-initdb.d/10-create-test-db.sql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U homi -d homi && pg_isready -U homi -d homi_test']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+configs:
+  create-test-db:
+    # Runs once, when the data volume is initialised.
+    content: |
+      CREATE DATABASE homi_test OWNER homi;
+
+volumes:
+  homi-db-data:

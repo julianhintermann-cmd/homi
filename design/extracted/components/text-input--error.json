@@ -1,0 +1,168 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Text Input",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795eaf24d46",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Error"
+  },
+  "slug": "text-input--error",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795eab22574",
+  "width": 353,
+  "height": 100,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795eab22574",
+    "name": "Text Input",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 100,
+    "visible": true,
+    "clipContent": true,
+    "component": {
+      "name": "Text Input",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795eaf24d46",
+      "main": true,
+      "variantProps": {
+        "State": "Error"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795eab9a598",
+        "name": "Label",
+        "type": "text",
+        "x": 4,
+        "y": 0,
+        "w": 74,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "Artikelname",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "footnoteM",
+          "textBounds": {
+            "w": 73.9,
+            "h": 16
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795eac64e0e",
+        "name": "Field",
+        "type": "board",
+        "x": 0,
+        "y": 24,
+        "w": 353,
+        "h": 52,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 1
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#C2412D",
+            "opacity": 1,
+            "width": 1.5,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "radius": 14,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ead0d0ee",
+            "name": "Placeholder",
+            "type": "text",
+            "x": 16,
+            "y": 39,
+            "w": 101,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "z. B. Olivenöl",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#A1A1A6",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 100.4,
+                "h": 20
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795eadebabf",
+        "name": "Error Message",
+        "type": "text",
+        "x": 4,
+        "y": 82,
+        "w": 160,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "Bitte gib einen Namen ein.",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#C2412D",
+          "colorOpacity": 1,
+          "typography": "footnote",
+          "textBounds": {
+            "w": 159.6,
+            "h": 16
+          }
+        }
+      }
+    ]
+  }
+}

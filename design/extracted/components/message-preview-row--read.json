@@ -1,0 +1,214 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Message Preview Row",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d0e3d571",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Read"
+  },
+  "slug": "message-preview-row--read",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d00e0604",
+  "width": 353,
+  "height": 84,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d00e0604",
+    "name": "Message Preview Row",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 84,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F7F6F3",
+        "opacity": 1
+      }
+    ],
+    "clipContent": true,
+    "component": {
+      "name": "Message Preview Row",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d0e3d571",
+      "main": true,
+      "variantProps": {
+        "State": "Read"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d014c7a6",
+        "name": "Avatar",
+        "type": "board",
+        "x": 0,
+        "y": 14,
+        "w": 54,
+        "h": 54,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#EFE6DA",
+            "opacity": 1
+          }
+        ],
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d01fdd9b",
+            "name": "Initial",
+            "type": "text",
+            "x": 0,
+            "y": 14,
+            "w": 54,
+            "h": 54,
+            "visible": true,
+            "text": {
+              "characters": "L",
+              "growType": "fixed",
+              "align": "center",
+              "verticalAlign": "center",
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 22,
+              "lineHeight": 1.25,
+              "letterSpacing": -0.2,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#8A6E4F",
+              "colorOpacity": 1,
+              "textBounds": {
+                "w": 12.23,
+                "h": 26
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d034684b",
+        "name": "Name",
+        "type": "text",
+        "x": 68,
+        "y": 14,
+        "w": 190,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "Lisa",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "headline",
+          "textBounds": {
+            "w": 31.97,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d04289e7",
+        "name": "Time",
+        "type": "text",
+        "x": 253,
+        "y": 16,
+        "w": 100,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "13:48",
+          "growType": "auto-height",
+          "align": "right",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "footnote",
+          "textBounds": {
+            "w": 33.27,
+            "h": 16
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d052acb8",
+        "name": "Last Message",
+        "type": "text",
+        "x": 68,
+        "y": 37,
+        "w": 250,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "Kannst du noch Milch mitbringen?",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "subhead",
+          "textBounds": {
+            "w": 236.35,
+            "h": 19
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d06156b0",
+        "name": "Separator",
+        "type": "rectangle",
+        "x": 68,
+        "y": 83.5,
+        "w": 285,
+        "h": 0.5,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#E5E4DF",
+            "opacity": 1
+          }
+        ]
+      }
+    ]
+  }
+}

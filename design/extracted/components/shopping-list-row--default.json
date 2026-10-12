@@ -1,0 +1,134 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Shopping List Row",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795cff350a4",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Default"
+  },
+  "slug": "shopping-list-row--default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795cf88c137",
+  "width": 353,
+  "height": 56,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795cf88c137",
+    "name": "Shopping List Row",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 56,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 1
+      }
+    ],
+    "clipContent": true,
+    "component": {
+      "name": "Shopping List Row",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795cff350a4",
+      "main": true,
+      "variantProps": {
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795cf902c99",
+        "name": "Checkbox",
+        "type": "board",
+        "x": 16,
+        "y": 15,
+        "w": 26,
+        "h": 26,
+        "visible": true,
+        "strokes": [
+          {
+            "color": "#A1A1A6",
+            "opacity": 1,
+            "width": 1.6,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "radius": 13,
+        "clipContent": true
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795cf9b0cd3",
+        "name": "Name",
+        "type": "text",
+        "x": 56,
+        "y": 16,
+        "w": 170,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "Milch",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "body",
+          "textBounds": {
+            "w": 41.85,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795cfa9c65a",
+        "name": "Quantity",
+        "type": "text",
+        "x": 200,
+        "y": 18,
+        "w": 137,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "2 Liter",
+          "growType": "auto-height",
+          "align": "right",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "subhead",
+          "textBounds": {
+            "w": 43.6,
+            "h": 19
+          }
+        }
+      }
+    ]
+  }
+}

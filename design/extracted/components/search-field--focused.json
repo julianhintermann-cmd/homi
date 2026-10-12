@@ -1,0 +1,246 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Search Field",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795ec15e946",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Focused"
+  },
+  "slug": "search-field--focused",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795ebcde332",
+  "width": 353,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795ebcde332",
+    "name": "Search Field",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#EAE9E4",
+        "opacity": 1
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Search Field",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795ec15e946",
+      "main": true,
+      "variantProps": {
+        "State": "Focused"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ebd7fac1",
+        "name": "icon / search",
+        "type": "group",
+        "x": 14,
+        "y": 12,
+        "w": 20,
+        "h": 20,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ebd8456a",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 14,
+            "y": 12,
+            "w": 20,
+            "h": 20,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#6E6E73",
+                "opacity": 1,
+                "width": 2.28,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ebd8456b",
+            "name": "svg-circle",
+            "type": "ellipse",
+            "x": 17.5,
+            "y": 15.5,
+            "w": 10.67,
+            "h": 10.67,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#6E6E73",
+                "opacity": 1,
+                "width": 2.28,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ebd890ac",
+            "name": "svg-path",
+            "type": "path",
+            "x": 26.83,
+            "y": 24.83,
+            "w": 3.83,
+            "h": 3.83,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#6E6E73",
+                "opacity": 1,
+                "width": 2.28,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M26.83,24.83 L30.67,28.67"
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ebe3476f",
+        "name": "Value",
+        "type": "text",
+        "x": 42,
+        "y": 12,
+        "w": 30,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "Oliv",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "body",
+          "textBounds": {
+            "w": 29.58,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ebf1bbfe",
+        "name": "Caret",
+        "type": "rectangle",
+        "x": 80,
+        "y": 11,
+        "w": 2,
+        "h": 22,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#5E7D63",
+            "opacity": 1
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ebfcc36c",
+        "name": "Clear",
+        "type": "board",
+        "x": 319,
+        "y": 12,
+        "w": 20,
+        "h": 20,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#A1A1A6",
+            "opacity": 1
+          }
+        ],
+        "radius": 10,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ec079e40",
+            "name": "icon / xmark",
+            "type": "group",
+            "x": 322,
+            "y": 15,
+            "w": 14,
+            "h": 14,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ec0808ae",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 322,
+                "y": 15,
+                "w": 14,
+                "h": 14,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 1,
+                    "width": 4.11,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ec0808af",
+                "name": "svg-path",
+                "type": "path",
+                "x": 325.79,
+                "y": 18.79,
+                "w": 6.42,
+                "h": 6.42,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 1,
+                    "width": 4.11,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M325.79,18.79 L332.21,25.21 M332.21,18.79 L325.79,25.21"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

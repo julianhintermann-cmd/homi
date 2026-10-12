@@ -1,0 +1,226 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Quantity Stepper",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795ed1c82b7",
+  "variantProperties": [
+    "Size",
+    "State"
+  ],
+  "variantProps": {
+    "Size": "Large",
+    "State": "Default"
+  },
+  "slug": "quantity-stepper--large-default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795ecd277b3",
+  "width": 196,
+  "height": 56,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795ecd277b3",
+    "name": "Quantity Stepper",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 56,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#EAE9E4",
+        "opacity": 1
+      }
+    ],
+    "radius": 28,
+    "clipContent": true,
+    "component": {
+      "name": "Quantity Stepper",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795ed1c82b7",
+      "main": true,
+      "variantProps": {
+        "Size": "Large",
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ecdb799b",
+        "name": "Minus",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 56,
+        "h": 56,
+        "visible": true,
+        "radius": 28,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ece555a0",
+            "name": "icon / minus",
+            "type": "group",
+            "x": 16,
+            "y": 16,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ece5abe0",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 16,
+                "y": 16,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ece5cfe9",
+                "name": "svg-path",
+                "type": "path",
+                "x": 21.5,
+                "y": 28,
+                "w": 13,
+                "h": 0.01,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M21.5,28 L34.5,28"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ecedccc4",
+        "name": "Value",
+        "type": "text",
+        "x": 56,
+        "y": 0,
+        "w": 84,
+        "h": 56,
+        "visible": true,
+        "text": {
+          "characters": "24",
+          "growType": "fixed",
+          "align": "center",
+          "verticalAlign": "center",
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 22,
+          "lineHeight": 1.25,
+          "letterSpacing": -0.4,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "title2",
+          "textBounds": {
+            "w": 27.22,
+            "h": 26
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ed03c92f",
+        "name": "Plus",
+        "type": "board",
+        "x": 140,
+        "y": 0,
+        "w": 56,
+        "h": 56,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#111111",
+            "opacity": 1
+          }
+        ],
+        "radius": 28,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795ed0f9d2e",
+            "name": "icon / plus",
+            "type": "group",
+            "x": 156,
+            "y": 16,
+            "w": 24,
+            "h": 24,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ed102c6e",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 156,
+                "y": 16,
+                "w": 24,
+                "h": 24,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F7F6F3",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795ed102c6f",
+                "name": "svg-path",
+                "type": "path",
+                "x": 161,
+                "y": 21,
+                "w": 14,
+                "h": 14,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F7F6F3",
+                    "opacity": 1,
+                    "width": 2,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M168,21 L168,35 M161,28 L175,28"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

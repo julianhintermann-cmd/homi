@@ -1,0 +1,168 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Price Input",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795eb919f55",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Filled"
+  },
+  "slug": "price-input--filled",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795eb51d488",
+  "width": 353,
+  "height": 76,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795eb51d488",
+    "name": "Price Input",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 76,
+    "visible": true,
+    "clipContent": true,
+    "component": {
+      "name": "Price Input",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795eb919f55",
+      "main": true,
+      "variantProps": {
+        "State": "Filled"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795eb59d805",
+        "name": "Label",
+        "type": "text",
+        "x": 4,
+        "y": 0,
+        "w": 100,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "Preis pro Einheit",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "footnoteM",
+          "textBounds": {
+            "w": 99.87,
+            "h": 16
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795eb6783c8",
+        "name": "Field",
+        "type": "board",
+        "x": 0,
+        "y": 24,
+        "w": 353,
+        "h": 52,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 1
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#E5E4DF",
+            "opacity": 1,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "radius": 14,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795eb736e0b",
+            "name": "Prefix",
+            "type": "text",
+            "x": 16,
+            "y": 39,
+            "w": 35,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "CHF",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#6E6E73",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 34.18,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795eb81a262",
+            "name": "Value",
+            "type": "text",
+            "x": 58,
+            "y": 39,
+            "w": 35,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "8.50",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 34.38,
+                "h": 20
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

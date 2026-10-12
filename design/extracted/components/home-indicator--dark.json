@@ -1,0 +1,60 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Home Indicator",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795b9a83168",
+  "variantProperties": [
+    "Mode"
+  ],
+  "variantProps": {
+    "Mode": "Dark"
+  },
+  "slug": "home-indicator--dark",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795b99fba53",
+  "width": 393,
+  "height": 34,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795b99fba53",
+    "name": "Home Indicator",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 34,
+    "visible": true,
+    "clipContent": true,
+    "component": {
+      "name": "Home Indicator",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795b9a83168",
+      "main": true,
+      "variantProps": {
+        "Mode": "Dark"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b9a2d58f",
+        "name": "Indicator",
+        "type": "rectangle",
+        "x": 129.5,
+        "y": 21,
+        "w": 134,
+        "h": 5,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 3
+      }
+    ]
+  }
+}

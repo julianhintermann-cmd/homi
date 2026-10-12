@@ -1,0 +1,103 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Checkbox",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795edfec872",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Completed"
+  },
+  "slug": "checkbox--completed",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795ede5358e",
+  "width": 26,
+  "height": 26,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795ede5358e",
+    "name": "Checkbox",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 26,
+    "h": 26,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#5E7D63",
+        "opacity": 1
+      }
+    ],
+    "radius": 13,
+    "clipContent": true,
+    "component": {
+      "name": "Checkbox",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795edfec872",
+      "main": true,
+      "variantProps": {
+        "State": "Completed"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795edf129ba",
+        "name": "icon / check",
+        "type": "group",
+        "x": 4,
+        "y": 4,
+        "w": 18,
+        "h": 18,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795edf16532",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 4,
+            "y": 4,
+            "w": 18,
+            "h": 18,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 1,
+                "width": 3.2,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795edf1a5e9",
+            "name": "svg-path",
+            "type": "path",
+            "x": 8.13,
+            "y": 9.48,
+            "w": 9.75,
+            "h": 7.2,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 1,
+                "width": 3.2,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M8.13,13.45 L11.35,16.68 L17.88,9.47"
+          }
+        ]
+      }
+    ]
+  }
+}

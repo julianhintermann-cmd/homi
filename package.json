@@ -1,0 +1,44 @@
+{
+  "name": "homi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A modern household inventory and collaboration web application.",
+  "type": "module",
+  "workspaces": [
+    "packages/shared",
+    "apps/server",
+    "apps/web"
+  ],
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm run dev -w @homi/server\" \"npm run dev -w @homi/web\"",
+    "build": "npm run build -w @homi/web && npm run build -w @homi/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "npm run test --workspaces --if-present",
+    "test:integration": "npm run test:integration -w @homi/server",
+    "test:e2e": "playwright test",
+    "db:migrate": "npm run db:migrate -w @homi/server",
+    "db:deploy": "npm run db:deploy -w @homi/server",
+    "db:generate": "npm run db:generate -w @homi/server",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@playwright/test": "^1.64.0",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "pixelmatch": "^8.0.0",
+    "pngjs": "^7.0.0",
+    "prettier": "^3.6.2",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Category Chip",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795cf713bb2",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Default"
+  },
+  "slug": "category-chip--default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795cf3a1de1",
+  "width": 77,
+  "height": 36,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795cf3a1de1",
+    "name": "Category Chip",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 77,
+    "h": 36,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 1
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#E5E4DF",
+        "opacity": 1,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "radius": 18,
+    "clipContent": true,
+    "layout": {
+      "type": "flex",
+      "dir": "row",
+      "wrap": "nowrap",
+      "rowGap": 8,
+      "columnGap": 8,
+      "padding": [
+        8,
+        16,
+        8,
+        16
+      ],
+      "alignItems": "center",
+      "alignContent": "stretch",
+      "justifyContent": "center",
+      "justifyItems": null,
+      "horizontalSizing": "auto",
+      "verticalSizing": "auto"
+    },
+    "component": {
+      "name": "Category Chip",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795cf713bb2",
+      "main": true,
+      "variantProps": {
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795cf4cd706",
+        "name": "Label",
+        "type": "text",
+        "x": 16,
+        "y": 8,
+        "w": 45,
+        "h": 20,
+        "visible": true,
+        "layoutChild": {
+          "absolute": false,
+          "horizontalSizing": "fix",
+          "verticalSizing": "fix",
+          "margin": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "alignSelf": "auto",
+          "zIndex": 0
+        },
+        "text": {
+          "characters": "Küche",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "subheadM",
+          "textBounds": {
+            "w": 44.55,
+            "h": 19
+          }
+        }
+      }
+    ]
+  }
+}

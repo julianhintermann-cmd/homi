@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Homi icon "sliders" – extracted from Penpot "Foundations › Icon Tile / sliders" (24×24 group, 1.7 pt stroke) -->
+  <path d="M4,7.5 L13.5,7.5 M18.5,7.5 L20,7.5 M4,16.5 L7.5,16.5 M12.5,16.5 L20,16.5"/>
+  <circle cx="16" cy="7.5" r="2.3"/>
+  <circle cx="10" cy="16.5" r="2.3"/>
+</svg>

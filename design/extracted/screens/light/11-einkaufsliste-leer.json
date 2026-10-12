@@ -1,0 +1,1680 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "02 · Screens & Prototype",
+  "board": "11 Einkaufsliste – leer",
+  "boardId": "89a7272c-a1ac-80ae-8008-c79760148c2d",
+  "slug": "11-einkaufsliste-leer",
+  "mode": "light",
+  "width": 393,
+  "height": 852,
+  "pagePosition": {
+    "x": 473,
+    "y": 2400
+  },
+  "notes": [
+    "Coordinates (x/y) are relative to the screen board top-left; path \"d\" data is translated into the same space.",
+    "children are listed in paint order (first = bottom-most).",
+    "The board-level drop shadow (0/24/60, 18% black) is a presentation shadow, not UI.",
+    "Status Bar (54pt) and Home Indicator (34pt) are system UI / safe areas, not to be drawn by the web app."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c79760148c2d",
+    "name": "11 Einkaufsliste – leer",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 852,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F7F6F3",
+        "opacity": 1
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 24,
+        "blur": 60,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.18,
+        "hidden": false
+      }
+    ],
+    "clipContent": true,
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c798f99de385",
+        "name": "Status Bar",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 54,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Status Bar",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b985455a",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de386",
+            "name": "Time",
+            "type": "text",
+            "x": 0,
+            "y": 17,
+            "w": 133,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "9:41",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "headline",
+              "textBounds": {
+                "w": 33.05,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de387",
+            "name": "Dynamic Island",
+            "type": "rectangle",
+            "x": 133.5,
+            "y": 11,
+            "w": 126,
+            "h": 37,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 1
+              }
+            ],
+            "radius": 18.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de388",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 293,
+            "y": 24,
+            "w": 3,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de389",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 297.5,
+            "y": 21.5,
+            "w": 3,
+            "h": 6.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38a",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 302,
+            "y": 19,
+            "w": 3,
+            "h": 9,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38b",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 306.5,
+            "y": 16.5,
+            "w": 3,
+            "h": 11.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38c",
+            "name": "Battery",
+            "type": "rectangle",
+            "x": 337,
+            "y": 17.5,
+            "w": 25,
+            "h": 12,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 0.4,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "radius": 3.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38d",
+            "name": "Battery Level",
+            "type": "rectangle",
+            "x": 339,
+            "y": 19.5,
+            "w": 18,
+            "h": 8,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 2
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38e",
+            "name": "Battery Cap",
+            "type": "rectangle",
+            "x": 363,
+            "y": 21.5,
+            "w": 1.5,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 0.4
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f99de38f",
+            "name": "icon / wifi",
+            "type": "group",
+            "x": 314,
+            "y": 16,
+            "w": 17,
+            "h": 17,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f99de390",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 314,
+                "y": 16,
+                "w": 17,
+                "h": 17,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f99e2b29",
+                "name": "svg-path",
+                "type": "path",
+                "x": 316.27,
+                "y": 19.95,
+                "w": 12.47,
+                "h": 2.57,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M316.27,22.52 C319.72,19.1 325.28,19.1 328.73,22.52"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f99e2b2a",
+                "name": "svg-path",
+                "type": "path",
+                "x": 318.46,
+                "y": 23.09,
+                "w": 8.08,
+                "h": 1.69,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M318.46,24.78 C319.53,23.7 320.98,23.09 322.5,23.09 C324.02,23.09 325.47,23.7 326.54,24.78"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f99e2b2b",
+                "name": "svg-path",
+                "type": "path",
+                "x": 320.66,
+                "y": 26.26,
+                "w": 3.68,
+                "h": 0.79,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M320.66,27.05 C321.14,26.55 321.8,26.26 322.5,26.26 C323.2,26.26 323.86,26.55 324.34,27.05"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f99e2b2c",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 321.72,
+                "y": 28.4,
+                "w": 1.56,
+                "h": 1.56,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797604010df",
+        "name": "Toolbar (Glass)",
+        "type": "board",
+        "x": 321,
+        "y": 58,
+        "w": 52,
+        "h": 44,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 22,
+        "clipContent": true,
+        "component": {
+          "name": "Toolbar (Glass)",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795bf4110fc",
+          "main": false,
+          "variantProps": {
+            "Items": "1"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797604010e0",
+            "name": "Toolbar Item / ellipsis",
+            "type": "board",
+            "x": 325,
+            "y": 58,
+            "w": 44,
+            "h": 44,
+            "visible": true,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797604010e1",
+                "name": "icon / ellipsis",
+                "type": "group",
+                "x": 336,
+                "y": 69,
+                "w": 22,
+                "h": 22,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797604010e2",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 336,
+                    "y": 69,
+                    "w": 22,
+                    "h": 22,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.18,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797604010e3",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 339.67,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797604010e4",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 345.63,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797604010e5",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 351.58,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797604a445b",
+        "name": "Large Title",
+        "type": "text",
+        "x": 20,
+        "y": 106,
+        "w": 204,
+        "h": 41,
+        "visible": true,
+        "text": {
+          "characters": "Einkaufsliste",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 700,
+          "fontStyle": "normal",
+          "fontSize": 34,
+          "lineHeight": 1.2,
+          "letterSpacing": -0.8,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "largeTitle",
+          "textBounds": {
+            "w": 203.07,
+            "h": 41
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7976066f7f8",
+        "name": "Subtitle",
+        "type": "text",
+        "x": 20,
+        "y": 148,
+        "w": 148,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "Alles, was noch fehlt.",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "subhead",
+          "textBounds": {
+            "w": 147.67,
+            "h": 19
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79760817b08",
+        "name": "Add Item Row",
+        "type": "board",
+        "x": 20,
+        "y": 192,
+        "w": 353,
+        "h": 52,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 1
+          }
+        ],
+        "radius": 16,
+        "clipContent": true,
+        "interactions": [
+          {
+            "trigger": "click",
+            "action": {
+              "type": "navigate-to",
+              "destination": {
+                "id": "89a7272c-a1ac-80ae-8008-c7977388e572",
+                "name": "18 Einkauf – Artikel hinzufügen"
+              },
+              "preserveScrollPosition": false,
+              "animation": {
+                "type": "dissolve",
+                "duration": 200,
+                "easing": "ease-out"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7976094eaf7",
+            "name": "Plus",
+            "type": "board",
+            "x": 34,
+            "y": 205,
+            "w": 26,
+            "h": 26,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#5E7D63",
+                "opacity": 1
+              }
+            ],
+            "radius": 13,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79760a70cec",
+                "name": "icon / plus",
+                "type": "group",
+                "x": 38,
+                "y": 209,
+                "w": 18,
+                "h": 18,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79760a7f965",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 38,
+                    "y": 209,
+                    "w": 18,
+                    "h": 18,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#FFFFFF",
+                        "opacity": 1,
+                        "width": 3.2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79760a81b2f",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 41.75,
+                    "y": 212.75,
+                    "w": 10.5,
+                    "h": 10.5,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#FFFFFF",
+                        "opacity": 1,
+                        "width": 3.2,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M47,212.75 L47,223.25 M41.75,218 L52.25,218"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79760bcd957",
+            "name": "Placeholder",
+            "type": "text",
+            "x": 74,
+            "y": 207,
+            "w": 141,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Artikel hinzufügen",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 400,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#A1A1A6",
+              "colorOpacity": 1,
+              "typography": "body",
+              "textBounds": {
+                "w": 140.85,
+                "h": 20
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79760d95585",
+        "name": "Icon Circle",
+        "type": "board",
+        "x": 160.5,
+        "y": 330,
+        "w": 72,
+        "h": 72,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#E6ECE5",
+            "opacity": 1
+          }
+        ],
+        "radius": 36,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79760ef9e0a",
+            "name": "icon / checkCircle",
+            "type": "group",
+            "x": 178.5,
+            "y": 348,
+            "w": 36,
+            "h": 36,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79760f0ca6e",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 178.5,
+                "y": 348,
+                "w": 36,
+                "h": 36,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#5E7D63",
+                    "opacity": 1,
+                    "width": 1.13,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79760f0ca6f",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 183.6,
+                "y": 353.1,
+                "w": 25.8,
+                "h": 25.8,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#5E7D63",
+                    "opacity": 1,
+                    "width": 1.13,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79760f0ca70",
+                "name": "svg-path",
+                "type": "path",
+                "x": 190.5,
+                "y": 362.25,
+                "w": 12.15,
+                "h": 8.4,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#5E7D63",
+                    "opacity": 1,
+                    "width": 1.13,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M190.5,366.45 L194.7,370.65 L202.65,362.25"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7976106b4e1",
+        "name": "Empty Title",
+        "type": "text",
+        "x": 0,
+        "y": 422,
+        "w": 393,
+        "h": 25,
+        "visible": true,
+        "text": {
+          "characters": "Alles erledigt!",
+          "growType": "auto-height",
+          "align": "center",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 20,
+          "lineHeight": 1.25,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "title3",
+          "textBounds": {
+            "w": 129.25,
+            "h": 24
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797612dfd0d",
+        "name": "Empty Message",
+        "type": "text",
+        "x": 40,
+        "y": 452,
+        "w": 313,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "Deine Einkaufsliste ist leer.",
+          "growType": "auto-height",
+          "align": "center",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "subhead",
+          "textBounds": {
+            "w": 184.62,
+            "h": 19
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7976151c15e",
+        "name": "Scroll Edge Effect",
+        "type": "rectangle",
+        "x": 0,
+        "y": 742,
+        "w": 393,
+        "h": 110,
+        "visible": true,
+        "fills": [
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 0,
+                "offset": 0
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 0.9,
+                "offset": 0.45
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "offset": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797616c4199",
+        "name": "Tab Bar (Liquid Glass)",
+        "type": "board",
+        "x": 16,
+        "y": 769,
+        "w": 361,
+        "h": 62,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 31,
+        "clipContent": true,
+        "component": {
+          "name": "Tab Bar (Liquid Glass)",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795bd2d97b4",
+          "main": false,
+          "variantProps": {
+            "Active": "Einkauf",
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797616c419a",
+            "name": "Tab / Home",
+            "type": "board",
+            "x": 20,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+                    "name": "01 Home"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c419b",
+                "name": "icon / house",
+                "type": "group",
+                "x": 52.13,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c419c",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 52.13,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c419d",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 55.63,
+                    "y": 783.8,
+                    "w": 17,
+                    "h": 7,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M55.63,790.8 L64.13,783.8 L72.63,790.8"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c419e",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 57.93,
+                    "y": 789.2,
+                    "w": 12.4,
+                    "h": 11.2,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M57.92,789.2 L57.92,799.2 C57.92,799.86 58.46,800.4 59.13,800.4 L62.42,800.4 L62.42,794.8 L65.83,794.8 L65.83,800.4 L69.13,800.4 C69.79,800.4 70.33,799.86 70.33,799.2 L70.33,789.2"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c419f",
+                "name": "Label",
+                "type": "text",
+                "x": 20,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Home",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 28.85,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797616c41a0",
+            "name": "Tab / Inventar",
+            "type": "board",
+            "x": 108.25,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+                    "name": "02 Inventar"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c41a1",
+                "name": "icon / stack",
+                "type": "group",
+                "x": 140.38,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c41a2",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 140.38,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c41a3",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 783.2,
+                    "w": 17,
+                    "h": 8.8,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M152.38,783.2 L143.88,787.6 L152.38,792 L160.88,787.6 L152.38,783.2 L152.38,783.2"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c41a4",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 792,
+                    "w": 17,
+                    "h": 4.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M143.88,792 L152.38,796.4 L160.88,792"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97de",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 796.4,
+                    "w": 17,
+                    "h": 4.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M143.88,796.4 L152.38,800.8 L160.88,796.4"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c97df",
+                "name": "Label",
+                "type": "text",
+                "x": 108.25,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Inventar",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 40.53,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797616c97e0",
+            "name": "Tab / Einkauf",
+            "type": "board",
+            "x": 196.5,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 0.06
+              }
+            ],
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+                    "name": "03 Einkaufsliste"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c97e1",
+                "name": "icon / cart",
+                "type": "group",
+                "x": 228.63,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97e2",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 228.63,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97e3",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 231.42,
+                    "y": 783.8,
+                    "w": 17.7,
+                    "h": 12.1,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M231.42,783.8 L233.52,783.8 L235.83,794.7 C235.97,795.41 236.6,795.91 237.33,795.9 L245.92,795.9 C246.6,795.9 247.19,795.45 247.38,794.8 L249.13,787.9 L234.33,787.9"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97e4",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 236.98,
+                    "y": 798.35,
+                    "w": 2.5,
+                    "h": 2.5,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97e5",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 244.38,
+                    "y": 798.35,
+                    "w": 2.5,
+                    "h": 2.5,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c97e6",
+                "name": "Label",
+                "type": "text",
+                "x": 196.5,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Einkauf",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#5E7D63",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 36.93,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797616c97e7",
+            "name": "Tab / Chats",
+            "type": "board",
+            "x": 284.75,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+                    "name": "04 Chats"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c97e8",
+                "name": "icon / bubbles",
+                "type": "group",
+                "x": 316.88,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97e9",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 316.88,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97ea",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 319.38,
+                    "y": 784.2,
+                    "w": 14,
+                    "h": 13.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M330.48,784.2 L322.27,784.2 C320.67,784.2 319.38,785.5 319.38,787.1 L319.38,791.7 C319.38,792.47 319.68,793.21 320.22,793.75 C320.77,794.29 321.51,794.6 322.27,794.6 L322.67,794.6 L322.67,797.6 L326.08,794.6 L330.48,794.6 C332.08,794.6 333.38,793.3 333.38,791.7 L333.38,787.1 C333.38,786.33 333.07,785.59 332.53,785.05 C331.98,784.51 331.24,784.2 330.48,784.2 L330.48,784.2"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797616c97eb",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 326.18,
+                    "y": 788.6,
+                    "w": 12.2,
+                    "h": 12.6,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M336.27,788.6 C337.52,788.96 338.38,790.1 338.38,791.4 L338.38,795.7 C338.38,797.3 337.08,798.6 335.48,798.6 L335.17,798.6 L335.17,801.2 L332.17,798.6 L328.58,798.6 C327.61,798.59 326.71,798.11 326.17,797.3"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797616c97ec",
+                "name": "Label",
+                "type": "text",
+                "x": 284.75,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Chats",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 28.68,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7976180ac0b",
+        "name": "Home Indicator",
+        "type": "board",
+        "x": 0,
+        "y": 818,
+        "w": 393,
+        "h": 34,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Home Indicator",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b9a754ab",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7976180ac0c",
+            "name": "Indicator",
+            "type": "rectangle",
+            "x": 129.5,
+            "y": 839,
+            "w": 134,
+            "h": 5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 3
+          }
+        ]
+      }
+    ]
+  }
+}

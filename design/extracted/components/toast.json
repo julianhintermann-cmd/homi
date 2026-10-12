@@ -1,0 +1,237 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Toast",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795f2c7fb67",
+  "variantProperties": [],
+  "variantProps": null,
+  "slug": "toast",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795f265034f",
+  "width": 300,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795f265034f",
+    "name": "Toast",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.55,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Toast",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795f2c7fb67",
+      "main": true
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f276a810",
+        "name": "Check",
+        "type": "board",
+        "x": 10,
+        "y": 10,
+        "w": 24,
+        "h": 24,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#5E7D63",
+            "opacity": 1
+          }
+        ],
+        "radius": 12,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795f285b3be",
+            "name": "icon / check",
+            "type": "group",
+            "x": 14,
+            "y": 14,
+            "w": 16,
+            "h": 16,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f286207a",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 14,
+                "y": 14,
+                "w": 16,
+                "h": 16,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 1,
+                    "width": 3.9,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795f286207b",
+                "name": "svg-path",
+                "type": "path",
+                "x": 17.67,
+                "y": 18.87,
+                "w": 8.67,
+                "h": 6.4,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 1,
+                    "width": 3.9,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M17.67,22.4 L20.53,25.27 L26.33,18.87"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f2941ac2",
+        "name": "Message",
+        "type": "text",
+        "x": 44,
+        "y": 12,
+        "w": 146,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "Olivenöl hinzugefügt",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "subheadM",
+          "textBounds": {
+            "w": 145.52,
+            "h": 19
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795f2aabfc0",
+        "name": "Undo",
+        "type": "text",
+        "x": 200,
+        "y": 12,
+        "w": 86,
+        "h": 20,
+        "visible": true,
+        "text": {
+          "characters": "Rückgängig",
+          "growType": "auto-height",
+          "align": "right",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#5E7D63",
+          "colorOpacity": 1,
+          "typography": "subheadM",
+          "textBounds": {
+            "w": 83.15,
+            "h": 19
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Profile Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795be24ff9b",
+  "variantProperties": [
+    "Mode"
+  ],
+  "variantProps": {
+    "Mode": "Dark"
+  },
+  "slug": "profile-button--dark",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795bdfa2573",
+  "width": 44,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795bdfa2573",
+    "name": "Profile Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 44,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#2A2A2E",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.1,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.12,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.45,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.3,
+        "hidden": false
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Profile Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795be24ff9b",
+      "main": true,
+      "variantProps": {
+        "Mode": "Dark"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795be046573",
+        "name": "Avatar",
+        "type": "board",
+        "x": 4,
+        "y": 4,
+        "w": 36,
+        "h": 36,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#2A2A2E",
+            "opacity": 1
+          }
+        ],
+        "radius": 18,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795be0ed807",
+            "name": "Initial",
+            "type": "text",
+            "x": 4,
+            "y": 4,
+            "w": 36,
+            "h": 36,
+            "visible": true,
+            "text": {
+              "characters": "J",
+              "growType": "fixed",
+              "align": "center",
+              "verticalAlign": "center",
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 14,
+              "lineHeight": 1.25,
+              "letterSpacing": -0.2,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#E5E5EA",
+              "colorOpacity": 1,
+              "textBounds": {
+                "w": 7.92,
+                "h": 17
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

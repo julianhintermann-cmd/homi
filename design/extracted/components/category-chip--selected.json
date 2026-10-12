@@ -1,0 +1,113 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Category Chip",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795cf729741",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Selected"
+  },
+  "slug": "category-chip--selected",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795cf5628b2",
+  "width": 78,
+  "height": 36,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795cf5628b2",
+    "name": "Category Chip",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 78,
+    "h": 36,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#111111",
+        "opacity": 1
+      }
+    ],
+    "radius": 18,
+    "clipContent": true,
+    "layout": {
+      "type": "flex",
+      "dir": "row",
+      "wrap": "nowrap",
+      "rowGap": 8,
+      "columnGap": 8,
+      "padding": [
+        8,
+        16,
+        8,
+        16
+      ],
+      "alignItems": "center",
+      "alignContent": "stretch",
+      "justifyContent": "center",
+      "justifyItems": null,
+      "horizontalSizing": "auto",
+      "verticalSizing": "auto"
+    },
+    "component": {
+      "name": "Category Chip",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795cf729741",
+      "main": true,
+      "variantProps": {
+        "State": "Selected"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795cf6831e0",
+        "name": "Label",
+        "type": "text",
+        "x": 16,
+        "y": 8,
+        "w": 46,
+        "h": 20,
+        "visible": true,
+        "layoutChild": {
+          "absolute": false,
+          "horizontalSizing": "fix",
+          "verticalSizing": "fix",
+          "margin": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "alignSelf": "auto",
+          "zIndex": 0
+        },
+        "text": {
+          "characters": "Küche",
+          "growType": "auto-width",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#F7F6F3",
+          "colorOpacity": 1,
+          "textBounds": {
+            "w": 45.25,
+            "h": 19
+          }
+        }
+      }
+    ]
+  }
+}

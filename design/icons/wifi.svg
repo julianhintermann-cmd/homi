@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Homi icon "wifi" – NOT on the Foundations board; extracted from the Status Bar component (17×17 group, scaled ×1.41 to 24×24). Status-bar glyph; stroke-width 2.05 as stored in Penpot. -->
+  <path d="M3.2,9.2 C8.08,4.38 15.92,4.38 20.8,9.2"/>
+  <path d="M6.3,12.4 C7.81,10.87 9.85,10.01 12,10.01 C14.15,10.01 16.19,10.87 17.7,12.4"/>
+  <path d="M9.4,15.6 C10.08,14.89 11.01,14.48 12,14.48 C12.99,14.48 13.92,14.89 14.6,15.6"/>
+  <circle cx="12" cy="18.61" r="1.1" fill="currentColor" stroke="none"/>
+</svg>

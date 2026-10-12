@@ -1,0 +1,2080 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "02 · Screens & Prototype",
+  "board": "08b Chat – ungelesen",
+  "boardId": "89a7272c-a1ac-80ae-8008-c7977ba3dbd6",
+  "slug": "08b-chat-ungelesen",
+  "mode": "light",
+  "width": 393,
+  "height": 852,
+  "pagePosition": {
+    "x": 946,
+    "y": 3500
+  },
+  "notes": [
+    "Coordinates (x/y) are relative to the screen board top-left; path \"d\" data is translated into the same space.",
+    "children are listed in paint order (first = bottom-most).",
+    "The board-level drop shadow (0/24/60, 18% black) is a presentation shadow, not UI.",
+    "Status Bar (54pt) and Home Indicator (34pt) are system UI / safe areas, not to be drawn by the web app."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c7977ba3dbd6",
+    "name": "08b Chat – ungelesen",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 852,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F7F6F3",
+        "opacity": 1
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 24,
+        "blur": 60,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.18,
+        "hidden": false
+      }
+    ],
+    "clipContent": true,
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977bd0de16",
+        "name": "Messages",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977bf3ad32",
+            "name": "Timestamp",
+            "type": "text",
+            "x": 0,
+            "y": 110,
+            "w": 393,
+            "h": 16,
+            "visible": false,
+            "text": {
+              "characters": "Heute, 08:12",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 12,
+              "lineHeight": 1.3,
+              "letterSpacing": 0,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#A1A1A6",
+              "colorOpacity": 1,
+              "typography": "caption",
+              "textBounds": {
+                "w": 72.25,
+                "h": 15
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977c331b98",
+            "name": "Chat Bubble",
+            "type": "board",
+            "x": 16,
+            "y": 138,
+            "w": 309,
+            "h": 42,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#EFEEEA",
+                "opacity": 1
+              }
+            ],
+            "radius": [
+              20,
+              20,
+              20,
+              6
+            ],
+            "clipContent": true,
+            "layout": {
+              "type": "flex",
+              "dir": "row",
+              "wrap": "nowrap",
+              "rowGap": 8,
+              "columnGap": 8,
+              "padding": [
+                10,
+                15,
+                10,
+                15
+              ],
+              "alignItems": "center",
+              "alignContent": "stretch",
+              "justifyContent": "center",
+              "justifyItems": null,
+              "horizontalSizing": "auto",
+              "verticalSizing": "auto"
+            },
+            "component": {
+              "name": "Chat Bubble",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795d157406f",
+              "main": false,
+              "variantProps": {
+                "Direction": "Incoming"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977c331b99",
+                "name": "Message",
+                "type": "text",
+                "x": 31,
+                "y": 148,
+                "w": 279,
+                "h": 22,
+                "visible": true,
+                "layoutChild": {
+                  "absolute": false,
+                  "horizontalSizing": "fix",
+                  "verticalSizing": "fix",
+                  "margin": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignSelf": "auto",
+                  "zIndex": 0
+                },
+                "text": {
+                  "characters": "Hey, haben wir noch Kaffee zuhause?",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 16,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.2,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 278.32,
+                    "h": 20
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977c516d29",
+            "name": "Chat Bubble",
+            "type": "board",
+            "x": 55,
+            "y": 191,
+            "w": 322,
+            "h": 42,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#5E7D63",
+                "opacity": 1
+              }
+            ],
+            "radius": [
+              20,
+              20,
+              6,
+              20
+            ],
+            "clipContent": true,
+            "layout": {
+              "type": "flex",
+              "dir": "row",
+              "wrap": "nowrap",
+              "rowGap": 8,
+              "columnGap": 8,
+              "padding": [
+                10,
+                15,
+                10,
+                15
+              ],
+              "alignItems": "center",
+              "alignContent": "stretch",
+              "justifyContent": "center",
+              "justifyItems": null,
+              "horizontalSizing": "auto",
+              "verticalSizing": "auto"
+            },
+            "component": {
+              "name": "Chat Bubble",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795d15a6070",
+              "main": false,
+              "variantProps": {
+                "Direction": "Outgoing"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977c516d2a",
+                "name": "Message",
+                "type": "text",
+                "x": 70,
+                "y": 201,
+                "w": 292,
+                "h": 22,
+                "visible": true,
+                "layoutChild": {
+                  "absolute": false,
+                  "horizontalSizing": "fix",
+                  "verticalSizing": "fix",
+                  "margin": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignSelf": "auto",
+                  "zIndex": 0
+                },
+                "text": {
+                  "characters": "Ja, wir haben noch zwei Packungen ☕",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 16,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.2,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#FFFFFF",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 291.87,
+                    "h": 21
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977c7373a0",
+            "name": "Chat Bubble",
+            "type": "board",
+            "x": 16,
+            "y": 244,
+            "w": 250,
+            "h": 63,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#EFEEEA",
+                "opacity": 1
+              }
+            ],
+            "radius": [
+              20,
+              20,
+              20,
+              6
+            ],
+            "clipContent": true,
+            "layout": {
+              "type": "flex",
+              "dir": "row",
+              "wrap": "nowrap",
+              "rowGap": 8,
+              "columnGap": 8,
+              "padding": [
+                10,
+                15,
+                10,
+                15
+              ],
+              "alignItems": "center",
+              "alignContent": "stretch",
+              "justifyContent": "center",
+              "justifyItems": null,
+              "horizontalSizing": "auto",
+              "verticalSizing": "auto"
+            },
+            "component": {
+              "name": "Chat Bubble",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795d157406f",
+              "main": false,
+              "variantProps": {
+                "Direction": "Incoming"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977c7373a1",
+                "name": "Message",
+                "type": "text",
+                "x": 31,
+                "y": 254,
+                "w": 220,
+                "h": 43,
+                "visible": true,
+                "layoutChild": {
+                  "absolute": false,
+                  "horizontalSizing": "fix",
+                  "verticalSizing": "fix",
+                  "margin": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignSelf": "auto",
+                  "zIndex": 0
+                },
+                "text": {
+                  "characters": "Perfekt! Dann brauchen wir nur noch Milch.",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 16,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.2,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 205.82,
+                    "h": 41.28
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977c9e4999",
+            "name": "Chat Bubble",
+            "type": "board",
+            "x": 99,
+            "y": 318,
+            "w": 278,
+            "h": 42,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#5E7D63",
+                "opacity": 1
+              }
+            ],
+            "radius": [
+              20,
+              20,
+              6,
+              20
+            ],
+            "clipContent": true,
+            "layout": {
+              "type": "flex",
+              "dir": "row",
+              "wrap": "nowrap",
+              "rowGap": 8,
+              "columnGap": 8,
+              "padding": [
+                10,
+                15,
+                10,
+                15
+              ],
+              "alignItems": "center",
+              "alignContent": "stretch",
+              "justifyContent": "center",
+              "justifyItems": null,
+              "horizontalSizing": "auto",
+              "verticalSizing": "auto"
+            },
+            "component": {
+              "name": "Chat Bubble",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795d15a6070",
+              "main": false,
+              "variantProps": {
+                "Direction": "Outgoing"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977c9e499a",
+                "name": "Message",
+                "type": "text",
+                "x": 114,
+                "y": 328,
+                "w": 248,
+                "h": 22,
+                "visible": true,
+                "layoutChild": {
+                  "absolute": false,
+                  "horizontalSizing": "fix",
+                  "verticalSizing": "fix",
+                  "margin": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignSelf": "auto",
+                  "zIndex": 0
+                },
+                "text": {
+                  "characters": "Ich setze sie auf die Einkaufsliste.",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 16,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.2,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#FFFFFF",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 247.65,
+                    "h": 20
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977cc2bebf",
+            "name": "Shared Item Card",
+            "type": "board",
+            "x": 133,
+            "y": 367,
+            "w": 244,
+            "h": 60,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "strokes": [
+              {
+                "color": "#E5E4DF",
+                "opacity": 1,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "radius": 18,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977cecf1e5",
+                "name": "Icon",
+                "type": "board",
+                "x": 145,
+                "y": 379,
+                "w": 36,
+                "h": 36,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#E6ECE5",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 10,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977d149b16",
+                    "name": "icon / cart",
+                    "type": "group",
+                    "x": 153,
+                    "y": 387,
+                    "w": 20,
+                    "h": 20,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7977d167ff8",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 153,
+                        "y": 387,
+                        "w": 20,
+                        "h": 20,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 2.28,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7977d167ff9",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 155.33,
+                        "y": 390.17,
+                        "w": 14.75,
+                        "h": 10.08,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 2.28,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M155.33,390.17 L157.08,390.17 L159,399.25 C159.12,399.84 159.65,400.26 160.25,400.25 L167.42,400.25 C167.98,400.25 168.47,399.88 168.63,399.33 L170.08,393.58 L157.75,393.58"
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7977d16b801",
+                        "name": "svg-circle",
+                        "type": "ellipse",
+                        "x": 159.96,
+                        "y": 402.29,
+                        "w": 2.08,
+                        "h": 2.08,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 2.28,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7977d16b802",
+                        "name": "svg-circle",
+                        "type": "ellipse",
+                        "x": 166.13,
+                        "y": 402.29,
+                        "w": 2.08,
+                        "h": 2.08,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 2.28,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977d3b8309",
+                "name": "Item",
+                "type": "text",
+                "x": 191,
+                "y": 378,
+                "w": 95,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "Milch · 2 Liter",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 500,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "subheadM",
+                  "textBounds": {
+                    "w": 94.32,
+                    "h": 19
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977d6e9fcf",
+                "name": "Status",
+                "type": "text",
+                "x": 191,
+                "y": 399,
+                "w": 166,
+                "h": 16,
+                "visible": true,
+                "text": {
+                  "characters": "Zur Einkaufsliste hinzugefügt",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 12,
+                  "lineHeight": 1.3,
+                  "letterSpacing": 0,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 165.02,
+                    "h": 15
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977d9b4a0f",
+            "name": "Read Receipt",
+            "type": "text",
+            "x": 16,
+            "y": 433,
+            "w": 361,
+            "h": 16,
+            "visible": true,
+            "text": {
+              "characters": "Gelesen",
+              "growType": "auto-height",
+              "align": "right",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 12,
+              "lineHeight": 1.3,
+              "letterSpacing": 0,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#A1A1A6",
+              "colorOpacity": 1,
+              "typography": "caption",
+              "textBounds": {
+                "w": 46.82,
+                "h": 15
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977dd4dbd4",
+            "name": "Unread Divider",
+            "type": "board",
+            "x": 0,
+            "y": 463,
+            "w": 393,
+            "h": 20,
+            "visible": true,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977df1a5c6",
+                "name": "Line L",
+                "type": "rectangle",
+                "x": 16,
+                "y": 473,
+                "w": 116,
+                "h": 0.5,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E4DF",
+                    "opacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977e1a421d",
+                "name": "Line R",
+                "type": "rectangle",
+                "x": 261,
+                "y": 473,
+                "w": 116,
+                "h": 0.5,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E4DF",
+                    "opacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977e417e5e",
+                "name": "Label",
+                "type": "text",
+                "x": 132,
+                "y": 465,
+                "w": 129,
+                "h": 16,
+                "visible": true,
+                "text": {
+                  "characters": "1 neue Nachricht",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 12,
+                  "lineHeight": 1.3,
+                  "letterSpacing": 0,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#5E7D63",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 96.87,
+                    "h": 15
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977e895d34",
+            "name": "Chat Bubble",
+            "type": "board",
+            "x": 16,
+            "y": 495,
+            "w": 281,
+            "h": 42,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#EFEEEA",
+                "opacity": 1
+              }
+            ],
+            "radius": [
+              20,
+              20,
+              20,
+              6
+            ],
+            "clipContent": true,
+            "layout": {
+              "type": "flex",
+              "dir": "row",
+              "wrap": "nowrap",
+              "rowGap": 8,
+              "columnGap": 8,
+              "padding": [
+                10,
+                15,
+                10,
+                15
+              ],
+              "alignItems": "center",
+              "alignContent": "stretch",
+              "justifyContent": "center",
+              "justifyItems": null,
+              "horizontalSizing": "auto",
+              "verticalSizing": "auto"
+            },
+            "component": {
+              "name": "Chat Bubble",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795d157406f",
+              "main": false,
+              "variantProps": {
+                "Direction": "Incoming"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977e895d35",
+                "name": "Message",
+                "type": "text",
+                "x": 31,
+                "y": 505,
+                "w": 251,
+                "h": 22,
+                "visible": true,
+                "layoutChild": {
+                  "absolute": false,
+                  "horizontalSizing": "fix",
+                  "verticalSizing": "fix",
+                  "margin": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "alignSelf": "auto",
+                  "zIndex": 0
+                },
+                "text": {
+                  "characters": "Kannst du noch Milch mitbringen?",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 16,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.2,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "textBounds": {
+                    "w": 250.88,
+                    "h": 20
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977ea6fd74",
+            "name": "Meta",
+            "type": "text",
+            "x": 20,
+            "y": 540,
+            "w": 60,
+            "h": 14,
+            "visible": true,
+            "text": {
+              "characters": "Lisa · 13:48",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 11,
+              "lineHeight": 1.2,
+              "letterSpacing": 0.05,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#A1A1A6",
+              "colorOpacity": 1,
+              "typography": "caption2",
+              "textBounds": {
+                "w": 59.88,
+                "h": 14
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977ee505ac",
+        "name": "Top Scroll Edge",
+        "type": "rectangle",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 150,
+        "visible": true,
+        "fills": [
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "offset": 0
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 0.9,
+                "offset": 0.6
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 0,
+                "offset": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c798fa128091",
+        "name": "Status Bar",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 54,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Status Bar",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b985455a",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128092",
+            "name": "Time",
+            "type": "text",
+            "x": 0,
+            "y": 17,
+            "w": 133,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "9:41",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "headline",
+              "textBounds": {
+                "w": 33.05,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128093",
+            "name": "Dynamic Island",
+            "type": "rectangle",
+            "x": 133.5,
+            "y": 11,
+            "w": 126,
+            "h": 37,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 1
+              }
+            ],
+            "radius": 18.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128094",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 293,
+            "y": 24,
+            "w": 3,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128095",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 297.5,
+            "y": 21.5,
+            "w": 3,
+            "h": 6.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128096",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 302,
+            "y": 19,
+            "w": 3,
+            "h": 9,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128097",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 306.5,
+            "y": 16.5,
+            "w": 3,
+            "h": 11.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128098",
+            "name": "Battery",
+            "type": "rectangle",
+            "x": 337,
+            "y": 17.5,
+            "w": 25,
+            "h": 12,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 0.4,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "radius": 3.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa128099",
+            "name": "Battery Level",
+            "type": "rectangle",
+            "x": 339,
+            "y": 19.5,
+            "w": 18,
+            "h": 8,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 2
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa12809a",
+            "name": "Battery Cap",
+            "type": "rectangle",
+            "x": 363,
+            "y": 21.5,
+            "w": 1.5,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 0.4
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798fa12809b",
+            "name": "icon / wifi",
+            "type": "group",
+            "x": 314,
+            "y": 16,
+            "w": 17,
+            "h": 17,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798fa12809c",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 314,
+                "y": 16,
+                "w": 17,
+                "h": 17,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798fa12809d",
+                "name": "svg-path",
+                "type": "path",
+                "x": 316.27,
+                "y": 19.95,
+                "w": 12.47,
+                "h": 2.57,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M316.27,22.52 C319.72,19.1 325.28,19.1 328.73,22.52"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798fa12809e",
+                "name": "svg-path",
+                "type": "path",
+                "x": 318.46,
+                "y": 23.09,
+                "w": 8.08,
+                "h": 1.69,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M318.46,24.78 C319.53,23.7 320.98,23.09 322.5,23.09 C324.02,23.09 325.47,23.7 326.54,24.78"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798fa12809f",
+                "name": "svg-path",
+                "type": "path",
+                "x": 320.66,
+                "y": 26.26,
+                "w": 3.68,
+                "h": 0.79,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M320.66,27.05 C321.14,26.55 321.8,26.26 322.5,26.26 C323.2,26.26 323.86,26.55 324.34,27.05"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798fa1280a0",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 321.72,
+                "y": 28.4,
+                "w": 1.56,
+                "h": 1.56,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977f2bc503",
+        "name": "Back Button",
+        "type": "board",
+        "x": 16,
+        "y": 58,
+        "w": 44,
+        "h": 44,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 22,
+        "clipContent": true,
+        "component": {
+          "name": "Back Button",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795bdb7a572",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "interactions": [
+          {
+            "trigger": "click",
+            "action": {
+              "type": "navigate-to",
+              "destination": {
+                "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+                "name": "04 Chats"
+              },
+              "preserveScrollPosition": false,
+              "animation": {
+                "type": "push",
+                "direction": "right",
+                "duration": 350,
+                "easing": "ease-in-out"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977f2bc504",
+            "name": "icon / chevL",
+            "type": "group",
+            "x": 27,
+            "y": 69,
+            "w": 22,
+            "h": 22,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977f2bc505",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 27,
+                "y": 69,
+                "w": 22,
+                "h": 22,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.18,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977f2bc506",
+                "name": "svg-path",
+                "type": "path",
+                "x": 34.33,
+                "y": 74.04,
+                "w": 5.96,
+                "h": 11.92,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.18,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M40.29,74.04 L34.33,80 L40.29,85.96"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977f412f33",
+        "name": "Contact Avatar",
+        "type": "board",
+        "x": 172.5,
+        "y": 50,
+        "w": 48,
+        "h": 48,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#EFE6DA",
+            "opacity": 1
+          }
+        ],
+        "radius": 24,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977f690329",
+            "name": "Initial",
+            "type": "text",
+            "x": 172.5,
+            "y": 50,
+            "w": 48,
+            "h": 48,
+            "visible": true,
+            "text": {
+              "characters": "L",
+              "growType": "fixed",
+              "align": "center",
+              "verticalAlign": "center",
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 19,
+              "lineHeight": 1.25,
+              "letterSpacing": -0.2,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#8A6E4F",
+              "colorOpacity": 1,
+              "textBounds": {
+                "w": 10.55,
+                "h": 23
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977fb78688",
+        "name": "Contact Name",
+        "type": "board",
+        "x": 161.5,
+        "y": 102,
+        "w": 70,
+        "h": 26,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 13,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977ff0c2aa",
+            "name": "Name",
+            "type": "text",
+            "x": 173.5,
+            "y": 106,
+            "w": 25,
+            "h": 18,
+            "visible": true,
+            "text": {
+              "characters": "Lisa",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 13,
+              "lineHeight": 1.35,
+              "letterSpacing": -0.05,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "footnoteM",
+              "textBounds": {
+                "w": 24.82,
+                "h": 16
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797802aac87",
+            "name": "icon / chevR",
+            "type": "group",
+            "x": 207.9,
+            "y": 108.5,
+            "w": 13,
+            "h": 13,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797802b8e85",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 207.9,
+                "y": 108.5,
+                "w": 13,
+                "h": 13,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#6E6E73",
+                    "opacity": 1,
+                    "width": 4.06,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797802bf7fc",
+                "name": "svg-path",
+                "type": "path",
+                "x": 213.05,
+                "y": 111.48,
+                "w": 3.52,
+                "h": 7.04,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#6E6E73",
+                    "opacity": 1,
+                    "width": 4.06,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M213.05,111.48 L216.57,115 L213.05,118.52"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79780556b49",
+        "name": "Scroll Edge Effect",
+        "type": "rectangle",
+        "x": 0,
+        "y": 700,
+        "w": 393,
+        "h": 152,
+        "visible": true,
+        "fills": [
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 0,
+                "offset": 0
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 0.9,
+                "offset": 0.45
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "offset": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7978081e3eb",
+        "name": "Message Composer",
+        "type": "board",
+        "x": 0,
+        "y": 762,
+        "w": 393,
+        "h": 52,
+        "visible": true,
+        "clipContent": true,
+        "interactions": [
+          {
+            "trigger": "click",
+            "action": {
+              "type": "navigate-to",
+              "destination": {
+                "id": "89a7272c-a1ac-80ae-8008-c79781d20ff1",
+                "name": "08c Chat – Eingabe aktiv"
+              },
+              "preserveScrollPosition": false,
+              "animation": {
+                "type": "dissolve",
+                "duration": 200,
+                "easing": "ease-out"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79780a6884b",
+            "name": "Attachment Button",
+            "type": "board",
+            "x": 16,
+            "y": 766,
+            "w": 44,
+            "h": 44,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 0.72
+              },
+              {
+                "type": "linear-gradient",
+                "opacity": 1,
+                "start": [
+                  0.5,
+                  0
+                ],
+                "end": [
+                  0.5,
+                  1
+                ],
+                "width": 1,
+                "stops": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0.55,
+                    "offset": 0
+                  },
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0,
+                    "offset": 0.55
+                  }
+                ]
+              }
+            ],
+            "strokes": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.9,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "shadows": [
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 8,
+                "blur": 28,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.1,
+                "hidden": false
+              },
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 1,
+                "blur": 3,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.06,
+                "hidden": false
+              }
+            ],
+            "radius": 22,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79780dd2473",
+                "name": "icon / plus",
+                "type": "group",
+                "x": 27,
+                "y": 777,
+                "w": 22,
+                "h": 22,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79780dfd703",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 27,
+                    "y": 777,
+                    "w": 22,
+                    "h": 22,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.18,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79780e0072f",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 31.58,
+                    "y": 781.58,
+                    "w": 12.83,
+                    "h": 12.83,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.18,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M38,781.58 L38,794.42 M31.58,788 L44.42,788"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797810e9192",
+            "name": "Message Field",
+            "type": "board",
+            "x": 68,
+            "y": 766,
+            "w": 309,
+            "h": 44,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 0.72
+              },
+              {
+                "type": "linear-gradient",
+                "opacity": 1,
+                "start": [
+                  0.5,
+                  0
+                ],
+                "end": [
+                  0.5,
+                  1
+                ],
+                "width": 1,
+                "stops": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0.55,
+                    "offset": 0
+                  },
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0,
+                    "offset": 0.55
+                  }
+                ]
+              }
+            ],
+            "strokes": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.9,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "shadows": [
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 8,
+                "blur": 28,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.1,
+                "hidden": false
+              },
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 1,
+                "blur": 3,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.06,
+                "hidden": false
+              }
+            ],
+            "radius": 22,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79781524a7c",
+                "name": "Placeholder",
+                "type": "text",
+                "x": 84,
+                "y": 777,
+                "w": 76,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Nachricht",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 75.43,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79781927e35",
+                "name": "icon / mic",
+                "type": "group",
+                "x": 341,
+                "y": 776,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7978193e31e",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 341,
+                    "y": 776,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#6E6E73",
+                        "opacity": 1,
+                        "width": 1.8,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79781946ab9",
+                    "name": "svg-rect",
+                    "type": "rectangle",
+                    "x": 350,
+                    "y": 779.5,
+                    "w": 6,
+                    "h": 11,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#6E6E73",
+                        "opacity": 1,
+                        "width": 1.8,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ],
+                    "radius": 3
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79781946aba",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 346.5,
+                    "y": 787.5,
+                    "w": 13,
+                    "h": 9,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#6E6E73",
+                        "opacity": 1,
+                        "width": 1.8,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M346.5,787.5 C346.5,791.09 349.41,794 353,794 C356.59,794 359.5,791.09 359.5,787.5 M353,794 L353,796.5"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79781b8b439",
+        "name": "Home Indicator",
+        "type": "board",
+        "x": 0,
+        "y": 818,
+        "w": 393,
+        "h": 34,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Home Indicator",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b9a754ab",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79781b8b43a",
+            "name": "Indicator",
+            "type": "rectangle",
+            "x": 129.5,
+            "y": 839,
+            "w": 134,
+            "h": 5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 3
+          }
+        ]
+      }
+    ]
+  }
+}

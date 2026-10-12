@@ -1,0 +1,109 @@
+/*
+ * Liquid Glass (design/FIDELITY.md §2).
+ *
+ * Penpot simulates glass with four layers; the web adds the backdrop blur the design intends:
+ *   1. material   – var(--glass-fill)  (#FFF 72 % / #2A2A2E 72 %), painted ON TOP of the highlight
+ *   2. highlight  – vertical specular gradient (white 55 % → 0 at 55 %; dark 10 %)
+ *   3. inner edge – 1 px inset ring var(--glass-edge)
+ *   4. shadow     – var(--glass-shadow) (0 8 28 10 % + 0 1 3 6 %; dark 45 % / 30 %)
+ *   (+) backdrop  – blur(var(--glass-blur)) saturate(var(--glass-saturate))
+ *
+ * Only for navigation, toolbars, floating controls and overlays (tab bar, glass buttons,
+ * toolbars, toast, composer, contact pill, "Ändern" pill). Content cards stay opaque.
+ *
+ * Imported into the `components` cascade layer (see global.css).
+ */
+
+.glass {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+  /* material (top) over the specular highlight (bottom) – order verified on the references */
+  background-image: linear-gradient(var(--glass-fill), var(--glass-fill)), var(--glass-highlight);
+  background-repeat: no-repeat;
+  box-shadow:
+    inset 0 0 0 1px var(--glass-edge),
+    var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  color: var(--color-label);
+}
+
+/*
+ * Pressed (Freegma "Icon Button · Pressed"): the material + highlight are replaced by a 10 % black
+ * fill; inner edge and shadows stay. Instant on touch-down (no transition = < 100 ms feedback).
+ */
+.glass--pressable {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.glass--pressable:active:not(:disabled),
+.glass--pressable[data-pressed] {
+  background-image: linear-gradient(var(--glass-pressed), var(--glass-pressed));
+}
+
+/* Context-menu material: near-opaque surface (97 %), glass edge + glass shadow, no highlight. */
+.glass--menu {
+  background-image: linear-gradient(var(--color-menu-fill), var(--color-menu-fill));
+}
+
+/* Browsers without backdrop-filter: a denser material keeps text legible. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--glass-solid) 94%, transparent),
+        color-mix(in srgb, var(--glass-solid) 94%, transparent)
+      ),
+      var(--glass-highlight);
+  }
+}
+
+/* Reduced transparency (OS setting or Einstellungen › Transparenz reduzieren): opaque material. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background-image: linear-gradient(var(--glass-solid), var(--glass-solid));
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .glass--menu {
+    background-image: linear-gradient(var(--color-surface), var(--color-surface));
+  }
+}
+
+:root[data-transparency='reduced'] .glass {
+  background-image: linear-gradient(var(--glass-solid), var(--glass-solid));
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+:root[data-transparency='reduced'] .glass--menu {
+  background-image: linear-gradient(var(--color-surface), var(--color-surface));
+}
+
+/* Pressed state must still win in the reduced/fallback modes. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass--pressable:active:not(:disabled),
+  .glass--pressable[data-pressed] {
+    background-image:
+      linear-gradient(var(--glass-pressed), var(--glass-pressed)),
+      linear-gradient(var(--glass-solid), var(--glass-solid));
+  }
+}
+
+:root[data-transparency='reduced'] .glass--pressable:active:not(:disabled),
+:root[data-transparency='reduced'] .glass--pressable[data-pressed] {
+  background-image:
+    linear-gradient(var(--glass-pressed), var(--glass-pressed)), linear-gradient(var(--glass-solid), var(--glass-solid));
+}
+
+/* Windows High Contrast / forced colours: system colours with a visible outline. */
+@media (forced-colors: active) {
+  .glass {
+    background-image: none;
+    background-color: Canvas;
+    color: CanvasText;
+    outline: 1px solid CanvasText;
+    box-shadow: none;
+  }
+}

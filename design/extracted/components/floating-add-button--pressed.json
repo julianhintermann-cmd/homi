@@ -1,0 +1,134 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Floating Add Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795bed25f8f",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Pressed"
+  },
+  "slug": "floating-add-button--pressed",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795beba0376",
+  "width": 56,
+  "height": 56,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795beba0376",
+    "name": "Floating Add Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#000000",
+        "opacity": 0.08
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 28,
+    "clipContent": true,
+    "component": {
+      "name": "Floating Add Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795bed25f8f",
+      "main": true,
+      "variantProps": {
+        "State": "Pressed"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bec528ad",
+        "name": "icon / plus",
+        "type": "group",
+        "x": 15,
+        "y": 15,
+        "w": 26,
+        "h": 26,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bec551e9",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 15,
+            "y": 15,
+            "w": 26,
+            "h": 26,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 1.85,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bec551ea",
+            "name": "svg-path",
+            "type": "path",
+            "x": 20.42,
+            "y": 20.42,
+            "w": 15.17,
+            "h": 15.17,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 1.85,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M28,20.42 L28,35.58 M20.42,28 L35.58,28"
+          }
+        ]
+      }
+    ]
+  }
+}

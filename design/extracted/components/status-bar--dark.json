@@ -1,0 +1,334 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Status Bar",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795b986a30d",
+  "variantProperties": [
+    "Mode"
+  ],
+  "variantProps": {
+    "Mode": "Dark"
+  },
+  "slug": "status-bar--dark",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795b94ab979",
+  "width": 393,
+  "height": 54,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795b94ab979",
+    "name": "Status Bar",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 54,
+    "visible": true,
+    "clipContent": true,
+    "component": {
+      "name": "Status Bar",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795b986a30d",
+      "main": true,
+      "variantProps": {
+        "Mode": "Dark"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b94dad9a",
+        "name": "Time",
+        "type": "text",
+        "x": 0,
+        "y": 17,
+        "w": 133,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "9:41",
+          "growType": "auto-height",
+          "align": "center",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#F5F5F7",
+          "colorOpacity": 1,
+          "typography": "headline",
+          "textBounds": {
+            "w": 33.05,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b957d01f",
+        "name": "Dynamic Island",
+        "type": "rectangle",
+        "x": 133.5,
+        "y": 11,
+        "w": 126,
+        "h": 37,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#000000",
+            "opacity": 1
+          }
+        ],
+        "radius": 18.5
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b95ce649",
+        "name": "signal",
+        "type": "rectangle",
+        "x": 293,
+        "y": 24,
+        "w": 3,
+        "h": 4,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b961146e",
+        "name": "signal",
+        "type": "rectangle",
+        "x": 297.5,
+        "y": 21.5,
+        "w": 3,
+        "h": 6.5,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b965b914",
+        "name": "signal",
+        "type": "rectangle",
+        "x": 302,
+        "y": 19,
+        "w": 3,
+        "h": 9,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b96a36dc",
+        "name": "signal",
+        "type": "rectangle",
+        "x": 306.5,
+        "y": 16.5,
+        "w": 3,
+        "h": 11.5,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b9767d07",
+        "name": "Battery",
+        "type": "rectangle",
+        "x": 337,
+        "y": 17.5,
+        "w": 25,
+        "h": 12,
+        "visible": true,
+        "strokes": [
+          {
+            "color": "#F5F5F7",
+            "opacity": 0.4,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "radius": 3.5
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b97c4eb5",
+        "name": "Battery Level",
+        "type": "rectangle",
+        "x": 339,
+        "y": 19.5,
+        "w": 18,
+        "h": 8,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 1
+          }
+        ],
+        "radius": 2
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795b9808ce5",
+        "name": "Battery Cap",
+        "type": "rectangle",
+        "x": 363,
+        "y": 21.5,
+        "w": 1.5,
+        "h": 4,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F5F5F7",
+            "opacity": 0.4
+          }
+        ],
+        "radius": 1
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c798e1dda3ad",
+        "name": "icon / wifi",
+        "type": "group",
+        "x": 314,
+        "y": 16,
+        "w": 17,
+        "h": 17,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798e1deaa79",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 314,
+            "y": 16,
+            "w": 17,
+            "h": 17,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#F5F5F7",
+                "opacity": 1,
+                "width": 2.05,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798e1dede4f",
+            "name": "svg-path",
+            "type": "path",
+            "x": 316.27,
+            "y": 19.95,
+            "w": 12.47,
+            "h": 2.57,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F5F5F7",
+                "opacity": 1,
+                "width": 2.05,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M316.27,22.52 C319.72,19.1 325.28,19.1 328.73,22.52"
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798e1df33ab",
+            "name": "svg-path",
+            "type": "path",
+            "x": 318.46,
+            "y": 23.09,
+            "w": 8.08,
+            "h": 1.69,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F5F5F7",
+                "opacity": 1,
+                "width": 2.05,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M318.46,24.78 C319.53,23.7 320.98,23.09 322.5,23.09 C324.02,23.09 325.47,23.7 326.54,24.78"
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798e1df33ac",
+            "name": "svg-path",
+            "type": "path",
+            "x": 320.66,
+            "y": 26.26,
+            "w": 3.68,
+            "h": 0.79,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F5F5F7",
+                "opacity": 1,
+                "width": 2.05,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M320.66,27.05 C321.14,26.55 321.8,26.26 322.5,26.26 C323.2,26.26 323.86,26.55 324.34,27.05"
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798e1df33ad",
+            "name": "svg-circle",
+            "type": "ellipse",
+            "x": 321.72,
+            "y": 28.4,
+            "w": 1.56,
+            "h": 1.56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

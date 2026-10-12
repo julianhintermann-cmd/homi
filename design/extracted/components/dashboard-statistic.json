@@ -1,0 +1,99 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Dashboard Statistic",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d36fb0ed",
+  "variantProperties": [],
+  "variantProps": null,
+  "slug": "dashboard-statistic",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d33ddfc1",
+  "width": 150,
+  "height": 52,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d33ddfc1",
+    "name": "Dashboard Statistic",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 150,
+    "h": 52,
+    "visible": true,
+    "clipContent": true,
+    "component": {
+      "name": "Dashboard Statistic",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d36fb0ed",
+      "main": true
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d345d8f0",
+        "name": "Value",
+        "type": "text",
+        "x": 0,
+        "y": 0,
+        "w": 150,
+        "h": 25,
+        "visible": true,
+        "text": {
+          "characters": "128",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 20,
+          "lineHeight": 1.25,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "title3",
+          "textBounds": {
+            "w": 32.82,
+            "h": 24
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d35a5d13",
+        "name": "Label",
+        "type": "text",
+        "x": 0,
+        "y": 30,
+        "w": 150,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "Artikel im Haushalt",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#6E6E73",
+          "colorOpacity": 1,
+          "typography": "footnote",
+          "textBounds": {
+            "w": 114.02,
+            "h": 16
+          }
+        }
+      }
+    ]
+  }
+}

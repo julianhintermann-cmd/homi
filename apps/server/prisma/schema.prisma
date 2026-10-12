@@ -1,0 +1,315 @@
+// Homi – PostgreSQL schema (Prisma 7)
+// See docs/ARCHITECTURE.md §3 for design decisions.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+  runtime      = "nodejs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum HouseholdRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum ItemCategory {
+  KUECHE
+  BAD
+  WOHNZIMMER
+  TECHNIK
+  SONSTIGES
+}
+
+enum Unit {
+  STUECK
+  PACKUNG
+  FLASCHE
+  KILOGRAMM
+  GRAMM
+  LITER
+  MILLILITER
+  ROLLE
+  BECHER
+  TUBE
+  DOSE
+}
+
+enum ConversationType {
+  HOUSEHOLD
+  DIRECT
+}
+
+enum MessageKind {
+  TEXT
+  SHOPPING_ITEM
+}
+
+enum ActivityType {
+  HOUSEHOLD_CREATED
+  MEMBER_JOINED
+  MEMBER_LEFT
+  MEMBER_REMOVED
+  ITEM_CREATED
+  ITEM_UPDATED
+  ITEM_DELETED
+  ITEM_QUANTITY_CHANGED
+  SHOPPING_ITEM_ADDED
+  SHOPPING_ITEM_COMPLETED
+  SHOPPING_ITEM_REOPENED
+  SHOPPING_ITEM_DELETED
+}
+
+model User {
+  id              String   @id @default(uuid()) @db.Uuid
+  displayName     String   @db.VarChar(60)
+  /// always stored lower-cased and trimmed
+  email           String   @unique @db.VarChar(254)
+  passwordHash    String
+  lastHouseholdId String?  @db.Uuid
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  sessions              Session[]
+  passwordResetTokens   PasswordResetToken[]
+  memberships           HouseholdMember[]
+  householdsCreated     Household[]           @relation("HouseholdCreatedBy")
+  invitationsCreated    HouseholdInvitation[] @relation("InvitationCreatedBy")
+  invitationsAccepted   HouseholdInvitation[] @relation("InvitationAcceptedBy")
+  itemsCreated          InventoryItem[]       @relation("ItemCreatedBy")
+  imagesCreated         InventoryImage[]      @relation("ImageCreatedBy")
+  shoppingItemsCreated  ShoppingItem[]        @relation("ShoppingCreatedBy")
+  shoppingItemsDone     ShoppingItem[]        @relation("ShoppingCompletedBy")
+  conversationMembers   ConversationMember[]
+  messages              Message[]
+  activities            HouseholdActivity[]
+}
+
+model Session {
+  id         String   @id @default(uuid()) @db.Uuid
+  /// HMAC-SHA256(SESSION_SECRET, rawToken) as hex
+  tokenHash  String   @unique @db.Char(64)
+  userId     String   @db.Uuid
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userAgent  String?  @db.VarChar(255)
+  createdAt  DateTime @default(now())
+  lastSeenAt DateTime @default(now())
+  expiresAt  DateTime
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  tokenHash String    @unique @db.Char(64)
+  userId    String    @db.Uuid
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+}
+
+model Household {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @db.VarChar(60)
+  createdById String?  @db.Uuid
+  createdBy   User?    @relation("HouseholdCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  members       HouseholdMember[]
+  invitations   HouseholdInvitation[]
+  items         InventoryItem[]
+  images        InventoryImage[]
+  shoppingLists ShoppingList[]
+  shoppingItems ShoppingItem[]
+  conversations Conversation[]
+  activities    HouseholdActivity[]
+}
+
+model HouseholdMember {
+  id          String        @id @default(uuid()) @db.Uuid
+  householdId String        @db.Uuid
+  household   Household     @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  userId      String        @db.Uuid
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role        HouseholdRole @default(MEMBER)
+  joinedAt    DateTime      @default(now())
+
+  @@unique([householdId, userId])
+  @@index([userId])
+}
+
+model HouseholdInvitation {
+  id           String        @id @default(uuid()) @db.Uuid
+  householdId  String        @db.Uuid
+  household    Household     @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  /// HMAC-SHA256(SESSION_SECRET, rawToken) as hex
+  tokenHash    String        @unique @db.Char(64)
+  role         HouseholdRole @default(MEMBER)
+  createdById  String?       @db.Uuid
+  createdBy    User?         @relation("InvitationCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  expiresAt    DateTime
+  revokedAt    DateTime?
+  acceptedAt   DateTime?
+  acceptedById String?       @db.Uuid
+  acceptedBy   User?         @relation("InvitationAcceptedBy", fields: [acceptedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime      @default(now())
+
+  @@index([householdId])
+}
+
+model InventoryImage {
+  id          String         @id @default(uuid()) @db.Uuid
+  householdId String         @db.Uuid
+  household   Household      @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  /// storage key prefix "<householdId>/<imageId>" – variants are "-thumb.webp" / "-full.webp"
+  storageKey  String         @db.VarChar(255)
+  mimeType    String         @db.VarChar(64)
+  width       Int
+  height      Int
+  byteSize    Int
+  createdById String?        @db.Uuid
+  createdBy   User?          @relation("ImageCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime       @default(now())
+  item        InventoryItem?
+
+  @@index([householdId])
+}
+
+model InventoryItem {
+  id          String          @id @default(uuid()) @db.Uuid
+  householdId String          @db.Uuid
+  household   Household       @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  name        String          @db.VarChar(80)
+  category    ItemCategory    @default(SONSTIGES)
+  quantity    Decimal         @default(1) @db.Decimal(12, 3)
+  unit        Unit            @default(STUECK)
+  /// price for ONE unit in CHF; NULL = unknown
+  unitPrice   Decimal?        @db.Decimal(10, 2)
+  imageId     String?         @unique @db.Uuid
+  image       InventoryImage? @relation(fields: [imageId], references: [id], onDelete: SetNull)
+  createdById String?         @db.Uuid
+  createdBy   User?           @relation("ItemCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  version     Int             @default(1)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  shoppingItems ShoppingItem[]
+
+  @@index([householdId, name])
+  @@index([householdId, category])
+  @@index([householdId, updatedAt])
+}
+
+model ShoppingList {
+  id          String         @id @default(uuid()) @db.Uuid
+  householdId String         @db.Uuid
+  household   Household      @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  name        String         @default("Einkaufsliste") @db.VarChar(60)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  items       ShoppingItem[]
+
+  @@index([householdId])
+}
+
+model ShoppingItem {
+  id             String         @id @default(uuid()) @db.Uuid
+  shoppingListId String         @db.Uuid
+  shoppingList   ShoppingList   @relation(fields: [shoppingListId], references: [id], onDelete: Cascade)
+  householdId    String         @db.Uuid
+  household      Household      @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  name           String         @db.VarChar(80)
+  quantity       Decimal?       @db.Decimal(12, 3)
+  unit           Unit?
+  unitPrice      Decimal?       @db.Decimal(10, 2)
+  completed      Boolean        @default(false)
+  completedById  String?        @db.Uuid
+  completedBy    User?          @relation("ShoppingCompletedBy", fields: [completedById], references: [id], onDelete: SetNull)
+  completedAt    DateTime?
+  sourceItemId   String?        @db.Uuid
+  sourceItem     InventoryItem? @relation(fields: [sourceItemId], references: [id], onDelete: SetNull)
+  createdById    String?        @db.Uuid
+  createdBy      User?          @relation("ShoppingCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([shoppingListId, completed])
+  @@index([householdId])
+}
+
+model Conversation {
+  id            String               @id @default(uuid()) @db.Uuid
+  householdId   String               @db.Uuid
+  household     Household            @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  type          ConversationType
+  /// DIRECT only: "<householdId>:<minUserId>:<maxUserId>" – prevents duplicate direct chats
+  directKey     String?              @unique @db.VarChar(120)
+  lastMessageAt DateTime?
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  members       ConversationMember[]
+  messages      Message[]
+
+  @@index([householdId, lastMessageAt])
+}
+
+model ConversationMember {
+  id             String       @id @default(uuid()) @db.Uuid
+  conversationId String       @db.Uuid
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  userId         String       @db.Uuid
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  /// read cursor: highest Message.seq this member has read
+  lastReadSeq    BigInt       @default(0)
+  joinedAt       DateTime     @default(now())
+
+  @@unique([conversationId, userId])
+  @@index([userId])
+}
+
+model Message {
+  id             String       @id @default(uuid()) @db.Uuid
+  seq            BigInt       @unique @default(autoincrement())
+  conversationId String       @db.Uuid
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String?      @db.Uuid
+  sender         User?        @relation(fields: [senderId], references: [id], onDelete: SetNull)
+  /// client-generated idempotency key (dedup for retries)
+  clientId       String       @db.VarChar(64)
+  kind           MessageKind  @default(TEXT)
+  content        String       @db.VarChar(4000)
+  meta           Json?
+  createdAt      DateTime     @default(now())
+  editedAt       DateTime?
+
+  @@unique([conversationId, senderId, clientId])
+  @@index([conversationId, seq])
+}
+
+model HouseholdActivity {
+  id          String       @id @default(uuid()) @db.Uuid
+  householdId String       @db.Uuid
+  household   Household    @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  actorId     String?      @db.Uuid
+  actor       User?        @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  type        ActivityType
+  entityType  String?      @db.VarChar(32)
+  entityId    String?      @db.Uuid
+  /// e.g. { "name": "Milch", "count": 2 }
+  meta        Json?
+  /// change of total inventory value caused by this activity (CHF), used for the weekly trend
+  valueDelta  Decimal?     @db.Decimal(12, 2)
+  createdAt   DateTime     @default(now())
+
+  @@index([householdId, createdAt])
+}

@@ -1,0 +1,191 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Icon Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795be80ed4f",
+  "variantProperties": [
+    "Icon",
+    "State"
+  ],
+  "variantProps": {
+    "Icon": "More",
+    "State": "Default"
+  },
+  "slug": "icon-button--more-default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795be545c7a",
+  "width": 44,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795be545c7a",
+    "name": "Icon Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 44,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.55,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Icon Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795be80ed4f",
+      "main": true,
+      "variantProps": {
+        "Icon": "More",
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795be5efd2e",
+        "name": "icon / ellipsis",
+        "type": "group",
+        "x": 11,
+        "y": 11,
+        "w": 22,
+        "h": 22,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795be5f3068",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 11,
+            "y": 11,
+            "w": 22,
+            "h": 22,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 2.18,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795be5f3069",
+            "name": "svg-circle",
+            "type": "ellipse",
+            "x": 14.67,
+            "y": 20.63,
+            "w": 2.75,
+            "h": 2.75,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795be5f5553",
+            "name": "svg-circle",
+            "type": "ellipse",
+            "x": 20.63,
+            "y": 20.63,
+            "w": 2.75,
+            "h": 2.75,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795be5f5554",
+            "name": "svg-circle",
+            "type": "ellipse",
+            "x": 26.58,
+            "y": 20.63,
+            "w": 2.75,
+            "h": 2.75,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

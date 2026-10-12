@@ -1,0 +1,124 @@
+{
+  "Milch": {
+    "file": "milk.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "milk",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907aaae229",
+    "usedIn": [
+      "dark/01-home-dark",
+      "dark/02-inventar-dark",
+      "light/01-home",
+      "light/02-inventar",
+      "light/14-artikel-hinzugefuegt",
+      "light/16-kontextmenue"
+    ]
+  },
+  "Kaffee": {
+    "file": "coffee.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "coffee",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907b439a42",
+    "usedIn": [
+      "dark/01-home-dark",
+      "dark/02-inventar-dark",
+      "light/01-home",
+      "light/02-inventar",
+      "light/14-artikel-hinzugefuegt",
+      "light/16-kontextmenue"
+    ]
+  },
+  "Olivenöl": {
+    "file": "oil.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "oil",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907af366bd",
+    "usedIn": [
+      "dark/01-home-dark",
+      "dark/02-inventar-dark",
+      "dark/06-neuer-artikel-dark",
+      "light/01-home",
+      "light/02-inventar",
+      "light/06-neuer-artikel-ausgefuellt",
+      "light/07-artikel-bearbeiten",
+      "light/14-artikel-hinzugefuegt",
+      "light/15-loeschen-bestaetigen",
+      "light/16-kontextmenue",
+      "light/17-suche-aktiv"
+    ]
+  },
+  "Nespresso Kapseln": {
+    "file": "caps.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "caps",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907bc027cc",
+    "usedIn": [
+      "dark/02-inventar-dark",
+      "dark/05-artikel-details-dark",
+      "light/02-inventar",
+      "light/05-artikel-details",
+      "light/14-artikel-hinzugefuegt",
+      "light/16-kontextmenue"
+    ]
+  },
+  "Batterien AA": {
+    "file": "batt4.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "batt4",
+    "penpotImageId": "3e257f50-8251-8066-8008-c790a1db6554",
+    "usedIn": ["dark/02-inventar-dark", "light/02-inventar", "light/14-artikel-hinzugefuegt", "light/16-kontextmenue"]
+  },
+  "Spülmittel": {
+    "file": "soap4.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "soap4",
+    "penpotImageId": "3e257f50-8251-8066-8008-c790a46353db",
+    "usedIn": ["dark/02-inventar-dark", "light/02-inventar", "light/14-artikel-hinzugefuegt", "light/16-kontextmenue"]
+  },
+  "Küchenpapier": {
+    "file": "towel.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "towel",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907d9dcef3",
+    "usedIn": ["dark/02-inventar-dark", "light/02-inventar", "light/14-artikel-hinzugefuegt", "light/16-kontextmenue"]
+  },
+  "Reis": {
+    "file": "rice.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "rice",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907b629a3a",
+    "usedIn": ["dark/02-inventar-dark", "light/02-inventar", "light/14-artikel-hinzugefuegt", "light/16-kontextmenue"]
+  },
+  "Brot": {
+    "file": "bread.png",
+    "width": 400,
+    "height": 400,
+    "imageName": "bread",
+    "penpotImageId": "3e257f50-8251-8066-8008-c7907b826606",
+    "usedIn": ["(no screen – cover only)"],
+    "note": "Image exists only on the cover; shopping rows show no image."
+  },
+  "Eier": {
+    "file": null,
+    "width": null,
+    "height": null,
+    "imageName": null,
+    "usedIn": ["(text only, no image)"],
+    "note": "Shopping-list text only – the design has no image for this product."
+  },
+  "Butter": {
+    "file": null,
+    "width": null,
+    "height": null,
+    "imageName": null,
+    "usedIn": ["(text only, no image)"],
+    "note": "Shopping-list text only – the design has no image for this product."
+  }
+}

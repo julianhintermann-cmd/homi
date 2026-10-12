@@ -1,0 +1,259 @@
+/*
+ * Homi design tokens – extracted from the Freegma/Penpot file "Homi UI/UX MockUp"
+ * (library colours "Homi / Light|Dark", token sets core / mode/light / mode/dark,
+ *  typographies "Homi/Type"). See design/FIDELITY.md for the full specification.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ── Colour: Light ─────────────────────────────────────────── */
+  --color-bg: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efeeea;
+  --color-fill-secondary: #eae9e4; /* search field, secondary button, stepper track */
+  --color-label: #111111;
+  --color-label-secondary: #6e6e73;
+  --color-label-tertiary: #a1a1a6;
+  --color-separator: #e5e4df;
+  --color-accent: #5e7d63; /* muted sage */
+  --color-accent-soft: #e6ece5;
+  --color-on-accent: #ffffff;
+  --color-destructive: #c2412d;
+  --color-destructive-soft: #f6e3df;
+  --color-bubble-in: #efeeea;
+  --color-dim: rgba(0, 0, 0, 0.32);
+
+  /* Overlay dims – three different values in the design (FIDELITY D3) */
+  --dim-menu: rgba(0, 0, 0, 0.22); /* 16 Kontextmenü */
+  --dim-sheet: rgba(0, 0, 0, 0.3); /* 13 Foto auswählen (bottom sheet) */
+  --dim-dialog: rgba(0, 0, 0, 0.35); /* 15 Löschen bestätigen */
+
+  /* Non-library colours used by the design (FIDELITY §1.1 / D8) */
+  --color-sheet-presenting: rgba(247, 246, 243, 0.45); /* receding parent strip behind page sheets */
+  --color-grabber: rgba(161, 161, 166, 0.6);
+  --color-upload-dash: rgba(161, 161, 166, 0.7);
+  --color-menu-fill: rgba(255, 255, 255, 0.97); /* context menu: near-opaque, not glass */
+  --color-menu-group: rgba(0, 0, 0, 0.04); /* 9 px band between menu groups */
+  --color-highlight-new: rgba(94, 125, 99, 0.08); /* accent @ 8 % – freshly added row */
+
+  /* Elevation (FIDELITY §1.5) */
+  --shadow-hero: 0 14px 34px rgba(0, 0, 0, 0.12);
+  --shadow-dialog: 0 20px 60px rgba(0, 0, 0, 0.22);
+  --shadow-sheet: 0 -6px 30px rgba(0, 0, 0, 0.1);
+  --shadow-lifted: 0 12px 32px rgba(0, 0, 0, 0.18);
+
+  /* Avatar palette (Du / Lisa / Max style tints, assigned by hash) */
+  --avatar-sage-bg: #e6ece5;
+  --avatar-sage-fg: #5e7d63;
+  --avatar-sand-bg: #efe6da;
+  --avatar-sand-fg: #8a6e4f;
+  --avatar-mist-bg: #e1e7ee;
+  --avatar-mist-fg: #52687c;
+
+  /* ── Liquid Glass material ─────────────────────────────────── */
+  --glass-fill: rgba(255, 255, 255, 0.72);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --glass-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 55%);
+  --glass-shadow: 0 8px 28px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --glass-blur: 22px;
+  --glass-saturate: 180%;
+  --glass-selected: rgba(0, 0, 0, 0.06); /* FIDELITY D1 */
+  --glass-pressed: rgba(0, 0, 0, 0.1);
+  --glass-pressed-fab: rgba(0, 0, 0, 0.08); /* Floating Add Button · Pressed (FIDELITY D6) */
+  --glass-solid: #ffffff; /* glass material without alpha – reduced-transparency fallback */
+
+  /* ── Typography (Inter ≙ SF Pro in the design) ─────────────── */
+  --font-sans:
+    'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  /* size / line-height (ratio) / weight / letter-spacing (px) */
+  --type-large-title: 700 34px/1.2 var(--font-sans);
+  --ls-large-title: -0.8px;
+  --type-title1: 700 28px/1.2 var(--font-sans);
+  --ls-title1: -0.6px;
+  --type-title2: 600 22px/1.25 var(--font-sans);
+  --ls-title2: -0.4px;
+  --type-title3: 600 20px/1.25 var(--font-sans);
+  --ls-title3: -0.3px;
+  --type-headline: 600 17px/1.3 var(--font-sans);
+  --ls-headline: -0.3px;
+  --type-body: 400 17px/1.3 var(--font-sans);
+  --ls-body: -0.3px;
+  --type-callout: 400 16px/1.3 var(--font-sans);
+  --ls-callout: -0.2px;
+  --type-subhead: 400 15px/1.33 var(--font-sans);
+  --type-subhead-medium: 500 15px/1.33 var(--font-sans);
+  --ls-subhead: -0.15px;
+  --type-footnote: 400 13px/1.35 var(--font-sans);
+  --type-footnote-medium: 500 13px/1.35 var(--font-sans);
+  --ls-footnote: -0.05px;
+  --type-caption: 500 12px/1.3 var(--font-sans);
+  --ls-caption: 0px;
+  --type-caption2: 500 11px/1.2 var(--font-sans);
+  --ls-caption2: 0.05px;
+  --type-tab: 600 10px/1.2 var(--font-sans);
+  --ls-tab: 0.1px;
+  --type-bubble: 400 16px/1.33 var(--font-sans);
+  --ls-bubble: -0.2px;
+  /* Text styles outside the library (FIDELITY §1.2 / D10) */
+  --type-trend: 600 12px/1.3 var(--font-sans); /* trend pill, unread divider */
+  --type-badge: 700 12px/1.3 var(--font-sans); /* unread badge count */
+  --type-unread-time: 600 13px/1.35 var(--font-sans);
+  --ls-unread-time: -0.05px;
+  --type-chip-selected: 600 15px/1.33 var(--font-sans);
+  --type-meta-small: 400 12px/1.3 var(--font-sans); /* shared-item card status */
+
+  /* ── Spacing (core/space.*) ────────────────────────────────── */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --screen-gutter: 20px;
+
+  /* ── Radii (core/radius.*) ─────────────────────────────────── */
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 14px; /* inputs, form fields */
+  --radius-row-image: 12px;
+  --radius-card-sm: 16px; /* add row, form card */
+  --radius-lg: 20px; /* tiles */
+  --radius-card: 22px; /* grouped list cards */
+  --radius-xl: 26px;
+  --radius-sheet: 34px; /* sheets, dialogs */
+  --radius-pill: 999px;
+
+  /* ── Layout constants from the 393 × 852 design frames ────── */
+  --tabbar-height: 62px;
+  --tabbar-inset-x: 16px;
+  --tabbar-gap-bottom: 21px; /* distance from tab bar to bottom of home-indicator area */
+  --toolbar-size: 44px;
+  --row-height-inventory: 76px;
+  --row-height-shopping: 52px;
+  --row-height-chat: 84px;
+  --row-height-settings: 52px;
+  --row-height-member: 60px;
+
+  /* Safe areas – overridden in visual tests (54px / 34px like the design frames) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-push: 350ms;
+  --dur-sheet: 400ms;
+  /* Design timings (Foundations board / prototype, FIDELITY §1.6 – D4/D5) */
+  --dur-dissolve: 200ms;
+  --dur-sheet-close: 300ms;
+  --dur-press: 90ms;
+  --ease-dissolve: ease-out; /* Penpot keyword = cubic-bezier(0, 0, 0.58, 1) */
+  --ease-sheet-open: ease-out;
+  --ease-sheet-close: ease-in;
+  --ease-push-design: ease-in-out;
+  --ease-spring-soft: cubic-bezier(0.34, 1.36, 0.64, 1); /* restrained overshoot (checkbox tick) */
+}
+
+/* ── Colour: Dark ────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #0e0e10;
+    --color-surface: #1a1a1d;
+    --color-surface-muted: #232326;
+    --color-fill-secondary: #232326; /* FIDELITY D2 (#2a2a2e = avatars/glass only) */
+    --color-label: #f5f5f7;
+    --color-label-secondary: #9a9aa0;
+    --color-label-tertiary: #636366;
+    --color-separator: #2c2c2f;
+    --color-accent: #8fb094;
+    --color-accent-soft: #23302a;
+    --color-on-accent: #0e0e10;
+    --color-destructive: #e0715e;
+    --color-destructive-soft: #3a2320;
+    --color-bubble-in: #232326;
+    --color-dim: rgba(0, 0, 0, 0.5);
+    --avatar-sage-bg: #2a2a2e;
+    --avatar-sage-fg: #e5e5ea;
+    --avatar-sand-bg: #2a2a2e;
+    --avatar-sand-fg: #e5e5ea;
+    --avatar-mist-bg: #2a2a2e;
+    --avatar-mist-fg: #e5e5ea;
+    --glass-fill: rgba(42, 42, 46, 0.72);
+    --glass-edge: rgba(255, 255, 255, 0.12);
+    --glass-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 55%);
+    --glass-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --glass-selected: rgba(255, 255, 255, 0.1);
+    --glass-pressed: rgba(255, 255, 255, 0.16);
+    --glass-pressed-fab: rgba(255, 255, 255, 0.12);
+    --glass-solid: #2a2a2e;
+    --color-sheet-presenting: rgba(42, 42, 46, 0.45);
+    --color-menu-fill: rgba(26, 26, 29, 0.97);
+    --color-menu-group: rgba(255, 255, 255, 0.04);
+    --color-highlight-new: rgba(143, 176, 148, 0.1);
+    --shadow-hero: 0 14px 34px rgba(0, 0, 0, 0.4);
+    --shadow-dialog: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-sheet: 0 -6px 30px rgba(0, 0, 0, 0.4);
+    --shadow-lifted: 0 12px 32px rgba(0, 0, 0, 0.45);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0e0e10;
+  --color-surface: #1a1a1d;
+  --color-surface-muted: #232326;
+  --color-fill-secondary: #232326; /* FIDELITY D2 (#2a2a2e = avatars/glass only) */
+  --color-label: #f5f5f7;
+  --color-label-secondary: #9a9aa0;
+  --color-label-tertiary: #636366;
+  --color-separator: #2c2c2f;
+  --color-accent: #8fb094;
+  --color-accent-soft: #23302a;
+  --color-on-accent: #0e0e10;
+  --color-destructive: #e0715e;
+  --color-destructive-soft: #3a2320;
+  --color-bubble-in: #232326;
+  --color-dim: rgba(0, 0, 0, 0.5);
+  --avatar-sage-bg: #2a2a2e;
+  --avatar-sage-fg: #e5e5ea;
+  --avatar-sand-bg: #2a2a2e;
+  --avatar-sand-fg: #e5e5ea;
+  --avatar-mist-bg: #2a2a2e;
+  --avatar-mist-fg: #e5e5ea;
+  --glass-fill: rgba(42, 42, 46, 0.72);
+  --glass-edge: rgba(255, 255, 255, 0.12);
+  --glass-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 55%);
+  --glass-shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --glass-selected: rgba(255, 255, 255, 0.1);
+  --glass-pressed: rgba(255, 255, 255, 0.16);
+  --glass-pressed-fab: rgba(255, 255, 255, 0.12);
+  --glass-solid: #2a2a2e;
+  --color-sheet-presenting: rgba(42, 42, 46, 0.45);
+  --color-menu-fill: rgba(26, 26, 29, 0.97);
+  --color-menu-group: rgba(255, 255, 255, 0.04);
+  --color-highlight-new: rgba(143, 176, 148, 0.1);
+  --shadow-hero: 0 14px 34px rgba(0, 0, 0, 0.4);
+  --shadow-dialog: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-sheet: 0 -6px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lifted: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Reduced transparency: glass becomes (almost) opaque but keeps its shape */
+@media (prefers-reduced-transparency: reduce) {
+  /* --glass-solid follows the active theme (system dark included): #FFF light, #2A2A2E dark. */
+  :root {
+    --glass-fill: color-mix(in srgb, var(--glass-solid) 97%, transparent);
+    --glass-blur: 0px;
+  }
+}
+:root[data-transparency='reduced'] {
+  --glass-fill: color-mix(in srgb, var(--color-surface) 97%, transparent);
+  --glass-blur: 0px;
+}

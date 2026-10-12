@@ -1,0 +1,81 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Avatar",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d2157a9b",
+  "variantProperties": [
+    "Person"
+  ],
+  "variantProps": {
+    "Person": "Lisa"
+  },
+  "slug": "avatar--lisa",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d19c1c41",
+  "width": 44,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d19c1c41",
+    "name": "Avatar",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 44,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#EFE6DA",
+        "opacity": 1
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Avatar",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d2157a9b",
+      "main": true,
+      "variantProps": {
+        "Person": "Lisa"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d1ac0836",
+        "name": "Initial",
+        "type": "text",
+        "x": 0,
+        "y": 0,
+        "w": 44,
+        "h": 44,
+        "visible": true,
+        "text": {
+          "characters": "L",
+          "growType": "fixed",
+          "align": "center",
+          "verticalAlign": "center",
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 18,
+          "lineHeight": 1.25,
+          "letterSpacing": -0.2,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#8A6E4F",
+          "colorOpacity": 1,
+          "textBounds": {
+            "w": 9.98,
+            "h": 21
+          }
+        }
+      }
+    ]
+  }
+}

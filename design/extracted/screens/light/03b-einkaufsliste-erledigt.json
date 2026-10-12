@@ -1,0 +1,2585 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "02 · Screens & Prototype",
+  "board": "03b Einkaufsliste – Erledigt",
+  "boardId": "89a7272c-a1ac-80ae-8008-c797701bb924",
+  "slug": "03b-einkaufsliste-erledigt",
+  "mode": "light",
+  "width": 393,
+  "height": 852,
+  "pagePosition": {
+    "x": 0,
+    "y": 3500
+  },
+  "notes": [
+    "Coordinates (x/y) are relative to the screen board top-left; path \"d\" data is translated into the same space.",
+    "children are listed in paint order (first = bottom-most).",
+    "The board-level drop shadow (0/24/60, 18% black) is a presentation shadow, not UI.",
+    "Status Bar (54pt) and Home Indicator (34pt) are system UI / safe areas, not to be drawn by the web app."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c797701bb924",
+    "name": "03b Einkaufsliste – Erledigt",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 852,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F7F6F3",
+        "opacity": 1
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 24,
+        "blur": 60,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.18,
+        "hidden": false
+      }
+    ],
+    "clipContent": true,
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fa9",
+        "name": "Status Bar",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 54,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Status Bar",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b985455a",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6faa",
+            "name": "Time",
+            "type": "text",
+            "x": 0,
+            "y": 17,
+            "w": 133,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "9:41",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "headline",
+              "textBounds": {
+                "w": 33.05,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fab",
+            "name": "Dynamic Island",
+            "type": "rectangle",
+            "x": 133.5,
+            "y": 11,
+            "w": 126,
+            "h": 37,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 1
+              }
+            ],
+            "radius": 18.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fac",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 293,
+            "y": 24,
+            "w": 3,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fad",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 297.5,
+            "y": 21.5,
+            "w": 3,
+            "h": 6.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fae",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 302,
+            "y": 19,
+            "w": 3,
+            "h": 9,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6faf",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 306.5,
+            "y": 16.5,
+            "w": 3,
+            "h": 11.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb0",
+            "name": "Battery",
+            "type": "rectangle",
+            "x": 337,
+            "y": 17.5,
+            "w": 25,
+            "h": 12,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 0.4,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "radius": 3.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb1",
+            "name": "Battery Level",
+            "type": "rectangle",
+            "x": 339,
+            "y": 19.5,
+            "w": 18,
+            "h": 8,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 2
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb2",
+            "name": "Battery Cap",
+            "type": "rectangle",
+            "x": 363,
+            "y": 21.5,
+            "w": 1.5,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 0.4
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb3",
+            "name": "icon / wifi",
+            "type": "group",
+            "x": 314,
+            "y": 16,
+            "w": 17,
+            "h": 17,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb4",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 314,
+                "y": 16,
+                "w": 17,
+                "h": 17,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb5",
+                "name": "svg-path",
+                "type": "path",
+                "x": 316.27,
+                "y": 19.95,
+                "w": 12.47,
+                "h": 2.57,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M316.27,22.52 C319.72,19.1 325.28,19.1 328.73,22.52"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f9ed6fb6",
+                "name": "svg-path",
+                "type": "path",
+                "x": 318.46,
+                "y": 23.09,
+                "w": 8.08,
+                "h": 1.69,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M318.46,24.78 C319.53,23.7 320.98,23.09 322.5,23.09 C324.02,23.09 325.47,23.7 326.54,24.78"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f9ed812a",
+                "name": "svg-path",
+                "type": "path",
+                "x": 320.66,
+                "y": 26.26,
+                "w": 3.68,
+                "h": 0.79,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M320.66,27.05 C321.14,26.55 321.8,26.26 322.5,26.26 C323.2,26.26 323.86,26.55 324.34,27.05"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f9ed812b",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 321.72,
+                "y": 28.4,
+                "w": 1.56,
+                "h": 1.56,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797705c6864",
+        "name": "Toolbar (Glass)",
+        "type": "board",
+        "x": 321,
+        "y": 58,
+        "w": 52,
+        "h": 44,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 22,
+        "clipContent": true,
+        "component": {
+          "name": "Toolbar (Glass)",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795bf4110fc",
+          "main": false,
+          "variantProps": {
+            "Items": "1"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797705c6865",
+            "name": "Toolbar Item / ellipsis",
+            "type": "board",
+            "x": 325,
+            "y": 58,
+            "w": 44,
+            "h": 44,
+            "visible": true,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797705c6866",
+                "name": "icon / ellipsis",
+                "type": "group",
+                "x": 336,
+                "y": 69,
+                "w": 22,
+                "h": 22,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797705c6867",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 336,
+                    "y": 69,
+                    "w": 22,
+                    "h": 22,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.18,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797705cb8bd",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 339.67,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797705cb8be",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 345.63,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797705cb8bf",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 351.58,
+                    "y": 78.63,
+                    "w": 2.75,
+                    "h": 2.75,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#111111",
+                        "opacity": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797707271c7",
+        "name": "Inline Title",
+        "type": "text",
+        "x": 0,
+        "y": 69,
+        "w": 393,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "Einkaufsliste",
+          "growType": "auto-height",
+          "align": "center",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "headline",
+          "textBounds": {
+            "w": 100.85,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79770ae16b5",
+        "name": "Open Items",
+        "type": "board",
+        "x": 20,
+        "y": 120,
+        "w": 353,
+        "h": 156,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 1
+          }
+        ],
+        "radius": 22,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79770dd368e",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 120,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff350a4",
+              "main": false,
+              "variantProps": {
+                "State": "Default"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79770dd368f",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 135,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#A1A1A6",
+                    "opacity": 1,
+                    "width": 1.6,
+                    "align": "inner",
+                    "style": "solid"
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79770dd3690",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 136,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Küchenpapier",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 108.02,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79770dd3691",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 138,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "1 Packung",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 70.7,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79771022164",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 76,
+            "y": 171.5,
+            "w": 297,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79771305143",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 172,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff350a4",
+              "main": false,
+              "variantProps": {
+                "State": "Default"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79771305144",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 187,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#A1A1A6",
+                    "opacity": 1,
+                    "width": 1.6,
+                    "align": "inner",
+                    "style": "solid"
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79771305145",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 188,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Tomaten",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 67.55,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79771305146",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 190,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "500 g",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 40.5,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977149cfa9",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 76,
+            "y": 223.5,
+            "w": 297,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797716dc77a",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 224,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff350a4",
+              "main": false,
+              "variantProps": {
+                "State": "Default"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797716dc77b",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 239,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#A1A1A6",
+                    "opacity": 1,
+                    "width": 1.6,
+                    "align": "inner",
+                    "style": "solid"
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797716dc77c",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 240,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Bananen",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 68.18,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797716dc77d",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 242,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "6 Stück",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 52.65,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797718ce20a",
+        "name": "Completed Header",
+        "type": "board",
+        "x": 20,
+        "y": 298,
+        "w": 353,
+        "h": 24,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79771afac63",
+            "name": "Section Label",
+            "type": "text",
+            "x": 24,
+            "y": 300,
+            "w": 67,
+            "h": 18,
+            "visible": true,
+            "text": {
+              "characters": "Erledigt · 4",
+              "growType": "auto-width",
+              "align": "left",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 13,
+              "lineHeight": 1.35,
+              "letterSpacing": -0.05,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#6E6E73",
+              "colorOpacity": 1,
+              "typography": "footnoteM",
+              "textBounds": {
+                "w": 66.58,
+                "h": 16
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79771da9bb1",
+            "name": "Clear Action",
+            "type": "text",
+            "x": 273,
+            "y": 300,
+            "w": 100,
+            "h": 18,
+            "visible": true,
+            "text": {
+              "characters": "Leeren",
+              "growType": "auto-height",
+              "align": "right",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 500,
+              "fontStyle": "normal",
+              "fontSize": 13,
+              "lineHeight": 1.35,
+              "letterSpacing": -0.05,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#5E7D63",
+              "colorOpacity": 1,
+              "typography": "footnoteM",
+              "textBounds": {
+                "w": 42.55,
+                "h": 16
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79772123aa6",
+        "name": "Completed Items",
+        "type": "board",
+        "x": 20,
+        "y": 328,
+        "w": 353,
+        "h": 208,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 1
+          }
+        ],
+        "radius": 22,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797723ba42d",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 328,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff5e439",
+              "main": false,
+              "variantProps": {
+                "State": "Completed"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797723ba42e",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 343,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#5E7D63",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797723ba42f",
+                    "name": "icon / check",
+                    "type": "group",
+                    "x": 40,
+                    "y": 347,
+                    "w": 18,
+                    "h": 18,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c797723ba430",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 40,
+                        "y": 347,
+                        "w": 18,
+                        "h": 18,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c797723ba431",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 44.13,
+                        "y": 352.48,
+                        "w": 9.75,
+                        "h": 7.2,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M44.13,356.45 L47.35,359.68 L53.88,352.48"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797723ba432",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 344,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Brot",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 31.8,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797723ba433",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 346,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "1 Stück",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 49.45,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977258a0f3",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 76,
+            "y": 379.5,
+            "w": 297,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797727889a7",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 380,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff5e439",
+              "main": false,
+              "variantProps": {
+                "State": "Completed"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797727889a8",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 395,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#5E7D63",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797727889a9",
+                    "name": "icon / check",
+                    "type": "group",
+                    "x": 40,
+                    "y": 399,
+                    "w": 18,
+                    "h": 18,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c797727889aa",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 40,
+                        "y": 399,
+                        "w": 18,
+                        "h": 18,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c797727889ab",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 44.13,
+                        "y": 404.48,
+                        "w": 9.75,
+                        "h": 7.2,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M44.13,408.45 L47.35,411.68 L53.88,404.48"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797727889ac",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 396,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Joghurt",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 60.57,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797727889ad",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 398,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "4 Becher",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 63.1,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977292dc0c",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 76,
+            "y": 431.5,
+            "w": 297,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79772b5a3b6",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 432,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff5e439",
+              "main": false,
+              "variantProps": {
+                "State": "Completed"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772b5a3b7",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 447,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#5E7D63",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79772b5a3b8",
+                    "name": "icon / check",
+                    "type": "group",
+                    "x": 40,
+                    "y": 451,
+                    "w": 18,
+                    "h": 18,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79772b5a3b9",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 40,
+                        "y": 451,
+                        "w": 18,
+                        "h": 18,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79772b5a3ba",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 44.13,
+                        "y": 456.48,
+                        "w": 9.75,
+                        "h": 7.2,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M44.13,460.45 L47.35,463.68 L53.88,456.48"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772b5a3bb",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 448,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Äpfel",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 40.48,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772b5a3bc",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 450,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "1 kg",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 26.82,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79772d1780a",
+            "name": "Separator",
+            "type": "rectangle",
+            "x": 76,
+            "y": 483.5,
+            "w": 297,
+            "h": 0.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#E5E4DF",
+                "opacity": 1
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79772f502ed",
+            "name": "Shopping List Row",
+            "type": "board",
+            "x": 20,
+            "y": 484,
+            "w": 353,
+            "h": 56,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "clipContent": true,
+            "component": {
+              "name": "Shopping List Row",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795cff5e439",
+              "main": false,
+              "variantProps": {
+                "State": "Completed"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772f502ee",
+                "name": "Checkbox",
+                "type": "board",
+                "x": 36,
+                "y": 499,
+                "w": 26,
+                "h": 26,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#5E7D63",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 13,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79772f502ef",
+                    "name": "icon / check",
+                    "type": "group",
+                    "x": 40,
+                    "y": 503,
+                    "w": 18,
+                    "h": 18,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79772f502f0",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 40,
+                        "y": 503,
+                        "w": 18,
+                        "h": 18,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79772f56b64",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 44.13,
+                        "y": 508.48,
+                        "w": 9.75,
+                        "h": 7.2,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#FFFFFF",
+                            "opacity": 1,
+                            "width": 3.2,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M44.13,512.45 L47.35,515.68 L53.88,508.48"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772f56b65",
+                "name": "Name",
+                "type": "text",
+                "x": 76,
+                "y": 500,
+                "w": 170,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Zahnpasta",
+                  "growType": "auto-height",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "body",
+                  "textBounds": {
+                    "w": 81.93,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79772f56b66",
+                "name": "Quantity",
+                "type": "text",
+                "x": 220,
+                "y": 502,
+                "w": 137,
+                "h": 20,
+                "visible": true,
+                "text": {
+                  "characters": "1 Tube",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 15,
+                  "lineHeight": 1.33,
+                  "letterSpacing": -0.15,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "subhead",
+                  "textBounds": {
+                    "w": 44.8,
+                    "h": 19
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79773116e0b",
+        "name": "Hint",
+        "type": "text",
+        "x": 24,
+        "y": 548,
+        "w": 345,
+        "h": 36,
+        "visible": true,
+        "text": {
+          "characters": "Abgehakte Artikel werden nach 24 Stunden automatisch ausgeblendet.",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#A1A1A6",
+          "colorOpacity": 1,
+          "typography": "footnote",
+          "textBounds": {
+            "w": 268.53,
+            "h": 33.55
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79773408aac",
+        "name": "Scroll Edge Effect",
+        "type": "rectangle",
+        "x": 0,
+        "y": 742,
+        "w": 393,
+        "h": 110,
+        "visible": true,
+        "fills": [
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#F7F6F3",
+                "opacity": 0,
+                "offset": 0
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 0.9,
+                "offset": 0.45
+              },
+              {
+                "color": "#F7F6F3",
+                "opacity": 1,
+                "offset": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c7977363ac17",
+        "name": "Tab Bar (Liquid Glass)",
+        "type": "board",
+        "x": 16,
+        "y": 769,
+        "w": 361,
+        "h": 62,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#FFFFFF",
+            "opacity": 0.72
+          },
+          {
+            "type": "linear-gradient",
+            "opacity": 1,
+            "start": [
+              0.5,
+              0
+            ],
+            "end": [
+              0.5,
+              1
+            ],
+            "width": 1,
+            "stops": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.55,
+                "offset": 0
+              },
+              {
+                "color": "#FFFFFF",
+                "opacity": 0,
+                "offset": 0.55
+              }
+            ]
+          }
+        ],
+        "strokes": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.9,
+            "width": 1,
+            "align": "inner",
+            "style": "solid"
+          }
+        ],
+        "shadows": [
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 28,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.1,
+            "hidden": false
+          },
+          {
+            "style": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "#000000",
+            "opacity": 0.06,
+            "hidden": false
+          }
+        ],
+        "radius": 31,
+        "clipContent": true,
+        "component": {
+          "name": "Tab Bar (Liquid Glass)",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795bd2d97b4",
+          "main": false,
+          "variantProps": {
+            "Active": "Einkauf",
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977363ac18",
+            "name": "Tab / Home",
+            "type": "board",
+            "x": 20,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970a052a7a",
+                    "name": "01 Home"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac19",
+                "name": "icon / house",
+                "type": "group",
+                "x": 52.13,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac1a",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 52.13,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac1b",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 55.63,
+                    "y": 783.8,
+                    "w": 17,
+                    "h": 7,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M55.63,790.8 L64.13,783.8 L72.63,790.8"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac1c",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 57.93,
+                    "y": 789.2,
+                    "w": 12.4,
+                    "h": 11.2,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M57.92,789.2 L57.92,799.2 C57.92,799.86 58.46,800.4 59.13,800.4 L62.42,800.4 L62.42,794.8 L65.83,794.8 L65.83,800.4 L69.13,800.4 C69.79,800.4 70.33,799.86 70.33,799.2 L70.33,789.2"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac1d",
+                "name": "Label",
+                "type": "text",
+                "x": 20,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Home",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 28.85,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977363ac1e",
+            "name": "Tab / Inventar",
+            "type": "board",
+            "x": 108.25,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+                    "name": "02 Inventar"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac1f",
+                "name": "icon / stack",
+                "type": "group",
+                "x": 140.38,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac20",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 140.38,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac21",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 783.2,
+                    "w": 17,
+                    "h": 8.8,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M152.38,783.2 L143.88,787.6 L152.38,792 L160.88,787.6 L152.38,783.2 L152.38,783.2"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac22",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 792,
+                    "w": 17,
+                    "h": 4.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M143.88,792 L152.38,796.4 L160.88,792"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac23",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 143.88,
+                    "y": 796.4,
+                    "w": 17,
+                    "h": 4.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M143.88,796.4 L152.38,800.8 L160.88,796.4"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac24",
+                "name": "Label",
+                "type": "text",
+                "x": 108.25,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Inventar",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 40.53,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977363ac25",
+            "name": "Tab / Einkauf",
+            "type": "board",
+            "x": 196.5,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 0.06
+              }
+            ],
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970f90273e",
+                    "name": "03 Einkaufsliste"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac26",
+                "name": "icon / cart",
+                "type": "group",
+                "x": 228.63,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac27",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 228.63,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac28",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 231.42,
+                    "y": 783.8,
+                    "w": 17.7,
+                    "h": 12.1,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M231.42,783.8 L233.52,783.8 L235.83,794.7 C235.97,795.41 236.6,795.91 237.33,795.9 L245.92,795.9 C246.6,795.9 247.19,795.45 247.38,794.8 L249.13,787.9 L234.33,787.9"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac29",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 236.98,
+                    "y": 798.35,
+                    "w": 2.5,
+                    "h": 2.5,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac2a",
+                    "name": "svg-circle",
+                    "type": "ellipse",
+                    "x": 244.38,
+                    "y": 798.35,
+                    "w": 2.5,
+                    "h": 2.5,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#5E7D63",
+                        "opacity": 1,
+                        "width": 2,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac2b",
+                "name": "Label",
+                "type": "text",
+                "x": 196.5,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Einkauf",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#5E7D63",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 36.93,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7977363ac2c",
+            "name": "Tab / Chats",
+            "type": "board",
+            "x": 284.75,
+            "y": 773,
+            "w": 88.25,
+            "h": 54,
+            "visible": true,
+            "radius": 27,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c79712cecce3",
+                    "name": "04 Chats"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac2d",
+                "name": "icon / bubbles",
+                "type": "group",
+                "x": 316.88,
+                "y": 780,
+                "w": 24,
+                "h": 24,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac2e",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 316.88,
+                    "y": 780,
+                    "w": 24,
+                    "h": 24,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac2f",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 319.38,
+                    "y": 784.2,
+                    "w": 14,
+                    "h": 13.4,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M330.48,784.2 L322.27,784.2 C320.67,784.2 319.38,785.5 319.38,787.1 L319.38,791.7 C319.38,792.47 319.68,793.21 320.22,793.75 C320.77,794.29 321.51,794.6 322.27,794.6 L322.67,794.6 L322.67,797.6 L326.08,794.6 L330.48,794.6 C332.08,794.6 333.38,793.3 333.38,791.7 L333.38,787.1 C333.38,786.33 333.07,785.59 332.53,785.05 C331.98,784.51 331.24,784.2 330.48,784.2 L330.48,784.2"
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7977363ac30",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 326.18,
+                    "y": 788.6,
+                    "w": 12.2,
+                    "h": 12.6,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 1.7,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M336.27,788.6 C337.52,788.96 338.38,790.1 338.38,791.4 L338.38,795.7 C338.38,797.3 337.08,798.6 335.48,798.6 L335.17,798.6 L335.17,801.2 L332.17,798.6 L328.58,798.6 C327.61,798.59 326.71,798.11 326.17,797.3"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7977363ac31",
+                "name": "Label",
+                "type": "text",
+                "x": 284.75,
+                "y": 807,
+                "w": 88.25,
+                "h": 12,
+                "visible": true,
+                "text": {
+                  "characters": "Chats",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 10,
+                  "lineHeight": 1.2,
+                  "letterSpacing": 0.1,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "tab",
+                  "textBounds": {
+                    "w": 28.68,
+                    "h": 12
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797737c57a2",
+        "name": "Home Indicator",
+        "type": "board",
+        "x": 0,
+        "y": 818,
+        "w": 393,
+        "h": 34,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Home Indicator",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b9a754ab",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797737c57a3",
+            "name": "Indicator",
+            "type": "rectangle",
+            "x": 129.5,
+            "y": 839,
+            "w": 134,
+            "h": 5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 3
+          }
+        ]
+      }
+    ]
+  }
+}

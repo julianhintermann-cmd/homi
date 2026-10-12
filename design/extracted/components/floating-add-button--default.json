@@ -1,0 +1,159 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Floating Add Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795bed0b205",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Default"
+  },
+  "slug": "floating-add-button--default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795bea4437b",
+  "width": 56,
+  "height": 56,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795bea4437b",
+    "name": "Floating Add Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.55,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 28,
+    "clipContent": true,
+    "component": {
+      "name": "Floating Add Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795bed0b205",
+      "main": true,
+      "variantProps": {
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795beafbfce",
+        "name": "icon / plus",
+        "type": "group",
+        "x": 15,
+        "y": 15,
+        "w": 26,
+        "h": 26,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795beb008bd",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 15,
+            "y": 15,
+            "w": 26,
+            "h": 26,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 1.85,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795beb008be",
+            "name": "svg-path",
+            "type": "path",
+            "x": 20.42,
+            "y": 20.42,
+            "w": 15.17,
+            "h": 15.17,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 1.85,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M28,20.42 L28,35.58 M20.42,28 L35.58,28"
+          }
+        ]
+      }
+    ]
+  }
+}

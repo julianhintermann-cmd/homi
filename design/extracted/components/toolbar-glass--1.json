@@ -1,0 +1,201 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Toolbar (Glass)",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795bf4110fc",
+  "variantProperties": [
+    "Items"
+  ],
+  "variantProps": {
+    "Items": "1"
+  },
+  "slug": "toolbar-glass--1",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795bf2109f9",
+  "width": 52,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795bf2109f9",
+    "name": "Toolbar (Glass)",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 52,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.55,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Toolbar (Glass)",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795bf4110fc",
+      "main": true,
+      "variantProps": {
+        "Items": "1"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bf2b0760",
+        "name": "Toolbar Item / ellipsis",
+        "type": "board",
+        "x": 4,
+        "y": 0,
+        "w": 44,
+        "h": 44,
+        "visible": true,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bf33a728",
+            "name": "icon / ellipsis",
+            "type": "group",
+            "x": 15,
+            "y": 11,
+            "w": 22,
+            "h": 22,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bf343fc1",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 15,
+                "y": 11,
+                "w": 22,
+                "h": 22,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#111111",
+                    "opacity": 1,
+                    "width": 2.18,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bf343fc2",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 18.67,
+                "y": 20.63,
+                "w": 2.75,
+                "h": 2.75,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bf343fc3",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 24.63,
+                "y": 20.63,
+                "w": 2.75,
+                "h": 2.75,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795bf343fc4",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 30.58,
+                "y": 20.63,
+                "w": 2.75,
+                "h": 2.75,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#111111",
+                    "opacity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Back Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795bdb7a572",
+  "variantProperties": [
+    "Mode"
+  ],
+  "variantProps": {
+    "Mode": "Light"
+  },
+  "slug": "back-button--light",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795bd8f2ad7",
+  "width": 44,
+  "height": 44,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795bd8f2ad7",
+    "name": "Back Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 44,
+    "h": 44,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#FFFFFF",
+        "opacity": 0.72
+      },
+      {
+        "type": "linear-gradient",
+        "opacity": 1,
+        "start": [
+          0.5,
+          0
+        ],
+        "end": [
+          0.5,
+          1
+        ],
+        "width": 1,
+        "stops": [
+          {
+            "color": "#FFFFFF",
+            "opacity": 0.55,
+            "offset": 0
+          },
+          {
+            "color": "#FFFFFF",
+            "opacity": 0,
+            "offset": 0.55
+          }
+        ]
+      }
+    ],
+    "strokes": [
+      {
+        "color": "#FFFFFF",
+        "opacity": 0.9,
+        "width": 1,
+        "align": "inner",
+        "style": "solid"
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 8,
+        "blur": 28,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.1,
+        "hidden": false
+      },
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 1,
+        "blur": 3,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.06,
+        "hidden": false
+      }
+    ],
+    "radius": 22,
+    "clipContent": true,
+    "component": {
+      "name": "Back Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795bdb7a572",
+      "main": true,
+      "variantProps": {
+        "Mode": "Light"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795bd9ad0b6",
+        "name": "icon / chevL",
+        "type": "group",
+        "x": 11,
+        "y": 11,
+        "w": 22,
+        "h": 22,
+        "visible": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bd9b030f",
+            "name": "base-background",
+            "type": "rectangle",
+            "x": 11,
+            "y": 11,
+            "w": 22,
+            "h": 22,
+            "visible": false,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 2.18,
+                "align": "center",
+                "style": "solid"
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795bd9b4ed9",
+            "name": "svg-path",
+            "type": "path",
+            "x": 18.33,
+            "y": 16.04,
+            "w": 5.96,
+            "h": 11.92,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#111111",
+                "opacity": 1,
+                "width": 2.18,
+                "align": "center",
+                "style": "solid",
+                "capStart": "round",
+                "capEnd": "round"
+              }
+            ],
+            "d": "M24.29,16.04 L18.33,22 L24.29,27.96"
+          }
+        ]
+      }
+    ]
+  }
+}

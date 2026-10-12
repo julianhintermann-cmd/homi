@@ -1,0 +1,143 @@
+import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
+import { io as connect, type Socket } from 'socket.io-client';
+import { SOCKET_PATH, type ClientToServerEvents, type ServerToClientEvents, type SyncEvent } from '@homi/shared';
+import { householdRoom } from '../../src/plugins/realtime';
+import { buildTestApp, type TestApp } from '../helpers/app';
+import { TEST_APP_URL } from '../helpers/config';
+import { addMember, createHousehold, createLoggedInUser } from '../helpers/fixtures';
+
+type ClientSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
+
+async function waitFor(condition: () => Promise<boolean> | boolean, timeoutMs = 5_000): Promise<void> {
+  const deadline = Date.now() + timeoutMs;
+  while (!(await condition())) {
+    if (Date.now() > deadline) throw new Error('waitFor: timed out');
+    await new Promise((resolve) => setTimeout(resolve, 25));
+  }
+}
+
+function nextEvent<T>(register: (resolve: (value: T) => void) => void, timeoutMs = 5_000): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('event timeout')), timeoutMs);
+    register((value) => {
+      clearTimeout(timer);
+      resolve(value);
+    });
+  });
+}
+
+describe('Socket.IO realtime', () => {
+  let t: TestApp;
+  let baseUrl: string;
+  const sockets: ClientSocket[] = [];
+  const typingSeen: string[] = [];
+
+  function open(headers: Record<string, string>): ClientSocket {
+    const socket: ClientSocket = connect(baseUrl, {
+      path: SOCKET_PATH,
+      transports: ['websocket'],
+      extraHeaders: headers,
+      reconnection: false,
+      forceNew: true,
+    });
+    sockets.push(socket);
+    return socket;
+  }
+
+  beforeAll(async () => {
+    t = await buildTestApp({
+      configure: (app) => {
+        app.realtime.onConnection((socket) => {
+          socket.on('chat:typing', (payload) => {
+            typingSeen.push(`${socket.data.userId}:${payload.conversationId}`);
+          });
+        });
+      },
+    });
+    baseUrl = await t.app.listen({ port: 0, host: '127.0.0.1' });
+  });
+
+  afterEach(() => {
+    for (const socket of sockets.splice(0)) socket.disconnect();
+  });
+
+  afterAll(async () => {
+    const started = Date.now();
+    await t.close();
+    expect(Date.now() - started).toBeLessThan(5_000);
+  });
+
+  it('rejects handshakes without a session', async () => {
+    const socket = open({ origin: TEST_APP_URL });
+    const error = await nextEvent<Error>((resolve) => socket.on('connect_error', resolve));
+    expect(error.message).toBe('UNAUTHORIZED');
+  });
+
+  it('rejects foreign origins even with a valid session', async () => {
+    const { client } = await createLoggedInUser(t.app);
+    const socket = open({ origin: 'https://evil.example', cookie: client.cookieHeader() });
+    const error = await nextEvent<Error>((resolve) => socket.on('connect_error', resolve));
+    expect(error).toBeInstanceOf(Error);
+    expect(socket.connected).toBe(false);
+  });
+
+  it('joins user and household rooms and delivers events', async () => {
+    const owner = await createLoggedInUser(t.app, { displayName: 'Mia' });
+    const household = await createHousehold(t.prisma, owner.user.id);
+
+    const socket = open({ origin: TEST_APP_URL, cookie: owner.client.cookieHeader() });
+    await nextEvent<void>((resolve) => socket.on('connect', () => resolve()));
+    await waitFor(async () => (await t.app.realtime.io.in(householdRoom(household.id)).fetchSockets()).length === 1);
+
+    const sync: SyncEvent = {
+      householdId: household.id,
+      scope: 'inventory',
+      action: 'created',
+      entityId: 'x',
+      actorId: owner.user.id,
+    };
+    const received = nextEvent<SyncEvent>((resolve) => socket.on('sync', resolve));
+    t.app.realtime.emitSync(sync);
+    expect(await received).toEqual(sync);
+
+    const membership = nextEvent((resolve) => socket.on('membership', resolve));
+    t.app.realtime.emitToUsers([owner.user.id, owner.user.id], 'membership', {
+      householdId: household.id,
+      action: 'added',
+    });
+    expect(await membership).toEqual({ householdId: household.id, action: 'added' });
+
+    // connection handlers registered by modules receive client events
+    socket.emit('chat:typing', { conversationId: household.conversationId, typing: true });
+    await waitFor(() => typingSeen.includes(`${owner.user.id}:${household.conversationId}`));
+  });
+
+  it('re-syncs household rooms after membership changes', async () => {
+    const owner = await createLoggedInUser(t.app);
+    const member = await createLoggedInUser(t.app);
+    const household = await createHousehold(t.prisma, owner.user.id);
+
+    const socket = open({ origin: TEST_APP_URL, cookie: member.client.cookieHeader() });
+    await nextEvent<void>((resolve) => socket.on('connect', () => resolve()));
+    const room = householdRoom(household.id);
+    expect((await t.app.realtime.io.in(room).fetchSockets()).length).toBe(0);
+
+    await addMember(t.prisma, household, member.user.id);
+    await t.app.realtime.syncUserRooms(member.user.id);
+    expect((await t.app.realtime.io.in(room).fetchSockets()).length).toBe(1);
+
+    await t.prisma.householdMember.deleteMany({ where: { householdId: household.id, userId: member.user.id } });
+    await t.app.realtime.syncUserRooms(member.user.id);
+    expect((await t.app.realtime.io.in(room).fetchSockets()).length).toBe(0);
+  });
+
+  it('disconnects the sockets of a revoked session', async () => {
+    const { client, user, sessionId } = await createLoggedInUser(t.app);
+    const socket = open({ origin: TEST_APP_URL, cookie: client.cookieHeader() });
+    await nextEvent<void>((resolve) => socket.on('connect', () => resolve()));
+
+    const reason = nextEvent<string>((resolve) => socket.on('disconnect', resolve));
+    await t.app.realtime.disconnectUser(user.id, { sessionId });
+    expect(await reason).toBe('io server disconnect');
+  });
+});

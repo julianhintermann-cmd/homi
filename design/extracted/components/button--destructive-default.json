@@ -1,0 +1,85 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Button",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795efb26097",
+  "variantProperties": [
+    "Style",
+    "State"
+  ],
+  "variantProps": {
+    "Style": "Destructive",
+    "State": "Default"
+  },
+  "slug": "button--destructive-default",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795ef59d464",
+  "width": 353,
+  "height": 52,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795ef59d464",
+    "name": "Button",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 52,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F6E3DF",
+        "opacity": 1
+      }
+    ],
+    "radius": 26,
+    "clipContent": true,
+    "component": {
+      "name": "Button",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795efb26097",
+      "main": true,
+      "variantProps": {
+        "Style": "Destructive",
+        "State": "Default"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795ef6315ac",
+        "name": "Label",
+        "type": "text",
+        "x": 0,
+        "y": 0,
+        "w": 353,
+        "h": 52,
+        "visible": true,
+        "text": {
+          "characters": "Artikel löschen",
+          "growType": "fixed",
+          "align": "center",
+          "verticalAlign": "center",
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#C2412D",
+          "colorOpacity": 1,
+          "typography": "headline",
+          "textBounds": {
+            "w": 118.35,
+            "h": 20
+          }
+        }
+      }
+    ]
+  }
+}

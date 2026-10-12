@@ -1,0 +1,309 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "01 · Components",
+  "component": "Message Preview Row",
+  "componentId": "89a7272c-a1ac-80ae-8008-c795d0e5f328",
+  "variantProperties": [
+    "State"
+  ],
+  "variantProps": {
+    "State": "Unread"
+  },
+  "slug": "message-preview-row--unread",
+  "mainInstanceId": "89a7272c-a1ac-80ae-8008-c795d06bda7b",
+  "width": 353,
+  "height": 84,
+  "notes": [
+    "Coordinates are relative to the component main instance top-left.",
+    "children are listed in paint order (first = bottom-most)."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c795d06bda7b",
+    "name": "Message Preview Row",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 353,
+    "h": 84,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#F7F6F3",
+        "opacity": 1
+      }
+    ],
+    "clipContent": true,
+    "component": {
+      "name": "Message Preview Row",
+      "componentId": "89a7272c-a1ac-80ae-8008-c795d0e5f328",
+      "main": true,
+      "variantProps": {
+        "State": "Unread"
+      }
+    },
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d07366b7",
+        "name": "Avatar",
+        "type": "board",
+        "x": 0,
+        "y": 14,
+        "w": 54,
+        "h": 54,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#111111",
+            "opacity": 1
+          }
+        ],
+        "radius": 27,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d07eef3d",
+            "name": "icon / house",
+            "type": "group",
+            "x": 13.5,
+            "y": 26.96,
+            "w": 27,
+            "h": 27,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795d07f97c2",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 13.5,
+                "y": 26.96,
+                "w": 27,
+                "h": 27,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F7F6F3",
+                    "opacity": 1,
+                    "width": 1.69,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795d07f97c3",
+                "name": "svg-path",
+                "type": "path",
+                "x": 17.44,
+                "y": 31.23,
+                "w": 19.13,
+                "h": 7.88,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F7F6F3",
+                    "opacity": 1,
+                    "width": 1.69,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M17.44,39.11 L27,31.23 L36.56,39.11"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c795d07fdc66",
+                "name": "svg-path",
+                "type": "path",
+                "x": 20.03,
+                "y": 37.31,
+                "w": 13.95,
+                "h": 12.6,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F7F6F3",
+                    "opacity": 1,
+                    "width": 1.69,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M20.02,37.31 L20.02,48.56 C20.02,49.31 20.63,49.91 21.38,49.91 L25.09,49.91 L25.09,43.61 L28.91,43.61 L28.91,49.91 L32.63,49.91 C33.37,49.91 33.98,49.31 33.98,48.56 L33.98,37.31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d089bb36",
+        "name": "Name",
+        "type": "text",
+        "x": 68,
+        "y": 14,
+        "w": 190,
+        "h": 23,
+        "visible": true,
+        "text": {
+          "characters": "Unser Zuhause",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 17,
+          "lineHeight": 1.3,
+          "letterSpacing": -0.3,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "headline",
+          "textBounds": {
+            "w": 120.92,
+            "h": 20
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d099fe2b",
+        "name": "Time",
+        "type": "text",
+        "x": 253,
+        "y": 16,
+        "w": 100,
+        "h": 18,
+        "visible": true,
+        "text": {
+          "characters": "14:32",
+          "growType": "auto-height",
+          "align": "right",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 600,
+          "fontStyle": "normal",
+          "fontSize": 13,
+          "lineHeight": 1.35,
+          "letterSpacing": -0.05,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#5E7D63",
+          "colorOpacity": 1,
+          "textBounds": {
+            "w": 34.42,
+            "h": 16
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d0ab8630",
+        "name": "Last Message",
+        "type": "text",
+        "x": 68,
+        "y": 37,
+        "w": 250,
+        "h": 40,
+        "visible": true,
+        "text": {
+          "characters": "Lisa: Ich habe die Einkaufsliste aktualisiert.",
+          "growType": "auto-height",
+          "align": "left",
+          "verticalAlign": null,
+          "direction": "ltr",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontStyle": "normal",
+          "fontSize": 15,
+          "lineHeight": 1.33,
+          "letterSpacing": -0.15,
+          "textTransform": "none",
+          "textDecoration": "none",
+          "color": "#111111",
+          "colorOpacity": 1,
+          "typography": "subhead",
+          "textBounds": {
+            "w": 216.02,
+            "h": 38.95
+          }
+        }
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d0bbc06e",
+        "name": "Unread Badge",
+        "type": "board",
+        "x": 331,
+        "y": 44,
+        "w": 22,
+        "h": 22,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#5E7D63",
+            "opacity": 1
+          }
+        ],
+        "radius": 11,
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c795d0c5d991",
+            "name": "Count",
+            "type": "text",
+            "x": 331,
+            "y": 44,
+            "w": 22,
+            "h": 22,
+            "visible": true,
+            "text": {
+              "characters": "2",
+              "growType": "fixed",
+              "align": "center",
+              "verticalAlign": "center",
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 700,
+              "fontStyle": "normal",
+              "fontSize": 12,
+              "lineHeight": 1.3,
+              "letterSpacing": 0,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#FFFFFF",
+              "colorOpacity": 1,
+              "textBounds": {
+                "w": 7.57,
+                "h": 15
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c795d0da0194",
+        "name": "Separator",
+        "type": "rectangle",
+        "x": 68,
+        "y": 83.5,
+        "w": 285,
+        "h": 0.5,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#E5E4DF",
+            "opacity": 1
+          }
+        ]
+      }
+    ]
+  }
+}

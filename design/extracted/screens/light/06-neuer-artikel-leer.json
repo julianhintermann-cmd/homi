@@ -1,0 +1,1823 @@
+{
+  "schema": "homi-design-tree/1",
+  "source": "Penpot file \"Homi UI/UX MockUp\"",
+  "page": "02 · Screens & Prototype",
+  "board": "06 Neuer Artikel – leer",
+  "boardId": "89a7272c-a1ac-80ae-8008-c797157abe1c",
+  "slug": "06-neuer-artikel-leer",
+  "mode": "light",
+  "width": 393,
+  "height": 852,
+  "pagePosition": {
+    "x": 473,
+    "y": 1300
+  },
+  "notes": [
+    "Coordinates (x/y) are relative to the screen board top-left; path \"d\" data is translated into the same space.",
+    "children are listed in paint order (first = bottom-most).",
+    "The board-level drop shadow (0/24/60, 18% black) is a presentation shadow, not UI.",
+    "Status Bar (54pt) and Home Indicator (34pt) are system UI / safe areas, not to be drawn by the web app."
+  ],
+  "tree": {
+    "id": "89a7272c-a1ac-80ae-8008-c797157abe1c",
+    "name": "06 Neuer Artikel – leer",
+    "type": "board",
+    "x": 0,
+    "y": 0,
+    "w": 393,
+    "h": 852,
+    "visible": true,
+    "fills": [
+      {
+        "type": "solid",
+        "color": "#000000",
+        "opacity": 1
+      }
+    ],
+    "shadows": [
+      {
+        "style": "drop-shadow",
+        "x": 0,
+        "y": 24,
+        "blur": 60,
+        "spread": 0,
+        "color": "#000000",
+        "opacity": 0.18,
+        "hidden": false
+      }
+    ],
+    "clipContent": true,
+    "children": [
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c798f8f08a40",
+        "name": "Status Bar",
+        "type": "board",
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 54,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Status Bar",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b986a30d",
+          "main": false,
+          "variantProps": {
+            "Mode": "Dark"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a41",
+            "name": "Time",
+            "type": "text",
+            "x": 0,
+            "y": 17,
+            "w": 133,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "9:41",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#F5F5F7",
+              "colorOpacity": 1,
+              "typography": "headline",
+              "textBounds": {
+                "w": 33.05,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a42",
+            "name": "Dynamic Island",
+            "type": "rectangle",
+            "x": 133.5,
+            "y": 11,
+            "w": 126,
+            "h": 37,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#000000",
+                "opacity": 1
+              }
+            ],
+            "radius": 18.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a43",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 293,
+            "y": 24,
+            "w": 3,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a44",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 297.5,
+            "y": 21.5,
+            "w": 3,
+            "h": 6.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a45",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 302,
+            "y": 19,
+            "w": 3,
+            "h": 9,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a46",
+            "name": "signal",
+            "type": "rectangle",
+            "x": 306.5,
+            "y": 16.5,
+            "w": 3,
+            "h": 11.5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a47",
+            "name": "Battery",
+            "type": "rectangle",
+            "x": 337,
+            "y": 17.5,
+            "w": 25,
+            "h": 12,
+            "visible": true,
+            "strokes": [
+              {
+                "color": "#F5F5F7",
+                "opacity": 0.4,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "radius": 3.5
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a48",
+            "name": "Battery Level",
+            "type": "rectangle",
+            "x": 339,
+            "y": 19.5,
+            "w": 18,
+            "h": 8,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 1
+              }
+            ],
+            "radius": 2
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a49",
+            "name": "Battery Cap",
+            "type": "rectangle",
+            "x": 363,
+            "y": 21.5,
+            "w": 1.5,
+            "h": 4,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#F5F5F7",
+                "opacity": 0.4
+              }
+            ],
+            "radius": 1
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c798f8f08a4a",
+            "name": "icon / wifi",
+            "type": "group",
+            "x": 314,
+            "y": 16,
+            "w": 17,
+            "h": 17,
+            "visible": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f8f08a4b",
+                "name": "base-background",
+                "type": "rectangle",
+                "x": 314,
+                "y": 16,
+                "w": 17,
+                "h": 17,
+                "visible": false,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid"
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f8f08a4c",
+                "name": "svg-path",
+                "type": "path",
+                "x": 316.27,
+                "y": 19.95,
+                "w": 12.47,
+                "h": 2.57,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M316.27,22.52 C319.72,19.1 325.28,19.1 328.73,22.52"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f8f08a4d",
+                "name": "svg-path",
+                "type": "path",
+                "x": 318.46,
+                "y": 23.09,
+                "w": 8.08,
+                "h": 1.69,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M318.46,24.78 C319.53,23.7 320.98,23.09 322.5,23.09 C324.02,23.09 325.47,23.7 326.54,24.78"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f8f0f3dd",
+                "name": "svg-path",
+                "type": "path",
+                "x": 320.66,
+                "y": 26.26,
+                "w": 3.68,
+                "h": 0.79,
+                "visible": true,
+                "strokes": [
+                  {
+                    "color": "#F5F5F7",
+                    "opacity": 1,
+                    "width": 2.05,
+                    "align": "center",
+                    "style": "solid",
+                    "capStart": "round",
+                    "capEnd": "round"
+                  }
+                ],
+                "d": "M320.66,27.05 C321.14,26.55 321.8,26.26 322.5,26.26 C323.2,26.26 323.86,26.55 324.34,27.05"
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c798f8f0f3de",
+                "name": "svg-circle",
+                "type": "ellipse",
+                "x": 321.72,
+                "y": 28.4,
+                "w": 1.56,
+                "h": 1.56,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#F5F5F7",
+                    "opacity": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79715a004ac",
+        "name": "Presenting View",
+        "type": "rectangle",
+        "x": 16,
+        "y": 46,
+        "w": 361,
+        "h": 60,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F7F6F3",
+            "opacity": 0.45
+          }
+        ],
+        "radius": 14
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c79715b8645a",
+        "name": "Sheet",
+        "type": "board",
+        "x": 0,
+        "y": 58,
+        "w": 393,
+        "h": 794,
+        "visible": true,
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#F7F6F3",
+            "opacity": 1
+          }
+        ],
+        "radius": [
+          34,
+          34,
+          0,
+          0
+        ],
+        "clipContent": true,
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79715ce0cf6",
+            "name": "Close Button",
+            "type": "board",
+            "x": 16,
+            "y": 72,
+            "w": 44,
+            "h": 44,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 0.72
+              },
+              {
+                "type": "linear-gradient",
+                "opacity": 1,
+                "start": [
+                  0.5,
+                  0
+                ],
+                "end": [
+                  0.5,
+                  1
+                ],
+                "width": 1,
+                "stops": [
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0.55,
+                    "offset": 0
+                  },
+                  {
+                    "color": "#FFFFFF",
+                    "opacity": 0,
+                    "offset": 0.55
+                  }
+                ]
+              }
+            ],
+            "strokes": [
+              {
+                "color": "#FFFFFF",
+                "opacity": 0.9,
+                "width": 1,
+                "align": "inner",
+                "style": "solid"
+              }
+            ],
+            "shadows": [
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 8,
+                "blur": 28,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.1,
+                "hidden": false
+              },
+              {
+                "style": "drop-shadow",
+                "x": 0,
+                "y": 1,
+                "blur": 3,
+                "spread": 0,
+                "color": "#000000",
+                "opacity": 0.06,
+                "hidden": false
+              }
+            ],
+            "radius": 22,
+            "clipContent": true,
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7970c8addf3",
+                    "name": "02 Inventar"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "slide",
+                    "way": "out",
+                    "direction": "down",
+                    "duration": 300,
+                    "offsetEffect": false,
+                    "easing": "ease-in"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79715e44f4c",
+                "name": "icon / xmark",
+                "type": "group",
+                "x": 28,
+                "y": 84,
+                "w": 20,
+                "h": 20,
+                "visible": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79715e4f458",
+                    "name": "base-background",
+                    "type": "rectangle",
+                    "x": 28,
+                    "y": 84,
+                    "w": 20,
+                    "h": 20,
+                    "visible": false,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.4,
+                        "align": "center",
+                        "style": "solid"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79715e4f459",
+                    "name": "svg-path",
+                    "type": "path",
+                    "x": 33.42,
+                    "y": 89.42,
+                    "w": 9.17,
+                    "h": 9.17,
+                    "visible": true,
+                    "strokes": [
+                      {
+                        "color": "#111111",
+                        "opacity": 1,
+                        "width": 2.4,
+                        "align": "center",
+                        "style": "solid",
+                        "capStart": "round",
+                        "capEnd": "round"
+                      }
+                    ],
+                    "d": "M33.42,89.42 L42.58,98.58 M42.58,89.42 L33.42,98.58"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79715f5f7b2",
+            "name": "Sheet Title",
+            "type": "text",
+            "x": 0,
+            "y": 83,
+            "w": 393,
+            "h": 23,
+            "visible": true,
+            "text": {
+              "characters": "Neuer Artikel",
+              "growType": "auto-height",
+              "align": "center",
+              "verticalAlign": null,
+              "direction": "ltr",
+              "fontFamily": "Inter",
+              "fontWeight": 600,
+              "fontStyle": "normal",
+              "fontSize": 17,
+              "lineHeight": 1.3,
+              "letterSpacing": -0.3,
+              "textTransform": "none",
+              "textDecoration": "none",
+              "color": "#111111",
+              "colorOpacity": 1,
+              "typography": "headline",
+              "textBounds": {
+                "w": 104.22,
+                "h": 20
+              }
+            }
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c7971616173a",
+            "name": "Image Upload Area",
+            "type": "board",
+            "x": 20,
+            "y": 134,
+            "w": 353,
+            "h": 200,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "strokes": [
+              {
+                "color": "#A1A1A6",
+                "opacity": 0.7,
+                "width": 1.5,
+                "align": "inner",
+                "style": "dashed"
+              }
+            ],
+            "radius": 22,
+            "clipContent": true,
+            "component": {
+              "name": "Image Upload Area",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795eea1bf70",
+              "main": false,
+              "variantProps": {
+                "State": "Empty"
+              }
+            },
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c79763a61b5c",
+                    "name": "13 Foto auswählen"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "slide",
+                    "way": "in",
+                    "direction": "up",
+                    "duration": 400,
+                    "offsetEffect": false,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7971616173b",
+                "name": "Icon Circle",
+                "type": "board",
+                "x": 172.5,
+                "y": 182,
+                "w": 48,
+                "h": 48,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#E6ECE5",
+                    "opacity": 1
+                  }
+                ],
+                "radius": 24,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7971616173c",
+                    "name": "icon / camera",
+                    "type": "group",
+                    "x": 184.5,
+                    "y": 194,
+                    "w": 24,
+                    "h": 24,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7971616173d",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 184.5,
+                        "y": 194,
+                        "w": 24,
+                        "h": 24,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 1.9,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79716165136",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 188.3,
+                        "y": 198.5,
+                        "w": 16.4,
+                        "h": 15.5,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 1.9,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M188.3,202.6 C188.3,201.5 189.2,200.6 190.3,200.6 L192.4,200.6 L194,198.5 L199,198.5 L200.6,200.6 L202.7,200.6 C203.8,200.6 204.7,201.5 204.7,202.6 L204.7,212 C204.7,213.1 203.8,214 202.7,214 L190.3,214 C189.2,214 188.3,213.1 188.3,212 L188.3,202.6"
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79716165137",
+                        "name": "svg-circle",
+                        "type": "ellipse",
+                        "x": 193,
+                        "y": 203.6,
+                        "w": 7,
+                        "h": 7,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#5E7D63",
+                            "opacity": 1,
+                            "width": 1.9,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79716165138",
+                "name": "Title",
+                "type": "text",
+                "x": 20,
+                "y": 242,
+                "w": 353,
+                "h": 23,
+                "visible": true,
+                "text": {
+                  "characters": "Foto hinzufügen",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#111111",
+                  "colorOpacity": 1,
+                  "typography": "headline",
+                  "textBounds": {
+                    "w": 129.17,
+                    "h": 20
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79716165139",
+                "name": "Hint",
+                "type": "text",
+                "x": 20,
+                "y": 266,
+                "w": 353,
+                "h": 18,
+                "visible": true,
+                "text": {
+                  "characters": "Aufnehmen oder aus der Mediathek wählen",
+                  "growType": "auto-height",
+                  "align": "center",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 13,
+                  "lineHeight": 1.35,
+                  "letterSpacing": -0.05,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "footnote",
+                  "textBounds": {
+                    "w": 266.35,
+                    "h": 16
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79716237a95",
+            "name": "Text Input",
+            "type": "board",
+            "x": 20,
+            "y": 354,
+            "w": 353,
+            "h": 76,
+            "visible": true,
+            "clipContent": true,
+            "component": {
+              "name": "Text Input",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795eaed6029",
+              "main": false,
+              "variantProps": {
+                "State": "Default"
+              }
+            },
+            "interactions": [
+              {
+                "trigger": "click",
+                "action": {
+                  "type": "navigate-to",
+                  "destination": {
+                    "id": "89a7272c-a1ac-80ae-8008-c7971882235d",
+                    "name": "06 Neuer Artikel – ausgefüllt"
+                  },
+                  "preserveScrollPosition": false,
+                  "animation": {
+                    "type": "dissolve",
+                    "duration": 200,
+                    "easing": "ease-out"
+                  }
+                }
+              }
+            ],
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79716237a96",
+                "name": "Label",
+                "type": "text",
+                "x": 24,
+                "y": 354,
+                "w": 74,
+                "h": 18,
+                "visible": true,
+                "text": {
+                  "characters": "Artikelname",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 500,
+                  "fontStyle": "normal",
+                  "fontSize": 13,
+                  "lineHeight": 1.35,
+                  "letterSpacing": -0.05,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "footnoteM",
+                  "textBounds": {
+                    "w": 73.9,
+                    "h": 16
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79716237a97",
+                "name": "Field",
+                "type": "board",
+                "x": 20,
+                "y": 378,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#FFFFFF",
+                    "opacity": 1
+                  }
+                ],
+                "strokes": [
+                  {
+                    "color": "#E5E4DF",
+                    "opacity": 1,
+                    "width": 1,
+                    "align": "inner",
+                    "style": "solid"
+                  }
+                ],
+                "radius": 14,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79716237a98",
+                    "name": "Placeholder",
+                    "type": "text",
+                    "x": 36,
+                    "y": 393,
+                    "w": 101,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "z. B. Olivenöl",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#A1A1A6",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 100.4,
+                        "h": 20
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797162ec2be",
+            "name": "Details Card",
+            "type": "board",
+            "x": 20,
+            "y": 450,
+            "w": 353,
+            "h": 156,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#FFFFFF",
+                "opacity": 1
+              }
+            ],
+            "radius": 16,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797163f5f01",
+                "name": "Form Row / Kategorie",
+                "type": "board",
+                "x": 20,
+                "y": 450,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797164ea6ea",
+                    "name": "Label",
+                    "type": "text",
+                    "x": 36,
+                    "y": 465,
+                    "w": 75,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "Kategorie",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#111111",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 74.82,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c797166870bc",
+                    "name": "Value",
+                    "type": "text",
+                    "x": 170,
+                    "y": 465,
+                    "w": 155,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "Auswählen",
+                      "growType": "auto-height",
+                      "align": "right",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#A1A1A6",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 85.65,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79716894d12",
+                    "name": "icon / updown",
+                    "type": "group",
+                    "x": 335,
+                    "y": 465,
+                    "w": 20,
+                    "h": 20,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7971689c8a0",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 335,
+                        "y": 465,
+                        "w": 20,
+                        "h": 20,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#6E6E73",
+                            "opacity": 1,
+                            "width": 2.16,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7971689c8a1",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 341.67,
+                        "y": 469.58,
+                        "w": 6.67,
+                        "h": 10.83,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#6E6E73",
+                            "opacity": 1,
+                            "width": 2.16,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M341.67,472.92 L345,469.58 L348.33,472.92 M341.67,477.08 L345,480.42 L348.33,477.08"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79716ab2fd5",
+                    "name": "Separator",
+                    "type": "rectangle",
+                    "x": 36,
+                    "y": 501.5,
+                    "w": 337,
+                    "h": 0.5,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E4DF",
+                        "opacity": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79716c14497",
+                "name": "Form Row / Menge",
+                "type": "board",
+                "x": 20,
+                "y": 502,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79716d217c2",
+                    "name": "Label",
+                    "type": "text",
+                    "x": 36,
+                    "y": 517,
+                    "w": 55,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "Menge",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#111111",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 54.17,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79716f5af69",
+                    "name": "Quantity Stepper",
+                    "type": "board",
+                    "x": 233,
+                    "y": 508,
+                    "w": 124,
+                    "h": 40,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#EAE9E4",
+                        "opacity": 1
+                      }
+                    ],
+                    "radius": 20,
+                    "clipContent": true,
+                    "component": {
+                      "name": "Quantity Stepper",
+                      "componentId": "89a7272c-a1ac-80ae-8008-c795ed1ab01d",
+                      "main": false,
+                      "variantProps": {
+                        "Size": "Compact",
+                        "State": "Minimum"
+                      }
+                    },
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79716f5af6a",
+                        "name": "Minus",
+                        "type": "board",
+                        "x": 233,
+                        "y": 508,
+                        "w": 40,
+                        "h": 40,
+                        "visible": true,
+                        "radius": 20,
+                        "clipContent": true,
+                        "children": [
+                          {
+                            "id": "89a7272c-a1ac-80ae-8008-c79716f5af6b",
+                            "name": "icon / minus",
+                            "type": "group",
+                            "x": 244,
+                            "y": 519,
+                            "w": 18,
+                            "h": 18,
+                            "visible": true,
+                            "children": [
+                              {
+                                "id": "89a7272c-a1ac-80ae-8008-c79716f5af6c",
+                                "name": "base-background",
+                                "type": "rectangle",
+                                "x": 244,
+                                "y": 519,
+                                "w": 18,
+                                "h": 18,
+                                "visible": false,
+                                "strokes": [
+                                  {
+                                    "color": "#A1A1A6",
+                                    "opacity": 1,
+                                    "width": 2.67,
+                                    "align": "center",
+                                    "style": "solid"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "89a7272c-a1ac-80ae-8008-c79716f5af6d",
+                                "name": "svg-path",
+                                "type": "path",
+                                "x": 248.13,
+                                "y": 528,
+                                "w": 9.75,
+                                "h": 0.01,
+                                "visible": true,
+                                "strokes": [
+                                  {
+                                    "color": "#A1A1A6",
+                                    "opacity": 1,
+                                    "width": 2.67,
+                                    "align": "center",
+                                    "style": "solid",
+                                    "capStart": "round",
+                                    "capEnd": "round"
+                                  }
+                                ],
+                                "d": "M248.13,528 L257.88,528"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79716f5af6e",
+                        "name": "Value",
+                        "type": "text",
+                        "x": 273,
+                        "y": 508,
+                        "w": 44,
+                        "h": 40,
+                        "visible": true,
+                        "text": {
+                          "characters": "1",
+                          "growType": "fixed",
+                          "align": "center",
+                          "verticalAlign": "center",
+                          "direction": "ltr",
+                          "fontFamily": "Inter",
+                          "fontWeight": 600,
+                          "fontStyle": "normal",
+                          "fontSize": 17,
+                          "lineHeight": 1.3,
+                          "letterSpacing": -0.3,
+                          "textTransform": "none",
+                          "textDecoration": "none",
+                          "color": "#111111",
+                          "colorOpacity": 1,
+                          "typography": "headline",
+                          "textBounds": {
+                            "w": 6.88,
+                            "h": 20
+                          }
+                        }
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c79716f5af6f",
+                        "name": "Plus",
+                        "type": "board",
+                        "x": 317,
+                        "y": 508,
+                        "w": 40,
+                        "h": 40,
+                        "visible": true,
+                        "radius": 20,
+                        "clipContent": true,
+                        "children": [
+                          {
+                            "id": "89a7272c-a1ac-80ae-8008-c79716f5af70",
+                            "name": "icon / plus",
+                            "type": "group",
+                            "x": 328,
+                            "y": 519,
+                            "w": 18,
+                            "h": 18,
+                            "visible": true,
+                            "children": [
+                              {
+                                "id": "89a7272c-a1ac-80ae-8008-c79716f5af71",
+                                "name": "base-background",
+                                "type": "rectangle",
+                                "x": 328,
+                                "y": 519,
+                                "w": 18,
+                                "h": 18,
+                                "visible": false,
+                                "strokes": [
+                                  {
+                                    "color": "#111111",
+                                    "opacity": 1,
+                                    "width": 2.67,
+                                    "align": "center",
+                                    "style": "solid"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "89a7272c-a1ac-80ae-8008-c79716f5af72",
+                                "name": "svg-path",
+                                "type": "path",
+                                "x": 331.75,
+                                "y": 522.75,
+                                "w": 10.5,
+                                "h": 10.5,
+                                "visible": true,
+                                "strokes": [
+                                  {
+                                    "color": "#111111",
+                                    "opacity": 1,
+                                    "width": 2.67,
+                                    "align": "center",
+                                    "style": "solid",
+                                    "capStart": "round",
+                                    "capEnd": "round"
+                                  }
+                                ],
+                                "d": "M337,522.75 L337,533.25 M331.75,528 L342.25,528"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7971706d734",
+                    "name": "Separator",
+                    "type": "rectangle",
+                    "x": 36,
+                    "y": 553.5,
+                    "w": 337,
+                    "h": 0.5,
+                    "visible": true,
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E4DF",
+                        "opacity": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c7971721b61c",
+                "name": "Form Row / Einheit",
+                "type": "board",
+                "x": 20,
+                "y": 554,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79717344d66",
+                    "name": "Label",
+                    "type": "text",
+                    "x": 36,
+                    "y": 569,
+                    "w": 52,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "Einheit",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#111111",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 51.93,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c7971756be26",
+                    "name": "Value",
+                    "type": "text",
+                    "x": 170,
+                    "y": 569,
+                    "w": 155,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "Stück",
+                      "growType": "auto-height",
+                      "align": "right",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#A1A1A6",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 44.07,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79717857642",
+                    "name": "icon / updown",
+                    "type": "group",
+                    "x": 335,
+                    "y": 569,
+                    "w": 20,
+                    "h": 20,
+                    "visible": true,
+                    "children": [
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7971785c476",
+                        "name": "base-background",
+                        "type": "rectangle",
+                        "x": 335,
+                        "y": 569,
+                        "w": 20,
+                        "h": 20,
+                        "visible": false,
+                        "strokes": [
+                          {
+                            "color": "#6E6E73",
+                            "opacity": 1,
+                            "width": 2.16,
+                            "align": "center",
+                            "style": "solid"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "89a7272c-a1ac-80ae-8008-c7971785c477",
+                        "name": "svg-path",
+                        "type": "path",
+                        "x": 341.67,
+                        "y": 573.58,
+                        "w": 6.67,
+                        "h": 10.83,
+                        "visible": true,
+                        "strokes": [
+                          {
+                            "color": "#6E6E73",
+                            "opacity": 1,
+                            "width": 2.16,
+                            "align": "center",
+                            "style": "solid",
+                            "capStart": "round",
+                            "capEnd": "round"
+                          }
+                        ],
+                        "d": "M341.67,576.92 L345,573.58 L348.33,576.92 M341.67,581.08 L345,584.42 L348.33,581.08"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79717a53d81",
+            "name": "Price Input",
+            "type": "board",
+            "x": 20,
+            "y": 626,
+            "w": 353,
+            "h": 76,
+            "visible": true,
+            "clipContent": true,
+            "component": {
+              "name": "Price Input",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795eb8fc309",
+              "main": false,
+              "variantProps": {
+                "State": "Empty"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79717a53d82",
+                "name": "Label",
+                "type": "text",
+                "x": 24,
+                "y": 626,
+                "w": 100,
+                "h": 18,
+                "visible": true,
+                "text": {
+                  "characters": "Preis pro Einheit",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 500,
+                  "fontStyle": "normal",
+                  "fontSize": 13,
+                  "lineHeight": 1.35,
+                  "letterSpacing": -0.05,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "footnoteM",
+                  "textBounds": {
+                    "w": 99.87,
+                    "h": 16
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79717a53d83",
+                "name": "Field",
+                "type": "board",
+                "x": 20,
+                "y": 650,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#FFFFFF",
+                    "opacity": 1
+                  }
+                ],
+                "strokes": [
+                  {
+                    "color": "#E5E4DF",
+                    "opacity": 1,
+                    "width": 1,
+                    "align": "inner",
+                    "style": "solid"
+                  }
+                ],
+                "radius": 14,
+                "clipContent": true,
+                "children": [
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79717a53d84",
+                    "name": "Prefix",
+                    "type": "text",
+                    "x": 36,
+                    "y": 665,
+                    "w": 35,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "CHF",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#6E6E73",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 34.18,
+                        "h": 20
+                      }
+                    }
+                  },
+                  {
+                    "id": "89a7272c-a1ac-80ae-8008-c79717a53d85",
+                    "name": "Placeholder",
+                    "type": "text",
+                    "x": 78,
+                    "y": 665,
+                    "w": 35,
+                    "h": 23,
+                    "visible": true,
+                    "text": {
+                      "characters": "0.00",
+                      "growType": "auto-width",
+                      "align": "left",
+                      "verticalAlign": null,
+                      "direction": "ltr",
+                      "fontFamily": "Inter",
+                      "fontWeight": 400,
+                      "fontStyle": "normal",
+                      "fontSize": 17,
+                      "lineHeight": 1.3,
+                      "letterSpacing": -0.3,
+                      "textTransform": "none",
+                      "textDecoration": "none",
+                      "color": "#A1A1A6",
+                      "colorOpacity": 1,
+                      "typography": "body",
+                      "textBounds": {
+                        "w": 35,
+                        "h": 20
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c79717be4156",
+            "name": "Total Preview",
+            "type": "board",
+            "x": 20,
+            "y": 714,
+            "w": 353,
+            "h": 22,
+            "visible": true,
+            "clipContent": true,
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79717e7ca1f",
+                "name": "Label",
+                "type": "text",
+                "x": 24,
+                "y": 714,
+                "w": 75,
+                "h": 18,
+                "visible": true,
+                "text": {
+                  "characters": "Gesamtwert",
+                  "growType": "auto-width",
+                  "align": "left",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 400,
+                  "fontStyle": "normal",
+                  "fontSize": 13,
+                  "lineHeight": 1.35,
+                  "letterSpacing": -0.05,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#6E6E73",
+                  "colorOpacity": 1,
+                  "typography": "footnote",
+                  "textBounds": {
+                    "w": 74.12,
+                    "h": 16
+                  }
+                }
+              },
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c79718271319",
+                "name": "Total",
+                "type": "text",
+                "x": 153,
+                "y": 714,
+                "w": 216,
+                "h": 18,
+                "visible": true,
+                "text": {
+                  "characters": "CHF 0.00",
+                  "growType": "auto-height",
+                  "align": "right",
+                  "verticalAlign": null,
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 500,
+                  "fontStyle": "normal",
+                  "fontSize": 13,
+                  "lineHeight": 1.35,
+                  "letterSpacing": -0.05,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "footnoteM",
+                  "textBounds": {
+                    "w": 58.37,
+                    "h": 16
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797185ce42f",
+            "name": "Button",
+            "type": "board",
+            "x": 20,
+            "y": 758,
+            "w": 353,
+            "h": 52,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#EAE9E4",
+                "opacity": 1
+              }
+            ],
+            "radius": 26,
+            "clipContent": true,
+            "component": {
+              "name": "Button",
+              "componentId": "89a7272c-a1ac-80ae-8008-c795efae5ac3",
+              "main": false,
+              "variantProps": {
+                "Style": "Primary",
+                "State": "Disabled"
+              }
+            },
+            "children": [
+              {
+                "id": "89a7272c-a1ac-80ae-8008-c797185ce430",
+                "name": "Label",
+                "type": "text",
+                "x": 20,
+                "y": 758,
+                "w": 353,
+                "h": 52,
+                "visible": true,
+                "text": {
+                  "characters": "Artikel hinzufügen",
+                  "growType": "fixed",
+                  "align": "center",
+                  "verticalAlign": "center",
+                  "direction": "ltr",
+                  "fontFamily": "Inter",
+                  "fontWeight": 600,
+                  "fontStyle": "normal",
+                  "fontSize": 17,
+                  "lineHeight": 1.3,
+                  "letterSpacing": -0.3,
+                  "textTransform": "none",
+                  "textDecoration": "none",
+                  "color": "#A1A1A6",
+                  "colorOpacity": 1,
+                  "typography": "headline",
+                  "textBounds": {
+                    "w": 145.95,
+                    "h": 20
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "89a7272c-a1ac-80ae-8008-c797186ef7af",
+        "name": "Home Indicator",
+        "type": "board",
+        "x": 0,
+        "y": 818,
+        "w": 393,
+        "h": 34,
+        "visible": true,
+        "clipContent": true,
+        "component": {
+          "name": "Home Indicator",
+          "componentId": "89a7272c-a1ac-80ae-8008-c795b9a754ab",
+          "main": false,
+          "variantProps": {
+            "Mode": "Light"
+          }
+        },
+        "children": [
+          {
+            "id": "89a7272c-a1ac-80ae-8008-c797186ef7b0",
+            "name": "Indicator",
+            "type": "rectangle",
+            "x": 129.5,
+            "y": 839,
+            "w": 134,
+            "h": 5,
+            "visible": true,
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#111111",
+                "opacity": 1
+              }
+            ],
+            "radius": 3
+          }
+        ]
+      }
+    ]
+  }
+}
