@@ -75,6 +75,17 @@ describe('loadConfig', () => {
     expect(problemsOf({ ...base, TRUST_PROXY: 'maybe' })).toEqual([expect.stringContaining('TRUST_PROXY')]);
   });
 
+  it('derives the Secure cookie flag and HSTS from APP_URL unless COOKIE_SECURE forces it', () => {
+    expect(loadConfig({ ...base, APP_URL: 'http://192.168.1.20:3000' }).cookieSecure).toBe(false);
+    expect(loadConfig({ ...base, APP_URL: 'https://homi.example.ch' }).cookieSecure).toBe(true);
+    expect(loadConfig({ ...base, APP_URL: 'https://homi.example.ch' }).appUrlIsHttps).toBe(true);
+    expect(loadConfig({ ...base, APP_URL: 'http://localhost:3000', COOKIE_SECURE: 'true' }).cookieSecure).toBe(true);
+    expect(loadConfig({ ...base, APP_URL: 'https://homi.example.ch', COOKIE_SECURE: 'false' }).cookieSecure).toBe(
+      false,
+    );
+    expect(problemsOf({ ...base, COOKIE_SECURE: 'yes' })).toEqual([expect.stringContaining('COOKIE_SECURE')]);
+  });
+
   it('enables SMTP only with host and sender', () => {
     expect(loadConfig({ ...base, SMTP_FROM: 'Homi <a@b.ch>' }).smtp).toBeNull();
     expect(problemsOf({ ...base, SMTP_HOST: 'smtp.example.ch' })).toEqual([expect.stringContaining('SMTP_FROM')]);

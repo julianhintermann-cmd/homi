@@ -359,7 +359,8 @@ describe('auth: production cookie', () => {
   let t: TestApp;
 
   beforeAll(async () => {
-    t = await buildTestApp({ env: { NODE_ENV: 'production' } });
+    // APP_URL in tests is http://localhost:5173, so COOKIE_SECURE=auto would not set Secure; force it here.
+    t = await buildTestApp({ env: { NODE_ENV: 'production', COOKIE_SECURE: 'true' } });
   });
   afterAll(() => t.close());
 

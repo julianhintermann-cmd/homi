@@ -31,7 +31,8 @@ export const securityPlugin = fp(
         ),
       },
       // HSTS only makes sense (and is only honoured) over HTTPS in production.
-      strictTransportSecurity: app.config.isProduction ? { maxAge: 15_552_000, includeSubDomains: false } : false,
+      strictTransportSecurity:
+        app.config.isProduction && app.config.appUrlIsHttps ? { maxAge: 15_552_000, includeSubDomains: false } : false,
       crossOriginEmbedderPolicy: false,
       // Invitation / reset links carry tokens in the path – never leak them via Referer.
       referrerPolicy: { policy: 'no-referrer' },

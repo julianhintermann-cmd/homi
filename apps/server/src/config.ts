@@ -58,6 +58,8 @@ const EnvSchema = z.object({
   SMTP_SECURE: booleanString(false),
   LOG_LEVEL: z.enum(LOG_LEVELS).default('info'),
   WEB_DIST_DIR: optionalString,
+  /** `auto` (default): Secure cookies only when APP_URL uses https://. `true`/`false` force it. */
+  COOKIE_SECURE: z.enum(['auto', 'true', 'false']).default('auto'),
 });
 
 export type NodeEnv = 'development' | 'production' | 'test';
@@ -74,6 +76,10 @@ export interface SmtpConfig {
 export interface AppConfig {
   env: NodeEnv;
   isProduction: boolean;
+  /** Whether the session cookie carries the Secure flag (see COOKIE_SECURE). */
+  cookieSecure: boolean;
+  /** True when APP_URL is an https:// origin (enables HSTS). */
+  appUrlIsHttps: boolean;
   port: number;
   host: string;
   /** Public origin without trailing slash, e.g. `https://homi.example.ch`. */
@@ -133,6 +139,8 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
   return {
     env: e.NODE_ENV,
     isProduction,
+    cookieSecure: e.COOKIE_SECURE === 'auto' ? appUrl.startsWith('https://') : e.COOKIE_SECURE === 'true',
+    appUrlIsHttps: appUrl.startsWith('https://'),
     port: e.PORT,
     host: e.HOST,
     appUrl,

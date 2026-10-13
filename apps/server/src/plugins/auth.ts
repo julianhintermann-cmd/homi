@@ -16,7 +16,7 @@ export function sessionCookieOptions(config: AppConfig) {
     httpOnly: true,
     sameSite: 'lax' as const,
     path: '/',
-    secure: config.isProduction,
+    secure: config.cookieSecure,
   };
 }
 
