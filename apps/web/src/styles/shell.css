@@ -5,9 +5,11 @@
 
 /* ── Navigation stack: every screen is an absolutely positioned layer ── */
 .app-stack {
-  position: relative;
-  flex: 1 1 auto;
-  height: 100dvh;
+  /* Pinned to the full screen instead of `height: 100dvh`: in an iOS home-screen web app (standalone,
+     black-translucent status bar) 100dvh excludes the status bar, which lifted everything anchored to
+     the bottom (tab bar, composer) by ~59 pt. `position: fixed; inset: 0` always spans the screen. */
+  position: fixed;
+  inset: 0;
   overflow: clip;
 }
 

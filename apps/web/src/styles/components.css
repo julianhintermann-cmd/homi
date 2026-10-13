@@ -607,7 +607,9 @@
 .homi-large-header__eyebrow-row {
   position: relative;
   min-height: 20px;
-  margin-top: 8px;
+  /* Design: safe-top + 8. Moved 16 pt lower (user feedback on a real iPhone) so the greeting clears the
+     status-bar fade and the header sits where native large-title screens start. */
+  margin-top: 24px;
   padding-right: 52px;
 }
 .homi-large-header__eyebrow {

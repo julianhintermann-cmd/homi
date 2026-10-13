@@ -246,7 +246,9 @@ const SCREENS: Screen[] = [
  * 353×200 field while the app crops it (object-fit: cover) – an intended difference that otherwise costs ≈ 9.6 %.
  */
 const BUDGET_PCT: Record<string, number> = {
-  '01-home': 3.0,
+  // Home header sits 16 pt lower than the design on purpose (feedback from a real iPhone), so the
+  // whole header block is shifted against the reference.
+  '01-home': 13.0,
   '02-inventar': 3.4,
   '05-artikel-details': 1.4,
   '06-neuer-artikel-ausgefuellt': 2.0,
@@ -254,7 +256,7 @@ const BUDGET_PCT: Record<string, number> = {
   '04-chats': 1.5,
   '04-chats-dark': 1.5,
   '09-haushalt-profil': 2.1,
-  '01-home-dark': 2.9,
+  '01-home-dark': 13.0,
   '02-inventar-dark': 3.4,
   '03-einkaufsliste-dark': 1.7,
   '05-artikel-details-dark': 1.6,
