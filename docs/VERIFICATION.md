@@ -78,14 +78,25 @@ Image hashes were identical every time (WebP variants stored as `node:node` in t
 
 None. No product code, test code or docs other than this file were modified.
 
-## 6. Known limitations
+## 6. GitHub Actions and GHCR (2026-10-13)
+
+| Run                                                                                  | Result                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [38345110575](https://github.com/julianhintermann-cmd/homi/actions/runs/38345110575) | CI gate failed on the WebKit two-user e2e test (stuck tab-to-push transition, a real bug) – publish correctly skipped. Lint/typecheck/unit/build, integration (Linux: no worker crash), Docker smoke and all 15 visual comparisons passed on Linux. |
+| [38348407053](https://github.com/julianhintermann-cmd/homi/actions/runs/38348407053) | All jobs green: lint/typecheck/unit/build, integration, e2e (Chromium + WebKit incl. visual + navigation-race), Docker smoke, multi-arch build and push.                                                                                            |
+
+- Published tags: `ghcr.io/julianhintermann-cmd/homi:latest`, `:main`, `:sha-490503d` (linux/amd64 + linux/arm64, provenance + SBOM attestations).
+- The package is publicly pullable: an anonymous registry token fetched the manifest (HTTP 200) and `docker pull ghcr.io/julianhintermann-cmd/homi:latest` succeeded without login.
+- Deployment from the published image (README quick start: `docker-compose.yml` + `.env` in an empty folder, port 3500): health ok, SPA 200, register 201 (cookie `HttpOnly; SameSite=Lax`, no `Secure` over http), household + item (2 × CHF 8.50 = 17.00) + dashboard OK, PostgreSQL not published on the host; stack removed with `down -v`.
+
+## 7. Known limitations
 
 - No test on a physical iPhone; iOS behaviour is covered only by Playwright WebKit with iPhone emulation (keyboard is simulated, no real Safari PWA install, no push or standby behaviour).
-- Visual references come from a Penpot export; Penpot's renderer differs from browsers (fonts, shadows, blur), hence the non-zero budgets. Budgets were measured on Windows; on Linux CI the values are unverified. `visual-webkit` is excluded in CI unless `E2E_VISUAL_WEBKIT=1`.
+- Visual references come from a Penpot export; Penpot's renderer differs from browsers (fonts, shadows, blur), hence the non-zero budgets. Budgets were measured on Windows and also pass on the Linux CI runner. `visual-webkit` is excluded in CI unless `E2E_VISUAL_WEBKIT=1`.
 - The service-worker test runs in Chromium only (skipped in WebKit).
 - Windows-only native worker crash 0xC0000409 can hit one integration test file; a re-run of that file passes.
 - HEIC upload with a real photo is untested (no sample or encoder available); only the worker error path is covered.
-- Workflow changes still pending (outside the verified scope): `persist-credentials: false` on every `actions/checkout` in `ci.yml` and `publish.yml`, and uploading `e2e/.artifacts/visual` on failure. The workflows were not run on a real GitHub Actions runner.
+- Workflow hardening (`persist-credentials: false`, visual artifacts on failure) was applied after this report and ran green on GitHub Actions (section 6).
 - Not reproduced, cause unknown: in one WebKit batch (3 workers) 3 of 12 two-user runs ended on /willkommen after "Einladung annehmen" (0 of 22 afterwards); one `seed-demo` run failed once with an uncaptured error. Both passed in this verification run.
 - `npm audit` for the Prisma CLI is an accepted risk (DEPLOYMENT.md section 10).
-- The GHCR image path was only checked via `compose config`; no image has been pulled from GHCR.
+- Visual budgets were calibrated on Windows; they also passed on the Linux CI runner (section 6).
