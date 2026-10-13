@@ -11,6 +11,8 @@ export interface EmptyStateProps {
   action?: ReactNode;
   /** Grow and centre vertically in the remaining screen height. */
   fill?: boolean;
+  /** Heading element of the title (default `h2`; `h1` when the empty state is the whole screen). */
+  titleAs?: 'h1' | 'h2' | 'h3';
   className?: string;
 }
 
@@ -19,7 +21,15 @@ export interface EmptyStateProps {
  * `title3` title 20 px below, `subhead` label-secondary message (max. 313 px) 5 px below,
  * optional 200 × 48 pill button 26 px below.
  */
-export function EmptyState({ icon, title, message, action, fill = false, className }: EmptyStateProps) {
+export function EmptyState({
+  icon,
+  title,
+  message,
+  action,
+  fill = false,
+  titleAs: Title = 'h2',
+  className,
+}: EmptyStateProps) {
   return (
     <section className={cx('homi-empty', className)} data-fill={fill || undefined}>
       {icon ? (
@@ -27,7 +37,7 @@ export function EmptyState({ icon, title, message, action, fill = false, classNa
           <Icon name={icon} size={36} strokeWidth={1.13} />
         </span>
       ) : null}
-      <h2 className="homi-empty__title">{title}</h2>
+      <Title className="homi-empty__title">{title}</Title>
       {message ? <p className="homi-empty__message">{message}</p> : null}
       {action ? <div className="homi-empty__action">{action}</div> : null}
     </section>

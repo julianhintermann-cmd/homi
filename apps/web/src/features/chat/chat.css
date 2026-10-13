@@ -1,0 +1,161 @@
+/*
+ * Chat feature layout (design 04, 08–08d, 12). Appearance comes from the design-system classes
+ * in styles/components.css; this file only places them like the reference screens.
+ */
+@layer components {
+  /* ── 04 Chats ─────────────────────────────────────────────────────────── */
+
+  /* Search field at y 156 = 9.2 px under the 40.8 px large title; list at y 212. */
+  .chats-search {
+    margin-top: 9.2px;
+  }
+  .chats-list {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .chats-list--plain {
+    margin-top: 9.2px;
+  }
+
+  /* ── 12 Chats – leer: icon circle at y 300, button 6 px under the two-line message ── */
+  .chats-empty {
+    margin-top: 121.2px;
+  }
+  .chats-empty .homi-empty__action {
+    margin-top: 6px;
+  }
+  .chats-no-results {
+    margin-top: 40px;
+  }
+
+  .chats-loading {
+    margin-top: 12px;
+  }
+
+  /* ── 08 Conversation ──────────────────────────────────────────────────── */
+
+  /* First row at safe-top + 96 (design y 150): 74 px contact header + 22 px. */
+  .chat-timeline {
+    padding: 22px 16px 0;
+  }
+  .chat-timeline__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .chat-timeline__row {
+    display: block;
+  }
+  /* Penpot text boxes are ceil(size × line-height) tall: keep the design's 16 / 42 / 14 px rhythm. */
+  .chat-timeline :is(.homi-chat-timestamp, .homi-chat-receipt) {
+    min-height: 16px;
+  }
+  .chat-timeline .homi-chat-bubble {
+    min-height: 42px;
+  }
+  .chat-timeline .homi-chat-message__meta {
+    min-height: 14px;
+  }
+  .chat-timeline__typing {
+    margin: 8px 4px 0;
+  }
+  .chat-older {
+    display: flex;
+    justify-content: center;
+    min-height: 28px;
+    padding-top: 4px;
+    color: var(--color-label-tertiary);
+  }
+
+  .chat-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .chat-card[data-status='sending'] .homi-shared-card {
+    opacity: 0.6;
+  }
+  .chat-card[data-status='failed'] .chat-card__failed {
+    align-self: flex-end;
+  }
+
+  /* 08d: avatar at safe-top + 246 on an 852 px screen, closer to the header on short screens. */
+  .chat-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: max(24px, calc(100dvh - 680px));
+    padding: 0 20px;
+    text-align: center;
+  }
+  .chat-intro__avatar {
+    display: block;
+    line-height: 0;
+  }
+  .chat-intro__title {
+    min-height: 28px;
+    margin: 16px 0 0;
+    font: var(--type-title2);
+    letter-spacing: var(--ls-title2);
+    color: var(--color-label);
+    overflow-wrap: anywhere;
+  }
+  .chat-intro__subtitle {
+    min-height: 18px;
+    margin: 4px 0 0;
+    font: var(--type-footnote);
+    letter-spacing: var(--ls-footnote);
+    color: var(--color-label-secondary);
+  }
+  .chat-intro__hint {
+    margin: 24px 0 0;
+    font: var(--type-subhead);
+    letter-spacing: var(--ls-subhead);
+    color: var(--color-label-secondary);
+  }
+
+  .chat-state {
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+    color: var(--color-label-tertiary);
+  }
+
+  /* "Neue Nachrichten" pill: glass capsule centred 12 px above the composer. */
+  .chat-new-pill {
+    position: fixed;
+    z-index: 36;
+    left: 50%;
+    bottom: calc(max(var(--safe-bottom), var(--keyboard-inset)) + 4px + var(--composer-height, 52px) + 12px);
+    height: 32px;
+    padding: 0 12px 0 14px;
+    border-radius: 16px;
+    transform: translateX(-50%);
+  }
+  .chat-new-pill::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+  }
+
+  /* ── Sheets ───────────────────────────────────────────────────────────── */
+  .chat-new-sheet__hint {
+    margin: 4px 8px 0;
+    font: var(--type-footnote);
+    letter-spacing: var(--ls-footnote);
+    color: var(--color-label-secondary);
+    text-align: center;
+  }
+  .chat-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 4px;
+  }
+  /* "+" sheet with text fields: keyboard-aware like the page sheets – the panel grows behind the
+     on-screen keyboard (--keyboard-inset) so the form and its button stay above it. */
+  .chat-item-sheet .homi-sheet__content[data-variant='action'] {
+    padding-bottom: calc(max(var(--safe-bottom), var(--keyboard-inset)) + 14px);
+    scroll-padding-bottom: calc(var(--keyboard-inset) + 14px);
+  }
+}

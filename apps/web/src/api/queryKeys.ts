@@ -20,6 +20,8 @@ export const queryKeys = {
   messagesAll: (householdId: string) => ['messages', householdId] as const,
   messages: (householdId: string, conversationId: string) => ['messages', householdId, conversationId] as const,
   invitations: (householdId: string) => ['invitations', householdId] as const,
+  /** Public invitation preview (`/einladung/:token`) – not household-scoped. */
+  invitationPreview: (token: string) => ['invitation-preview', token] as const,
 } as const;
 
 /** First segments of all household-scoped keys (`[scope, householdId, …]`). */

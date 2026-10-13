@@ -2,6 +2,7 @@ import fp from 'fastify-plugin';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { SESSION_COOKIE_NAME, roleAtLeast, type HouseholdRole } from '@homi/shared';
 import type { AppConfig } from '../config';
+import { classifyApiTarget } from '../lib/api-path';
 import { AppError } from '../lib/http-errors';
 import type { AuthUser } from '../lib/sessions';
 
@@ -33,10 +34,6 @@ export function clearSessionCookie(reply: FastifyReply): void {
   reply.clearCookie(SESSION_COOKIE_NAME, sessionCookieOptions(reply.server.config));
 }
 
-function isApiUrl(url: string): boolean {
-  return url === '/api' || url.startsWith('/api/') || url.startsWith('/api?');
-}
-
 export const authPlugin = fp(
   async (app) => {
     app.decorateRequest('user', null);
@@ -44,7 +41,8 @@ export const authPlugin = fp(
     app.decorateRequest('sessionToken', null);
 
     app.addHook('onRequest', async (request, reply) => {
-      if (!isApiUrl(request.url)) return;
+      // Same decision as the CSRF hook (decoded path + matched route, see lib/api-path.ts).
+      if (classifyApiTarget(request.url, request.routeOptions.url) === 'none') return;
       const token = request.cookies[SESSION_COOKIE_NAME];
       if (!token) return;
 

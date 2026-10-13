@@ -1,15 +1,12 @@
 import { io, type Socket } from 'socket.io-client';
 import type { ClientToServerEvents, ServerToClientEvents } from '@homi/shared';
+import { SOCKET_PATH, SOCKET_UNAUTHORIZED } from '@homi/shared/core';
 
 /** Typed Socket.IO client (same origin, cookie-authenticated, ARCHITECTURE §6). */
 export type HomiSocket = Socket<ServerToClientEvents, ClientToServerEvents>;
 
-/**
- * Mirrors `SOCKET_PATH` / `SOCKET_UNAUTHORIZED` of @homi/shared (local copies keep zod out of the
- * entry chunk; hooks/useRealtimeSync.test.ts asserts equality).
- */
-export const SOCKET_PATH = '/socket.io';
-export const SOCKET_UNAUTHORIZED = 'UNAUTHORIZED';
+/** Socket path and handshake error (§6) – from the zod-free `@homi/shared/core` (entry chunk stays zod-free). */
+export { SOCKET_PATH, SOCKET_UNAUTHORIZED };
 
 let socket: HomiSocket | null = null;
 

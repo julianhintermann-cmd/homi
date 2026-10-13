@@ -1,0 +1,72 @@
+# Homi – production-style deployment using the published image from GHCR.
+#
+#   cp .env.production.example .env      # then set APP_URL, SESSION_SECRET, POSTGRES_PASSWORD
+#   docker compose up -d
+#   open http://localhost:3000            (or your HTTPS reverse proxy URL)
+#
+# Build from source instead of pulling: docker compose -f docker-compose.yml -f docker-compose.build.yml up -d --build
+# Data lives in the named volumes `homi-db` (PostgreSQL) and `homi-uploads` (item images); both survive
+# container restarts and image updates. PostgreSQL is only reachable on the internal network.
+
+name: homi
+
+services:
+  homi:
+    image: ghcr.io/julianhintermann-cmd/homi:${HOMI_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      APP_URL: ${APP_URL:?Set APP_URL, e.g. http://localhost:3000 or https://homi.example.ch}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-homi}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-homi}
+      SESSION_SECRET: ${SESSION_SECRET:?Set SESSION_SECRET (at least 32 characters)}
+      SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
+      COOKIE_SECURE: ${COOKIE_SECURE:-auto}
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+      UPLOAD_DIR: /data/uploads
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-15}
+      MIGRATE_ON_START: ${MIGRATE_ON_START:-true}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+    ports:
+      - '${HOMI_BIND:-0.0.0.0}:${HOMI_PORT:-3000}:3000'
+    volumes:
+      - homi-uploads:/data/uploads
+    networks:
+      - homi
+    stop_grace_period: 20s
+
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-homi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-homi}
+    volumes:
+      # PostgreSQL 18 keeps PGDATA in a versioned sub-directory of /var/lib/postgresql.
+      - homi-db:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    networks:
+      - homi
+    # No `ports:` on purpose – the database is not exposed to the host or the internet.
+
+volumes:
+  homi-db:
+  homi-uploads:
+
+networks:
+  homi:

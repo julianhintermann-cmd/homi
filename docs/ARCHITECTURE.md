@@ -64,18 +64,23 @@ homi/
 │                             reference/ (light|dark|components PNGs + manifest.json), icons/*.svg, assets/products/*.png,
 │                             compare/ (gitignored output of scripts/visual-compare.ts)
 ├─ docker-compose.dev.yml     local PostgreSQL 18 (dev db `homi` + test db `homi_test`), .env.example
-├─ Dockerfile, docker-compose.yml (GHCR image), docker-compose.build.yml (build from source)   – release phase, not yet created
-└─ .github/workflows/         ci.yml, publish.yml                                                – release phase, not yet created
+├─ Dockerfile, docker-compose.yml (GHCR image), docker-compose.build.yml (build from source), docker/entrypoint.sh – release phase (present)
+└─ .github/workflows/         ci.yml, publish.yml                                                – release phase (present; ci.yml runs `npm run test:e2e`)
 ```
 
 Package manager: **npm workspaces** (`packages/shared`, `apps/server`, `apps/web`).
 All dependencies are already installed at the root. **Do not run `npm install` for new
 packages** unless the orchestrator explicitly allows it (parallel installs corrupt the lockfile).
 
-`@homi/shared` exports TypeScript source (`"exports": {".": "./src/index.ts"}`); Vite,
-tsx, vitest and the esbuild server bundle all consume it directly. Importing it installs a
-de-CH zod error map and disables zod's JIT (`script-src 'self'` CSP), so any runtime import
-from `@homi/shared` pulls zod into that chunk.
+`@homi/shared` exports TypeScript source (`"exports": {".": "./src/index.ts", "./core": "./src/core.ts"}`);
+Vite, tsx, vitest and the esbuild server bundle all consume it directly. Importing the full barrel
+(`@homi/shared`) installs a de-CH zod error map and disables zod's JIT (`script-src 'self'` CSP), so a
+runtime import from it pulls zod into that chunk. The **zod-free, side-effect-free subpath
+`@homi/shared/core`** exports constants/`LIMITS`, enum values + German labels (`enum-values.ts`), decimal
+arithmetic, the formatters and the text-hygiene helpers (`text.ts`); the web app imports those from
+`core` (`@/lib/format`, `api/client.ts`, `lib/socket.ts`, pickers) so the entry chunk stays zod-free.
+`package.json` declares `"sideEffects": ["./src/index.ts", "./src/zod-de.ts"]`. The full barrel still
+re-exports everything in `core` (public API unchanged; `packages/shared/test/core.test.ts` guards both).
 
 Money/quantity formatting (`formatCHF` → `CHF 2’485.50`, `formatQuantity`, dates) lives in
 `@homi/shared/src/format.ts` (hand-written, no `Intl` – Node/ICU output differs from the design).
@@ -192,6 +197,10 @@ conversation; leaving/removal removes them from all conversations of that househ
   header `X-Homi-Request: 1` is required **and**, if an `Origin` header is present, it must equal
   the `APP_URL` origin (or the request host in dev). Missing → `403 CSRF`. Requests with
   `Sec-Fetch-Site: cross-site` are rejected as well.
+- "Under `/api`" is decided by `classifyApiTarget()` (`lib/api-path.ts`) from the raw path, the
+  percent-decoded path **and** the matched route – the router decodes `/%61pi/…` to `/api/…`. Such
+  non-canonical spellings get `403 CSRF` if they fail the check and `404` otherwise, for every method,
+  so neither the CSRF hook nor the session hook (`plugins/auth.ts`, same helper) can be skipped.
 - No CORS is enabled (same-origin app); the custom header therefore cannot be sent cross-site.
 - Socket.IO: handshake must carry the session cookie; `allowRequest` checks the Origin.
 
@@ -206,7 +215,9 @@ conversation; leaving/removal removes them from all conversations of that househ
 - Images are served only through `/api/households/:hid/images/:imageId` after membership
   check; storage keys are never derived from user input (`<householdId>/<imageId>-<variant>.webp`).
 - Socket rooms: on connect the server joins `user:<userId>` and `household:<id>` for each
-  membership. Membership changes call `realtime.syncUserRooms(userId)`.
+  membership. Membership changes call `realtime.syncUserRooms(userId)`. Both run through a per-user
+  queue (`plugins/realtime.ts`), so a connect-time membership read can never be applied after the room
+  sync of a concurrent removal.
   Chat events go to `user:<memberId>` rooms of conversation members only.
 - Role rules:
   - MEMBER: read/write inventory, shopping, chat; leave household.
@@ -233,9 +244,17 @@ manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
   message) is `API_ERRORS` in `@homi/shared/src/errors.ts`; throw `new AppError(code, message?, { details })`
   (`lib/http-errors.ts`). Generic mapping in `plugins/errors.ts`: zod failures → `400 VALIDATION` with
   field details; Prisma unique/FK/write conflicts (P2002/P2003/P2034) → `409 CONFLICT`; P2025 → `404`;
+  PostgreSQL "invalid byte sequence" / "untranslatable character" (SQLSTATE 22021/22P05, e.g. U+0000 in
+  text) → `400 VALIDATION` with `formErrors: ["Der Text enthält ungültige Zeichen."]`;
   unreachable database / client init failures → `503 SERVICE_UNAVAILABLE`; anything else → `500 INTERNAL`.
   Feature code should still map expected cases explicitly (e.g. `EMAIL_TAKEN`, `VERSION_CONFLICT`).
-- Tokens in logged URLs (`/api/invitations/<token>`, `/einladung/<token>`, reset links) are replaced by `[redacted]`.
+- Free text: every request field with user text uses the `@homi/shared/text.ts` helpers – control
+  characters (NUL, ESC, …) are rejected everywhere (chat messages keep TAB/LF/CR); single-line names
+  (display, household, item, shopping item) additionally reject bidi controls and blank/invisible-only
+  values. The 22021 mapping above is only the safety net.
+- Tokens in logged URLs (`/api/invitations/<token>`, `/einladung/<token>`, reset links) are replaced by `[redacted]` –
+  case-insensitively, inside percent-encoded `?redirect=` values (`%2Feinladung%2F<token>`) and for other
+  percent-encoded spellings of the path (`/%61pi/invitations/<token>` is logged decoded and redacted).
 
 ---
 
@@ -272,20 +291,20 @@ Server implementation: each `apps/server/src/modules/<feature>/routes.ts` is a F
 
 ### Households, members, invitations
 
-| Method | Path                                   | Notes                                                                                                                                               |
-| ------ | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/api/households`                      | memberships of current user                                                                                                                         |
-| POST   | `/api/households`                      | `{name}` → household (creator = OWNER)                                                                                                              |
-| GET    | `/api/households/:hid`                 | `{id,name,createdAt, myRole, members:[{userId,displayName,role,joinedAt}], stats:{itemCount}}`                                                      |
-| PATCH  | `/api/households/:hid`                 | `{name}` (ADMIN+)                                                                                                                                   |
-| DELETE | `/api/households/:hid`                 | OWNER only                                                                                                                                          |
-| PATCH  | `/api/households/:hid/members/:userId` | `{role}` (OWNER only, last-owner rule)                                                                                                              |
-| DELETE | `/api/households/:hid/members/:userId` | remove (ADMIN+ per rules) or leave (self)                                                                                                           |
-| GET    | `/api/households/:hid/invitations`     | active invitations (ADMIN+)                                                                                                                         |
-| POST   | `/api/households/:hid/invitations`     | `{role?: "MEMBER"\|"ADMIN", expiresInDays?: 1..30 (default 7)}` → `{id, url, expiresAt, role}` – **url contains the raw token, returned only once** |
-| DELETE | `/api/households/:hid/invitations/:id` | revoke                                                                                                                                              |
-| GET    | `/api/invitations/:token`              | public preview `{householdName, inviterName, role, expiresAt, status: "valid"\|"expired"\|"revoked"\|"used"}` (no member data)                      |
-| POST   | `/api/invitations/:token/accept`       | auth required → `{householdId}`; single-use, transactional                                                                                          |
+| Method | Path                                   | Notes                                                                                                                                                                                     |
+| ------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | `/api/households`                      | memberships of current user                                                                                                                                                               |
+| POST   | `/api/households`                      | `{name}` → household (creator = OWNER)                                                                                                                                                    |
+| GET    | `/api/households/:hid`                 | `{id,name,createdAt, myRole, members:[{userId,displayName,role,joinedAt}], stats:{itemCount}}`                                                                                            |
+| PATCH  | `/api/households/:hid`                 | `{name}` (ADMIN+)                                                                                                                                                                         |
+| DELETE | `/api/households/:hid`                 | OWNER only                                                                                                                                                                                |
+| PATCH  | `/api/households/:hid/members/:userId` | `{role}` (OWNER only, last-owner rule)                                                                                                                                                    |
+| DELETE | `/api/households/:hid/members/:userId` | remove (ADMIN+ per rules) or leave (self)                                                                                                                                                 |
+| GET    | `/api/households/:hid/invitations`     | active invitations (ADMIN+)                                                                                                                                                               |
+| POST   | `/api/households/:hid/invitations`     | `{role?: "MEMBER"\|"ADMIN", expiresInDays?: 1..30 (default 7)}` → `{id, url, expiresAt, role}` – **url contains the raw token, returned only once**                                       |
+| DELETE | `/api/households/:hid/invitations/:id` | revoke                                                                                                                                                                                    |
+| GET    | `/api/invitations/:token`              | public preview `{householdName\|null, inviterName\|null, role, expiresAt, status: "valid"\|"expired"\|"revoked"\|"used"}` (no member data; names are `null` unless `status` is `"valid"`) |
+| POST   | `/api/invitations/:token/accept`       | auth required → `{householdId}`; single-use, transactional                                                                                                                                |
 
 Invitation tokens: 32 random bytes base64url; DB stores HMAC hash. URL: `${APP_URL}/einladung/<token>`.
 
@@ -315,7 +334,7 @@ Invitation tokens: 32 random bytes base64url; DB stores HMAC hash. URL: `${APP_U
 | PATCH  | `/api/households/:hid/items/:id`                                                       | partial update + `version` → `409 VERSION_CONFLICT` if stale                       |
 | POST   | `/api/households/:hid/items/:id/quantity`                                              | `{delta: string}` atomic `GREATEST(quantity+delta,0)` → item                       |
 | DELETE | `/api/households/:hid/items/:id`                                                       | 204                                                                                |
-| POST   | `/api/households/:hid/images`                                                          | multipart `file` → `{id, width, height}`                                           |
+| POST   | `/api/households/:hid/images`                                                          | multipart `file` → `{id, width, height, thumbUrl, fullUrl}`                        |
 | GET    | `/api/households/:hid/images/:imageId?variant=thumb\|full`                             | image/webp                                                                         |
 | DELETE | `/api/households/:hid/images/:imageId`                                                 | only if unreferenced or owned by an item being edited                              |
 
@@ -323,25 +342,25 @@ Invitation tokens: 32 random bytes base64url; DB stores HMAC hash. URL: `${APP_U
 
 ### Shopping
 
-| Method | Path                                            | Notes                                                                                         |
-| ------ | ----------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| GET    | `/api/households/:hid/shopping`                 | `{list:{id,name}, open: ShoppingItemDto[], completed: ShoppingItemDto[], stats:{done,total}}` |
-| POST   | `/api/households/:hid/shopping/items`           | `{name, quantity?, unit?, unitPrice?, sourceItemId?}`                                         |
-| PATCH  | `/api/households/:hid/shopping/items/:id`       | `{name?, quantity?, unit?, unitPrice?, completed?}`                                           |
-| DELETE | `/api/households/:hid/shopping/items/:id`       |                                                                                               |
-| POST   | `/api/households/:hid/shopping/clear-completed` | deletes completed items                                                                       |
+| Method | Path                                            | Notes                                                                                                                                                 |
+| ------ | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | `/api/households/:hid/shopping`                 | `{list:{id,name}, open: ShoppingItemDto[], completed: ShoppingItemDto[], stats:{done,total}}`                                                         |
+| POST   | `/api/households/:hid/shopping/items`           | `{clientId?, name?, quantity?, unit?, unitPrice?, sourceItemId?}` → `201` (`200` for a retried `clientId`); `name` may be omitted with `sourceItemId` |
+| PATCH  | `/api/households/:hid/shopping/items/:id`       | `{name?, quantity?, unit?, unitPrice?, completed?}`                                                                                                   |
+| DELETE | `/api/households/:hid/shopping/items/:id`       |                                                                                                                                                       |
+| POST   | `/api/households/:hid/shopping/clear-completed` | `{itemIds?}` → `{deleted}`: deletes the given completed items (all completed without `itemIds`) and purges items completed > 24 h ago                 |
 
 Completing a shopping item never changes inventory quantities.
 
 ### Chat
 
-| Method | Path                                                                     | Notes                                                                                                                                                         |
-| ------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/api/households/:hid/conversations`                                     | `[{id,type,title,members:[{userId,displayName}], lastMessage\|null, unreadCount, updatedAt}]` (HOUSEHOLD title = household name; DIRECT title = other member) |
-| POST   | `/api/households/:hid/conversations/direct`                              | `{userId}` → get-or-create (unique `directKey`)                                                                                                               |
-| GET    | `/api/households/:hid/conversations/:cid/messages?before=<seq>&limit=50` | `{messages (asc), hasMore, members:[{userId,lastReadSeq}]}`                                                                                                   |
-| POST   | `/api/households/:hid/conversations/:cid/messages`                       | `{clientId, content, kind?, meta?}` → message (idempotent)                                                                                                    |
-| POST   | `/api/households/:hid/conversations/:cid/read`                           | `{seq}` (monotonic)                                                                                                                                           |
+| Method | Path                                                                                  | Notes                                                                                                                                                         |
+| ------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GET    | `/api/households/:hid/conversations`                                                  | `[{id,type,title,members:[{userId,displayName}], lastMessage\|null, unreadCount, updatedAt}]` (HOUSEHOLD title = household name; DIRECT title = other member) |
+| POST   | `/api/households/:hid/conversations/direct`                                           | `{userId}` → get-or-create (unique `directKey`): `201` created / `200` existing                                                                               |
+| GET    | `/api/households/:hid/conversations/:cid/messages?before=<seq>\|after=<seq>&limit=50` | `{messages (asc), hasMore, members:[{userId,lastReadSeq}]}`; `before` and `after` are exclusive (both → 400)                                                  |
+| POST   | `/api/households/:hid/conversations/:cid/messages`                                    | `{clientId, content, kind?, meta?}` → message (idempotent: `201` created / `200` existing); `SHOPPING_ITEM` meta = `{shoppingItemId}`                         |
+| POST   | `/api/households/:hid/conversations/:cid/read`                                        | `{seq}` (monotonic) → `{conversationId, userId, seq}`                                                                                                         |
 
 `MessageDto = {id, seq (string), conversationId, sender:{id,displayName}|null, kind, content, meta|null, createdAt, clientId}`
 
@@ -380,7 +399,15 @@ Completing a shopping item never changes inventory quantities.
 - Query keys: `['me']`, `['household', hid]`, `['dashboard', hid]`, `['items', hid, params]`, `['item', hid, id]`,
   `['shopping', hid]`, `['conversations', hid]`, `['messages', hid, cid]`, `['invitations', hid]`
   (plus `['auth-config']`). Always build them with `queryKeys.*` from `api/queryKeys.ts` (prefix helpers
-  `itemsAll`, `itemAll`, `messagesAll` for invalidation); `hooks/useRealtimeSync.ts` maps `sync` scopes to them.
+  `itemsAll`, `itemAll`, `messagesAll` for invalidation); `hooks/useRealtimeSync.ts` maps `sync` scopes to them:
+  `inventory` → items + item, `shopping` → shopping, `dashboard` → dashboard, `household` → household, me,
+  conversations (group-chat title), `members` → household, me, dashboard, conversations, invitations, messages
+  (sender names), `conversations` → conversations (+ messages of `entityId`). Chat messages/read receipts come as
+  `chat:*` events and update the caches directly (`features/chat/realtime.ts`).
+- Session transitions live in `hooks/useAuth.ts` (`useLogin`, `useRegister`, `useLogout`, `replaceSession`):
+  in-flight queries are cancelled and awaited, every query except `['me']` is removed and `['me']` is updated
+  **in place** – never `queryClient.clear()`, which detaches the guards/`AppRuntime` from the session. Logout
+  also disconnects the socket; `AppRuntime` (re)connects it whenever `['me']` holds a user.
 - `api/client.ts`: `fetch` wrapper, `credentials: 'same-origin'`, adds `X-Homi-Request: 1` on mutations,
   maps error JSON to `ApiError {status, code, message}`; 401 → invalidate `['me']` → redirect to `/login`.
   Network failures and 502/504 mark the server unreachable (`OfflineBanner`, `/api/health` probe every 10 s).
@@ -454,7 +481,9 @@ and calls `onSelect(key, event)` before navigating.
 
 ---
 
-## 9. Foundation-phase deviations (recorded 2026-10-12)
+## 9. Deviations from the first contract
+
+### 9.1 Foundation phase (recorded 2026-10-12)
 
 The foundation phase (design extraction, server foundation, web foundation, design system, integration)
 deviated from the first version of this contract in the following points. The sections above already
@@ -479,3 +508,32 @@ reflect them; this list exists so nobody "fixes" them back.
 | 15  | Web    | –                                                                                  | dev-only route `/__design` (design gallery)                                                                                                                              |
 | 16  | Web    | –                                                                                  | integration additions: `<ToastHost />` mounted in `RootLayout`; `useSheetDirty()` (`routes/sheetDirty.ts`) feeds the route sheet's `dirty` flag                          |
 | 17  | Tokens | `tokens.css` as first drafted                                                      | corrected per `design/FIDELITY.md` D1–D10 (tab lens 0.06, dark fill-secondary `#232326`, three dim levels, 200/300 ms durations, keyword easings, FAB pressed fill, …)   |
+
+### 9.2 Feature-phase and integration deviations (recorded 2026-10-13)
+
+The five feature teams (auth/account, households/home, inventory, shopping, chat) and the integration step
+changed or extended the contract in these points. §4–§7 above already reflect the security-relevant ones.
+
+| #   | Area       | Contract before                                        | Reality (binding from now on)                                                                                                                                                                                                                                                         |
+| --- | ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 18  | Auth       | rate limits login/register/reset request               | additionally: password change 10 / 15 min per user, reset request 3 / 15 min per e-mail (silently dropped), per-e-mail login counter reset on success; personal responses send `Cache-Control: no-store`                                                                              |
+| 19  | Auth       | login creates a session                                | login re-checks the password hash under `FOR SHARE` after creating the session (a login racing a reset or password change gets 401); reset confirm, password change and reset-token issuance lock the user row (`modules/auth/credentials.ts`)                                        |
+| 20  | Shared     | `DisplayNameSchema` trims + checks length              | NFC-normalised; control characters, invisible format characters (except ZWJ/ZWNJ) and blank-only names rejected; `checkPasswordPolicy()` exported for the live checklist                                                                                                              |
+| 21  | Shared     | free-text fields: trim + length                        | every free-text request field rejects control characters (`text.ts`; chat messages keep TAB/LF/CR); household, item and shopping-item names also reject bidi controls and invisible-only values; the inventory search rejects control characters                                      |
+| 22  | Server     | Prisma errors → 409/404/503/500                        | PostgreSQL 22021/22P05 (e.g. U+0000 in text) → `400 VALIDATION` (`plugins/errors.ts`)                                                                                                                                                                                                 |
+| 23  | Server     | CSRF/session hooks test the raw URL prefix             | `lib/api-path.ts`: decoded path + matched route decide; non-canonical `/api` spellings (`/%61pi/…`) → `403 CSRF` or `404` for every method. The per-route guard of the auth/account modules was removed (same behaviour, now global)                                                  |
+| 24  | Realtime   | connect-time room join and `syncUserRooms` independent | serialised per user, so no ex-member stays in `household:<id>` after a removal that races a connect                                                                                                                                                                                   |
+| 25  | Households | role labels left open                                  | OWNER "Inhaber:in", ADMIN "Verwaltung", MEMBER "Mitglied" (`HOUSEHOLD_ROLE_LABELS` = `MEMBER_ROLE_LABELS`); `canRemoveMember` / `canChangeMemberRole` shared by UI and server; `HouseholdListResponseSchema`, `InvitationListResponseSchema`                                          |
+| 26  | Households | preview `{householdName, inviterName, …}`              | `householdName` / `inviterName` are `null` unless `status` is `"valid"`; accepting a link of a household one already belongs to returns its id without using the link; invalid links → `410 INVITATION_INVALID` with `details.status`                                                 |
+| 27  | Households | delete household                                       | locks the household's items first (same lock order as the item writers), retries up to 4× on deadlock, then `409` "Im Haushalt wird gerade etwas geändert …"; stored images are deleted after the commit                                                                              |
+| 28  | Dashboard  | `inventoryValue` = Σ quantity × unitPrice              | Σ `ROUND(quantity × unitPrice, 2)` per item (equals the sum of the item totals shown); `openShoppingItems` oldest first; DTO mappers reused from `inventory/dto.ts` and `shopping/dto.ts`                                                                                             |
+| 29  | Inventory  | upload → `{id, width, height}`                         | `{id, width, height, thumbUrl, fullUrl}`; unattached uploads can only be used or deleted by the uploader and are purged after 24 h (hourly job); `MEASURED_UNITS` / `isMeasuredUnit` shared; the client lists by "Zuletzt geändert" by default (API default stays `name`)             |
+| 30  | Shopping   | `POST …/items {name, …}`                               | optional `clientId`: the stored id is `shoppingItemIdFor(householdId, clientId)` (UUIDv5, computed by client and server; a retry answers `200`; no cross-household id oracle); `name` / `unit` default from `sourceItemId`; quantity `"0"` rejected; at most 500 listed items (`409`) |
+| 31  | Shopping   | clear-completed deletes completed items                | `{itemIds?}` limits it to the confirmed ids → `{deleted}`; completed items older than 24 h are hidden from `GET …/shopping` and purged by the next write; shopping writes are rate-limited to 60 / 10 s per user (`429`)                                                              |
+| 32  | Chat       | `GET messages?before=`; `POST read`; `POST direct`     | `?after=` for the reconnect catch-up (exclusive with `before`); `POST read` → `{conversationId, userId, seq}`; `POST direct` / `POST messages` answer `201` when created, `200` when existing                                                                                         |
+| 33  | Chat       | `SHOPPING_ITEM` meta sent by the client                | the client sends `{shoppingItemId}` (same household only); the server snapshots name/quantity/unit and sets the canonical content; sending moves the sender's own read cursor                                                                                                         |
+| 34  | Chat       | unread = messages after `lastReadSeq`                  | messages created before the member joined never count as unread (cursors in `GET messages` are raised accordingly); socket `chat:send` / `chat:read` share the HTTP attempt limits (60 / 10 s); emits use the member list read inside the transaction                                 |
+| 35  | Web        | chat list shows every conversation                     | conversations without messages are hidden (empty state 12 appears although every household has a group chat); "Neuer Chat" lists the group chat and the members                                                                                                                       |
+| 36  | Shared/Web | formatters only via the zod barrel                     | zod-free subpath `@homi/shared/core` + `sideEffects`; the web app imports formatters, labels, constants and decimals from it; the local copies of the CSRF/socket constants in `api/client.ts` / `lib/socket.ts` became imports                                                       |
+| 37  | Web        | `useLogin` / `useLogout` call `queryClient.clear()`    | race-free `replaceSession()` (cancel + remove every query but `['me']`, update `['me']` in place); `features/auth/session.ts` re-exports it                                                                                                                                           |
+| 38  | Web        | realtime scope mapping per first draft                 | `household` also invalidates `conversations`, `members` also `messages` (see §7); API clients of other features are reused (`api/chat.ts` → `api/shopping.ts`, `api/households.ts` → `api/chat.ts`, `api/dashboard.ts` → `api/shopping.ts`)                                           |

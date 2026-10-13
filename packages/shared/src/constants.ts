@@ -9,6 +9,19 @@ export const API_PREFIX = '/api';
 /** Socket.IO endpoint path (same origin). */
 export const SOCKET_PATH = '/socket.io';
 
+/** Socket.IO event names (§6; payload types in realtime.ts). */
+export const SOCKET_EVENTS = {
+  sync: 'sync',
+  chatMessage: 'chat:message',
+  chatRead: 'chat:read',
+  chatTyping: 'chat:typing',
+  membership: 'membership',
+  chatSend: 'chat:send',
+} as const;
+
+/** `connect_error` message when the handshake has no valid session. */
+export const SOCKET_UNAUTHORIZED = 'UNAUTHORIZED';
+
 /** Name of the HttpOnly session cookie. */
 export const SESSION_COOKIE_NAME = 'homi_session';
 

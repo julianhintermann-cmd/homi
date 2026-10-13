@@ -10,6 +10,7 @@ export * from './constants';
 export * from './enums';
 export * from './decimal';
 export * from './format';
+export * from './text';
 export * from './errors';
 export * from './common';
 export * from './auth';

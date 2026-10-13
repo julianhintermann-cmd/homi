@@ -1,0 +1,244 @@
+/*
+ * Page layout of the inventory screens (design 02, 05, 06/07, 10, 17). Spacing values are the
+ * design's vertical rhythm (FIDELITY §5); appearance comes from the design-system components.
+ */
+
+/* ── 02 Inventar ─────────────────────────────────────────────────────────── */
+
+/* Subtitle bottom (y 168) → search field (y 186). */
+.inventory-search {
+  margin-top: 18px;
+}
+/* Search bottom (y 230) → chips (y 244): 14 px minus the row's 4 px touch-target band. */
+.inventory-chips {
+  margin-top: 10px;
+}
+/* A new search/filter is loading: the previous result stays visible, dimmed (no count jump). */
+.inventory-results[data-stale] {
+  opacity: 0.5;
+  transition: opacity 200ms ease-out 150ms;
+}
+/* Chips bottom (y 280) → list card (y 298). */
+.inventory-list {
+  margin-top: 18px;
+}
+.inventory-list__more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding-top: 12px;
+  color: var(--color-label-secondary);
+}
+/* 10 Inventar – leer: icon circle at y 300 (header bottom 168 + 100 + the component's 32 px padding). */
+.inventory-empty {
+  margin-top: 100px;
+}
+.inventory-feedback {
+  margin-top: 24px;
+}
+
+/* ── 05 Artikel-Details ─────────────────────────────────────────────────── */
+
+.item-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+/* Content starts at safe-top + 48 (y 102); hero image at y 108. */
+.item-detail__image {
+  margin-top: 6px;
+}
+.item-detail__title {
+  width: 100%;
+  margin: 22px 0 0;
+  font: var(--type-title1);
+  letter-spacing: var(--ls-title1);
+  color: var(--color-label);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.item-detail__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  margin: 8.4px 0 0;
+  padding: 0 20px 0 12px;
+  border-radius: var(--radius-md);
+  background: var(--color-fill-secondary);
+  color: var(--color-label-secondary);
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+}
+.item-detail__label {
+  margin: 30px 0 0;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  text-align: center;
+}
+.item-detail__stepper {
+  margin-top: 6.45px;
+}
+.item-detail__unit {
+  margin: 8px 0 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  text-align: center;
+}
+/* Value card 353 × 124: two rows separated by an inset hairline at y 61.5. */
+.item-detail__values {
+  width: 100%;
+  margin: 20.45px 0 0;
+  padding: 0 20px;
+}
+.item-detail__value-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  height: 62px;
+  padding-top: 19px;
+}
+.item-detail__value-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+  transform-origin: bottom;
+  background: var(--color-separator);
+}
+.item-detail__value-row dt,
+.item-detail__value-row dd {
+  margin: 0;
+  font: var(--type-body);
+  letter-spacing: var(--ls-body);
+}
+.item-detail__value-row dt {
+  color: var(--color-label-secondary);
+}
+.item-detail__value-row dd {
+  color: var(--color-label);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.item-detail__value-row--total {
+  padding-top: 20px;
+}
+.item-detail__value-row--total::after {
+  display: none;
+}
+.item-detail__value-row--total dt {
+  font: var(--type-headline);
+  letter-spacing: var(--ls-headline);
+  color: var(--color-label);
+}
+.item-detail__value-row--total dd {
+  margin-top: -5px;
+  font: var(--type-title2);
+  letter-spacing: var(--ls-title2);
+}
+.item-detail__value-row dd[data-placeholder] {
+  color: var(--color-label-tertiary);
+}
+/* Card bottom (y 648) → "Bearbeiten" (y 680) → text link (y 742). */
+.item-detail__edit {
+  margin-top: 32px;
+}
+.item-detail__shopping {
+  margin-top: 10px;
+}
+/* The design's icon + label group sits 7.5 px right of centre (icon x 90, label x 118). */
+.item-detail__shopping .homi-button__content {
+  translate: 7.5px 0;
+}
+.item-detail__skeleton-title {
+  margin-top: 26px;
+}
+.item-detail__skeleton-tag {
+  margin-top: 12px;
+}
+.item-detail__missing {
+  margin-top: 96px;
+}
+
+/* ── 06/07 Neuer Artikel / Artikel bearbeiten ───────────────────────────── */
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+}
+/* Sheet header ends at y 134 (sheet y 76); then 20 px between the blocks. */
+.item-form__fields {
+  display: flex;
+  flex-direction: column;
+}
+.item-form__fields > * + * {
+  margin-top: 20px;
+}
+.item-form__error {
+  margin: 8px 4px 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-destructive);
+}
+.item-form__fields > .item-form__error {
+  margin-top: 8px;
+}
+/* Total preview: 22 px row 12 px under the price field. */
+.item-form__fields > .item-form__total {
+  margin-top: 12px;
+}
+.item-form__total {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  height: 22px;
+  margin-bottom: 0;
+  padding: 0 4px;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+}
+.item-form__total-label {
+  color: var(--color-label-secondary);
+}
+.item-form__total-value {
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.item-form__total-value[data-placeholder] {
+  color: var(--color-label-tertiary);
+}
+.item-form__fields > .item-form__alert {
+  margin-top: 16px;
+}
+.item-form__alert {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-card-sm);
+  background: var(--color-destructive-soft);
+  color: var(--color-destructive);
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+}
+.item-form__alert > p {
+  margin: 0;
+}
+/* Total preview bottom (y 736) → primary button (y 758). */
+.item-form__fields > .item-form__submit {
+  margin-top: 22px;
+}

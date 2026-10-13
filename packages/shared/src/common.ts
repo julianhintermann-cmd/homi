@@ -8,6 +8,7 @@ import {
   toFixedDecimal,
   trimDecimal,
 } from './decimal';
+import { INVALID_TEXT_CHARACTERS_MESSAGE, hasControlCharacter } from './text';
 
 /*
  * Primitive schemas reused by the feature contracts.
@@ -140,12 +141,13 @@ export const QuantityDeltaSchema = decimalInput({
   },
 });
 
-/** Optional free-text query parameter: trimmed, empty → undefined. */
+/** Optional free-text query parameter: trimmed, no control characters, empty → undefined. */
 export function optionalQueryString(max: number) {
   return z
     .string()
     .trim()
     .max(max, { error: `Bitte höchstens ${max} Zeichen eingeben.` })
+    .refine((value) => !hasControlCharacter(value), { error: INVALID_TEXT_CHARACTERS_MESSAGE })
     .optional()
     .transform((value) => (value === undefined || value.length === 0 ? undefined : value));
 }

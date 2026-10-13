@@ -21,6 +21,10 @@ export interface ChatComposerProps {
   onAttach?: () => void;
   /** Mic button; without a handler the mic is a decorative glyph like in the design. */
   onMic?: () => void;
+  /** Hide the mic entirely (e.g. dictation is not supported by the browser). */
+  hideMic?: boolean;
+  /** Dictation is running: accent mic, `aria-pressed`. */
+  micActive?: boolean;
   placeholder?: string;
   disabled?: boolean;
   maxLength?: number;
@@ -44,6 +48,8 @@ export function ChatComposer({
   onSend,
   onAttach,
   onMic,
+  hideMic = false,
+  micActive = false,
   placeholder = 'Nachricht',
   disabled = false,
   maxLength = 4000,
@@ -154,12 +160,14 @@ export function ChatComposer({
           >
             <Icon name="arrowUp" size={20} strokeWidth={2.76} />
           </button>
-        ) : onMic ? (
+        ) : hideMic ? null : onMic ? (
           <button
             type="button"
             className="homi-composer__mic"
-            aria-label="Sprachnachricht"
-            title="Sprachnachricht"
+            aria-label={micActive ? 'Diktat beenden' : 'Diktieren'}
+            title={micActive ? 'Diktat beenden' : 'Diktieren'}
+            aria-pressed={micActive}
+            data-active={micActive || undefined}
             onClick={onMic}
             disabled={disabled}
           >

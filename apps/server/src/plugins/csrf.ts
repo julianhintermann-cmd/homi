@@ -2,6 +2,7 @@ import fp from 'fastify-plugin';
 import type { IncomingHttpHeaders } from 'node:http';
 import { CSRF_HEADER_NAME, CSRF_HEADER_VALUE } from '@homi/shared';
 import type { AppConfig } from '../config';
+import { classifyApiTarget } from '../lib/api-path';
 import { AppError } from '../lib/http-errors';
 
 /**
@@ -10,6 +11,10 @@ import { AppError } from '../lib/http-errors';
  *   2. if an `Origin` header is present it must be the APP_URL origin
  *      (in development also the origin the request was addressed to, e.g. a LAN IP via Vite).
  * Missing/invalid → `403 CSRF`.
+ *
+ * "API request" is decided by `classifyApiTarget` (raw path, decoded path and matched route), so a
+ * percent-encoded prefix such as `/%61pi/...` cannot skip the check. Such non-canonical spellings of
+ * an API path are then rejected with `404` for every method (the session hook must never be skipped).
  */
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
@@ -49,20 +54,18 @@ export function isAllowedOrigin(origin: string, config: AppConfig, headers: Inco
   return candidateHosts.includes(hostOf(normalized));
 }
 
-function isApiUrl(url: string): boolean {
-  return url === '/api' || url.startsWith('/api/') || url.startsWith('/api?');
-}
-
 export interface CsrfCheckInput {
   method: string;
   url: string;
   headers: IncomingHttpHeaders;
+  /** Pattern of the matched route (`request.routeOptions.url`), if any. */
+  routeUrl?: string | undefined;
 }
 
 /** Pure check used by the hook (and unit tests). Returns `true` if the request may proceed. */
 export function passesCsrfCheck(request: CsrfCheckInput, config: AppConfig): boolean {
   if (SAFE_METHODS.has(request.method.toUpperCase())) return true;
-  if (!isApiUrl(request.url)) return true;
+  if (classifyApiTarget(request.url, request.routeUrl) === 'none') return true;
 
   if (firstHeader(request.headers[CSRF_HEADER]) !== CSRF_HEADER_VALUE) return false;
   if (firstHeader(request.headers['sec-fetch-site']) === 'cross-site') return false;
@@ -75,9 +78,18 @@ export function passesCsrfCheck(request: CsrfCheckInput, config: AppConfig): boo
 export const csrfPlugin = fp(
   async (app) => {
     app.addHook('onRequest', async (request) => {
-      if (!passesCsrfCheck(request, app.config)) {
+      const routeUrl = request.routeOptions.url;
+      const target = classifyApiTarget(request.url, routeUrl);
+      if (target === 'none') return;
+      const input = { method: request.method, url: request.url, headers: request.headers, routeUrl };
+      if (!passesCsrfCheck(input, app.config)) {
         request.log.warn({ origin: request.headers.origin, method: request.method }, 'CSRF check failed');
         throw new AppError('CSRF');
+      }
+      if (target === 'non-canonical') {
+        // e.g. `/%61pi/auth/logout`: the API is only served under its literal prefix.
+        request.log.warn({ method: request.method, route: routeUrl }, 'non-canonical API path rejected');
+        throw new AppError('NOT_FOUND');
       }
     });
   },

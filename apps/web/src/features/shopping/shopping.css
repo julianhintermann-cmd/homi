@@ -1,0 +1,370 @@
+/*
+ * Shopping screen patterns (FIDELITY §4.5 / screens 03, 03b, 11, 18) built from the design
+ * tokens: shared-list meta row, progress bar, add-item row + optional detail pills, completed
+ * disclosure. Rows, cards, checkboxes, menus and sheets come from the design system.
+ * Vertical rhythm (design y): meta 184 · progress 218 · add row 240 · list 304 · disclosure 736.
+ */
+
+/* ── Shared list meta (24 px row 16 px under the subtitle) + progress bar ── */
+.shopping-meta {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 24px;
+}
+.shopping-meta__household {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin-left: 10px;
+  overflow: hidden;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shopping-meta__stack + .shopping-meta__household {
+  margin-left: 10px;
+}
+.shopping-meta > .shopping-meta__household:first-child {
+  margin-left: 0;
+}
+.shopping-meta__progress {
+  flex: none;
+  margin-left: auto;
+  padding-left: 12px;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.shopping-progress {
+  position: relative;
+  height: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-separator);
+}
+/* Full-width rounded fill slid in from the left (translateX keeps the 2 px cap, scaleX would squash it). */
+.shopping-progress__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--color-accent);
+  transition: transform 350ms var(--ease-out);
+}
+
+/* ── Add-item row (353 × 52, r 16) ── */
+.shopping-composer {
+  margin-top: 24px;
+}
+.shopping-composer[data-after-progress] {
+  margin-top: 18px;
+}
+.shopping-add-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  margin: 0;
+  padding: 0 16px 0 14px;
+  border-radius: var(--radius-card-sm);
+  background: var(--color-surface);
+  cursor: text;
+  transition: box-shadow var(--dur-dissolve) var(--ease-dissolve);
+}
+.shopping-add-row[data-focused] {
+  box-shadow: inset 0 0 0 1.5px var(--color-accent);
+}
+.shopping-add-row[data-invalid] {
+  box-shadow: inset 0 0 0 1.5px var(--color-destructive);
+}
+.shopping-add-row__plus {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.shopping-add-row__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-label);
+  font: var(--type-body);
+  letter-spacing: var(--ls-body);
+  caret-color: var(--color-accent);
+  outline: none;
+}
+.shopping-add-row__input::placeholder {
+  color: var(--color-label-tertiary);
+  opacity: 1;
+}
+.shopping-composer__error {
+  margin: 6px 4px 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-destructive);
+}
+
+/* ── Optional detail pills (two 172 × 40 pills, gap 9, 8 px under the add row) ── */
+.shopping-pills {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 9px;
+  margin: 8px 0 4px;
+}
+.shopping-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 40px;
+  margin: 0;
+  padding: 0 14px 0 12px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 1px var(--color-separator);
+  color: var(--color-label-secondary);
+  font: var(--type-subhead);
+  letter-spacing: var(--ls-subhead);
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+/* 44 px touch target around the 40 px pill. */
+.shopping-pill::before {
+  content: '';
+  position: absolute;
+  inset: -2px 0;
+}
+button.shopping-pill:active {
+  background: var(--color-surface-muted);
+}
+.shopping-pill[data-editing] {
+  box-shadow: inset 0 0 0 1.5px var(--color-accent);
+  cursor: default;
+}
+.shopping-pill[data-invalid] {
+  box-shadow: inset 0 0 0 1.5px var(--color-destructive);
+}
+.shopping-pill__icon {
+  flex: none;
+  margin-right: 6px;
+}
+.shopping-pill__label {
+  flex: none;
+}
+.shopping-pill__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: 8px;
+  overflow: hidden;
+  font: var(--type-subhead-medium);
+  letter-spacing: var(--ls-subhead);
+  color: var(--color-label);
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shopping-pill__prefix {
+  flex: none;
+  margin-right: 6px;
+}
+/* "/ kg" after the price while editing: the amount is the price per unit of the quantity. */
+.shopping-pill__suffix {
+  flex: none;
+  margin-left: 4px;
+  color: var(--color-label-secondary);
+  white-space: nowrap;
+}
+/* Inputs inside an editing pill (≥ 16 px: no iOS focus zoom). */
+.shopping-pill__input {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-label);
+  font: 500 16px/1.3 var(--font-sans);
+  letter-spacing: var(--ls-subhead);
+  text-align: right;
+  caret-color: var(--color-accent);
+  outline: none;
+}
+.shopping-pill__input::placeholder {
+  color: var(--color-label-tertiary);
+  opacity: 1;
+}
+.shopping-pill__unit {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  min-width: 44px;
+  height: 100%;
+  margin-left: 6px;
+  color: var(--color-label);
+  font: var(--type-subhead-medium);
+  letter-spacing: var(--ls-subhead);
+}
+.shopping-pill__unit-chevron {
+  color: var(--color-label-secondary);
+}
+/* Transparent native select over the unit label (≥ 44 × 44 hit area): iOS shows its wheel picker. */
+.shopping-pill__select {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 4px);
+  margin: 0;
+  border: 0;
+  opacity: 0;
+  font-size: 16px;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* ── Lists ── */
+.shopping-list {
+  margin-top: 12px;
+}
+/* Layout-neutral anchor around each row (focus bookkeeping, see rowFocus.ts). */
+.shopping-row {
+  display: contents;
+}
+/*
+ * Trailing detail ("12 Stück · CHF 0.45 / Stk."): sized by its content, so it is never cut while
+ * the row has room. When name and detail do not fit together the name gives way first (ellipsis),
+ * down to ~3 characters; only an extreme detail is cut (never overflowing the row).
+ */
+.shopping-list .homi-shopping-row__name {
+  min-width: 52px;
+}
+.shopping-list .homi-shopping-row__quantity {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: calc(100% - 52px - 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shopping-row-enter {
+  animation: shopping-row-in var(--dur-dissolve) var(--ease-dissolve);
+}
+@keyframes shopping-row-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shopping-empty {
+  margin-top: 54px;
+}
+
+/* ── "Erledigt · n" disclosure (24 px row; 16 px below the open list, 22 px when expanded) ── */
+.shopping-completed {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+.shopping-completed[data-expanded] {
+  margin-top: 22px;
+}
+.shopping-completed__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+}
+.shopping-completed__toggle,
+.shopping-completed__clear {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  margin: -10px 0;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.shopping-completed__toggle {
+  gap: 11px;
+  color: var(--color-label-secondary);
+}
+.shopping-completed__clear {
+  padding: 0 0 0 12px;
+  color: var(--color-accent);
+}
+.shopping-completed__toggle:active,
+.shopping-completed__clear:active {
+  opacity: 0.6;
+}
+.shopping-completed__chevron {
+  transition: transform var(--dur-dissolve) var(--ease-dissolve);
+}
+.shopping-completed[data-expanded] .shopping-completed__chevron {
+  transform: rotate(180deg);
+}
+.shopping-completed .shopping-list {
+  margin-top: 6px;
+}
+.shopping-completed__hint {
+  /* Breaks like design 03b ("… nach 24 Stunden / automatisch ausgeblendet."): the first line
+     needs ~265 px, with "automatisch" it would take ~343 px of the 345 px column. */
+  max-width: 320px;
+  margin: 12px 4px 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-tertiary);
+}
+
+/* ── Load error ── */
+.shopping-error {
+  margin-top: 32px;
+}
+
+/* ── Edit sheet ── */
+.shopping-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.shopping-edit__actions {
+  margin-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shopping-progress__fill,
+  .shopping-add-row,
+  .shopping-completed__chevron {
+    transition: none;
+  }
+  .shopping-row-enter {
+    animation: none;
+  }
+}

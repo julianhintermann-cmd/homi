@@ -19,8 +19,9 @@ export function queryKeysForSyncEvent(event: SyncEvent): QueryKey[] {
     case 'dashboard':
       return [queryKeys.dashboard(hid)];
     case 'household':
-      // Household name/role also appear in `/auth/me` (household switcher).
-      return [queryKeys.household(hid), queryKeys.me];
+      // Household name/role also appear in `/auth/me` (household switcher) and as the title of the
+      // household group chat in the conversation list.
+      return [queryKeys.household(hid), queryKeys.me, queryKeys.conversations(hid)];
     case 'members':
       return [
         queryKeys.household(hid),
@@ -28,6 +29,8 @@ export function queryKeysForSyncEvent(event: SyncEvent): QueryKey[] {
         queryKeys.dashboard(hid),
         queryKeys.conversations(hid),
         queryKeys.invitations(hid),
+        // Display names (account rename) are part of every message's `sender`.
+        queryKeys.messagesAll(hid),
       ];
     case 'conversations':
       return event.entityId

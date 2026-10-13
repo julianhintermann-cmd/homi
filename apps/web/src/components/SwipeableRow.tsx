@@ -8,7 +8,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from 'react';
-import { animate, motion, useMotionValue, useReducedMotion } from 'motion/react';
+import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion } from 'motion/react';
 import { Icon, type IconName } from '@/icons/Icon';
 import { haptic } from '@/lib/haptics';
 import type { ContextMenuItem } from './ContextMenu';
@@ -46,13 +46,27 @@ export interface SwipeableRowProps {
   fullSwipe?: boolean;
   /** Extra items for the accessible long-press/right-click menu (the actions are always included). */
   menuItems?: readonly ContextMenuItem[];
+  /**
+   * Append the swipe actions to the long-press menu. Default `true`; pass `false` when
+   * `menuItems` already offers every action (e.g. the inventory menu of design 16).
+   */
+  actionsInMenu?: boolean;
   /** Accessible name of the fallback menu (e.g. the item name). */
   menuLabel?: string;
   /** Root wrapper: `li` (inside a list card, default) or `div`. */
   wrapper?: 'li' | 'div';
   disabled?: boolean;
   className?: string;
+  /**
+   * Leading actions revealed by dragging the row to the right, outermost (primary) first – e.g.
+   * `[{ key: 'done', label: 'Erledigt', tone: 'accent', … }]`. Same snapping rules, mirrored.
+   */
+  leadingActions?: readonly SwipeAction[];
+  /** A long swipe to the right triggers the primary leading action. Default `true`. */
+  leadingFullSwipe?: boolean;
 }
+
+const NO_ACTIONS: readonly SwipeAction[] = [];
 
 /** Only one row is open at a time (opening another closes the previous one). */
 let closeOpenRow: (() => void) | null = null;
@@ -69,10 +83,13 @@ export function SwipeableRow({
   actions,
   fullSwipe = true,
   menuItems,
+  actionsInMenu = true,
   menuLabel,
   wrapper = 'li',
   disabled = false,
   className,
+  leadingActions = NO_ACTIONS,
+  leadingFullSwipe = true,
 }: SwipeableRowProps) {
   const rootRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -81,6 +98,20 @@ export function SwipeableRow({
   const [open, setOpen] = useState(false);
   const actionsWidth = actions.length * SWIPE_ACTION_WIDTH;
   const primary = actions[0];
+  // Leading side (drag right): the trailing helpers are reused with mirrored (negated) offsets.
+  const leadingWidth = leadingActions.length * SWIPE_ACTION_WIDTH;
+  const leadingPrimary = leadingActions[0];
+  const [side, setSide] = useState<'leading' | 'trailing'>('trailing');
+  const sideRef = useRef<'leading' | 'trailing'>('trailing');
+  const showSide = useCallback((next: 'leading' | 'trailing') => {
+    if (sideRef.current === next) return;
+    sideRef.current = next;
+    setSide(next);
+  }, []);
+  // The action panels are only painted while the row is moved: at rest their colour would bleed
+  // through the anti-aliased rounded corners of the list card.
+  const [revealed, setRevealed] = useState(false);
+  useMotionValueEvent(x, 'change', (value) => setRevealed(value !== 0));
 
   const gesture = useRef<{
     pointerId: number;
@@ -100,6 +131,15 @@ export function SwipeableRow({
       fullSwipe: fullSwipe && Boolean(primary),
     }),
     [actionsWidth, fullSwipe, primary],
+  );
+
+  const leadingGeometry = useCallback(
+    (): SwipeGeometry => ({
+      actionsWidth: leadingWidth,
+      rowWidth: contentRef.current?.offsetWidth ?? 353,
+      fullSwipe: leadingFullSwipe && Boolean(leadingPrimary),
+    }),
+    [leadingWidth, leadingFullSwipe, leadingPrimary],
   );
 
   const settleTo = useCallback(
@@ -138,7 +178,12 @@ export function SwipeableRow({
   );
 
   const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>): void => {
-    if (disabled || actions.length === 0 || !event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0))
+    if (
+      disabled ||
+      (actions.length === 0 && leadingActions.length === 0) ||
+      !event.isPrimary ||
+      (event.pointerType === 'mouse' && event.button !== 0)
+    )
       return;
     gesture.current = {
       pointerId: event.pointerId,
@@ -166,10 +211,14 @@ export function SwipeableRow({
     }
     state.samples.push({ t: event.timeStamp, y: event.clientX });
     if (state.samples.length > 20) state.samples.shift();
-    const geo = geometry();
-    const offset = swipeDragOffset(state.startOffset + dx, geo);
+    const raw = state.startOffset + dx;
+    const leading = raw > 0 && leadingWidth > 0;
+    const geo = leading ? leadingGeometry() : geometry();
+    // The helpers work with offsets ≤ 0 – the leading side mirrors them.
+    const offset = leading ? -swipeDragOffset(-raw, geo) : swipeDragOffset(raw, geo);
+    showSide(leading ? 'leading' : 'trailing');
     x.set(offset);
-    const pastFull = isPastFullSwipe(offset, geo);
+    const pastFull = isPastFullSwipe(leading ? -offset : offset, geo);
     if (pastFull !== state.pastFull) {
       state.pastFull = pastFull;
       haptic('light');
@@ -186,15 +235,18 @@ export function SwipeableRow({
     }, 0);
     if (event.currentTarget.hasPointerCapture(event.pointerId))
       event.currentTarget.releasePointerCapture(event.pointerId);
-    const geo = geometry();
     const velocity = event.type === 'pointercancel' ? 0 : velocityFromSamples(state.samples);
-    const snap = resolveSwipeSnap({ offset: x.get(), velocity, ...geo });
-    if (snap === 'full' && primary) {
-      void settleTo(snapOffset('full', geo)).then(() => runAction(primary));
+    const leading = x.get() > 0 && leadingWidth > 0;
+    const geo = leading ? leadingGeometry() : geometry();
+    const sign = leading ? -1 : 1;
+    const snap = resolveSwipeSnap({ offset: sign * x.get(), velocity: sign * velocity, ...geo });
+    const fullAction = leading ? leadingPrimary : primary;
+    if (snap === 'full' && fullAction) {
+      void settleTo(sign * snapOffset('full', geo)).then(() => runAction(fullAction));
       return;
     }
     setOpen(snap === 'open');
-    settleTo(snapOffset(snap, geo));
+    settleTo(sign * snapOffset(snap, geo));
   };
 
   const onClickCapture = (event: ReactMouseEvent<HTMLDivElement>): void => {
@@ -215,7 +267,7 @@ export function SwipeableRow({
 
   const allMenuItems: ContextMenuItem[] = [
     ...(menuItems ?? []),
-    ...actions.map((action) => ({
+    ...(actionsInMenu ? [...leadingActions, ...actions] : []).map((action) => ({
       key: `swipe-${action.key}`,
       label: action.label,
       icon: action.icon,
@@ -239,9 +291,14 @@ export function SwipeableRow({
       <div
         className="homi-swipe__actions"
         data-tone={primaryTone}
-        style={{ '--swipe-actions-width': `${actionsWidth}px` } as CSSProperties}
-        aria-hidden={!open}
-        inert={!open}
+        style={
+          {
+            '--swipe-actions-width': `${actionsWidth}px`,
+            ...(side === 'leading' || !revealed ? { visibility: 'hidden' } : null),
+          } as CSSProperties
+        }
+        aria-hidden={!open || side === 'leading'}
+        inert={!open || side === 'leading'}
       >
         {actions.map((action) => (
           <button
@@ -256,6 +313,34 @@ export function SwipeableRow({
           </button>
         ))}
       </div>
+      {leadingActions.length > 0 ? (
+        <div
+          className="homi-swipe__actions"
+          data-side="leading"
+          data-tone={leadingPrimary?.tone ?? 'neutral'}
+          style={
+            {
+              '--swipe-actions-width': `${leadingWidth}px`,
+              visibility: side === 'leading' && revealed ? 'visible' : 'hidden',
+            } as CSSProperties
+          }
+          aria-hidden={!open || side !== 'leading'}
+          inert={!open || side !== 'leading'}
+        >
+          {leadingActions.map((action) => (
+            <button
+              key={action.key}
+              type="button"
+              className="homi-swipe__action"
+              data-tone={action.tone ?? 'neutral'}
+              onClick={() => runAction(action)}
+            >
+              {action.icon ? <Icon name={action.icon} size={22} weight={2} /> : null}
+              <span className="homi-swipe__action-label">{action.label}</span>
+            </button>
+          ))}
+        </div>
+      ) : null}
       <motion.div
         ref={contentRef}
         className="homi-swipe__content"

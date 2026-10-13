@@ -14,6 +14,13 @@ export interface ShoppingItemRowProps {
   /** Root wrapper: `li` (inside a list card, default) or `div`. */
   wrapper?: 'li' | 'div';
   className?: string;
+  /**
+   * Makes the row (everything but the checkbox) a button, e.g. to open the item for editing.
+   * Without it the whole row is the checkbox label.
+   */
+  onPress?: () => void;
+  /** Accessible name of the `onPress` button. Default "{name}, {quantity} bearbeiten". */
+  pressLabel?: string;
 }
 
 /**
@@ -30,9 +37,41 @@ export function ShoppingItemRow({
   disabled = false,
   wrapper = 'li',
   className,
+  onPress,
+  pressLabel,
 }: ShoppingItemRowProps) {
   const id = useId();
   const Wrapper = wrapper;
+  if (onPress) {
+    const label = quantity ? `${name}, ${quantity}` : name;
+    return (
+      <Wrapper className="homi-row-item">
+        <div
+          className={cx('homi-shopping-row', className)}
+          data-completed={completed || undefined}
+          data-disabled={disabled || undefined}
+        >
+          <Checkbox
+            checked={completed}
+            disabled={disabled}
+            label={label}
+            onCheckedChange={(next) => onCompletedChange?.(next)}
+            className="homi-shopping-row__checkbox"
+          />
+          <button
+            type="button"
+            className="homi-shopping-row__body"
+            disabled={disabled}
+            aria-label={pressLabel ?? `${label} bearbeiten`}
+            onClick={onPress}
+          >
+            <span className="homi-shopping-row__name">{name}</span>
+            {quantity ? <span className="homi-shopping-row__quantity">{quantity}</span> : null}
+          </button>
+        </div>
+      </Wrapper>
+    );
+  }
   return (
     <Wrapper className="homi-row-item">
       <label

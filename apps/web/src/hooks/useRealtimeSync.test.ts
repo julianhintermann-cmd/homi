@@ -1,9 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import {
-  SOCKET_PATH as SHARED_SOCKET_PATH,
-  SOCKET_UNAUTHORIZED as SHARED_UNAUTHORIZED,
-  type SyncEvent,
-} from '@homi/shared';
+import { SOCKET_PATH as SHARED_SOCKET_PATH, SOCKET_UNAUTHORIZED as SHARED_UNAUTHORIZED } from '@homi/shared/core';
+import type { SyncEvent } from '@homi/shared';
 import { queryKeys } from '@/api/queryKeys';
 import { createQueryClient } from '@/lib/queryClient';
 import { SOCKET_PATH, SOCKET_UNAUTHORIZED } from '@/lib/socket';
@@ -31,13 +28,18 @@ describe('queryKeysForSyncEvent', () => {
     ]);
     expect(queryKeysForSyncEvent(sync({ scope: 'shopping', action: 'created' }))).toEqual([['shopping', H]]);
     expect(queryKeysForSyncEvent(sync({ scope: 'dashboard', action: 'updated' }))).toEqual([['dashboard', H]]);
-    expect(queryKeysForSyncEvent(sync({ scope: 'household', action: 'updated' }))).toEqual([['household', H], ['me']]);
+    expect(queryKeysForSyncEvent(sync({ scope: 'household', action: 'updated' }))).toEqual([
+      ['household', H],
+      ['me'],
+      ['conversations', H], // the household group chat is titled with the household name
+    ]);
     expect(queryKeysForSyncEvent(sync({ scope: 'members', action: 'deleted' }))).toEqual([
       ['household', H],
       ['me'],
       ['dashboard', H],
       ['conversations', H],
       ['invitations', H],
+      ['messages', H], // sender display names (account rename)
     ]);
     expect(queryKeysForSyncEvent(sync({ scope: 'conversations', action: 'created', entityId: 'c1' }))).toEqual([
       ['conversations', H],

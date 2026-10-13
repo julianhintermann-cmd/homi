@@ -12,7 +12,8 @@ import {
   pageLimitSchema,
 } from './common';
 import { LIMITS } from './constants';
-import { ITEM_CATEGORY_VALUES, ItemCategorySchema, UNIT_VALUES, UnitSchema } from './enums';
+import { ITEM_CATEGORY_VALUES, ItemCategorySchema, UNIT_VALUES, UnitSchema, type Unit } from './enums';
+import { hasForbiddenNameCharacters, hasVisibleNameCharacter } from './text';
 
 /*
  * Inventory items and images (§5 "Inventory").
@@ -22,7 +23,9 @@ export const ItemNameSchema = z
   .string({ error: 'Bitte gib einen Namen ein.' })
   .trim()
   .min(LIMITS.itemName.min, { error: 'Bitte gib einen Namen ein.' })
-  .max(LIMITS.itemName.max, { error: `Der Name darf höchstens ${LIMITS.itemName.max} Zeichen lang sein.` });
+  .max(LIMITS.itemName.max, { error: `Der Name darf höchstens ${LIMITS.itemName.max} Zeichen lang sein.` })
+  .refine((value) => !hasForbiddenNameCharacters(value), { error: 'Der Name enthält ungültige Zeichen.' })
+  .refine(hasVisibleNameCharacter, { error: 'Bitte gib einen Namen ein.' });
 
 const CategoryInputSchema = z.enum(ITEM_CATEGORY_VALUES, { error: 'Bitte wähle eine Kategorie.' });
 const UnitInputSchema = z.enum(UNIT_VALUES, { error: 'Bitte wähle eine Einheit.' });
@@ -133,14 +136,28 @@ export const ItemListResponseSchema = z.object({
 });
 export type ItemListResponse = z.infer<typeof ItemListResponseSchema>;
 
+/** `POST /households/:hid/images` → the stored (not yet attached) image. Width/height of the `full` variant. */
 export const ImageUploadResponseSchema = z.object({
   id: IdSchema,
   width: z.number().int().positive(),
   height: z.number().int().positive(),
+  thumbUrl: z.string(),
+  fullUrl: z.string(),
 });
 export type ImageUploadResponse = z.infer<typeof ImageUploadResponseSchema>;
 
 /** Relative URL of an image variant (served after a membership check). */
 export function imageUrl(householdId: string, imageId: string, variant: ImageVariant): string {
   return `/api/households/${householdId}/images/${imageId}?variant=${variant}`;
+}
+
+/**
+ * Units whose quantity is usually measured, not counted (kg, g, l, ml): the item form accepts a
+ * typed decimal quantity for them in addition to the stepper.
+ */
+export const MEASURED_UNITS: ReadonlySet<Unit> = new Set<Unit>(['KILOGRAMM', 'GRAMM', 'LITER', 'MILLILITER']);
+
+/** `true` for {@link MEASURED_UNITS}. */
+export function isMeasuredUnit(unit: Unit): boolean {
+  return MEASURED_UNITS.has(unit);
 }

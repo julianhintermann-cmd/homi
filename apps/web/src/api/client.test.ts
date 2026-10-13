@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { CSRF_HEADER_NAME, CSRF_HEADER_VALUE } from '@homi/shared';
+import { CSRF_HEADER_NAME, CSRF_HEADER_VALUE } from '@homi/shared/core';
 import { useConnectivityStore } from '@/lib/connectivity';
 import {
   ApiError,

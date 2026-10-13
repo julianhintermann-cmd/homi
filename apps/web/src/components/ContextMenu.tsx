@@ -23,6 +23,11 @@ export interface ContextMenuItem {
   disabled?: boolean;
   /** Start a new group (9 px band) before this item. */
   separatorBefore?: boolean;
+  /**
+   * Single-choice menus (e.g. a sort order): when set, the item is a `menuitemradio` and its
+   * state is announced (`aria-checked`); show the check icon on the selected one.
+   */
+  checked?: boolean;
   onSelect: () => void;
 }
 
@@ -91,6 +96,12 @@ interface OverlayProps {
 
 function ContextMenuOverlay({ onClose, anchorRect, items, preview, label }: OverlayProps) {
   const menuRef = useRef<HTMLDivElement>(null);
+  /**
+   * Only a press that started on the dim dismisses the menu. A long press opens the menu while the
+   * finger is still down; the click the browser sends when it is lifted lands on the dim (mounted
+   * under the finger) and must not close the menu again.
+   */
+  const dimPressed = useRef(false);
   const reducedMotion = useReducedMotion() ?? false;
   const [placement, setPlacement] = useState<MenuPlacement | null>(null);
 
@@ -112,7 +123,9 @@ function ContextMenuOverlay({ onClose, anchorRect, items, preview, label }: Over
   const focusItem = (direction: 1 | -1 | 'first' | 'last'): void => {
     const menu = menuRef.current;
     if (!menu) return;
-    const entries = Array.from(menu.querySelectorAll<HTMLButtonElement>('[role="menuitem"]:not([disabled])'));
+    const entries = Array.from(
+      menu.querySelectorAll<HTMLButtonElement>(':is([role="menuitem"], [role="menuitemradio"]):not([disabled])'),
+    );
     if (entries.length === 0) return;
     const current = entries.indexOf(document.activeElement as HTMLButtonElement);
     let next: number;
@@ -156,7 +169,14 @@ function ContextMenuOverlay({ onClose, anchorRect, items, preview, label }: Over
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={fade}
-          onClick={onClose}
+          onPointerDown={() => {
+            dimPressed.current = true;
+          }}
+          onClick={() => {
+            if (!dimPressed.current) return;
+            dimPressed.current = false;
+            onClose();
+          }}
         />
         {preview ? (
           <motion.div
@@ -201,7 +221,8 @@ function ContextMenuItems({ items, onClose }: { items: readonly ContextMenuItem[
           {groupStarts.has(index) ? <div className="homi-context-menu__band" role="separator" /> : null}
           <button
             type="button"
-            role="menuitem"
+            role={item.checked === undefined ? 'menuitem' : 'menuitemradio'}
+            aria-checked={item.checked}
             className={cx('homi-context-menu__item', item.destructive && 'homi-context-menu__item--destructive')}
             disabled={item.disabled}
             onClick={() => {

@@ -6,7 +6,7 @@ import {
   trimDecimal,
   numberToDecimalString,
 } from './decimal';
-import { UNIT_LABELS, type Unit } from './enums';
+import { UNIT_LABELS, type Unit } from './enum-values';
 
 /*
  * Display formatters for the Swiss German UI.

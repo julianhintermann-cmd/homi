@@ -126,7 +126,7 @@ describe('PublicOnly', () => {
 
   it('shows the login page after the session ends', async () => {
     const { router, client } = renderAt('/', ME);
-    expect(await screen.findByRole('heading', { name: 'Home' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Dein Zuhause.' })).toBeInTheDocument();
     act(() => {
       client.setQueryData(queryKeys.me, null);
     });

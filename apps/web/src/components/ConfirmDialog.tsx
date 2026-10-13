@@ -26,6 +26,10 @@ export interface ConfirmDialogProps {
   busy?: boolean;
   /** Render only the alert panel in place – no portal, dim or focus trap (design gallery). */
   inline?: boolean;
+  /** Extra content between message and buttons, e.g. a typed confirmation field. */
+  children?: ReactNode;
+  /** Keeps the confirm button disabled (e.g. until the typed confirmation matches). */
+  confirmDisabled?: boolean;
 }
 
 /**
@@ -49,6 +53,8 @@ function ConfirmDialogPanel({
   onConfirm,
   onCancel,
   busy = false,
+  children,
+  confirmDisabled = false,
 }: ConfirmDialogProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const cancelRef = useRef<HTMLButtonElement>(null);
@@ -92,6 +98,7 @@ function ConfirmDialogPanel({
               {message}
             </p>
           ) : null}
+          {children ? <div className="homi-dialog__extra">{children}</div> : null}
           <div className="homi-dialog__actions">
             <button
               ref={cancelRef}
@@ -109,7 +116,7 @@ function ConfirmDialogPanel({
               data-role="confirm"
               data-tone={tone}
               onClick={onConfirm}
-              disabled={busy}
+              disabled={busy || confirmDisabled}
               aria-busy={busy || undefined}
             >
               {busy ? <Spinner size={18} /> : (confirmLabel ?? (tone === 'destructive' ? 'Löschen' : 'OK'))}
@@ -131,6 +138,8 @@ function DialogPanelContent({
   onConfirm,
   onCancel,
   busy = false,
+  children,
+  confirmDisabled = false,
 }: ConfirmDialogProps) {
   const titleId = useId();
   const messageId = useId();
@@ -150,6 +159,7 @@ function DialogPanelContent({
           {message}
         </p>
       ) : null}
+      {children ? <div className="homi-dialog__extra">{children}</div> : null}
       <div className="homi-dialog__actions">
         <button type="button" className="homi-dialog__button" data-role="cancel" onClick={onCancel} disabled={busy}>
           {cancelLabel}
@@ -160,7 +170,7 @@ function DialogPanelContent({
           data-role="confirm"
           data-tone={tone}
           onClick={onConfirm}
-          disabled={busy}
+          disabled={busy || confirmDisabled}
         >
           {busy ? <Spinner size={18} /> : (confirmLabel ?? (tone === 'destructive' ? 'Löschen' : 'OK'))}
         </button>

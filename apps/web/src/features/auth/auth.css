@@ -1,0 +1,124 @@
+/*
+ * Public auth screens (Anmelden, Konto erstellen, Passwort vergessen / zurücksetzen).
+ * Layout only – the visuals come from the design-system components (TextField, Button, Card …)
+ * and the tokens; spacing follows the form sheet 06 (20 px between fields, 52 px controls).
+ */
+
+/* The last footer button ends 8 px above the home-indicator area (design 06: button bottom 810). */
+.auth-screen {
+  padding-bottom: calc(var(--safe-bottom) + 8px);
+}
+
+.auth-body {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  margin-top: 28px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Password field + its live policy checklist stay together. */
+.auth-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inline text actions under a field ("Passwort vergessen?"), 12 px below it, ≥ 44 px tap area. */
+.auth-form__aside {
+  display: flex;
+  justify-content: flex-end;
+  margin: -20px 0 -12px;
+}
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  font: var(--type-subhead-medium);
+  letter-spacing: var(--ls-subhead);
+}
+
+/* Form-level error (wrong credentials, rate limit, offline) – styled like a field message. */
+.auth-form__alert {
+  margin: -8px 4px 0;
+}
+
+.auth-form__submit {
+  margin-top: 4px;
+}
+
+.auth-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 32px;
+}
+.auth-footer__text {
+  margin: 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  text-align: center;
+}
+
+/* "Anzeigen / Ausblenden" toggle inside the password field. */
+.auth-password-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-right: -4px;
+  padding: 0 4px;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+}
+.auth-password-toggle:disabled {
+  color: var(--color-label-tertiary);
+  cursor: default;
+}
+
+/* Live password policy checklist (footnote, label-3 → accent when met). */
+.auth-policy {
+  display: grid;
+  gap: 6px;
+  margin: 10px 4px 0;
+  padding: 0;
+  list-style: none;
+}
+.auth-policy__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+}
+.auth-policy__icon {
+  color: var(--color-label-tertiary);
+  transition: color var(--dur-dissolve) var(--ease-dissolve);
+}
+.auth-policy__item[data-met] .auth-policy__icon {
+  color: var(--color-accent);
+}
+
+/* Calm in-flow notes and confirmations (card with subhead text). */
+.auth-note {
+  margin: 0;
+  font: var(--type-subhead);
+  letter-spacing: var(--ls-subhead);
+  color: var(--color-label-secondary);
+}
+.auth-state {
+  margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-policy__icon {
+    transition: none;
+  }
+}

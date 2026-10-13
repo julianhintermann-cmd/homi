@@ -423,6 +423,8 @@ export function SheetHeader({
 export interface BottomSheetOptionProps {
   label: string;
   icon?: IconName;
+  /** Custom leading visual instead of `icon` (e.g. a 28 px `Avatar` in a member picker). */
+  leading?: ReactNode;
   onClick?: () => void;
   /** Render as a `<label>` for a hidden file input (camera / library pickers). */
   htmlFor?: string;
@@ -430,10 +432,21 @@ export interface BottomSheetOptionProps {
 }
 
 /** Option row of an action sheet: 353 × 52, r 16, surface-muted, 24 px icon at 16, `body` label at 54. */
-export function BottomSheetOption({ label, icon, onClick, htmlFor, destructive = false }: BottomSheetOptionProps) {
+export function BottomSheetOption({
+  label,
+  icon,
+  leading,
+  onClick,
+  htmlFor,
+  destructive = false,
+}: BottomSheetOptionProps) {
   const content = (
     <>
-      {icon ? (
+      {leading ? (
+        <span className="homi-sheet-option__icon" aria-hidden="true">
+          {leading}
+        </span>
+      ) : icon ? (
         <span className="homi-sheet-option__icon" aria-hidden="true">
           <Icon name={icon} size={24} strokeWidth={1.8} />
         </span>

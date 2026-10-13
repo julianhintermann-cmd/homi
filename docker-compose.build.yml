@@ -1,0 +1,12 @@
+# Override: build the Homi image from this repository instead of pulling it from GHCR.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.build.yml up -d --build
+
+services:
+  homi:
+    image: homi:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: local

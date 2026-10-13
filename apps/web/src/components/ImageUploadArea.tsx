@@ -29,6 +29,13 @@ export interface ImageUploadAreaProps {
   accept?: string;
   disabled?: boolean;
   className?: string;
+  /**
+   * Offers a destructive "Foto entfernen" option in the source sheet while a photo is shown
+   * (selected or failed upload).
+   */
+  onRemove?: () => void;
+  /** Label of the remove option. Default "Foto entfernen". */
+  removeLabel?: string;
 }
 
 /**
@@ -48,6 +55,8 @@ export function ImageUploadArea({
   accept = 'image/*',
   disabled = false,
   className,
+  onRemove,
+  removeLabel = 'Foto entfernen',
 }: ImageUploadAreaProps) {
   const resolved: ImageUploadState = state ?? (imageUrl ? 'selected' : 'empty');
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -102,6 +111,17 @@ export function ImageUploadArea({
       <div className="homi-sheet-options">
         <BottomSheetOption icon="camera" label="Foto aufnehmen" htmlFor={cameraId} />
         <BottomSheetOption icon="photo" label="Aus Mediathek wählen" htmlFor={libraryId} />
+        {onRemove && (resolved === 'selected' || resolved === 'error') ? (
+          <BottomSheetOption
+            icon="trash"
+            label={removeLabel}
+            destructive
+            onClick={() => {
+              setSheetOpen(false);
+              onRemove();
+            }}
+          />
+        ) : null}
       </div>
     </HomiBottomSheet>
   ) : null;

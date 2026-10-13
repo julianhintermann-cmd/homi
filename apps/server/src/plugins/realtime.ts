@@ -68,6 +68,7 @@ export function toAck<T>(ack: unknown): (response: T) => void {
 export const realtimePlugin = fp(
   async (app) => {
     const handlers: ConnectionHandler[] = [];
+    const roomQueues = new Map<string, Promise<void>>();
 
     const io: HomiServer = new Server(app.server, {
       path: SOCKET_PATH,
@@ -113,6 +114,42 @@ export const realtimePlugin = fp(
         });
     });
 
+    /**
+     * Brings every socket of `userId` into exactly the `household:<id>` rooms of the user's current
+     * memberships (read now, inside the queue).
+     */
+    async function applyHouseholdRooms(userId: string): Promise<void> {
+      const sockets = await io.in(userRoom(userId)).fetchSockets();
+      if (sockets.length === 0) return;
+      const memberships = await app.prisma.householdMember.findMany({
+        where: { userId },
+        select: { householdId: true },
+      });
+      const desired = new Set(memberships.map((m) => householdRoom(m.householdId)));
+      for (const socket of sockets) {
+        for (const room of socket.rooms) {
+          if (room.startsWith('household:') && !desired.has(room)) socket.leave(room);
+        }
+        if (desired.size > 0) socket.join([...desired]);
+      }
+    }
+
+    /**
+     * Runs room updates of one user one after another (connect-time join, `syncUserRooms` after a
+     * membership change). Without it a connect-time membership read that started before a removal
+     * could be applied after the removal's sync and leave the ex-member in the household room.
+     */
+    function queueRoomUpdate(userId: string, task: () => Promise<void>): Promise<void> {
+      const previous = roomQueues.get(userId) ?? Promise.resolve();
+      const next = previous.catch(() => undefined).then(task);
+      roomQueues.set(userId, next);
+      const cleanup = () => {
+        if (roomQueues.get(userId) === next) roomQueues.delete(userId);
+      };
+      next.then(cleanup, cleanup);
+      return next;
+    }
+
     io.on('connection', (socket) => {
       const { userId } = socket.data;
       // Listeners first (synchronously) so no early client event is lost …
@@ -123,17 +160,13 @@ export const realtimePlugin = fp(
           app.log.error({ err: error }, 'socket connection handler failed');
         }
       }
-      // … then the rooms.
+      // … then the rooms. The household rooms go through the per-user queue, so a membership read
+      // that started before a removal can never be applied after the removal's room sync.
       void socket.join(userRoom(userId));
-      app.prisma.householdMember
-        .findMany({ where: { userId }, select: { householdId: true } })
-        .then((memberships) => {
-          if (socket.connected) void socket.join(memberships.map((m) => householdRoom(m.householdId)));
-        })
-        .catch((error: unknown) => {
-          app.log.error({ err: error, userId }, 'failed to join household rooms');
-          socket.disconnect(true);
-        });
+      queueRoomUpdate(userId, () => applyHouseholdRooms(userId)).catch((error: unknown) => {
+        app.log.error({ err: error, userId }, 'failed to join household rooms');
+        socket.disconnect(true);
+      });
     });
 
     const emitTo = (rooms: string | string[], event: string, args: unknown[]) => {
@@ -156,20 +189,8 @@ export const realtimePlugin = fp(
       emitSync(event) {
         emitTo(householdRoom(event.householdId), 'sync', [event]);
       },
-      async syncUserRooms(userId) {
-        const sockets = await io.in(userRoom(userId)).fetchSockets();
-        if (sockets.length === 0) return;
-        const memberships = await app.prisma.householdMember.findMany({
-          where: { userId },
-          select: { householdId: true },
-        });
-        const desired = new Set(memberships.map((m) => householdRoom(m.householdId)));
-        for (const socket of sockets) {
-          for (const room of socket.rooms) {
-            if (room.startsWith('household:') && !desired.has(room)) socket.leave(room);
-          }
-          if (desired.size > 0) socket.join([...desired]);
-        }
+      syncUserRooms(userId) {
+        return queueRoomUpdate(userId, () => applyHouseholdRooms(userId));
       },
       async disconnectUser(userId, options = {}) {
         const sockets = await io.in(userRoom(userId)).fetchSockets();

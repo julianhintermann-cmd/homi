@@ -54,6 +54,38 @@ describe('toErrorResponse', () => {
     expect(toErrorResponse(prismaError('PrismaClientUnknownRequestError')).statusCode).toBe(500);
   });
 
+  it('maps PostgreSQL "invalid byte sequence" (NUL in text) to 400 VALIDATION instead of 500', () => {
+    // Shape of a Prisma 7 driver-adapter error for `WHERE "name" = 'a\u0000b'` (probed against PostgreSQL 18).
+    for (const code of ['P2039', 'P2010']) {
+      const error = Object.assign(prismaError('PrismaClientKnownRequestError', code), {
+        meta: {
+          driverAdapterError: {
+            name: 'DriverAdapterError',
+            cause: {
+              originalCode: '22021',
+              kind: 'postgres',
+              message: 'invalid byte sequence for encoding "UTF8": 0x00',
+            },
+          },
+        },
+      });
+      expect(toErrorResponse(error)).toEqual({
+        statusCode: 400,
+        body: {
+          error: {
+            code: 'VALIDATION',
+            message: expect.any(String),
+            details: { fieldErrors: {}, formErrors: ['Der Text enthält ungültige Zeichen.'] },
+          },
+        },
+      });
+    }
+    const otherSqlState = Object.assign(prismaError('PrismaClientKnownRequestError', 'P2010'), {
+      meta: { driverAdapterError: { cause: { originalCode: '42P01' } } },
+    });
+    expect(toErrorResponse(otherSqlState).statusCode).toBe(500);
+  });
+
   it('maps connection failures hidden in cause chains to 503', () => {
     const cause = Object.assign(new Error('connect ECONNREFUSED 127.0.0.1:5432'), { code: 'ECONNREFUSED' });
     expect(toErrorResponse(new Error('driver failed', { cause })).statusCode).toBe(503);

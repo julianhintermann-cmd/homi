@@ -1,0 +1,226 @@
+/*
+ * Households feature (screen 09 "Haushalt & Profil", member detail, welcome, invitation).
+ * Layout only – colours, type and radii come from tokens.css; rows/cards/sheets are the
+ * design-system components (ListRow, GroupedList, HomiBottomSheet, …).
+ */
+
+/* ── 09 Haushalt: hero (avatar 72 at y 116, name title2 at y 200, meta footnote at y 232) ── */
+.household-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px; /* inline header spacer ends at safe + 48 (design y 102) */
+  text-align: center;
+}
+.household-hero__name {
+  max-width: 100%;
+  margin: 12px 0 0;
+  font: var(--type-title2);
+  letter-spacing: var(--ls-title2);
+  color: var(--color-label);
+  overflow-wrap: anywhere;
+}
+.household-hero__meta {
+  margin: 4.5px 0 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+}
+.household-hero__meta--role {
+  margin-top: 2px;
+}
+
+/* Section label "Mitglieder" at y 276 (meta ends at 249.55); 24 px between the cards. */
+.household-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 26.45px;
+}
+
+.household-state {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Sheets (action variant) ── */
+.households-sheet .homi-sheet__content {
+  /* Forms inside action sheets stay above the on-screen keyboard. */
+  padding-bottom: calc(max(var(--safe-bottom), var(--keyboard-inset, 0px)) + 14px);
+}
+.households-sheet__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.households-sheet__text {
+  margin: 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+}
+.households-sheet__text[data-align='center'] {
+  text-align: center;
+}
+.households-sheet__text[data-tone='destructive'] {
+  color: var(--color-destructive);
+}
+.households-sheet__label {
+  margin: 0 4px 6px;
+  font: var(--type-footnote-medium);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+}
+.households-sheet__actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* Option rows with a second line and a trailing check (household switcher, role picker). */
+.households-option.homi-sheet-option {
+  height: auto;
+  min-height: 52px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.households-option__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+.households-option__title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.households-option__subtitle {
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  white-space: normal;
+}
+.households-option__check {
+  flex: none;
+  color: var(--color-accent);
+}
+.households-option[aria-checked='true'] .households-option__title,
+.households-option[aria-current='true'] .households-option__title {
+  font-weight: 600;
+}
+
+.households-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Invitation link (read-only field) */
+.households-link-field .homi-field__input {
+  text-overflow: ellipsis;
+}
+
+/* Trailing text action inside a ListRow ("Widerrufen"): 44 px tap target. */
+.households-row-action {
+  flex: none;
+  min-height: 44px;
+  margin: -6px 0 -6px 12px;
+  padding: 0 4px;
+  font: var(--type-subhead-medium);
+  letter-spacing: var(--ls-subhead);
+}
+
+/* ── Welcome / invitation screens ── */
+.households-intro {
+  margin: 8px 0 0;
+  font: var(--type-subhead);
+  letter-spacing: var(--ls-subhead);
+  color: var(--color-label-secondary);
+}
+.households-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.households-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+.households-footer-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.households-invite-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.households-invite-card__eyebrow {
+  margin: 16px 0 0;
+  font: var(--type-subhead-medium);
+  letter-spacing: var(--ls-subhead);
+  color: var(--color-label-secondary);
+}
+.households-invite-card__title {
+  margin: 0;
+  font: var(--type-title2);
+  letter-spacing: var(--ls-title2);
+  color: var(--color-label);
+  overflow-wrap: anywhere;
+}
+.households-invite-card__text {
+  margin: 4px 0 0;
+  font: var(--type-subhead);
+  letter-spacing: var(--ls-subhead);
+  color: var(--color-label-secondary);
+}
+.households-invite-card__meta {
+  margin: 2px 0 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-tertiary);
+}
+.households-invite-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: stretch;
+  margin-top: 24px;
+}
+.households-sheet__hint {
+  margin-top: 8px;
+  padding: 0 4px;
+}
+.households-sheet .homi-sheet-option:disabled {
+  color: var(--color-label-tertiary);
+  cursor: default;
+}
+.households-card-body {
+  padding: 20px;
+}
+
+/* Segmented controls in sheets (invite: role + validity): the 32 px segments get a 44 px hit area.
+   The control keeps its 36 px design height; the sheet leaves ≥ 6 px free above and below it. */
+.households-sheet .homi-segmented__option {
+  position: relative;
+}
+.households-sheet .homi-segmented__option::after {
+  content: '';
+  position: absolute;
+  inset: -6px 0;
+}
+
+/* Active invitations inside the (white) invite sheet: the grouped card takes the sheet-option fill,
+   otherwise the rows float without the card boundary used everywhere else. */
+.households-sheet .households-invitations .homi-grouped__card,
+.households-sheet .households-invitations .homi-list-row {
+  background: var(--color-surface-muted);
+}

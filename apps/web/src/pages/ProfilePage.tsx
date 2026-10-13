@@ -1,30 +1,14 @@
-// PLACEHOLDER – replaced by the account feature team
-import { Button } from '@/components/Button';
-import { GlassButton } from '@/components/GlassButton';
-import { LargeTitleHeader } from '@/components/LargeTitleHeader';
-import { Screen } from '@/components/Screen';
-import { useLogout, useMe } from '@/hooks/useAuth';
+import { InlineHeader, Screen } from '@/components';
+import { ProfileView } from '@/features/account/ProfileView';
 import { useGoBack } from '@/routes/navigation';
 import { paths } from '@/routes/paths';
 
+/** `/profil` – pushed screen (no tab bar), reached from Haushalt (09) and Einstellungen. */
 export function ProfilePage() {
-  const goBack = useGoBack(paths.home);
-  const { data: me } = useMe();
-  const logout = useLogout();
+  const goBack = useGoBack(paths.household);
   return (
-    <Screen
-      header={
-        <LargeTitleHeader
-          title={me?.user.displayName ?? 'Profil'}
-          subtitle={me?.user.email}
-          leading={<GlassButton icon="chevL" label="Zurück" onClick={goBack} />}
-        />
-      }
-    >
-      <Button variant="destructive" loading={logout.isPending} onClick={() => logout.mutate()}>
-        Abmelden
-      </Button>
-      {logout.error ? <p role="alert">{logout.error.message}</p> : null}
+    <Screen header={<InlineHeader title="Profil" onBack={goBack} />}>
+      <ProfileView />
     </Screen>
   );
 }

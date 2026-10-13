@@ -1,11 +1,8 @@
-// PLACEHOLDER – replaced by the households feature team
-import { LargeTitleHeader } from '@/components/LargeTitleHeader';
-import { Screen } from '@/components/Screen';
+import { useParams } from 'react-router';
+import { InvitationScreen } from '@/features/households/InvitationScreen';
 
+/** `/einladung/:token` – public invitation preview + accept. */
 export function InvitationPage() {
-  return (
-    <Screen header={<LargeTitleHeader title="Einladung" />}>
-      <p>Die Einladungsvorschau folgt.</p>
-    </Screen>
-  );
+  const { token = '' } = useParams<{ token: string }>();
+  return <InvitationScreen key={token} token={token} />;
 }

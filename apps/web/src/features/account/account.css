@@ -1,0 +1,128 @@
+/*
+ * Profil / Einstellungen (pushed screens) and their sheets. Layout only – visuals come from the
+ * design-system components; spacing mirrors screen 09 (Haushalt & Profil).
+ */
+
+/* 09: avatar 72 at y 116 (14 px under the inline header), name title2 12 px below, meta 4 px below. */
+.account-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
+  text-align: center;
+}
+.account-hero__name {
+  max-width: 100%;
+  margin: 12px 0 0;
+  font: var(--type-title2);
+  letter-spacing: var(--ls-title2);
+  color: var(--color-label);
+  overflow-wrap: anywhere;
+}
+.account-hero__meta {
+  max-width: 100%;
+  margin: 4px 0 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  overflow-wrap: anywhere;
+}
+
+/* Grouped cards 24 px apart (09: card end → next section label). */
+.account-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 14px;
+}
+/* 09: first section label 26 px below the meta line. */
+.account-sections--after-hero {
+  margin-top: 26px;
+}
+
+/* Explanatory card footers on these screens carry real information: label-secondary for contrast. */
+.account-sections .homi-grouped__footer {
+  color: var(--color-label-secondary);
+}
+
+/* "Anzeigename" row: the title never gives way to a long name – the value is truncated instead. */
+.account-name-row .homi-list-row__text {
+  flex: none;
+}
+.account-name-row .homi-list-row__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
+  text-align: right;
+}
+
+/* "Abmelden": destructive title and glyph in the icon tile. */
+.account-logout-row .homi-list-row__tile {
+  color: var(--color-destructive);
+}
+
+/* Segmented control row inside a settings card: 52 px like a Settings Row, hairline inset 16. */
+.account-segment-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 8px 16px;
+  background: var(--color-surface);
+}
+.account-segment-row > .homi-segmented {
+  flex: 1 1 auto;
+}
+/* The options look 32 px tall; a transparent hit slop makes each one a 44 px touch target. */
+.account-segment-row .homi-segmented__option {
+  position: relative;
+}
+.account-segment-row .homi-segmented__option::before {
+  content: '';
+  position: absolute;
+  inset: -6px 0;
+}
+.account-segment-row::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+  transform-origin: bottom;
+  background: var(--color-separator);
+  pointer-events: none;
+}
+.account-segment-row:last-child::after {
+  display: none;
+}
+
+/*
+ * Page sheets (06/07 rhythm): header, fields 20 px apart, and the full-width primary button pinned
+ * to the bottom of the sheet (06: y 758–810, 8 px above the home indicator). The sheet content
+ * already reserves max(safe-bottom, keyboard) + 8 px, so with the keyboard open the button rides
+ * on top of it.
+ */
+.account-sheet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.account-sheet-form {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 20px;
+}
+.account-sheet-form__submit {
+  margin-top: auto;
+}
+/* Important information: label-secondary (≥ 4.5:1), not tertiary (placeholder/disabled only). */
+.account-sheet-note {
+  margin: -8px 4px 0;
+  font: var(--type-footnote);
+  letter-spacing: var(--ls-footnote);
+  color: var(--color-label-secondary);
+  text-align: center;
+}

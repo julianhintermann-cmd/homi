@@ -9,17 +9,7 @@ import type { ApiErrorCode } from './errors';
  *   client: io() as Socket<ServerToClientEvents, ClientToServerEvents>
  */
 
-export const SOCKET_EVENTS = {
-  sync: 'sync',
-  chatMessage: 'chat:message',
-  chatRead: 'chat:read',
-  chatTyping: 'chat:typing',
-  membership: 'membership',
-  chatSend: 'chat:send',
-} as const;
-
-/** `connect_error` message when the handshake has no valid session. */
-export const SOCKET_UNAUTHORIZED = 'UNAUTHORIZED';
+// `SOCKET_PATH`, `SOCKET_EVENTS` and `SOCKET_UNAUTHORIZED` are zod-free constants (constants.ts).
 
 // ---------------------------------------------------------------------------
 // Server → client payloads

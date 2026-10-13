@@ -1,14 +1,16 @@
-// PLACEHOLDER – replaced by the auth feature team
-import { Link } from 'react-router';
-import { LargeTitleHeader } from '@/components/LargeTitleHeader';
-import { Screen } from '@/components/Screen';
+import { useParams } from 'react-router';
+import { AuthLayout } from '@/features/auth/AuthLayout';
+import { ResetPasswordForm } from '@/features/auth/ResetPasswordForm';
+import { useGoBack } from '@/routes/navigation';
 import { paths } from '@/routes/paths';
 
+/** `/passwort-zuruecksetzen/:token` – link from the reset e-mail; success continues to the login. */
 export function ResetPasswordPage() {
+  const { token = '' } = useParams();
+  const goBack = useGoBack(paths.login);
   return (
-    <Screen header={<LargeTitleHeader title="Neues Passwort" />}>
-      <p>Das Setzen eines neuen Passworts folgt.</p>
-      <Link to={paths.login}>Zur Anmeldung</Link>
-    </Screen>
+    <AuthLayout title="Neues Passwort" subtitle="Wähle ein neues Passwort für dein Homi-Konto." onBack={goBack}>
+      <ResetPasswordForm token={token} />
+    </AuthLayout>
   );
 }

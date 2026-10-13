@@ -71,6 +71,7 @@ export { ShoppingItemRow, type ShoppingItemRowProps } from './ShoppingItemRow';
 export { Skeleton, SkeletonList, type SkeletonListProps, type SkeletonProps } from './Skeleton';
 export { Stat, type StatProps } from './Stat';
 export { SwipeableRow, type SwipeAction, type SwipeableRowProps } from './SwipeableRow';
+export { Switch, type SwitchProps } from './Switch';
 export { TextField, type TextFieldProps } from './TextField';
 export { Toast, ToastHost, type ToastProps } from './Toast';
 export { dismissToast, showToast, useToastStore, type ToastOptions, type ToastTone } from './toastStore';

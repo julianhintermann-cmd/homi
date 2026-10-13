@@ -1,14 +1,19 @@
-// PLACEHOLDER – replaced by the auth feature team
-import { Link } from 'react-router';
-import { LargeTitleHeader } from '@/components/LargeTitleHeader';
-import { Screen } from '@/components/Screen';
+import { AuthLayout } from '@/features/auth/AuthLayout';
+import { ForgotPasswordForm } from '@/features/auth/ForgotPasswordForm';
+import { useRedirectTarget, withRedirect } from '@/features/auth/redirect';
+import { useGoBack } from '@/routes/navigation';
 import { paths } from '@/routes/paths';
 
+/** `/passwort-vergessen` – public; requests a reset link (neutral confirmation, no account enumeration). */
 export function ForgotPasswordPage() {
+  const goBack = useGoBack(withRedirect(paths.login, useRedirectTarget()));
   return (
-    <Screen header={<LargeTitleHeader title="Passwort vergessen" />}>
-      <p>Das Zurücksetzen per E-Mail folgt.</p>
-      <Link to={paths.login}>Zurück zur Anmeldung</Link>
-    </Screen>
+    <AuthLayout
+      title="Passwort vergessen"
+      subtitle="Wir senden dir einen Link, mit dem du ein neues Passwort festlegen kannst."
+      onBack={goBack}
+    >
+      <ForgotPasswordForm />
+    </AuthLayout>
   );
 }

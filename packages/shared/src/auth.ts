@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { IdSchema, IsoDateTimeSchema } from './common';
 import { LIMITS } from './constants';
 import { HouseholdRoleSchema } from './enums';
+import { hasControlCharacter } from './text';
 
 /*
  * Auth & account contract (§5 "Auth & account").
@@ -19,11 +20,49 @@ export const EmailSchema = z
   .max(LIMITS.email.max, { error: 'Die E-Mail-Adresse ist zu lang.' })
   .pipe(z.email({ error: 'Bitte gib eine gültige E-Mail-Adresse ein.' }));
 
+export const DISPLAY_NAME_REQUIRED_MESSAGE = 'Bitte gib deinen Namen ein.';
+export const DISPLAY_NAME_INVALID_CHARACTERS_MESSAGE = 'Der Name enthält unzulässige Zeichen.';
+
+/**
+ * Invisible format characters: bidi overrides/isolates/marks, zero-width space, word joiner,
+ * soft hyphen, BOM, … – they hide or reorder parts of a name shown to other members.
+ * ZWNJ / ZWJ (U+200C/U+200D) stay allowed: scripts such as Persian and emoji sequences need them.
+ */
+const FORMAT_CHARACTER = /(?![\u200C\u200D])\p{Cf}/u;
+/** Letters and symbols that render blank (Hangul fillers, braille blank). */
+const BLANK_LOOKALIKES = /[\u115F\u1160\u3164\uFFA0\u2800]/gu;
+/** At least one visible letter, digit, punctuation mark or symbol (emoji included). */
+const VISIBLE_CHARACTER = /[\p{L}\p{N}\p{P}\p{S}]/u;
+
+/** True if `value` contains something visible besides blank look-alikes. */
+export function hasVisibleCharacter(value: string): boolean {
+  return VISIBLE_CHARACTER.test(value.replace(BLANK_LOOKALIKES, ''));
+}
+
+/** True for control characters and invisible format characters (except ZWNJ/ZWJ). */
+export function hasForbiddenNameCharacter(value: string): boolean {
+  // Control characters: NUL, line breaks, tabs, … (Postgres rejects NUL in text with a 500).
+  return hasControlCharacter(value) || FORMAT_CHARACTER.test(value);
+}
+
+/**
+ * Display name: trimmed, NFC-normalised, 1–60 characters, at least one visible character and no
+ * control or invisible format characters (the name is shown to every household member).
+ */
 export const DisplayNameSchema = z
-  .string({ error: 'Bitte gib deinen Namen ein.' })
+  .string({ error: DISPLAY_NAME_REQUIRED_MESSAGE })
   .trim()
-  .min(LIMITS.displayName.min, { error: 'Bitte gib deinen Namen ein.' })
-  .max(LIMITS.displayName.max, { error: `Der Name darf höchstens ${LIMITS.displayName.max} Zeichen lang sein.` });
+  .normalize('NFC')
+  .min(LIMITS.displayName.min, { error: DISPLAY_NAME_REQUIRED_MESSAGE })
+  .max(LIMITS.displayName.max, { error: `Der Name darf höchstens ${LIMITS.displayName.max} Zeichen lang sein.` })
+  .superRefine((value, ctx) => {
+    if (value.length === 0) return; // reported by `min`
+    if (!hasVisibleCharacter(value)) {
+      ctx.addIssue({ code: 'custom', message: DISPLAY_NAME_REQUIRED_MESSAGE });
+    } else if (hasForbiddenNameCharacter(value)) {
+      ctx.addIssue({ code: 'custom', message: DISPLAY_NAME_INVALID_CHARACTERS_MESSAGE });
+    }
+  });
 
 /** Letters (any script). */
 const LETTER = /\p{L}/u;
@@ -48,6 +87,43 @@ export const PASSWORD_EQUALS_EMAIL_MESSAGE = 'Das Passwort darf nicht deiner E-M
 /** True if the password equals the e-mail address (case-insensitive, trimmed). */
 export function passwordEqualsEmail(password: string, email: string): boolean {
   return password.trim().toLowerCase() === email.trim().toLowerCase();
+}
+
+// ---------------------------------------------------------------------------
+// Password policy checklist (live hints in the registration / reset / change forms)
+// ---------------------------------------------------------------------------
+
+export type PasswordRuleId = 'length' | 'letter' | 'digitOrSymbol' | 'notEmail';
+
+export interface PasswordRuleResult {
+  id: PasswordRuleId;
+  /** German hint, e.g. "Mindestens 10 Zeichen". */
+  label: string;
+  met: boolean;
+}
+
+export const PASSWORD_RULE_LABELS: Readonly<Record<PasswordRuleId, string>> = {
+  length: `Mindestens ${LIMITS.password.min} Zeichen`,
+  letter: 'Mindestens ein Buchstabe',
+  digitOrSymbol: 'Mindestens eine Ziffer oder ein Sonderzeichen',
+  notEmail: 'Nicht deine E-Mail-Adresse',
+};
+
+/**
+ * Evaluates the password policy (§4.2) rule by rule – the same checks as {@link PasswordSchema}
+ * (the maximum length is only enforced by the schema). The "not equal to the email" rule is
+ * included when an email is known.
+ */
+export function checkPasswordPolicy(password: string, email?: string | null): PasswordRuleResult[] {
+  const results: Array<{ id: PasswordRuleId; met: boolean }> = [
+    { id: 'length', met: password.length >= LIMITS.password.min },
+    { id: 'letter', met: LETTER.test(password) },
+    { id: 'digitOrSymbol', met: DIGIT_OR_SYMBOL.test(password) },
+  ];
+  if (email && email.trim() !== '') {
+    results.push({ id: 'notEmail', met: password.length > 0 && !passwordEqualsEmail(password, email) });
+  }
+  return results.map((rule) => ({ ...rule, label: PASSWORD_RULE_LABELS[rule.id] }));
 }
 
 /** Login accepts any non-empty password: policy changes must never lock out existing users. */

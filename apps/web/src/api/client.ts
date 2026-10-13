@@ -1,3 +1,4 @@
+import { CSRF_HEADER_NAME, CSRF_HEADER_VALUE } from '@homi/shared/core';
 import { connectivity } from '@/lib/connectivity';
 
 /**
@@ -11,12 +12,9 @@ import { connectivity } from '@/lib/connectivity';
  * - A 401 calls the registered unauthorized handler (→ invalidates `['me']`, guards redirect to /login).
  */
 
-/**
- * CSRF header (mirrors `CSRF_HEADER_NAME` / `CSRF_HEADER_VALUE` of @homi/shared – kept local so the
- * entry chunk does not pull in the zod-based contract barrel; client.test.ts asserts equality).
- */
-export const CSRF_HEADER = 'X-Homi-Request';
-export const CSRF_HEADER_VALUE = '1';
+/** CSRF header (§4.3) – from the zod-free `@homi/shared/core`, so the entry chunk stays zod-free. */
+export const CSRF_HEADER = CSRF_HEADER_NAME;
+export { CSRF_HEADER_VALUE };
 export const NETWORK_ERROR_CODE = 'NETWORK_ERROR';
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);

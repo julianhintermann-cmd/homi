@@ -79,6 +79,15 @@ describe('logger URL sanitising', () => {
     expect(sanitizeUrl('/einladung/tok')).toBe('/einladung/[redacted]');
     expect(sanitizeUrl('/api/households/1/items')).toBe('/api/households/1/items');
   });
+
+  it('also redacts percent-encoded spellings of the token paths', () => {
+    // `/%61pi/…` is rejected by the CSRF hook, but the request line is still logged.
+    expect(sanitizeUrl('/%61pi/invitations/SecretTok123/accept')).toBe('/api/invitations/[redacted]/accept');
+    expect(sanitizeUrl('/%65inladung/SecretTok123')).toBe('/einladung/[redacted]');
+    // unaffected URLs keep their raw (encoded) form
+    expect(sanitizeUrl('/api/households/1/items?search=%C3%96l')).toBe('/api/households/1/items?search=%C3%96l');
+    expect(sanitizeUrl('/inventar%E0%A4%A')).toBe('/inventar%E0%A4%A');
+  });
 });
 
 describe('static SPA serving', () => {

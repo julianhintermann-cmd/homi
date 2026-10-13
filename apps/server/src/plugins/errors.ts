@@ -1,6 +1,11 @@
 import type { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { toValidationDetails, type ApiErrorBody, type ApiErrorCode } from '@homi/shared';
+import {
+  INVALID_TEXT_CHARACTERS_MESSAGE,
+  toValidationDetails,
+  type ApiErrorBody,
+  type ApiErrorCode,
+} from '@homi/shared';
 import { AppError } from '../lib/http-errors';
 
 /**
@@ -64,8 +69,31 @@ function isConnectionFailure(error: unknown, depth = 0): boolean {
   return false;
 }
 
+/**
+ * SQLSTATEs caused by the submitted text itself: 22021 "invalid byte sequence" (U+0000 – PostgreSQL
+ * cannot store NUL in text) and 22P05 "untranslatable character". The shared schemas already reject
+ * control characters; this is the safety net for any field that slips through (→ 400, not 500).
+ */
+const INVALID_TEXT_SQLSTATES = new Set(['22021', '22P05']);
+
+/** The PostgreSQL SQLSTATE behind a Prisma driver-adapter error (`meta.driverAdapterError.cause`), if any. */
+export function postgresSqlState(error: unknown, depth = 0): string | undefined {
+  if (depth > 5 || typeof error !== 'object' || error === null) return undefined;
+  const record = error as { meta?: unknown; cause?: unknown; originalCode?: unknown };
+  if (typeof record.originalCode === 'string') return record.originalCode;
+  const adapterError =
+    typeof record.meta === 'object' && record.meta !== null
+      ? (record.meta as { driverAdapterError?: unknown }).driverAdapterError
+      : undefined;
+  return postgresSqlState(adapterError, depth + 1) ?? postgresSqlState(record.cause, depth + 1);
+}
+
 function mapPrismaError(error: PrismaLikeError): ErrorResponse | null {
   if (error.name === 'PrismaClientInitializationError') return respond('SERVICE_UNAVAILABLE');
+  const sqlState = postgresSqlState(error);
+  if (sqlState !== undefined && INVALID_TEXT_SQLSTATES.has(sqlState)) {
+    return respond('VALIDATION', { fieldErrors: {}, formErrors: [INVALID_TEXT_CHARACTERS_MESSAGE] });
+  }
   if (error.name !== 'PrismaClientKnownRequestError' || typeof error.code !== 'string') return null;
   switch (error.code) {
     case 'P2002': // unique constraint

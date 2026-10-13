@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useRef, type KeyboardEvent, type MouseEvent, type PointerEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type MouseEvent,
+  type PointerEvent,
+} from 'react';
 import { Icon } from '@/icons/Icon';
 import { haptic } from '@/lib/haptics';
 import { repeatInterval, stepValue } from './stepperMath';
@@ -28,6 +36,21 @@ export interface QuantityStepperProps {
   disabled?: boolean;
   id?: string;
   className?: string;
+  /**
+   * Lets the user also type the value (decimal keyboard), e.g. quantities in kg or litres. The text
+   * is parsed with `parseValue` on blur/Enter (`null` = invalid → the previous value stays) and
+   * clamped into `[min, max]`. Same look as the read-only value.
+   */
+  editable?: boolean;
+  /** Parser for typed values. Default: `Number()` with `,` accepted as decimal separator. */
+  parseValue?: (text: string) => number | null;
+}
+
+function defaultParseValue(text: string): number | null {
+  const normalized = text.trim().replace(',', '.');
+  if (normalized === '') return null;
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
 }
 
 const SPECS: Record<QuantityStepperSize, { icon: number; stroke: number }> = {
@@ -53,6 +76,8 @@ export function QuantityStepper({
   disabled = false,
   id,
   className,
+  editable = false,
+  parseValue = defaultParseValue,
 }: QuantityStepperProps) {
   const spec = SPECS[size];
   const atMin = value <= min;
@@ -175,21 +200,40 @@ export function QuantityStepper({
       >
         <Icon name="minus" size={spec.icon} strokeWidth={spec.stroke} />
       </button>
-      <span
-        id={id}
-        className="homi-stepper__value"
-        role="spinbutton"
-        tabIndex={disabled ? -1 : 0}
-        aria-label={label}
-        aria-valuenow={value}
-        aria-valuemin={Number.isFinite(min) ? min : undefined}
-        aria-valuemax={max !== Number.MAX_SAFE_INTEGER ? max : undefined}
-        aria-valuetext={valueText ? valueText(value) : display}
-        aria-disabled={disabled || undefined}
-        onKeyDown={onKeyDown}
-      >
-        {display}
-      </span>
+      {editable ? (
+        <EditableStepperValue
+          id={id}
+          value={value}
+          display={display}
+          min={min}
+          max={max}
+          label={label}
+          valueText={valueText ? valueText(value) : display}
+          disabled={disabled}
+          parseValue={parseValue}
+          onCommit={(next) => {
+            latest.current = { ...latest.current, value: next };
+            onChange(next);
+          }}
+          onStepKey={onKeyDown}
+        />
+      ) : (
+        <span
+          id={id}
+          className="homi-stepper__value"
+          role="spinbutton"
+          tabIndex={disabled ? -1 : 0}
+          aria-label={label}
+          aria-valuenow={value}
+          aria-valuemin={Number.isFinite(min) ? min : undefined}
+          aria-valuemax={max !== Number.MAX_SAFE_INTEGER ? max : undefined}
+          aria-valuetext={valueText ? valueText(value) : display}
+          aria-disabled={disabled || undefined}
+          onKeyDown={onKeyDown}
+        >
+          {display}
+        </span>
+      )}
       <button
         type="button"
         className="homi-stepper__button homi-stepper__button--plus"
@@ -201,5 +245,96 @@ export function QuantityStepper({
         <Icon name="plus" size={spec.icon} strokeWidth={spec.stroke} />
       </button>
     </div>
+  );
+}
+
+interface EditableStepperValueProps {
+  id?: string;
+  value: number;
+  display: string;
+  min: number;
+  max: number;
+  label: string;
+  valueText: string;
+  disabled: boolean;
+  parseValue: (text: string) => number | null;
+  onCommit: (value: number) => void;
+  onStepKey: (event: KeyboardEvent<HTMLElement>) => void;
+}
+
+/** Typed value of an `editable` stepper: shows the formatted value, edits a text draft. */
+function EditableStepperValue({
+  id,
+  value,
+  display,
+  min,
+  max,
+  label,
+  valueText,
+  disabled,
+  parseValue,
+  onCommit,
+  onStepKey,
+}: EditableStepperValueProps) {
+  const [draft, setDraft] = useState<string | null>(null);
+
+  const commit = (): void => {
+    if (draft === null) return;
+    const parsed = parseValue(draft);
+    setDraft(null);
+    if (parsed === null || !Number.isFinite(parsed)) return;
+    const next = Math.min(max, Math.max(min, parsed));
+    if (next !== value) onCommit(next);
+  };
+
+  // The slot grows with the text (min 44 px): a hidden copy sizes it, the input fills it.
+  const text = draft ?? display;
+  return (
+    <span className="homi-stepper__value homi-stepper__value--editable">
+      <span className="homi-stepper__sizer" aria-hidden="true">
+        {text}
+      </span>
+      <input
+        id={id}
+        className="homi-stepper__input"
+        type="text"
+        size={1}
+        inputMode="decimal"
+        enterKeyHint="done"
+        autoComplete="off"
+        role="spinbutton"
+        aria-label={label}
+        aria-valuenow={value}
+        aria-valuemin={Number.isFinite(min) ? min : undefined}
+        aria-valuemax={max !== Number.MAX_SAFE_INTEGER ? max : undefined}
+        aria-valuetext={valueText}
+        disabled={disabled}
+        value={text}
+        onFocus={(event) => {
+          setDraft(display);
+          event.currentTarget.select();
+        }}
+        onChange={(event) => setDraft(event.target.value)}
+        onBlur={commit}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            event.currentTarget.blur();
+          } else if (event.key === 'Escape') {
+            event.preventDefault();
+            setDraft(null);
+            event.currentTarget.blur();
+          } else if (
+            event.key === 'ArrowUp' ||
+            event.key === 'ArrowDown' ||
+            event.key === 'PageUp' ||
+            event.key === 'PageDown'
+          ) {
+            setDraft(null);
+            onStepKey(event);
+          }
+        }}
+      />
+    </span>
   );
 }
