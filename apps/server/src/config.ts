@@ -60,6 +60,8 @@ const EnvSchema = z.object({
   WEB_DIST_DIR: optionalString,
   /** `auto` (default): Secure cookies only when APP_URL uses https://. `true`/`false` force it. */
   COOKIE_SECURE: z.enum(['auto', 'true', 'false']).default('auto'),
+  /** `false` closes public sign-up (private instances: create the accounts first, then switch it off). */
+  REGISTRATION_ENABLED: booleanString(true),
 });
 
 export type NodeEnv = 'development' | 'production' | 'test';
@@ -93,6 +95,8 @@ export interface AppConfig {
   maxUploadMb: number;
   maxUploadBytes: number;
   trustProxy: boolean | number;
+  /** POST /auth/register accepts new accounts (REGISTRATION_ENABLED, default true). */
+  registrationEnabled: boolean;
   smtp: SmtpConfig | null;
   logLevel: LogLevel;
   /** Absolute path of the built SPA. */
@@ -152,6 +156,7 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
     maxUploadMb: e.MAX_UPLOAD_MB,
     maxUploadBytes: e.MAX_UPLOAD_MB * 1024 * 1024,
     trustProxy: e.TRUST_PROXY,
+    registrationEnabled: e.REGISTRATION_ENABLED,
     smtp:
       smtpHost && e.SMTP_FROM
         ? {
@@ -166,6 +171,19 @@ export function loadConfig(env: Record<string, string | undefined> = process.env
     logLevel: e.LOG_LEVEL,
     webDistDir,
   };
+}
+
+/**
+ * Start-up warning for `TRUST_PROXY=true` in production: it trusts the left-most, client-written
+ * `X-Forwarded-For` entry, so every client could pick its own IP and skip the per-IP rate limits –
+ * unless the proxy overwrites the header. A hop count (`TRUST_PROXY=1`) is safe with any proxy.
+ */
+export function trustProxyWarning(config: AppConfig): string | null {
+  if (!config.isProduction || config.trustProxy !== true) return null;
+  return (
+    'TRUST_PROXY=true trusts any client-supplied X-Forwarded-For address (per-IP rate limits can be bypassed) ' +
+    'unless the reverse proxy overwrites that header – use TRUST_PROXY=1 (one proxy hop) instead'
+  );
 }
 
 /** True when the development fallback secret is in use (logged as a warning at start-up). */

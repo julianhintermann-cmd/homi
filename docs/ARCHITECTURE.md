@@ -117,7 +117,8 @@ S3-compatible later).
 | `SESSION_TTL_DAYS`                                                             | `30`                                         | sliding expiry                                                                                                                               |
 | `UPLOAD_DIR`                                                                   | `./uploads` (dev) / `/data/uploads` (Docker) | resolved against the server's working directory                                                                                              |
 | `MAX_UPLOAD_MB`                                                                | `15`                                         |                                                                                                                                              |
-| `TRUST_PROXY`                                                                  | `false`                                      | `true` behind a reverse proxy, or a hop count (e.g. `1`)                                                                                     |
+| `TRUST_PROXY`                                                                  | `false`                                      | hop count behind a reverse proxy (normally `1`); `true` trusts client-written `X-Forwarded-For` entries (start-up warning in production)     |
+| `REGISTRATION_ENABLED`                                                         | `true`                                       | `false` → `POST /auth/register` answers `403 FORBIDDEN` (private instances)                                                                  |
 | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, `SMTP_SECURE` | unset                                        | password-reset mail only works when set; `SMTP_FROM` is required when `SMTP_HOST` is set; port defaults to 587 (465 when `SMTP_SECURE=true`) |
 | `LOG_LEVEL`                                                                    | `info`                                       |                                                                                                                                              |
 | `WEB_DIST_DIR`                                                                 | `../web/dist` resolved                       | where the SPA build is served from                                                                                                           |
@@ -185,7 +186,8 @@ conversation; leaving/removal removes them from all conversations of that househ
 - Argon2id via `@node-rs/argon2` (memoryCost 19456 KiB, timeCost 2, parallelism 1 – OWASP baseline).
 - Policy: 10–128 chars, not equal to email, at least one letter and one digit or symbol.
 - Login errors are generic ("E-Mail oder Passwort ist falsch."). Constant-time-ish: hash a dummy on unknown email.
-- Rate limits: login 10/min per IP + 5/min per email; register 5/min per IP; reset request 3/15 min per IP.
+- Rate limits: login 10/min per IP + 5/min per (email, IP) + 50/15 min per email across IPs (a stranger cannot lock
+  the owner out from another network); register 5/min per IP; reset request 3/15 min per IP.
   Presets live in `apps/server/src/lib/rate-limit.ts`: `@fastify/rate-limit` runs with `global: false` and a
   route opts in with `config: { rateLimit: RATE_LIMITS.login }` (also `register`, `passwordResetRequest`,
   `passwordResetConfirm` 10/15 min, `invitation` 30/min, `upload` 30/min). Non-IP keys (per email, per user)
@@ -202,7 +204,8 @@ conversation; leaving/removal removes them from all conversations of that househ
   non-canonical spellings get `403 CSRF` if they fail the check and `404` otherwise, for every method,
   so neither the CSRF hook nor the session hook (`plugins/auth.ts`, same helper) can be skipped.
 - No CORS is enabled (same-origin app); the custom header therefore cannot be sent cross-site.
-- Socket.IO: handshake must carry the session cookie; `allowRequest` checks the Origin.
+- Socket.IO: handshake must carry the session cookie; `allowRequest` checks the Origin. Open sockets are re-checked
+  against their sessions every 5 min and after the expired-session purge (`realtime.revalidateSessions()`).
 
 ### 4.4 Authorization (tenant isolation)
 
@@ -228,16 +231,21 @@ conversation; leaving/removal removes them from all conversations of that househ
 ### 4.5 Uploads
 
 - `@fastify/multipart`, single file, limit `MAX_UPLOAD_MB`. Detect type from **content**
-  (`file-type`): JPEG, PNG, WebP, GIF (first frame), HEIC/HEIF (converted with `heic-convert`).
+  (`file-type`): JPEG, PNG, WebP, GIF (first frame), HEIC/HEIF (converted with `heic-convert` in a short-lived
+  `worker_threads` worker, 60 s timeout – never on the event loop).
 - Decode with `sharp`, `.rotate()` (EXIF orientation), strip metadata, reject > 40 MP,
-  produce `thumb` (240 px square cover) and `full` (max 1600 px, inside) WebP variants.
+  produce `thumb` (240 px square cover) and `full` (max 1600 px, inside) WebP variants (one decode, `clone()`).
+- At most 2 images are processed at once, 8 may wait, more → `503 SERVICE_UNAVAILABLE`. Uploads: 30/min per IP and
+  30 / 10 min per user; at most 30 unattached uploads per user and household (`409`).
 - Serve with `Cache-Control: private, max-age=31536000, immutable`, `X-Content-Type-Options: nosniff`.
 
 ### 4.6 Headers & logging
 
-- `@fastify/helmet` with CSP: `default-src 'self'; img-src 'self' data: blob:; connect-src 'self' ws: wss:;
+- `@fastify/helmet` with CSP: `default-src 'self'; img-src 'self' data: blob:; connect-src 'self' <ws(s)://APP_URL host>;
 style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; worker-src 'self' blob:;
 manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'`.
+- Router-level failures (e.g. `FST_ERR_BAD_URL` for `/api/%ff`) are answered by `frameworkErrors` with
+  `400 BAD_REQUEST`, `no-store`, `nosniff` and `default-src 'none'` (no echoed URL, no Fastify internals).
 - pino logger with redaction of `req.headers.cookie`, `authorization`, `password*`, `token*`.
 - Errors: `{ "error": { "code": "SNAKE_CASE", "message": "Deutsche Benutzermeldung", "details"?: ... } }`.
   Never leak stack traces or Prisma messages to clients. The code catalogue (status + default German
@@ -386,7 +394,7 @@ Completing a shopping item never changes inventory quantities.
   (typed on both the Socket.IO server and `socket.io-client`).
 - Server API (`plugins/realtime.ts`, decorated as `app.realtime`): `emitSync(event)`,
   `emitToHousehold(hid, event, …)`, `emitToUsers(userIds, event, …)`, `syncUserRooms(userId)`,
-  `disconnectUser(userId, {sessionId?|exceptSessionId?})`, and `onConnection(handler)` – feature modules
+  `disconnectUser(userId, {sessionId?|exceptSessionId?})`, `revalidateSessions()`, and `onConnection(handler)` – feature modules
   (chat) attach their socket handlers through it instead of touching `io` directly. Emit only after the
   DB transaction has committed. On shutdown Socket.IO closes before the HTTP server.
 
@@ -489,25 +497,25 @@ The foundation phase (design extraction, server foundation, web foundation, desi
 deviated from the first version of this contract in the following points. The sections above already
 reflect them; this list exists so nobody "fixes" them back.
 
-| #   | Area   | Original contract                                                                  | Reality (binding from now on)                                                                                                                                            |
-| --- | ------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | Layout | `design/tokens.json`, `reference/*.png`                                            | `design/extracted/tokens.json`; references in `design/reference/{light,dark,components}/` at **1×** (393×852) with `manifest.json` – Penpot's exporter crashed at 2×/3×  |
-| 2   | Layout | Dockerfile, `docker-compose.yml`, `docker-compose.build.yml`, `.github/workflows/` | not created yet (release phase); `docker-compose.dev.yml` (PostgreSQL 18, dbs `homi` + `homi_test`) added                                                                |
-| 3   | Layout | `e2e/` with Playwright specs                                                       | empty; no `playwright.config.ts` – `npm run test:e2e` fails until the e2e team adds it; Playwright 1.64 needs `npx playwright install` (only chromium-1228 is installed) |
-| 4   | Server | `buildApp(config)`                                                                 | `buildApp({ config, prisma?, storage?, mailer?, logger?, serveStatic?, rateLimit? })`                                                                                    |
-| 5   | Server | path params `:hid`, `:id`, `:cid`                                                  | descriptive names (`:householdId`, …); identical URLs. Routes declared without the `/api` prefix                                                                         |
-| 6   | Server | –                                                                                  | `src/generated/prisma` is gitignored: fresh clones/CI/Docker must run `npm run db:generate` before typecheck, test or build                                              |
-| 7   | Server | rate limits for login/register/reset request                                       | additional presets: reset confirm, invitation, upload; typing 1/s                                                                                                        |
-| 8   | Server | –                                                                                  | Prisma connection/init failures → `503 SERVICE_UNAVAILABLE`; `Sec-Fetch-Site: cross-site` rejected by CSRF                                                               |
-| 9   | Schema | "Activity"                                                                         | model `HouseholdActivity`, `valueDelta Decimal(12,2)`                                                                                                                    |
-| 10  | Env    | –                                                                                  | `DATABASE_URL_TEST` (integration tests), `HOMI_API_TARGET` (Vite proxy); dev `SESSION_SECRET` fallback; `TRUST_PROXY` accepts a hop count                                |
-| 11  | Shared | –                                                                                  | CHF/quantity/date formatting is hand-written in `@homi/shared` (not `Intl`, whose de-CH output differs from the design); importing `@homi/shared` at runtime loads zod   |
-| 12  | Web    | `src/{styles,components,icons,api,features,hooks,lib,pages}`                       | plus `src/routes/` (routing infrastructure), `src/app/`, `src/pwa/`, `src/test/`; styles plus `shell.css`, `components.css`                                              |
-| 13  | Web    | React Router data router                                                           | data router with one splat route; the route tree is a descendant `<Routes>` (background-location sheet pattern); no loaders/actions                                      |
-| 14  | Web    | PWA "injectManifest or generateSW"                                                 | generateSW, `registerType: 'prompt'`, `injectRegister: false` (CSP)                                                                                                      |
-| 15  | Web    | –                                                                                  | dev-only route `/__design` (design gallery)                                                                                                                              |
-| 16  | Web    | –                                                                                  | integration additions: `<ToastHost />` mounted in `RootLayout`; `useSheetDirty()` (`routes/sheetDirty.ts`) feeds the route sheet's `dirty` flag                          |
-| 17  | Tokens | `tokens.css` as first drafted                                                      | corrected per `design/FIDELITY.md` D1–D10 (tab lens 0.06, dark fill-secondary `#232326`, three dim levels, 200/300 ms durations, keyword easings, FAB pressed fill, …)   |
+| #   | Area   | Original contract                                                                  | Reality (binding from now on)                                                                                                                                                              |
+| --- | ------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | Layout | `design/tokens.json`, `reference/*.png`                                            | `design/extracted/tokens.json`; references in `design/reference/{light,dark,components}/` at **1×** (393×852) with `manifest.json` – Penpot's exporter crashed at 2×/3×                    |
+| 2   | Layout | Dockerfile, `docker-compose.yml`, `docker-compose.build.yml`, `.github/workflows/` | not created yet (release phase); `docker-compose.dev.yml` (PostgreSQL 18, dbs `homi` + `homi_test`) added                                                                                  |
+| 3   | Layout | `e2e/` with Playwright specs                                                       | added in the release phase: `playwright.config.ts` + `e2e/` (functional specs in Chromium/WebKit at 393×852, visual specs); Playwright 1.64 needs `npx playwright install chromium webkit` |
+| 4   | Server | `buildApp(config)`                                                                 | `buildApp({ config, prisma?, storage?, mailer?, logger?, serveStatic?, rateLimit? })`                                                                                                      |
+| 5   | Server | path params `:hid`, `:id`, `:cid`                                                  | descriptive names (`:householdId`, …); identical URLs. Routes declared without the `/api` prefix                                                                                           |
+| 6   | Server | –                                                                                  | `src/generated/prisma` is gitignored: fresh clones/CI/Docker must run `npm run db:generate` before typecheck, test or build                                                                |
+| 7   | Server | rate limits for login/register/reset request                                       | additional presets: reset confirm, invitation, upload; typing 1/s                                                                                                                          |
+| 8   | Server | –                                                                                  | Prisma connection/init failures → `503 SERVICE_UNAVAILABLE`; `Sec-Fetch-Site: cross-site` rejected by CSRF                                                                                 |
+| 9   | Schema | "Activity"                                                                         | model `HouseholdActivity`, `valueDelta Decimal(12,2)`                                                                                                                                      |
+| 10  | Env    | –                                                                                  | `DATABASE_URL_TEST` (integration tests), `HOMI_API_TARGET` (Vite proxy); dev `SESSION_SECRET` fallback; `TRUST_PROXY` accepts a hop count                                                  |
+| 11  | Shared | –                                                                                  | CHF/quantity/date formatting is hand-written in `@homi/shared` (not `Intl`, whose de-CH output differs from the design); importing `@homi/shared` at runtime loads zod                     |
+| 12  | Web    | `src/{styles,components,icons,api,features,hooks,lib,pages}`                       | plus `src/routes/` (routing infrastructure), `src/app/`, `src/pwa/`, `src/test/`; styles plus `shell.css`, `components.css`                                                                |
+| 13  | Web    | React Router data router                                                           | data router with one splat route; the route tree is a descendant `<Routes>` (background-location sheet pattern); no loaders/actions                                                        |
+| 14  | Web    | PWA "injectManifest or generateSW"                                                 | generateSW, `registerType: 'prompt'`, `injectRegister: false` (CSP)                                                                                                                        |
+| 15  | Web    | –                                                                                  | dev-only route `/__design` (design gallery)                                                                                                                                                |
+| 16  | Web    | –                                                                                  | integration additions: `<ToastHost />` mounted in `RootLayout`; `useSheetDirty()` (`routes/sheetDirty.ts`) feeds the route sheet's `dirty` flag                                            |
+| 17  | Tokens | `tokens.css` as first drafted                                                      | corrected per `design/FIDELITY.md` D1–D10 (tab lens 0.06, dark fill-secondary `#232326`, three dim levels, 200/300 ms durations, keyword easings, FAB pressed fill, …)                     |
 
 ### 9.2 Feature-phase and integration deviations (recorded 2026-10-13)
 
@@ -537,3 +545,21 @@ changed or extended the contract in these points. §4–§7 above already reflec
 | 36  | Shared/Web | formatters only via the zod barrel                     | zod-free subpath `@homi/shared/core` + `sideEffects`; the web app imports formatters, labels, constants and decimals from it; the local copies of the CSRF/socket constants in `api/client.ts` / `lib/socket.ts` became imports                                                       |
 | 37  | Web        | `useLogin` / `useLogout` call `queryClient.clear()`    | race-free `replaceSession()` (cancel + remove every query but `['me']`, update `['me']` in place); `features/auth/session.ts` re-exports it                                                                                                                                           |
 | 38  | Web        | realtime scope mapping per first draft                 | `household` also invalidates `conversations`, `members` also `messages` (see §7); API clients of other features are reused (`api/chat.ts` → `api/shopping.ts`, `api/households.ts` → `api/chat.ts`, `api/dashboard.ts` → `api/shopping.ts`)                                           |
+
+### 9.3 Release hardening (recorded 2026-10-13)
+
+Changes from the release security review, the E2E run and the remaining open issues. §2 and §4–§6 already reflect them.
+
+| #   | Area       | Before                                                     | Now                                                                                                                                                                                            |
+| --- | ---------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 39  | Auth       | login 5/min per e-mail (any IP), consumed before the check | 5/min per (e-mail, IP) + 50/15 min per e-mail; wrong passwords from other networks no longer lock the owner out                                                                                |
+| 40  | Server     | `requireMember()` returned the URL's spelling of the id    | returns the canonical (lower-case) household id – inventory events of `/households/<UPPER>/…` reached nobody                                                                                   |
+| 41  | Inventory  | item writes and uploads limited per IP only                | 150 writes/min per user, uploads 30 / 10 min per user, ≤ 30 unattached uploads per user and household, ≤ 5000 items per household (`409`), image processing queue (2 active, 8 waiting, `503`) |
+| 42  | Inventory  | HEIC conversion on the main thread                         | `worker_threads` worker per conversion (60 s timeout)                                                                                                                                          |
+| 43  | Households | no cap on households                                       | ≤ 20 owned households per user (`409`, serialised on the user row); invitation cap (50 active per household) unchanged                                                                         |
+| 44  | Realtime   | session checked at the handshake only                      | sockets of expired/purged sessions are closed (every 5 min and after the purge)                                                                                                                |
+| 45  | Headers    | `connect-src 'self' ws: wss:`; raw Fastify router errors   | `connect-src 'self' ws(s)://<APP_URL host>`; `frameworkErrors` → standard `400` body with security headers                                                                                     |
+| 46  | Config     | –                                                          | `REGISTRATION_ENABLED` (default `true`); start-up warning for `TRUST_PROXY=true` in production; docs recommend `TRUST_PROXY=1` and nginx `X-Forwarded-For $remote_addr`                        |
+| 47  | Docker     | app files owned by `node`, npm in the runtime image        | app files root-owned (read-only for `node`; the build fails otherwise), npm/npx/corepack removed, Prisma schema engine fetched at build time                                                   |
+| 48  | Web        | modal layers registered in passive effects                 | `useModalLayer` registers in a layout effect and is disabled while a sheet animates out (`useIsPresent`); the sheet's dirty flag propagates in layout effects                                  |
+| 49  | Web        | shopping row name min 52 px                                | name keeps ≥ 5 em, a long detail is ellipsised (320 px phones)                                                                                                                                 |

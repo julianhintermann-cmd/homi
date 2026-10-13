@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext, useLayoutEffect } from 'react';
 
 /**
  * Bridge between a route sheet page (e.g. `InventoryEditSheetPage`) and the `HomiBottomSheet`
@@ -13,7 +13,8 @@ export const SheetDirtyContext = createContext<((dirty: boolean) => void) | null
 /** Marks the surrounding route sheet as dirty while `dirty` is true. No-op outside a route sheet. */
 export function useSheetDirty(dirty: boolean): void {
   const setDirty = useContext(SheetDirtyContext);
-  useEffect(() => {
+  // Layout effect: reported in the same task as the keystroke, so an immediate Escape already asks.
+  useLayoutEffect(() => {
     if (!setDirty) return undefined;
     setDirty(dirty);
     return () => setDirty(false);

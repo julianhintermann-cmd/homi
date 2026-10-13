@@ -50,7 +50,16 @@ export interface Realtime {
   syncUserRooms(userId: string): Promise<void>;
   /** Disconnects sockets of a user (all, one session, or all but one session). */
   disconnectUser(userId: string, options?: { sessionId?: string; exceptSessionId?: string }): Promise<void>;
+  /**
+   * Disconnects every socket whose session no longer exists or has expired (the session is only
+   * checked at the handshake otherwise). Runs every {@link SOCKET_SESSION_CHECK_INTERVAL_MS} and
+   * after the expired-session purge. Returns the number of sockets closed.
+   */
+  revalidateSessions(): Promise<number>;
 }
+
+/** How often open sockets are checked against their sessions (expiry, purge, deletion). */
+export const SOCKET_SESSION_CHECK_INTERVAL_MS = 5 * 60 * 1000;
 
 export const userRoom = (userId: string) => `user:${userId}`;
 export const householdRoom = (householdId: string) => `household:${householdId}`;
@@ -200,9 +209,38 @@ export const realtimePlugin = fp(
           socket.disconnect(true);
         }
       },
+      async revalidateSessions() {
+        const sockets = [...io.of('/').sockets.values()];
+        const sessionIds = [...new Set(sockets.map((socket) => socket.data.sessionId).filter(Boolean))];
+        if (sessionIds.length === 0) return 0;
+        const alive = new Set<string>();
+        for (let start = 0; start < sessionIds.length; start += 1000) {
+          const rows = await app.prisma.session.findMany({
+            where: { id: { in: sessionIds.slice(start, start + 1000) }, expiresAt: { gt: new Date() } },
+            select: { id: true },
+          });
+          for (const row of rows) alive.add(row.id);
+        }
+        let closed = 0;
+        for (const socket of sockets) {
+          if (alive.has(socket.data.sessionId) || socket.disconnected) continue;
+          socket.disconnect(true);
+          closed += 1;
+        }
+        return closed;
+      },
     };
 
     app.decorate('realtime', realtime);
+
+    const sessionCheck = setInterval(() => {
+      realtime
+        .revalidateSessions()
+        .then((closed) => closed > 0 && app.log.info({ closed }, 'closed sockets of ended sessions'))
+        .catch((error: unknown) => app.log.warn({ err: error }, 'socket session check failed'));
+    }, SOCKET_SESSION_CHECK_INTERVAL_MS);
+    sessionCheck.unref();
+    app.addHook('onClose', async () => clearInterval(sessionCheck));
 
     // Close sockets before Fastify closes the HTTP server, otherwise open WebSockets keep it alive.
     app.addHook('preClose', async () => {

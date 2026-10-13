@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { ConfigError, SERVER_ROOT, loadConfig, usesDevSessionSecret } from '../../src/config';
+import { ConfigError, SERVER_ROOT, loadConfig, trustProxyWarning, usesDevSessionSecret } from '../../src/config';
 
 const base = { DATABASE_URL: 'postgresql://homi:homi@localhost:5432/homi' };
 const strongSecret = 'x'.repeat(32);
@@ -106,5 +106,22 @@ describe('loadConfig', () => {
     expect(config.appUrl).toBe('http://localhost:5173');
     expect(config.smtp).toBeNull();
     expect(usesDevSessionSecret(config)).toBe(true);
+  });
+
+  it('keeps registration open unless REGISTRATION_ENABLED=false', () => {
+    expect(loadConfig(base).registrationEnabled).toBe(true);
+    expect(loadConfig({ ...base, REGISTRATION_ENABLED: 'false' }).registrationEnabled).toBe(false);
+    expect(loadConfig({ ...base, REGISTRATION_ENABLED: '0' }).registrationEnabled).toBe(false);
+    expect(problemsOf({ ...base, REGISTRATION_ENABLED: 'nope' })).toEqual([
+      expect.stringContaining('REGISTRATION_ENABLED'),
+    ]);
+  });
+
+  it('warns about TRUST_PROXY=true in production only (security review: spoofable X-Forwarded-For)', () => {
+    const prod = { ...base, NODE_ENV: 'production', APP_URL: 'https://homi.example.ch', SESSION_SECRET: strongSecret };
+    expect(trustProxyWarning(loadConfig({ ...prod, TRUST_PROXY: 'true' }))).toMatch(/TRUST_PROXY=1/);
+    expect(trustProxyWarning(loadConfig({ ...prod, TRUST_PROXY: '1' }))).toBeNull();
+    expect(trustProxyWarning(loadConfig({ ...prod }))).toBeNull();
+    expect(trustProxyWarning(loadConfig({ ...base, TRUST_PROXY: 'true' }))).toBeNull();
   });
 });

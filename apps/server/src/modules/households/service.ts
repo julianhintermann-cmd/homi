@@ -14,6 +14,7 @@ import type { Db, Prisma, Tx } from '../../db';
 import { AppError } from '../../lib/http-errors';
 import { createHashedToken, hashToken, isWellFormedToken } from '../../lib/tokens';
 import { recordActivity } from '../activity/service';
+import { lockUserRow } from '../auth/credentials';
 import {
   invitationStatus,
   memberDtoSelect,
@@ -37,6 +38,9 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Upper bound of simultaneously active invitation links per household (abuse guard). */
 export const MAX_ACTIVE_INVITATIONS = 50;
+
+/** Households one user may own at the same time (abuse guard; deleting one makes room again). */
+export const MAX_OWNED_HOUSEHOLDS = 20;
 
 /** Roles that may create invitations – and whose links stay valid only while they keep that role. */
 const INVITER_ROLES: readonly HouseholdRole[] = ['OWNER', 'ADMIN'];
@@ -88,6 +92,15 @@ export async function createHousehold(
   name: string,
 ): Promise<HouseholdDetail> {
   const household = await app.prisma.$transaction(async (tx) => {
+    // The user row serialises concurrent creations of the same user, so the cap cannot be raced.
+    if (!(await lockUserRow(tx, owner.id))) throw new AppError('UNAUTHORIZED');
+    const owned = await tx.householdMember.count({ where: { userId: owner.id, role: 'OWNER' } });
+    if (owned >= MAX_OWNED_HOUSEHOLDS) {
+      throw new AppError(
+        'CONFLICT',
+        `Du kannst höchstens ${MAX_OWNED_HOUSEHOLDS} eigene Haushalte haben. Lösche zuerst einen Haushalt, den du nicht mehr brauchst.`,
+      );
+    }
     const created = await tx.household.create({
       data: { name, createdById: owner.id },
       select: { id: true, name: true, createdAt: true },

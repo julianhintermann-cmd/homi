@@ -84,6 +84,9 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
  * - not logged in → 401 `UNAUTHORIZED`
  * - not a member (or malformed id) → 404 `NOT_FOUND` (existence is never revealed)
  * - role below `minRole` (OWNER > ADMIN > MEMBER) → 403 `FORBIDDEN`
+ *
+ * The returned `householdId` is canonical (lower-case): PostgreSQL matches uuids case-insensitively,
+ * Socket.IO room names do not – `/households/<UPPER-CASE>/…` must still reach the members live.
  */
 export async function requireMember(
   request: FastifyRequest,
@@ -100,5 +103,5 @@ export async function requireMember(
   if (!membership) throw new AppError('NOT_FOUND');
   if (!roleAtLeast(membership.role, minRole)) throw new AppError('FORBIDDEN');
 
-  return { user, householdId, membershipId: membership.id, role: membership.role };
+  return { user, householdId: householdId.toLowerCase(), membershipId: membership.id, role: membership.role };
 }

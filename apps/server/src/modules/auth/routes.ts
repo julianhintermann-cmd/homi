@@ -34,6 +34,7 @@ function isUniqueViolation(error: unknown): boolean {
 }
 
 export const authRoutes: FastifyPluginAsync = async (app) => {
+  const loginPerEmailAndIp = app.createKeyedRateLimiter(KEYED_RATE_LIMITS.loginPerEmailAndIp);
   const loginPerEmail = app.createKeyedRateLimiter(KEYED_RATE_LIMITS.loginPerEmail);
   const resetPerEmail = app.createKeyedRateLimiter(PASSWORD_RESET_PER_EMAIL_LIMIT);
   const background = createBackgroundTasks(app);
@@ -91,6 +92,9 @@ export const authRoutes: FastifyPluginAsync = async (app) => {
   });
 
   app.post('/auth/register', { config: { rateLimit: RATE_LIMITS.register } }, async (request, reply) => {
+    if (!app.config.registrationEnabled) {
+      throw new AppError('FORBIDDEN', 'Auf diesem Server können keine neuen Konten erstellt werden.');
+    }
     const body = RegisterRequestSchema.parse(request.body);
 
     const existing = await app.prisma.user.findUnique({ where: { email: body.email }, select: { id: true } });
@@ -119,6 +123,8 @@ export const authRoutes: FastifyPluginAsync = async (app) => {
 
   app.post('/auth/login', { config: { rateLimit: RATE_LIMITS.login } }, async (request, reply) => {
     const { email, password } = LoginRequestSchema.parse(request.body);
+    const emailAndIp = `${email}|${request.ip}`;
+    if (!loginPerEmailAndIp.consume(emailAndIp)) throw keyedRateLimitError(reply, loginPerEmailAndIp, emailAndIp);
     if (!loginPerEmail.consume(email)) throw keyedRateLimitError(reply, loginPerEmail, email);
 
     const user = await app.prisma.user.findUnique({ where: { email }, select: { id: true, passwordHash: true } });
@@ -128,7 +134,8 @@ export const authRoutes: FastifyPluginAsync = async (app) => {
     // The password was changed while it was being verified: the old one no longer counts.
     if (!(await startSession(request, reply, user.id, user.passwordHash))) throw new AppError('INVALID_CREDENTIALS');
 
-    // Successful logins do not count against the per-address limit (several devices, typos before).
+    // Successful logins do not count against the per-address limits (several devices, typos before).
+    loginPerEmailAndIp.reset(emailAndIp);
     loginPerEmail.reset(email);
     return noStore(reply).send(await loadMe(app.prisma, user.id));
   });

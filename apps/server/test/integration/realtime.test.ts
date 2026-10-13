@@ -142,6 +142,55 @@ describe('Socket.IO realtime', () => {
     await t.app.realtime.disconnectUser(user.id, { sessionId });
     expect(await reason).toBe('io server disconnect');
   });
+
+  it('closes sockets whose session expired or was purged (security review: handshake-only check)', async () => {
+    const stale = await createLoggedInUser(t.app);
+    const fresh = await createLoggedInUser(t.app);
+    const household = await createHousehold(t.prisma, stale.user.id);
+    await addMember(t.prisma, household, fresh.user.id);
+
+    const staleSocket = open({ origin: TEST_APP_URL, cookie: stale.client.cookieHeader() });
+    const freshSocket = open({ origin: TEST_APP_URL, cookie: fresh.client.cookieHeader() });
+    await Promise.all(
+      [staleSocket, freshSocket].map((socket) => nextEvent<void>((resolve) => socket.on('connect', () => resolve()))),
+    );
+
+    // What the expired-session purge (or plain expiry) does: the rows go, the sockets stay open.
+    await t.prisma.session.deleteMany({ where: { userId: stale.user.id } });
+    const disconnected = nextEvent<string>((resolve) => staleSocket.on('disconnect', resolve));
+    expect(await t.app.realtime.revalidateSessions()).toBe(1);
+    expect(await disconnected).toBe('io server disconnect');
+    expect(freshSocket.connected).toBe(true);
+
+    // An expired (not yet purged) session counts as ended too.
+    await t.prisma.session.updateMany({
+      where: { userId: fresh.user.id },
+      data: { expiresAt: new Date(Date.now() - 1000) },
+    });
+    const freshGone = nextEvent<string>((resolve) => freshSocket.on('disconnect', resolve));
+    expect(await t.app.realtime.revalidateSessions()).toBe(1);
+    expect(await freshGone).toBe('io server disconnect');
+  });
+
+  it('delivers inventory events when the URL spells the household id in upper case', async () => {
+    const owner = await createLoggedInUser(t.app);
+    const member = await createLoggedInUser(t.app);
+    const household = await createHousehold(t.prisma, owner.user.id);
+    await addMember(t.prisma, household, member.user.id);
+    const socket = open({ origin: TEST_APP_URL, cookie: member.client.cookieHeader() });
+    await nextEvent<void>((resolve) => socket.on('connect', () => resolve()));
+    await waitFor(async () => (await t.app.realtime.io.in(householdRoom(household.id)).fetchSockets()).length === 1);
+
+    const received = nextEvent<SyncEvent>((resolve) => socket.on('sync', resolve));
+    const response = await owner.client.post(`/api/households/${household.id.toUpperCase()}/items`, {
+      name: 'Kaffee',
+      category: 'KUECHE',
+      quantity: '1',
+      unit: 'PACKUNG',
+    });
+    expect(response.statusCode).toBe(201);
+    expect(await received).toMatchObject({ householdId: household.id, scope: 'inventory', action: 'created' });
+  });
 });
 
 /*

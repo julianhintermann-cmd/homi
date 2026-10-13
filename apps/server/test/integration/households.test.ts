@@ -11,7 +11,7 @@ import {
   type MembershipEvent,
   type ServerToClientEvents,
 } from '@homi/shared';
-import { DELETE_HOUSEHOLD_ATTEMPTS } from '../../src/modules/households/service';
+import { DELETE_HOUSEHOLD_ATTEMPTS, MAX_OWNED_HOUSEHOLDS } from '../../src/modules/households/service';
 import { householdRoom } from '../../src/plugins/realtime';
 import { buildTestApp, type TestApp } from '../helpers/app';
 import { TEST_APP_URL } from '../helpers/config';
@@ -103,6 +103,34 @@ describe('households', () => {
       const anonymous = await t.client().post('/api/households', { name: 'WG' });
       expect(anonymous.statusCode).toBe(401);
       expect(await t.prisma.household.count({ where: { name: 'WG' } })).toBe(0);
+    });
+
+    it(`caps the households a user owns at ${MAX_OWNED_HOUSEHOLDS}, also for concurrent requests`, async () => {
+      const { user, client } = await createLoggedInUser(t.app);
+      for (let index = 0; index < MAX_OWNED_HOUSEHOLDS - 2; index += 1) {
+        await createHousehold(t.prisma, user.id, `Haushalt ${index + 1}`);
+      }
+      // Being a plain member elsewhere does not count.
+      const { household: foreign } = await householdWith();
+      await addMember(t.prisma, foreign, user.id, 'MEMBER');
+
+      const results = await Promise.all(
+        Array.from({ length: 4 }, (_, index) => client.post('/api/households', { name: `Parallel ${index + 1}` })),
+      );
+      expect(results.map((res) => res.statusCode).sort()).toEqual([201, 201, 409, 409]);
+      const rejected = results.find((res) => res.statusCode === 409);
+      expect(rejected?.json().error).toEqual({
+        code: 'CONFLICT',
+        message: `Du kannst höchstens ${MAX_OWNED_HOUSEHOLDS} eigene Haushalte haben. Lösche zuerst einen Haushalt, den du nicht mehr brauchst.`,
+      });
+      expect(await t.prisma.householdMember.count({ where: { userId: user.id, role: 'OWNER' } })).toBe(
+        MAX_OWNED_HOUSEHOLDS,
+      );
+
+      // Deleting one makes room again.
+      const owned = await t.prisma.householdMember.findFirstOrThrow({ where: { userId: user.id, role: 'OWNER' } });
+      expect((await client.delete(`/api/households/${owned.householdId}`)).statusCode).toBe(204);
+      expect((await client.post('/api/households', { name: 'Wieder Platz' })).statusCode).toBe(201);
     });
   });
 

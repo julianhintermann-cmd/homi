@@ -20,6 +20,7 @@
     "test": "npm run test --workspaces --if-present",
     "test:integration": "npm run test:integration -w @homi/server",
     "test:e2e": "playwright test",
+    "seed:demo": "tsx apps/server/scripts/seed-demo.ts",
     "db:migrate": "npm run db:migrate -w @homi/server",
     "db:deploy": "npm run db:deploy -w @homi/server",
     "db:generate": "npm run db:generate -w @homi/server",

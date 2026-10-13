@@ -83,6 +83,9 @@ export async function getItem(prisma: PrismaClient, actor: InventoryActor, itemI
   return toInventoryItemDto(row);
 }
 
+/** Items per household (abuse guard: storage and list size; a real household stays far below). */
+export const MAX_ITEMS_PER_HOUSEHOLD = 5000;
+
 export async function createItem(
   prisma: PrismaClient,
   actor: InventoryActor,
@@ -90,6 +93,13 @@ export async function createItem(
 ): Promise<InventoryItemDto> {
   return prisma
     .$transaction(async (tx) => {
+      // A soft cap: concurrent creates may overshoot it by a few (the per-user write limit bounds that).
+      if ((await tx.inventoryItem.count({ where: { householdId: actor.householdId } })) >= MAX_ITEMS_PER_HOUSEHOLD) {
+        throw new AppError(
+          'CONFLICT',
+          `Ein Haushalt kann höchstens ${MAX_ITEMS_PER_HOUSEHOLD} Artikel haben. Lösche zuerst Artikel, die du nicht mehr brauchst.`,
+        );
+      }
       if (input.imageId) {
         await assertAttachableImage(tx, {
           householdId: actor.householdId,

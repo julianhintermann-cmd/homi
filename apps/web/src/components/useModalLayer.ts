@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from 'react';
+import { useLayoutEffect, useRef, type RefObject } from 'react';
 
 /**
  * Stack of open modal layers (sheets, dialogs, menus). Only the top-most layer reacts to
@@ -59,13 +59,17 @@ export function useModalLayer({
   enabled = true,
 }: ModalLayerOptions): void {
   const onEscapeRef = useRef(onEscape);
-  useEffect(() => {
+  useLayoutEffect(() => {
     onEscapeRef.current = onEscape;
   }, [onEscape]);
 
-  useEffect(() => {
+  // Layout effect, not a passive one: the layer must handle Escape from the moment it is in the DOM.
+  // Passive effects of a navigation (transition) render can run tens of milliseconds after the
+  // commit on a busy main thread – an Escape pressed while a sheet slides in was dropped (WebKit).
+  useLayoutEffect(() => {
     if (!enabled) return undefined;
     const layer: ModalLayer = { container, onEscape: () => onEscapeRef.current() };
+    const rootAtStart = container.current;
     layers.push(layer);
     const previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
@@ -124,7 +128,11 @@ export function useModalLayer({
       const wasTop = isTop(layer);
       const index = layers.indexOf(layer);
       if (index !== -1) layers.splice(index, 1);
-      if (restoreFocus && wasTop && previouslyFocused?.isConnected) {
+      // Only take focus back from inside the layer (or from nowhere): a layer that is deactivated
+      // while it animates out must not steal the focus the user has meanwhile put elsewhere.
+      const active = document.activeElement;
+      const focusInLayer = !active || active === document.body || Boolean(rootAtStart?.contains(active));
+      if (restoreFocus && wasTop && focusInLayer && previouslyFocused?.isConnected) {
         previouslyFocused.focus({ preventScroll: true });
       }
     };

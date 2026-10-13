@@ -1,4 +1,4 @@
-import Fastify, { type FastifyInstance, type FastifyServerOptions } from 'fastify';
+import Fastify, { type FastifyInstance, type FastifyReply, type FastifyServerOptions } from 'fastify';
 import fp from 'fastify-plugin';
 import cookie from '@fastify/cookie';
 import multipart from '@fastify/multipart';
@@ -28,6 +28,18 @@ import { householdsRoutes } from './modules/households/routes';
 import { inventoryRoutes } from './modules/inventory/routes';
 import { shoppingRoutes } from './modules/shopping/routes';
 
+/** Headers for responses produced before the helmet hook could run (see `frameworkErrors`). */
+export function frameworkErrorHeaders(config: AppConfig): Record<string, string> {
+  return {
+    'cache-control': 'no-store',
+    'content-security-policy': "default-src 'none'; frame-ancestors 'none'",
+    'x-content-type-options': 'nosniff',
+    'referrer-policy': 'no-referrer',
+    'x-frame-options': 'SAMEORIGIN',
+    ...(config.isProduction && config.appUrlIsHttps ? { 'strict-transport-security': 'max-age=15552000' } : {}),
+  };
+}
+
 export interface BuildAppOptions {
   config: AppConfig;
   /** Injected client (tests, index.ts). The caller owns it; otherwise one is created and closed with the app. */
@@ -56,6 +68,16 @@ export async function buildApp(options: BuildAppOptions): Promise<FastifyInstanc
     trustProxy: typeof trustProxy === 'number' ? (_address: string, hop: number) => hop < trustProxy : trustProxy,
     bodyLimit: 1_048_576,
     return503OnClosing: true,
+    // Router-level failures (e.g. FST_ERR_BAD_URL for `/api/%ff`) happen before any hook: answer with
+    // the standard error body and the security headers instead of Fastify's raw message (which
+    // echoes the URL).
+    frameworkErrors: (error, request, reply) => {
+      request.log.info({ code: error.code }, 'request rejected by the router');
+      void (reply as FastifyReply)
+        .code(400)
+        .headers(frameworkErrorHeaders(config))
+        .send(new AppError('BAD_REQUEST').toBody());
+    },
   });
 
   const ownsPrisma = options.prisma === undefined;

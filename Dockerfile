@@ -42,7 +42,9 @@ COPY apps/server/package.json apps/server/
 COPY apps/web/package.json apps/web/
 # Only the server workspace's runtime dependencies (the web app ships as static files).
 RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev --workspace @homi/server --include-workspace-root=false \
- && rm -rf node_modules/@homi
+ && rm -rf node_modules/@homi \
+ # Homi only talks to PostgreSQL: drop the query-compiler runtimes of the other Prisma providers (~53 MB).
+ && find node_modules/@prisma/client/runtime -type f \( -name '*mysql*' -o -name '*sqlite*' -o -name '*sqlserver*' -o -name '*cockroachdb*' \) -delete
 
 # ── runtime ─────────────────────────────────────────────────────────────
 FROM node:${NODE_VERSION}-bookworm-slim AS runtime
@@ -56,7 +58,10 @@ LABEL org.opencontainers.image.title="Homi" \
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends tini ca-certificates \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ # The app never runs npm/npx/corepack: keep them (and their dependency tree) out of the runtime.
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
 
 ENV NODE_ENV=production \
     HOST=0.0.0.0 \
@@ -67,15 +72,27 @@ ENV NODE_ENV=production \
     HOMI_VERSION=${VERSION}
 
 WORKDIR /app
-COPY --from=prod-deps --chown=node:node /app/node_modules ./node_modules
-COPY --from=build --chown=node:node /app/apps/server/package.json ./apps/server/package.json
-COPY --from=build --chown=node:node /app/apps/server/prisma ./apps/server/prisma
-COPY --from=build --chown=node:node /app/apps/server/prisma.config.ts ./apps/server/prisma.config.ts
-COPY --from=build --chown=node:node /app/apps/server/dist ./apps/server/dist
-COPY --from=build --chown=node:node /app/apps/web/dist ./apps/web/dist
+# Application files stay owned by root (read-only for the `node` user that runs the server); only
+# the uploads volume is writable, so a compromised process cannot rewrite the app.
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/apps/server/package.json ./apps/server/package.json
+COPY --from=build /app/apps/server/prisma ./apps/server/prisma
+COPY --from=build /app/apps/server/prisma.config.ts ./apps/server/prisma.config.ts
+COPY --from=build /app/apps/server/dist ./apps/server/dist
+COPY --from=build /app/apps/web/dist ./apps/web/dist
 COPY --chmod=0755 docker/entrypoint.sh /usr/local/bin/homi-entrypoint
 
-RUN mkdir -p /data/uploads && chown -R node:node /data
+RUN mkdir -p /data/uploads && chown -R node:node /data \
+ # As root, once: lets the Prisma CLI fetch the schema engine for this platform into the (root-owned)
+ # node_modules, so `migrate deploy` never needs to write there at runtime.
+ && cd /app/apps/server && node /app/node_modules/prisma/build/index.js validate --config prisma.config.ts
+
+# Fail the build (not the first container start) if the migration CLI or the native modules are unusable.
+USER node
+RUN cd /app/apps/server \
+ && node /app/node_modules/prisma/build/index.js validate --config prisma.config.ts \
+ && node -e "Promise.all(['@prisma/adapter-pg','@node-rs/argon2','sharp','pg','dotenv'].map((m)=>import(m))).then(()=>console.log('runtime modules ok'))" \
+ && if touch /app/apps/server/dist/.write-test 2>/dev/null; then echo 'app files must not be writable by node' >&2; exit 1; fi
 VOLUME ["/data/uploads"]
 
 USER node

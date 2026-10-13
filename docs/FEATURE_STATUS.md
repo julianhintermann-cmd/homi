@@ -160,13 +160,44 @@ integrated code and are identical to the teams' final passes.
    25 listen → 12 sockets → close cycles × 8 processes) never crashed. It looks like a native abort on Windows
    (Node 24.15 / libuv 1.51 or a native addon under vitest's fork IPC), not a test failure. Re-run when it
    happens; check whether Linux CI is affected before deeper work.
-2. **E2E**: `e2e/` is still empty and there is no `playwright.config.ts`, but `.github/workflows/ci.yml` runs
-   `npm run test:e2e` → that CI job fails. The integration journeys in `design/compare/screens/integration/`
-   (`journey.mjs`, `cross-feature.mjs`, gitignored) are a ready basis for real specs.
+2. **E2E**: done in the release phase – `playwright.config.ts` + `e2e/` (§5). The visual budgets were calibrated on
+   Windows; the first Linux CI run may need recalibration.
 3. The Vite dev server exited once (code 127) during HMR of several quick file edits; not reproduced.
-4. Team-level items still open are listed per feature in §3 (iPhone long-press check, HEIC on main thread, limits
-   on household/invitation creation, 320 px truncation, chat catch-up request).
+4. Team-level items still open: iPhone long-press check, chat catch-up request (§3). HEIC off the main thread, the
+   household/invitation caps and the 320 px shopping row were fixed in the release phase (§5).
 5. Dev databases: `homi` now contains the integration journey users (`journey-*`, `julian-*`, `lisa-*`, `smoke-*`
    `@homi.test`); `homi_dev_inventory` was restored to 128 items after the visual re-run, `homi_dev_shopping` was
    seeded for the re-run and cleaned up again.
 6. The Obsidian vault documentation required by the user's CLAUDE.md was not written (the workflow forbids it).
+
+---
+
+## 5. Release hardening (2026-10-13)
+
+Fixes for the release security review (2 medium, 9 low), the E2E report's product findings and cheap open issues.
+Contract changes: [ARCHITECTURE §9.3](./ARCHITECTURE.md) #39–#49.
+
+| Finding                                                    | Fix                                                                                                                                     | Regression test                                                                          |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| M: `TRUST_PROXY=true` + nginx `$proxy_add_x_forwarded_for` | docs/README/env example recommend `TRUST_PROXY=1` and nginx `X-Forwarded-For $remote_addr`; start-up warning for `true` in production   | `test/unit/config.test.ts`                                                               |
+| M: unlimited inventory writes / uploads                    | 150 writes/min per user, uploads 30 / 10 min per user, ≤ 30 pending uploads, ≤ 5000 items per household; `REGISTRATION_ENABLED` switch  | `test/integration/abuse-limits.test.ts` (5)                                              |
+| L: e-mail lockout from foreign IPs                         | per (e-mail, IP) 5/min + 50/15 min per e-mail                                                                                           | `auth.test.ts` (+2, one rewritten; mutation-checked)                                     |
+| L: sockets outlive expired/purged sessions                 | `realtime.revalidateSessions()` every 5 min and after the purge                                                                         | `realtime.test.ts` (+1)                                                                  |
+| L: inventory events to the upper-case room                 | `requireMember()` returns the canonical id                                                                                              | `realtime.test.ts` (+1, mutation-checked)                                                |
+| L: unbounded concurrent decodes                            | processing queue (2 active, 8 waiting → 503), single decode via `clone()`                                                               | `test/unit/image-processing.test.ts`                                                     |
+| L: raw `FST_ERR_BAD_URL` body without headers              | `frameworkErrors` → standard 400 body + security headers                                                                                | `test/unit/errors.test.ts` (+1)                                                          |
+| L: CSP `ws: wss:`                                          | `connect-src 'self' ws(s)://<APP_URL host>`                                                                                             | `errors.test.ts` (CSP string)                                                            |
+| L: Docker app files writable, npm in runtime               | root-owned app files (build fails if writable), npm/npx/corepack removed, schema engine fetched at build                                | `docker build` + run against PostgreSQL 18 (migrate, health, write checks)               |
+| L: npm audit (Prisma CLI)                                  | documented as accepted risk (DEPLOYMENT §10)                                                                                            | –                                                                                        |
+| L: `persist-credentials` in workflows                      | **not changed** (outside ownership): add `with: { persist-credentials: false }` to every `actions/checkout` in `ci.yml` / `publish.yml` | –                                                                                        |
+| E2E: composer text lost after "Neuer Chat" (WebKit)        | a sheet stops being a modal layer when it starts animating out (`useIsPresent`); focus is only restored from inside the layer           | `HomiBottomSheet.test.tsx` (+1); `two-users.spec.ts` wait removed (old code: 10/10 fail) |
+| E2E: Escape dropped while a sheet mounts (WebKit)          | `useModalLayer` registers in a layout effect                                                                                            | `HomiBottomSheet.test.tsx` (+1); iphone spec wait removed (16/16 pass)                   |
+| E2E: discard prompt one tick late                          | dirty flag propagated in layout effects (`useSheetDirty`, `SheetFrame`)                                                                 | `HomiBottomSheet.test.tsx` (+1); iphone spec wait removed                                |
+| Open: households per user                                  | ≤ 20 owned households (`409`); active invitations per household were already capped at 50 (`409`), creation 30/h (`429`)                | `households.test.ts` (+1, concurrent)                                                    |
+| Open: 320 px shopping rows                                 | name keeps ≥ 5 em, the detail is ellipsised                                                                                             | `iphone.spec.ts` (+1 per browser)                                                        |
+| Open: HEIC on the main thread                              | `worker_threads` worker per conversion, 60 s timeout                                                                                    | `image-processing.test.ts`, `images.test.ts` (real converter path)                       |
+
+Verification (2026-10-13): typecheck, lint and `prettier --check .` pass; unit tests shared 90, server 96, web 371;
+integration 278/278 (16 files); build ok; Playwright 63 passed, 1 skipped (two full runs). The seed script retries on
+`429`. Seen once each during 3-worker repeat runs and not reproduced afterwards: in one WebKit batch the invited user
+landed on /willkommen after "Einladung annehmen" (3 of 12, then 0 of 22), and one `seed-demo` call failed.

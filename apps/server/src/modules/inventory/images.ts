@@ -1,4 +1,6 @@
 import { randomUUID } from 'node:crypto';
+import { createRequire } from 'node:module';
+import { Worker } from 'node:worker_threads';
 import type { FastifyBaseLogger } from 'fastify';
 import { fileTypeFromBuffer } from 'file-type';
 import sharp from 'sharp';
@@ -19,6 +21,13 @@ export const THUMB_SIZE = LIMITS.upload.thumbSize;
 export const FULL_MAX_SIZE = LIMITS.upload.fullMaxSize;
 /** Unattached uploads (form abandoned, image replaced before saving) are removed after this. */
 export const ORPHAN_IMAGE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+/** Unattached uploads a user may hold per household (they are purged after 24 h). */
+export const MAX_PENDING_UPLOADS_PER_USER = 30;
+/** Images decoded at the same time, and uploads that may wait for a slot (more → 503). */
+export const IMAGE_PROCESSING_CONCURRENCY = 2;
+export const IMAGE_PROCESSING_MAX_QUEUED = 8;
+/** A HEIC conversion that takes longer is aborted (worker terminated → 422). */
+export const HEIC_CONVERSION_TIMEOUT_MS = 60_000;
 
 export type DetectedImageKind = 'jpeg' | 'png' | 'webp' | 'gif' | 'heif';
 
@@ -41,12 +50,103 @@ export async function detectImageKind(buffer: Uint8Array): Promise<DetectedImage
 
 export type HeicConverter = (buffer: Buffer) => Promise<Buffer>;
 
-/** HEIC/HEIF → JPEG with `heic-convert` (loaded lazily: the WASM decoder is large). */
-export const convertHeicToJpeg: HeicConverter = async (buffer) => {
-  const { default: convert } = await import('heic-convert');
-  const output = await convert({ buffer, format: 'JPEG', quality: 0.92 });
-  return Buffer.from(output instanceof ArrayBuffer ? new Uint8Array(output) : output);
+/**
+ * Worker body (CommonJS, evaluated): converts `workerData.buffer` with the `heic-convert` module at
+ * `workerData.modulePath` and posts `{ ok, data | message }` back.
+ */
+const HEIC_WORKER_SOURCE = `
+const { parentPort, workerData } = require('node:worker_threads');
+const convert = require(workerData.modulePath);
+convert({ buffer: workerData.buffer, format: 'JPEG', quality: 0.92 }).then(
+  (output) => parentPort.postMessage({ ok: true, data: output instanceof ArrayBuffer ? new Uint8Array(output) : output }),
+  (error) => parentPort.postMessage({ ok: false, message: String((error && error.message) || error) }),
+);
+`;
+
+let heicModulePath: string | undefined;
+
+/**
+ * HEIC/HEIF → JPEG with `heic-convert` in a short-lived worker thread: the WASM decoder needs
+ * seconds of pure CPU for a 12 MP photo, which must not block the event loop (every other
+ * request and socket would stall meanwhile).
+ */
+export const convertHeicToJpeg: HeicConverter = (buffer) => {
+  heicModulePath ??= createRequire(import.meta.url).resolve('heic-convert');
+  return new Promise<Buffer>((resolve, reject) => {
+    const worker = new Worker(HEIC_WORKER_SOURCE, {
+      eval: true,
+      workerData: { modulePath: heicModulePath, buffer: new Uint8Array(buffer) },
+    });
+    let settled = false;
+    const finish = (error: Error | null, output?: Buffer): void => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      void worker.terminate();
+      if (error) reject(error);
+      else resolve(output ?? Buffer.alloc(0));
+    };
+    const timer = setTimeout(() => finish(new Error('HEIC conversion timed out')), HEIC_CONVERSION_TIMEOUT_MS);
+    worker.once('message', (message: { ok: boolean; data?: Uint8Array; message?: string }) => {
+      if (message.ok && message.data)
+        finish(null, Buffer.from(message.data.buffer, message.data.byteOffset, message.data.byteLength));
+      else finish(new Error(message.message ?? 'HEIC conversion failed'));
+    });
+    worker.once('error', (error) => finish(error));
+    worker.once('exit', (code) => finish(new Error(`HEIC worker exited with code ${code}`)));
+  });
 };
+
+export interface ImageProcessingQueue {
+  /** Runs `task` when a slot is free; throws `503 SERVICE_UNAVAILABLE` when too many are waiting. */
+  run<T>(task: () => Promise<T>): Promise<T>;
+  readonly active: number;
+  readonly waiting: number;
+}
+
+/**
+ * Small semaphore around the image pipeline: every upload holds its whole file plus the decoded
+ * pixels, so many parallel uploads would multiply the memory peak.
+ */
+export function createImageProcessingQueue({
+  concurrency = IMAGE_PROCESSING_CONCURRENCY,
+  maxQueued = IMAGE_PROCESSING_MAX_QUEUED,
+} = {}): ImageProcessingQueue {
+  let active = 0;
+  const waiting: Array<() => void> = [];
+  const release = (): void => {
+    const next = waiting.shift();
+    if (next) next();
+    else active -= 1;
+  };
+  return {
+    get active() {
+      return active;
+    },
+    get waiting() {
+      return waiting.length;
+    },
+    async run(task) {
+      if (active >= concurrency) {
+        if (waiting.length >= maxQueued) {
+          throw new AppError(
+            'SERVICE_UNAVAILABLE',
+            'Gerade werden viele Fotos verarbeitet. Bitte versuche es gleich nochmals.',
+          );
+        }
+        // The slot is handed over directly by `release` (active stays the same).
+        await new Promise<void>((resolve) => waiting.push(resolve));
+      } else {
+        active += 1;
+      }
+      try {
+        return await task();
+      } finally {
+        release();
+      }
+    },
+  };
+}
 
 export interface ProcessedImage {
   kind: DetectedImageKind;
@@ -128,14 +228,17 @@ export async function processImage(buffer: Buffer, options: ProcessImageOptions 
 
   // `animated: false` (default) → GIF/WebP animations use their first frame. Output carries no
   // EXIF/XMP/ICC metadata (sharp strips it unless asked to keep it).
-  const pipeline = () => sharp(input, { limitInputPixels: maxPixels, failOn: 'error' }).rotate();
+  // One input, two outputs: `clone()` shares the source instead of reading the buffer twice.
+  const source = sharp(input, { limitInputPixels: maxPixels, failOn: 'error' }).rotate();
   try {
     const [full, thumb] = await Promise.all([
-      pipeline()
+      source
+        .clone()
         .resize({ width: FULL_MAX_SIZE, height: FULL_MAX_SIZE, fit: 'inside', withoutEnlargement: true })
         .webp({ quality: 82 })
         .toBuffer({ resolveWithObject: true }),
-      pipeline()
+      source
+        .clone()
         .resize({ width: THUMB_SIZE, height: THUMB_SIZE, fit: 'cover', position: 'centre' })
         .webp({ quality: 80 })
         .toBuffer({ resolveWithObject: true }),

@@ -2,13 +2,22 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from 'react';
-import { animate, AnimatePresence, motion, useMotionValue, useReducedMotion, useTransform } from 'motion/react';
+import {
+  animate,
+  AnimatePresence,
+  motion,
+  useIsPresent,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from 'motion/react';
 import { Icon, type IconName } from '@/icons/Icon';
 import { haptic } from '@/lib/haptics';
 import { ConfirmDialog } from './ConfirmDialog';
@@ -143,9 +152,15 @@ function SheetFrame({
   const dragY = useMotionValue(0);
   const backdropOpacity = useTransform(dragY, [0, 480], [1, 0.25], { clamp: true });
 
+  // While the exit animation runs the sheet is no longer a modal layer: it must neither pull focus
+  // back from the screen underneath (text typed there would land in the sheet) nor eat Escape.
+  const isPresent = useIsPresent();
+
   const onCloseRef = useRef(onClose);
   const dirtyRef = useRef(dirty);
-  useEffect(() => {
+  // Layout effect: the dirty flag must be current before the next key or pointer event – an Escape
+  // right after typing has to ask "Änderungen verwerfen?" instead of discarding the input.
+  useLayoutEffect(() => {
     onCloseRef.current = onClose;
     dirtyRef.current = dirty;
   }, [onClose, dirty]);
@@ -175,7 +190,7 @@ function SheetFrame({
   }, [close, settle]);
 
   // While the discard dialog is open it is the top-most modal layer (Escape/focus go there).
-  useModalLayer({ container: panelRef, initialFocus: panelRef, onEscape: requestClose });
+  useModalLayer({ container: panelRef, initialFocus: panelRef, onEscape: requestClose, enabled: isPresent });
 
   // ── Drag from the grabber / header (pointer events, `touch-action: none` on handles) ──
   const drag = useRef<{ pointerId: number; startY: number; active: boolean; samples: PointerSample[] } | null>(null);
@@ -302,7 +317,12 @@ function SheetFrame({
   return (
     <Portal>
       <SheetContext.Provider value={context}>
-        <div className={cx('homi-sheet-layer', className)} data-variant={variant}>
+        <div
+          className={cx('homi-sheet-layer', className)}
+          data-variant={variant}
+          data-exiting={isPresent ? undefined : true}
+          style={isPresent ? undefined : { pointerEvents: 'none' }}
+        >
           <motion.div
             className="homi-sheet-backdrop"
             data-variant={variant}

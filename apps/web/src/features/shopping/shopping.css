@@ -253,19 +253,9 @@ button.shopping-pill:active {
 }
 /*
  * Trailing detail ("12 Stück · CHF 0.45 / Stk."): sized by its content, so it is never cut while
- * the row has room. When name and detail do not fit together the name gives way first (ellipsis),
- * down to ~3 characters; only an extreme detail is cut (never overflowing the row).
+ * the row has room. The name keeps at least ~5 characters; a detail that does not fit next to that
+ * is ellipsised (see .homi-shopping-row__name in components.css).
  */
-.shopping-list .homi-shopping-row__name {
-  min-width: 52px;
-}
-.shopping-list .homi-shopping-row__quantity {
-  flex: 0 0 auto;
-  min-width: 0;
-  max-width: calc(100% - 52px - 12px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .shopping-row-enter {
   animation: shopping-row-in var(--dur-dissolve) var(--ease-dissolve);
 }

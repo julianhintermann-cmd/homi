@@ -27,8 +27,16 @@ export const RATE_LIMITS = {
 
 /** Keyed limits that are not per IP. */
 export const KEYED_RATE_LIMITS = {
-  /** Login attempts per (normalised) email: 5 per minute. */
-  loginPerEmail: { max: 5, windowMs: 60_000 },
+  /**
+   * Failed-login guard per (normalised) e-mail **and** client IP: 5 per minute. Keyed on both so
+   * that a stranger who knows the address cannot lock its owner out from another network.
+   */
+  loginPerEmailAndIp: { max: 5, windowMs: 60_000 },
+  /**
+   * Backstop per e-mail across all IPs against distributed guessing: 50 per 15 minutes. Locking
+   * an account out now takes ≥ 50 attempts from ≥ 10 addresses per quarter hour.
+   */
+  loginPerEmail: { max: 50, windowMs: 15 * 60_000 },
   /** Chat messages per user: 20 per 10 s (§6). */
   chatSend: { max: LIMITS.chat.sendMax, windowMs: LIMITS.chat.sendWindowMs },
   /** Typing indicators per user: at most one per second. */

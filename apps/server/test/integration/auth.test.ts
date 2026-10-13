@@ -12,6 +12,7 @@ import {
 import type { LightMyRequestResponse } from 'fastify';
 import { buildApp } from '../../src/app';
 import { createMailer } from '../../src/lib/mailer';
+import { KEYED_RATE_LIMITS } from '../../src/lib/rate-limit';
 import { hashToken } from '../../src/lib/tokens';
 import { buildLoggerOptions } from '../../src/logger';
 import { buildTestApp, type TestApp } from '../helpers/app';
@@ -402,28 +403,24 @@ describe('auth: rate limits', () => {
     expect(other.statusCode).toBe(401);
   });
 
-  it('limits logins to 5 per minute per e-mail address, across IPs', async () => {
+  it('limits failed logins to 5 per minute per e-mail address and IP', async () => {
     const user = await createUser(t.prisma, { email: uniqueEmail('target') });
     const statuses: number[] = [];
     for (let i = 0; i < 5; i += 1) {
       const response = await t
         .client()
-        .post(
-          '/api/auth/login',
-          { email: user.email, password: 'Falsch-12345' },
-          { remoteAddress: `198.51.100.${i + 1}` },
-        );
+        .post('/api/auth/login', { email: user.email, password: 'Falsch-12345' }, { remoteAddress: '198.51.100.7' });
       statuses.push(response.statusCode);
     }
     expect(statuses).toEqual([401, 401, 401, 401, 401]);
 
-    // Even the correct password is refused while the address is locked.
+    // From that address even the correct password is refused while it is locked …
     const limited = await t
       .client()
       .post(
         '/api/auth/login',
         { email: user.email.toUpperCase(), password: user.password },
-        { remoteAddress: '198.51.100.99' },
+        { remoteAddress: '198.51.100.7' },
       );
     expect(limited.statusCode).toBe(429);
     expect(limited.json()).toMatchObject({
@@ -431,6 +428,48 @@ describe('auth: rate limits', () => {
     });
     expect(Number(limited.headers['retry-after'])).toBeGreaterThan(0);
     expect(sessionCookie(limited)).toBeUndefined();
+
+    // … but the owner on another network is not locked out by it.
+    const owner = await t
+      .client()
+      .post('/api/auth/login', { email: user.email, password: user.password }, { remoteAddress: '198.51.100.99' });
+    expect(owner.statusCode).toBe(200);
+  });
+
+  it('does not let wrong passwords from many IPs lock the owner out (security review: lockout)', async () => {
+    const user = await createUser(t.prisma, { email: uniqueEmail('victim') });
+    for (let i = 0; i < 5; i += 1) {
+      const response = await t
+        .client()
+        .post(
+          '/api/auth/login',
+          { email: user.email, password: 'Falsch-12345' },
+          { remoteAddress: `198.51.101.${i + 1}` },
+        );
+      expect(response.statusCode).toBe(401);
+    }
+    const owner = await t
+      .client()
+      .post('/api/auth/login', { email: user.email, password: user.password }, { remoteAddress: '198.51.101.200' });
+    expect(owner.statusCode).toBe(200);
+  });
+
+  it('caps failed logins per e-mail address across all IPs at 50 per 15 minutes', async () => {
+    const user = await createUser(t.prisma, { email: uniqueEmail('spray') });
+    const { max } = KEYED_RATE_LIMITS.loginPerEmail;
+    const statuses: number[] = [];
+    for (let i = 0; i <= max; i += 1) {
+      const response = await t
+        .client()
+        .post(
+          '/api/auth/login',
+          { email: user.email, password: 'Falsch-12345' },
+          { remoteAddress: `198.18.${Math.floor(i / 4)}.${(i % 4) + 1}` },
+        );
+      statuses.push(response.statusCode);
+    }
+    expect(statuses.slice(0, max)).toEqual(Array(max).fill(401));
+    expect(statuses[max]).toBe(429);
   });
 
   it('limits registrations to 5 per minute per IP', async () => {

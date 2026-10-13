@@ -165,10 +165,21 @@ describe('error handler integration', () => {
     expect(response.json()).toEqual({ error: { code: 'NOT_FOUND', message: 'Nicht gefunden.' } });
   });
 
+  it('answers malformed URLs with the standard body and security headers (security review)', async () => {
+    const response = await t.client().get('/api/%ff%3Cscript%3E');
+    expect(response.statusCode).toBe(400);
+    expect(response.json()).toEqual({ error: { code: 'BAD_REQUEST', message: 'Die Anfrage ist ungültig.' } });
+    expect(response.body).not.toContain('script');
+    expect(response.headers['content-security-policy']).toBe("default-src 'none'; frame-ancestors 'none'");
+    expect(response.headers['x-content-type-options']).toBe('nosniff');
+    expect(response.headers['cache-control']).toBe('no-store');
+  });
+
   it('sends the security headers including the CSP from §4.6', async () => {
     const response = await t.client().get('/api/does-not-exist');
     expect(response.headers['content-security-policy']).toBe(
-      "default-src 'self';img-src 'self' data: blob:;connect-src 'self' ws: wss:;style-src 'self' 'unsafe-inline';" +
+      "default-src 'self';img-src 'self' data: blob:;connect-src 'self' ws://localhost:5173;" +
+        "style-src 'self' 'unsafe-inline';" +
         "font-src 'self' data:;script-src 'self';worker-src 'self' blob:;manifest-src 'self';frame-ancestors 'none';" +
         "base-uri 'self';form-action 'self'",
     );

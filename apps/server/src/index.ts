@@ -1,5 +1,5 @@
 import { buildApp } from './app';
-import { ConfigError, loadConfig, usesDevSessionSecret } from './config';
+import { ConfigError, loadConfig, trustProxyWarning, usesDevSessionSecret } from './config';
 import { createPrismaClient } from './db';
 import { warmUpPasswordHasher } from './lib/passwords';
 
@@ -26,6 +26,8 @@ async function main(): Promise<void> {
   if (usesDevSessionSecret(config)) {
     app.log.warn('SESSION_SECRET is not set – using an insecure development secret');
   }
+  const proxyWarning = trustProxyWarning(config);
+  if (proxyWarning) app.log.warn(proxyWarning);
 
   let shuttingDown = false;
   const shutdown = async (reason: string, exitCode: number): Promise<void> => {
@@ -70,7 +72,12 @@ async function main(): Promise<void> {
   const purge = setInterval(() => {
     app.sessions
       .purgeExpired()
-      .then((count) => count > 0 && app.log.info({ count }, 'purged expired sessions'))
+      .then(async (count) => {
+        if (count === 0) return;
+        app.log.info({ count }, 'purged expired sessions');
+        // Their sockets were authenticated at the handshake only – close them now.
+        await app.realtime.revalidateSessions();
+      })
       .catch((error: unknown) => app.log.warn({ err: error }, 'session purge failed'));
   }, SESSION_PURGE_INTERVAL_MS);
   purge.unref();
