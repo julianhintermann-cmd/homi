@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, type MouseEvent, type PointerEvent } from 'react';
 import { AnimatePresence, useReducedMotion } from 'motion/react';
-import { useLocation, useNavigate, useNavigationType, useOutlet } from 'react-router';
+import { useNavigate, useOutlet } from 'react-router';
 import { HomiTabBar, type HomiTabBarItem } from '@/components/HomiTabBar';
 import { haptic } from '@/lib/haptics';
 import { decideSwipe, isEdgeStart, isSwipeBlockedTarget, resolveSwipeTarget } from '@/lib/swipe';
+import { useLayerLocation } from './useLayerLocation';
 import { preloadTabPages } from './lazyPages';
 import { TABS, tabIndexForPath } from './paths';
 import { ScreenLayer } from './ScreenLayer';
@@ -32,9 +33,9 @@ interface SwipeStart {
  * horizontally scrollable areas; requires |dx| > 60 px and |dx| > 1.5·|dy|.
  */
 export function TabShell() {
-  const location = useLocation();
+  // The location of the layer this shell lives in – frozen while the shell leaves during a push (useLayerLocation.ts).
+  const { location, navigationType } = useLayerLocation();
   const navigate = useNavigate();
-  const navigationType = useNavigationType();
   const outlet = useOutlet();
   const reducedMotion = useReducedMotion() ?? false;
   const swipeStart = useRef<SwipeStart | null>(null);

@@ -64,7 +64,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium-iphone',
-      testMatch: ['two-users.spec.ts', 'tenant-isolation.spec.ts', 'iphone.spec.ts'],
+      testMatch: ['two-users.spec.ts', 'tenant-isolation.spec.ts', 'iphone.spec.ts', 'navigation-race.spec.ts'],
       use: {
         ...devices['Desktop Chrome'],
         browserName: 'chromium',
@@ -76,7 +76,7 @@ export default defineConfig({
     },
     {
       name: 'webkit-iphone',
-      testMatch: ['two-users.spec.ts', 'iphone.spec.ts'],
+      testMatch: ['two-users.spec.ts', 'iphone.spec.ts', 'navigation-race.spec.ts'],
       use: {
         ...devices['iPhone 15 Pro'],
         // The design frame is the full-screen PWA (no Safari chrome): 393×852.

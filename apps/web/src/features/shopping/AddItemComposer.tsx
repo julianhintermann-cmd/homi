@@ -10,6 +10,7 @@ import {
 import { UNIT_VALUES } from '@homi/shared/core';
 import { finalizePrice, Icon, sanitizePriceInput, type IconName } from '@/components';
 import { UNIT_LABELS } from '@/lib/format';
+import { afterPointerRelease } from '@/lib/pointerRelease';
 import {
   EMPTY_DRAFT,
   parseItemDraft,
@@ -97,12 +98,14 @@ export function AddItemComposer({ afterProgress, onAdd }: AddItemComposerProps) 
   const onBlur = (event: FocusEvent<HTMLFormElement>): void => {
     const next = event.relatedTarget;
     if (next instanceof Node && rootRef.current?.contains(next)) return;
-    // iOS does not focus tapped buttons (relatedTarget = null): decide after the tap settled.
-    window.setTimeout(() => {
+    // iOS does not focus tapped buttons (relatedTarget = null): decide after the tap settled. The row below the field
+    // collapses with the focus, so wait for the pointer release – otherwise the tapped control moves away between
+    // pointerdown and pointerup and its click is lost.
+    afterPointerRelease(() => {
       if (rootRef.current?.contains(document.activeElement)) return;
       setFocusWithin(false);
       setEditing(null);
-    }, 0);
+    });
   };
 
   const finishPill = (): void => {

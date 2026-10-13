@@ -1,5 +1,6 @@
 import { AnimatePresence, useReducedMotion } from 'motion/react';
 import { useLocation, useNavigationType, useOutlet } from 'react-router';
+import { LayerLocationProvider } from './LayerLocationProvider';
 import { isTabPath } from './paths';
 import { ScreenLayer } from './ScreenLayer';
 import { pushVariants, routeDepth, type TransitionCustom } from './transitions';
@@ -20,13 +21,19 @@ export function StackLayout() {
   const layerKey = tabRoot ? 'tabs' : location.pathname;
   const direction = useNavDirection(layerKey, routeDepth(location.pathname, tabRoot), navigationType);
   const custom: TransitionCustom = { direction, reducedMotion };
+  // Frozen into the layer's element: a leaving layer keeps seeing the location it was rendered for (useLayerLocation.ts).
+  const layerContent = (
+    <LayerLocationProvider location={location} navigationType={navigationType}>
+      {outlet}
+    </LayerLocationProvider>
+  );
 
   return (
     <div className="app-stack">
       <AnimatePresence initial={false} custom={custom}>
         {tabRoot ? (
           <ScreenLayer key="tabs" className="app-stack__layer" variants={pushVariants} custom={custom} resetKey="tabs">
-            {outlet}
+            {layerContent}
           </ScreenLayer>
         ) : (
           <ScreenLayer
@@ -37,7 +44,7 @@ export function StackLayout() {
             resetKey={location.pathname}
             scrollKey={`stack:${location.key}`}
           >
-            {outlet}
+            {layerContent}
           </ScreenLayer>
         )}
       </AnimatePresence>

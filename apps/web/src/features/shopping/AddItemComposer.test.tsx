@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { AddItemComposer } from './AddItemComposer';
@@ -138,5 +138,23 @@ describe('AddItemComposer', () => {
     expect(input).toHaveValue('');
     expect(input).not.toHaveFocus();
     expect(onAdd).not.toHaveBeenCalled();
+  });
+
+  it('keeps the optional row until the press that blurred the field is released (no layout shift under the finger)', async () => {
+    const user = userEvent.setup();
+    const { input } = renderComposer();
+    await user.click(input);
+    expect(screen.getByRole('group', { name: 'Optionale Angaben' })).toBeInTheDocument();
+
+    // pointerdown elsewhere: the field blurs, the row must stay while the pointer is down
+    fireEvent.pointerDown(document.body);
+    act(() => input.blur());
+    await act(async () => {
+      await new Promise((resolve) => window.setTimeout(resolve, 20));
+    });
+    expect(screen.getByRole('group', { name: 'Optionale Angaben' })).toBeInTheDocument();
+
+    fireEvent.pointerUp(document.body);
+    await waitFor(() => expect(screen.queryByRole('group', { name: 'Optionale Angaben' })).not.toBeInTheDocument());
   });
 });
